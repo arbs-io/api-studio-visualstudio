@@ -121,7 +121,7 @@
     <value>Azure Function (ApiStudio)</value>
   </data>
   <data name="102" xml:space="preserve">
-    <value>Adds a new ApiStudio diagram for Azure Function projects. See api-studio.io for more information</value>
+    <value>Adds a new ApiStudio diagram for Azure Function projects. See https://api-studio.io/ for more information</value>
   </data>
   <data name="103" xml:space="preserve">
     <value>Azure Function (ApiStudio)</value>

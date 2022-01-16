@@ -15,6 +15,9 @@ A REST API is an application programming interface that conforms to specific arc
 
 ## References 
 
+### Microsoft.Azure.WebJobs.Extensions.OpenApi.Core
+https://github.com/Azure/azure-functions-openapi-extension/blob/main/docs/openapi-core.md
+
 ### Visual Studio Updates (visual-studio-2022)
 Finally vs2022 removes the million+ dependancies:
 - https://docs.microsoft.com/en-us/visualstudio/extensibility/migration/migrated-assemblies?view=vs-2022
