@@ -1,0 +1,35 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>ApiStudio.AzFunction</Name>
+    <Description>This is a hidden project template</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>ApiStudio.AzFunction</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.ico</Icon>
+    <Hidden>true</Hidden>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="$safeprojectname$.csproj" File="AzFunction.csproj" ReplaceParameters="true">
+      <Folder Name="SecurityFlows" TargetFolderName="SecurityFlows">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Oauth2ImplicitFlows.cs">Oauth2ImplicitFlows.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Models" TargetFolderName="Models">
+        <ProjectItem ReplaceParameters="true" TargetFileName="ErrorModel.cs">ErrorModel.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Designer" TargetFolderName="Designer">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Default.ApiStudio">Default.ApiStudio</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Default.ApiStudio.diagram">Default.ApiStudio.diagram</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="host.json">host.json</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="local.settings.json">local.settings.json</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

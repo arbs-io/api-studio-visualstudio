@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>ApiStudioIO.Utility</RootNamespace>
+    <AssemblyName>api-studio.utility</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\api-studio-key.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>True</SignAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Extensions\StringCaseExtension.cs">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </Compile>
+  </ItemGroup>
+
+</Project>

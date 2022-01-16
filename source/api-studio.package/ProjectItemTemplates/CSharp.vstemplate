@@ -1,0 +1,16 @@
+﻿<!--DSL Tools Language Template-->
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TemplateData>
+		<TemplateID>{ac863c93-eca0-4296-abbc-4552ffa8be6a}</TemplateID>
+		<Name Package="{4a6ef9c8-3428-4bd6-9b17-c57b4285bbd8}" ID="103"/>
+		<Description Package="{4a6ef9c8-3428-4bd6-9b17-c57b4285bbd8}" ID="102"/>
+		<Icon Package="{4a6ef9c8-3428-4bd6-9b17-c57b4285bbd8}" ID="201" />
+		<ProjectType>CSharp</ProjectType>
+		<SortOrder>360</SortOrder>
+		<DefaultName>ApiStudioIO.ApiStudio</DefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectItem TargetFileName="$fileinputname$.ApiStudio" CustomTool="ApiStudioCodeGeneration">ApiStudio.ApiStudio</ProjectItem>
+		<ProjectItem TargetFileName="$fileinputname$.ApiStudio.diagram">ApiStudio.diagram</ProjectItem>
+	</TemplateContent>
+</VSTemplate>
