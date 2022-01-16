@@ -1,0 +1,52 @@
+﻿<#@ Dsl processor="DslDirectiveProcessor" requires="fileName='..\api-studio.designer\DslDefinition.dsl'" #>
+<#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>
+<#@ output extension=".vsixmanifest" #>
+<#
+/***************************************************************************
+	Rather than following the normal DSL practice of including most of the
+	template from a common include file, this template is deliberately inlined 
+	in the DslPackage project to make it easier to customise. 
+	
+	If you wish to edit the vsix manifest with its designer, then simply copy 
+	the current content of the generated manifest, delete this template from
+	the project, and add back the copied source.extension.vsixmanifest. Note
+	that if you do this you will lose automatic tracking of certain properties
+	of the DSL such as the name, description and version, and will have to 
+	edit these in your custom manifest as well should you wish to change them.
+***************************************************************************/
+	// The name of the Dsl Project - Must be updated if the project is renamed.
+	
+	string dslProjectName = "api-studio.designer";
+	string language = "en-US";
+#>
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+	<Identity Id="<#= this.Dsl.PackageGuid #>" Version="<#= DateTime.Now.Year #>.<#= DateTime.Now.Month #>.<#= DateTime.Now.Day #>.<#= System.Convert.ToInt32(TimeSpan.FromTicks(DateTime.Now.Ticks - DateTime.Today.Ticks).TotalMinutes) #>" Language="<#= language #>" Publisher="api-studio.io" />
+    <DisplayName><#= this.Dsl.DisplayName #></DisplayName>
+    <Description><#= this.Dsl.Description #></Description>
+    <MoreInfo>https://api.api-studio.io</MoreInfo>
+    <Icon>Resources\ApiStudio.ico</Icon>
+    <PreviewImage>Resources\ApiStudio.ico</PreviewImage>
+    <Tags> Azure Function, ApiStudio, Cloud Architecture </Tags>
+  </Metadata>
+  <Installation InstalledByMsi="false">
+    <InstallationTarget Version="[16.7,17.0)" Id="Microsoft.VisualStudio.Community" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.6,)" />
+  </Dependencies>
+  <Prerequisites>
+	<Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[16.0,17.0)" DisplayName="Visual Studio core editor" />
+	<Prerequisite Id="Microsoft.NetCore.Component.SDK" Version="[16.0,17.0)" DisplayName=".NET Core SDK" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%|" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="<#= dslProjectName #>" Path="|<#= dslProjectName #>|" />
+    <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="Project" d:ProjectName="%CurrentProject%" d:TargetPath="|%CurrentProject%;TemplateProjectOutputGroup|" Path="ItemTemplates" d:VsixSubPath="ItemTemplates" />
+	<Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="ApiStudioIO.pkgdef" />
+
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\azure-function-dotnet6-isolated.zip" />
+  </Assets>
+</PackageManifest>

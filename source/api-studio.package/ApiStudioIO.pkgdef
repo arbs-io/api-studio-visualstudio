@@ -1,0 +1,12 @@
+﻿; -------------------------------------------------- ;
+; https://api-studio.io
+; -------------------------------------------------- ;
+
+[$RootKey$\ShellFileAssociations\.ApiStudio]
+"DefaultIconMoniker"="872b4702-eabf-444b-b6b3-96dc64531f74:0"
+
+[$RootKey$\ShellFileAssociations\.ApiStudio.diagram]
+"DefaultIconMoniker"="872b4702-eabf-444b-b6b3-96dc64531f74:1"
+
+[$RootKey$\ShellFileAssociations\.api-studio.build]
+"DefaultIconMoniker"="872b4702-eabf-444b-b6b3-96dc64531f74:2"
