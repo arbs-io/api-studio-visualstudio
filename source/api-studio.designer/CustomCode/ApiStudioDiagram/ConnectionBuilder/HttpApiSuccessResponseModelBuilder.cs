@@ -55,7 +55,7 @@ namespace ApiStudioIO
             {
                 return candidateTarget != null ? throw new System.ArgumentNullException(nameof(candidateSource)) : false;
             }
-            bool acceptSource = CanAcceptSource(candidateSource);
+            bool acceptSource = CanAcceptSource(candidateSource) & CanAcceptTarget(candidateTarget);
             // If the source wasn't accepted then there's no point checking targets.
             // If there is no target then the source controls the accept.
             if (!acceptSource || candidateTarget == null)

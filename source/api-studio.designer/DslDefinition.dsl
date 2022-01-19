@@ -967,12 +967,12 @@
         <TextDecorator Name="Information" DisplayName="HTTP" DefaultText="HTTP" FontStyle="Italic" FontSize="7" />
       </ConnectorHasDecorators>
     </Connector>
-    <Connector Id="d6a1970d-b389-43de-a13a-62301a3f7488" Description="Description for ApiStudioIO.DataModelToHttpApiConnector" Name="DataModelToHttpApiConnector" DisplayName="Data Model To Http Api Connector" Namespace="ApiStudioIO" FixedTooltipText="Data Model To Http Api Connector" Color="RoyalBlue" DashStyle="Dot" TargetEndStyle="FilledArrow" Thickness="0.01">
+    <Connector Id="d6a1970d-b389-43de-a13a-62301a3f7488" Description="Description for ApiStudioIO.DataModelToHttpApiConnector" Name="DataModelToHttpApiConnector" DisplayName="Data Model To Http Api Connector" Namespace="ApiStudioIO" FixedTooltipText="Data Model To Http Api Connector" Color="SeaGreen" DashStyle="Dot" TargetEndStyle="FilledArrow" Thickness="0.01">
       <ConnectorHasDecorators Position="TargetBottom" OffsetFromShape="0.1" OffsetFromLine="0">
         <TextDecorator Name="Information" DisplayName="Request" DefaultText="Request" FontStyle="Italic" FontSize="7" />
       </ConnectorHasDecorators>
     </Connector>
-    <Connector Id="16cee18b-bc54-4744-b0d6-988b3b32787e" Description="Description for ApiStudioIO.RestToDataModelConnector" Name="RestToDataModelConnector" DisplayName="Rest To Data Model Connector" Namespace="ApiStudioIO" FixedTooltipText="Rest To Data Model Connector" Color="SeaGreen" DashStyle="Dot" TargetEndStyle="FilledArrow" Thickness="0.01">
+    <Connector Id="16cee18b-bc54-4744-b0d6-988b3b32787e" Description="Description for ApiStudioIO.RestToDataModelConnector" Name="RestToDataModelConnector" DisplayName="Rest To Data Model Connector" Namespace="ApiStudioIO" FixedTooltipText="Rest To Data Model Connector" Color="RoyalBlue" DashStyle="Dot" TargetEndStyle="FilledArrow" Thickness="0.01">
       <ConnectorHasDecorators Position="SourceBottom" OffsetFromShape="0.1" OffsetFromLine="0">
         <TextDecorator Name="Information" DisplayName="Response" DefaultText="Response" FontStyle="Italic" FontSize="7" />
       </ConnectorHasDecorators>

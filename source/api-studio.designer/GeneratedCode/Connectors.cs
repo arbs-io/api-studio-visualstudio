@@ -471,13 +471,13 @@ namespace ApiStudioIO
 			
 			// Line pen settings for this connector.
 			DslDiagrams::PenSettings linePen = new DslDiagrams::PenSettings();
-			linePen.Color = global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.RoyalBlue);
+			linePen.Color = global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.SeaGreen);
 			classStyleSet.OverridePen(DslDiagrams::DiagramPens.ConnectionLineDecorator, linePen);
 			linePen.Width = 0.01f;
 			linePen.DashStyle = global::System.Drawing.Drawing2D.DashStyle.Dot;
 			classStyleSet.OverridePen(DslDiagrams::DiagramPens.ConnectionLine, linePen);
 			DslDiagrams::BrushSettings lineBrush = new DslDiagrams::BrushSettings();
-			lineBrush.Color = global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.RoyalBlue);
+			lineBrush.Color = global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.SeaGreen);
 			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ConnectionLineDecorator, lineBrush);
 			
 			// Custom font styles
@@ -675,13 +675,13 @@ namespace ApiStudioIO
 			
 			// Line pen settings for this connector.
 			DslDiagrams::PenSettings linePen = new DslDiagrams::PenSettings();
-			linePen.Color = global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.SeaGreen);
+			linePen.Color = global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.RoyalBlue);
 			classStyleSet.OverridePen(DslDiagrams::DiagramPens.ConnectionLineDecorator, linePen);
 			linePen.Width = 0.01f;
 			linePen.DashStyle = global::System.Drawing.Drawing2D.DashStyle.Dot;
 			classStyleSet.OverridePen(DslDiagrams::DiagramPens.ConnectionLine, linePen);
 			DslDiagrams::BrushSettings lineBrush = new DslDiagrams::BrushSettings();
-			lineBrush.Color = global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.SeaGreen);
+			lineBrush.Color = global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.RoyalBlue);
 			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ConnectionLineDecorator, lineBrush);
 			
 			// Custom font styles
