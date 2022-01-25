@@ -17,8 +17,7 @@
   </TemplateData>
   <TemplateContent>
     <Project TargetFileName="$safeprojectname$.csproj" File="AzFunction.csproj" ReplaceParameters="true">
-      <Folder Name="SecurityFlows" TargetFolderName="SecurityFlows">
-        <ProjectItem ReplaceParameters="true" TargetFileName="Oauth2ImplicitFlows.cs">Oauth2ImplicitFlows.cs</ProjectItem>
+      <Folder Name="Security" TargetFolderName="Security">
       </Folder>
       <Folder Name="Models" TargetFolderName="Models">
         <ProjectItem ReplaceParameters="true" TargetFileName="ErrorModel.cs">ErrorModel.cs</ProjectItem>

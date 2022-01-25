@@ -10,14 +10,13 @@
     using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
     using Microsoft.OpenApi.Models;
 
-    using SecurityFlows;
     using Models;
 
     public partial class {{TOKEN_OAS_CLASS_NAME}}
     {
         [Function(nameof({{TOKEN_OAS_CLASS_NAME}}.{{TOKEN_OAS_FUNCTION_NAME}}))]
         [OpenApiOperation(operationId: "{{TOKEN_OAS_FUNCTION_NAME}}", tags: new[] { "{{TOKEN_OAS_MODEL}}" }, Summary = "{{TOKEN_OAS_FUNCTION_NAME}}", Description = "{{TOKEN_OAS_FUNCTION_DESCRIPTION}}", Visibility = OpenApiVisibilityType.Important)]
-        [OpenApiSecurity("ApiStudioAuthentication", SecuritySchemeType.OAuth2, Flows = typeof(ApiStudioAuthentication))]
+        [OpenApiSecurity("ApiStudioAuthentication", SecuritySchemeType.OAuth2, Flows = typeof({{TOKEN_OAS_NAMESPACE}}OpenApiOAuthSecurityFlows))]
 {{TOKEN_OAS_HTTP_PARAMETERS}}
 {{TOKEN_OAS_HTTP_RESPONSE}}
         public async Task<HttpResponseData> {{TOKEN_OAS_FUNCTION_NAME}}(

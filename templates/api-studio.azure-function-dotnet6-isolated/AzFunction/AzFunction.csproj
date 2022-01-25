@@ -18,6 +18,7 @@
     <Compile Include="Designer\*.HttpTrigger.cs" Link="Triggers\Http\%(Filename)%(Extension)" />
     <Compile Include="Designer\*.HttpTrigger.Designer.cs" Link="Triggers\Http\%(Filename)%(Extension)" />
     <Compile Include="Designer\*.Model.cs" Link="Models\%(Filename)%(Extension)" />
+    <Compile Include="Designer\*.Security.cs" Link="Security\%(Filename)%(Extension)" />
 	</ItemGroup>
   <ItemGroup>
     <None Update="host.json">

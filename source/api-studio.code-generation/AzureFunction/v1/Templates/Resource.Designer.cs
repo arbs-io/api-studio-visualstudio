@@ -153,5 +153,27 @@ namespace ApiStudioIO.CodeGeneration.AzureFunction.v1.Templates {
                 return ResourceManager.GetString("OpenApiConfigurationOptions", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to namespace {{TOKEN_OAS_NAMESPACE}}
+        ///{
+        ///    using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
+        ///    using Microsoft.OpenApi.Models;
+        ///    using System;
+        ///
+        ///    public class {{TOKEN_OAS_CLASS_NAME}}OpenApiOAuthSecurityFlows : OpenApiOAuthSecurityFlows
+        ///    {
+        ///        public {{TOKEN_OAS_CLASS_NAME}}OpenApiOAuthSecurityFlows()
+        ///        {
+        ///            Implicit = new OpenApiOAuthFlow()
+        ///            {
+        ///                AuthorizationUrl = new Uri(&quot;http://api-studio.io/oauth2/token&quot;),
+        ///                [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string OpenApiOAuthSecurityFlows {
+            get {
+                return ResourceManager.GetString("OpenApiOAuthSecurityFlows", resourceCulture);
+            }
+        }
     }
 }

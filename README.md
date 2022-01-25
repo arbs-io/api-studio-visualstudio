@@ -12,6 +12,14 @@ Azure Functions is a serverless solution that allows you to write less code, mai
 
 A REST API is an application programming interface that conforms to specific architectural constraints, like stateless communication and cacheable data. It is not a protocol or standard. While REST APIs can be accessed through a number of communication protocols, most commonly, they are called over HTTPS,  the designer helps to create clean REST API endpoints.
 
+## Security
+
+SecuritySchemeType
+ApiSecurity
+- ApiKey
+- Http (Basic || Bearer+Format) 
+- OAuth2
+- OpenIdConnect
 
 ## References 
 

@@ -130,4 +130,7 @@
   <data name="OpenApiConfigurationOptions" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>openapiconfigurationoptions.cstemplate;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="OpenApiOAuthSecurityFlows" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>openapioauthsecurityflows.cstemplate;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>
