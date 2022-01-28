@@ -827,12 +827,6 @@
         <EnumerationLiteral Description="Description for ApiStudioIO.HttpApiHeaderResponseOnTypes.OnSuccess" Name="OnSuccess" Value="2" />
       </Literals>
     </DomainEnumeration>
-    <DomainEnumeration Name="HttpApiAuthorizationTypes" Namespace="ApiStudioIO" Description="Description for ApiStudioIO.HttpApiAuthorizationTypes">
-      <Literals>
-        <EnumerationLiteral Description="Description for ApiStudioIO.HttpApiAuthorizationTypes.Roles" Name="Roles" Value="" />
-        <EnumerationLiteral Description="Description for ApiStudioIO.HttpApiAuthorizationTypes.Policy" Name="Policy" Value="" />
-      </Literals>
-    </DomainEnumeration>
   </Types>
   <Shapes>
     <CompartmentShape Id="e489bbfa-2b05-46fa-a5a7-acfd9dae520d" Description="Description for ApiStudioIO.ResourceShape" Name="ResourceShape" DisplayName="Resource Shape" Namespace="ApiStudioIO" FixedTooltipText="Resource Shape" InitialWidth="2" InitialHeight="0.3" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="RoundedRectangle">

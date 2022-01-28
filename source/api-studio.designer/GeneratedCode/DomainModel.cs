@@ -819,27 +819,4 @@ namespace ApiStudioIO
 		OnSuccess = 2,
 	}
 }
-namespace ApiStudioIO
-{
-	/// <summary>
-	/// DomainEnumeration: HttpApiAuthorizationTypes
-	/// Description for ApiStudioIO.HttpApiAuthorizationTypes
-	/// </summary>
-	[global::System.CLSCompliant(true)]
-	public enum HttpApiAuthorizationTypes
-	{
-		/// <summary>
-		/// Roles
-		/// Description for ApiStudioIO.HttpApiAuthorizationTypes.Roles
-		/// </summary>
-		[DslDesign::DescriptionResource("ApiStudioIO.HttpApiAuthorizationTypes/Roles.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
-		Roles,
-		/// <summary>
-		/// Policy
-		/// Description for ApiStudioIO.HttpApiAuthorizationTypes.Policy
-		/// </summary>
-		[DslDesign::DescriptionResource("ApiStudioIO.HttpApiAuthorizationTypes/Policy.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
-		Policy,
-	}
-}
 

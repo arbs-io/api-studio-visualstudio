@@ -1759,13 +1759,5 @@
     </xsd:restriction>
   </xsd:simpleType>
   
-  <!-- Enum HttpApiAuthorizationTypes -->
-  <xsd:simpleType name="HttpApiAuthorizationTypes">
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="Roles"/>
-      <xsd:enumeration value="Policy"/>
-    </xsd:restriction>
-  </xsd:simpleType>
-  
 </xsd:schema>
 

@@ -33,7 +33,7 @@
         {
             if (Identifier.ToString() == "00000000-0000-0000-0000-000000000000")
             {
-                using (Transaction t = Store.TransactionManager.BeginTransaction("Creating default Identifier"))
+                using (Transaction t = Store.TransactionManager.BeginTransaction("ApiStudio.SetIdentifierValue"))
                 {
                     Identifier = Guid.NewGuid();
                     t.Commit();

@@ -34,7 +34,7 @@ namespace ApiStudioIO
             _shapeElementZOrder.Add(Id, ZOrder);
             ZOrder += ZOrderToFront;
 
-            using (Transaction t = Store.TransactionManager.BeginTransaction("Display: HttpApiShape Expand"))
+            using (Transaction t = Store.TransactionManager.BeginTransaction("HttpApiShape.OnMouseEnter"))
             {
                 SetIsExpandedValue(true);
                 Expand();
@@ -58,7 +58,7 @@ namespace ApiStudioIO
 
             ZOrder = _shapeElementZOrder[Id];
 
-            using (Transaction t = Store.TransactionManager.BeginTransaction("Display: HttpApiShape Collapse"))
+            using (Transaction t = Store.TransactionManager.BeginTransaction("HttpApiShape.OnMouseLeave"))
             {
                 SetIsExpandedValue(false);
                 Collapse();

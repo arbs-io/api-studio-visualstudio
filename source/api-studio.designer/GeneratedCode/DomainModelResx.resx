@@ -1593,22 +1593,6 @@
     <value>Description for ApiStudioIO.HttpApiHeaderResponseOnTypes.OnSuccess</value>
     <comment>Description for EnumerationLiteral &apos;OnSuccess&apos; on DomainEnumeration &apos;HttpApiHeaderResponseOnTypes&apos;</comment>
   </data>
-  <data name="ApiStudioIO.HttpApiAuthorizationTypes/Roles.DisplayName" xml:space="preserve">
-    <value>Roles</value>
-    <comment>Display name for EnumerationLiteral &apos;Roles&apos; on DomainEnumeration &apos;HttpApiAuthorizationTypes&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.HttpApiAuthorizationTypes/Roles.Description" xml:space="preserve">
-    <value>Description for ApiStudioIO.HttpApiAuthorizationTypes.Roles</value>
-    <comment>Description for EnumerationLiteral &apos;Roles&apos; on DomainEnumeration &apos;HttpApiAuthorizationTypes&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.HttpApiAuthorizationTypes/Policy.DisplayName" xml:space="preserve">
-    <value>Policy</value>
-    <comment>Display name for EnumerationLiteral &apos;Policy&apos; on DomainEnumeration &apos;HttpApiAuthorizationTypes&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.HttpApiAuthorizationTypes/Policy.Description" xml:space="preserve">
-    <value>Description for ApiStudioIO.HttpApiAuthorizationTypes.Policy</value>
-    <comment>Description for EnumerationLiteral &apos;Policy&apos; on DomainEnumeration &apos;HttpApiAuthorizationTypes&apos;</comment>
-  </data>
   <data name="ApiStudioIO.ResourceShape.Description" xml:space="preserve">
     <value>Description for ApiStudioIO.ResourceShape</value>
     <comment>Description for DomainClass &apos;ResourceShape&apos;</comment>
