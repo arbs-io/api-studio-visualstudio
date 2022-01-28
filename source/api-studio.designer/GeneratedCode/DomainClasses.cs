@@ -1732,6 +1732,187 @@ namespace ApiStudioIO
 		}
 		
 		#endregion
+		#region SecurityApiKey domain property code
+		
+		/// <summary>
+		/// SecurityApiKey domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid SecurityApiKeyDomainPropertyId = new global::System.Guid(0x5c9bccd9, 0x1593, 0x4db8, 0x81, 0x9f, 0x4c, 0xa5, 0xe8, 0x4e, 0xc0, 0x2b);
+		
+		/// <summary>
+		/// Storage for SecurityApiKey
+		/// </summary>
+		private global::System.String securityApiKeyPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of SecurityApiKey domain property.
+		/// An internal server error. The response body may contain error messages.
+		/// </summary>
+		[DslDesign::DisplayNameResource("ApiStudioIO.ApiStudio/SecurityApiKey.DisplayName", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("ApiStudioIO.ApiStudio/SecurityApiKey.Category", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("ApiStudioIO.ApiStudio/SecurityApiKey.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.DefaultValue("")]
+		[DslModeling::DomainObjectId("5c9bccd9-1593-4db8-819f-4ca5e84ec02b")]
+		public global::System.String SecurityApiKey
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return securityApiKeyPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				SecurityApiKeyPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the ApiStudio.SecurityApiKey domain property.
+		/// </summary>
+		internal sealed partial class SecurityApiKeyPropertyHandler : DslModeling::DomainPropertyValueHandler<ApiStudio, global::System.String>
+		{
+			private SecurityApiKeyPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the ApiStudio.SecurityApiKey domain property value handler.
+			/// </summary>
+			public static readonly SecurityApiKeyPropertyHandler Instance = new SecurityApiKeyPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the ApiStudio.SecurityApiKey domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return SecurityApiKeyDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(ApiStudio element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.securityApiKeyPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(ApiStudio element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.securityApiKeyPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region SecuritySchemeType domain property code
+		
+		/// <summary>
+		/// SecuritySchemeType domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid SecuritySchemeTypeDomainPropertyId = new global::System.Guid(0x5cdeda70, 0x33b7, 0x4040, 0xbf, 0x31, 0x78, 0xdf, 0x6b, 0xac, 0xe7, 0x62);
+		
+		/// <summary>
+		/// Storage for SecuritySchemeType
+		/// </summary>
+		private SecuritySchemeTypes securitySchemeTypePropertyStorage = SecuritySchemeTypes.None;
+		
+		/// <summary>
+		/// Gets or sets the value of SecuritySchemeType domain property.
+		/// APIs use authorization to ensure that client requests access data securely. This
+		/// can involve authenticating the sender of a request and verifying that they have
+		/// permission to access or manipulate the relevant data. If you're building an API,
+		/// you can choose from a variety of auth models.
+		/// </summary>
+		[DslDesign::DisplayNameResource("ApiStudioIO.ApiStudio/SecuritySchemeType.DisplayName", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("ApiStudioIO.ApiStudio/SecuritySchemeType.Category", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("ApiStudioIO.ApiStudio/SecuritySchemeType.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.DefaultValue(SecuritySchemeTypes.None)]
+		[DslModeling::DomainObjectId("5cdeda70-33b7-4040-bf31-78df6bace762")]
+		public SecuritySchemeTypes SecuritySchemeType
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return securitySchemeTypePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				SecuritySchemeTypePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the ApiStudio.SecuritySchemeType domain property.
+		/// </summary>
+		internal sealed partial class SecuritySchemeTypePropertyHandler : DslModeling::DomainPropertyValueHandler<ApiStudio, SecuritySchemeTypes>
+		{
+			private SecuritySchemeTypePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the ApiStudio.SecuritySchemeType domain property value handler.
+			/// </summary>
+			public static readonly SecuritySchemeTypePropertyHandler Instance = new SecuritySchemeTypePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the ApiStudio.SecuritySchemeType domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return SecuritySchemeTypeDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed SecuritySchemeTypes GetValue(ApiStudio element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.securitySchemeTypePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(ApiStudio element, SecuritySchemeTypes newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				SecuritySchemeTypes oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.securitySchemeTypePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
 		#region Resourced opposite domain role accessor
 		
 		/// <summary>

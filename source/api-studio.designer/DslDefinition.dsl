@@ -106,6 +106,16 @@
             <ExternalTypeMoniker Name="/System/Boolean" />
           </Type>
         </DomainProperty>
+        <DomainProperty Id="5c9bccd9-1593-4db8-819f-4ca5e84ec02b" Description="An internal server error. The response body may contain error messages." Name="SecurityApiKey" DisplayName="Api Key" DefaultValue="" Category="Security">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="5cdeda70-33b7-4040-bf31-78df6bace762" Description="APIs use authorization to ensure that client requests access data securely. This can involve authenticating the sender of a request and verifying that they have permission to access or manipulate the relevant data. If you're building an API, you can choose from a variety of auth models." Name="SecuritySchemeType" DisplayName="Scheme Type" DefaultValue="None" Category="Security">
+          <Type>
+            <DomainEnumerationMoniker Name="SecuritySchemeTypes" />
+          </Type>
+        </DomainProperty>
       </Properties>
       <ElementMergeDirectives>
         <ElementMergeDirective>
@@ -827,6 +837,13 @@
         <EnumerationLiteral Description="Description for ApiStudioIO.HttpApiHeaderResponseOnTypes.OnSuccess" Name="OnSuccess" Value="2" />
       </Literals>
     </DomainEnumeration>
+    <DomainEnumeration Name="SecuritySchemeTypes" Namespace="ApiStudioIO" Description="Description for ApiStudioIO.SecuritySchemeTypes">
+      <Literals>
+        <EnumerationLiteral Description="Description for ApiStudioIO.SecuritySchemeTypes.None" Name="None" Value="" />
+        <EnumerationLiteral Description="Description for ApiStudioIO.SecuritySchemeTypes.Basic" Name="Basic" Value="" />
+        <EnumerationLiteral Description="Description for ApiStudioIO.SecuritySchemeTypes.OAuth2" Name="OAuth2" Value="" />
+      </Literals>
+    </DomainEnumeration>
   </Types>
   <Shapes>
     <CompartmentShape Id="e489bbfa-2b05-46fa-a5a7-acfd9dae520d" Description="Description for ApiStudioIO.ResourceShape" Name="ResourceShape" DisplayName="Resource Shape" Namespace="ApiStudioIO" FixedTooltipText="Resource Shape" InitialWidth="2" InitialHeight="0.3" FillGradientMode="None" HasDefaultConnectionPoints="true" Geometry="RoundedRectangle">
@@ -1043,6 +1060,12 @@
           <XmlRelationshipData UseFullForm="true" RoleElementName="dataModeled">
             <DomainRelationshipMoniker Name="ApiStudioHasDataModeled" />
           </XmlRelationshipData>
+          <XmlPropertyData XmlName="securityApiKey">
+            <DomainPropertyMoniker Name="ApiStudio/SecurityApiKey" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="securitySchemeType">
+            <DomainPropertyMoniker Name="ApiStudio/SecuritySchemeType" />
+          </XmlPropertyData>
         </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="Resource" MonikerAttributeName="name" SerializeId="true" MonikerElementName="resourceMoniker" ElementName="resource" MonikerTypeName="ResourceMoniker">
