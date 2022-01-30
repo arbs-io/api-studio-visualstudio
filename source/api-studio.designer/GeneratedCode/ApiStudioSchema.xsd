@@ -1777,6 +1777,7 @@
       <xsd:enumeration value="None"/>
       <xsd:enumeration value="Basic"/>
       <xsd:enumeration value="OAuth2"/>
+      <xsd:enumeration value="OpenIdConnect"/>
     </xsd:restriction>
   </xsd:simpleType>
   

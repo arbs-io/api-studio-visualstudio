@@ -22,10 +22,10 @@ namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
                 .ForEach(x => scopeList.Add(GenerateScopes(x)));
                 string scopes = string.Join($"{Environment.NewLine}", scopeList);
 
-                var securityScopeSourceCode = Templates.Resource.HttpAuthOAuth2Scopes
+                var sourceCode = Templates.Resource.HttpAuthOAuth2Scopes
                     .Replace("{{TOKEN_OAS_NAMESPACE}}", modelName)
                     .Replace("{{TOKEN_OAS_SCOPES}}", scopes);
-                sourceList.Add(new SourceCodeEntity($"{modelName}.OAuth2.Scopes.cs", securityScopeSourceCode, true, $"{modelName}.OAuth2.cs"));
+                sourceList.Add(new SourceCodeEntity($"{modelName}.OAuth2.Scopes.cs", sourceCode, true, $"{modelName}.OAuth2.cs"));
             }
             return sourceList;
         }

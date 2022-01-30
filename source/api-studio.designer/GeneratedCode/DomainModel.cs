@@ -848,6 +848,12 @@ namespace ApiStudioIO
 		/// </summary>
 		[DslDesign::DescriptionResource("ApiStudioIO.SecuritySchemeTypes/OAuth2.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		OAuth2,
+		/// <summary>
+		/// OpenIdConnect
+		/// Description for ApiStudioIO.SecuritySchemeTypes.OpenIdConnect
+		/// </summary>
+		[DslDesign::DescriptionResource("ApiStudioIO.SecuritySchemeTypes/OpenIdConnect.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		OpenIdConnect,
 	}
 }
 

@@ -16,7 +16,6 @@
     {
         [Function(nameof({{TOKEN_OAS_CLASS_NAME}}.{{TOKEN_OAS_FUNCTION_NAME}}))]
         [OpenApiOperation(operationId: "{{TOKEN_OAS_FUNCTION_NAME}}", tags: new[] { "{{TOKEN_OAS_MODEL}}" }, Summary = "{{TOKEN_OAS_FUNCTION_NAME}}", Description = "{{TOKEN_OAS_FUNCTION_DESCRIPTION}}", Visibility = OpenApiVisibilityType.Important)]
-        [OpenApiSecurity("ApiStudioAuthentication", SecuritySchemeType.OAuth2, Flows = typeof({{TOKEN_OAS_NAMESPACE}}OpenApiOAuthSecurityFlows))]
 {{TOKEN_OAS_HTTP_OPENAPI_ATTRIBUTE}}
         public async Task<HttpResponseData> {{TOKEN_OAS_FUNCTION_NAME}}(
             [HttpTrigger(AuthorizationLevel.Function, "{{TOKEN_OAS_HTTP_VERB}}", 

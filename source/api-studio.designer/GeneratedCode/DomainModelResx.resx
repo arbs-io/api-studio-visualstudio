@@ -1641,6 +1641,14 @@
     <value>Description for ApiStudioIO.SecuritySchemeTypes.OAuth2</value>
     <comment>Description for EnumerationLiteral &apos;OAuth2&apos; on DomainEnumeration &apos;SecuritySchemeTypes&apos;</comment>
   </data>
+  <data name="ApiStudioIO.SecuritySchemeTypes/OpenIdConnect.DisplayName" xml:space="preserve">
+    <value>OpenIdConnect</value>
+    <comment>Display name for EnumerationLiteral &apos;OpenIdConnect&apos; on DomainEnumeration &apos;SecuritySchemeTypes&apos;</comment>
+  </data>
+  <data name="ApiStudioIO.SecuritySchemeTypes/OpenIdConnect.Description" xml:space="preserve">
+    <value>Description for ApiStudioIO.SecuritySchemeTypes.OpenIdConnect</value>
+    <comment>Description for EnumerationLiteral &apos;OpenIdConnect&apos; on DomainEnumeration &apos;SecuritySchemeTypes&apos;</comment>
+  </data>
   <data name="ApiStudioIO.ResourceShape.Description" xml:space="preserve">
     <value>Description for ApiStudioIO.ResourceShape</value>
     <comment>Description for DomainClass &apos;ResourceShape&apos;</comment>

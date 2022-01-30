@@ -842,6 +842,7 @@
         <EnumerationLiteral Description="Description for ApiStudioIO.SecuritySchemeTypes.None" Name="None" Value="" />
         <EnumerationLiteral Description="Description for ApiStudioIO.SecuritySchemeTypes.Basic" Name="Basic" Value="" />
         <EnumerationLiteral Description="Description for ApiStudioIO.SecuritySchemeTypes.OAuth2" Name="OAuth2" Value="" />
+        <EnumerationLiteral Description="Description for ApiStudioIO.SecuritySchemeTypes.OpenIdConnect" Name="OpenIdConnect" Value="" />
       </Literals>
     </DomainEnumeration>
   </Types>

@@ -25,7 +25,7 @@ namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
         private static SourceCodeEntity GenerateHttpTrigger(string modelName, Resource resource, HttpApi httpApi)
         {
             var attributes = new List<string>();
-            attributes.AddRange(BuildHttpTriggerSecurity(httpApi));
+            attributes.AddRange(BuildHttpTriggerSecurity(modelName, httpApi));
             attributes.AddRange(BuildHttpTriggerParameters(httpApi));
             attributes.AddRange(BuildHttpTriggerResponseStatusCodes(httpApi));
             string openapiAttributes = string.Join(Environment.NewLine, attributes);
@@ -42,13 +42,18 @@ namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
             return new SourceCodeEntity($"{modelName}-{httpApi.DisplayName}.HttpTrigger.Designer.cs", httpTriggerDesignerSourceCode, true, $"{modelName}-{httpApi.DisplayName}.HttpTrigger.cs");
         }
 
-        private static List<string> BuildHttpTriggerSecurity(HttpApi httpApi)
+        private static List<string> BuildHttpTriggerSecurity(string modelName, HttpApi httpApi)
         {
             var attributes = new List<string>();
             var securityApiKey = httpApi.ApiStudio.SecurityApiKey;
             if (!string.IsNullOrEmpty(securityApiKey))
             {
                 attributes.Add($"\t\t[OpenApiSecurity(\"ApiKey\", SecuritySchemeType.ApiKey, Name = \"{securityApiKey}\", In = OpenApiSecurityLocationType.Header)]");
+            }
+
+            if(httpApi.ApiStudio.SecuritySchemeType == SecuritySchemeTypes.OAuth2)
+            {
+                attributes.Add($"[OpenApiSecurity(\"ApiStudioAuthentication\", SecuritySchemeType.OAuth2, Flows = typeof({modelName}OpenApiOAuthSecurityFlows))]");
             }
             return attributes;
         }
