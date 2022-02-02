@@ -53,7 +53,11 @@ namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
 
             if(httpApi.ApiStudio.SecuritySchemeType == SecuritySchemeTypes.OAuth2)
             {
-                attributes.Add($"[OpenApiSecurity(\"ApiStudioAuthentication\", SecuritySchemeType.OAuth2, Flows = typeof({modelName}OpenApiOAuthSecurityFlows))]");
+                attributes.Add($"\t\t[OpenApiSecurity(\"ApiStudioOAuth2\", SecuritySchemeType.OAuth2, Flows = typeof({modelName}OpenApiOAuthSecurityFlows))]");
+            }
+            else if (httpApi.ApiStudio.SecuritySchemeType == SecuritySchemeTypes.OpenIdConnect)
+            {
+                attributes.Add($"\t\t[OpenApiSecurity(\"ApiStudioOpenIdConnect\", SecuritySchemeType.OpenIdConnect, OpenIdConnectUrl = \"http://api-studio.io/.well-known/openid-configuration\", OpenIdConnectScopes = \"{httpApi.AuthorisationRole}\")]");
             }
             return attributes;
         }

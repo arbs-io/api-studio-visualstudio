@@ -10,7 +10,8 @@ namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
         internal static List<SourceCodeEntity> Build(ApiStudio apiStudio, string modelName)
         {
             var sourceList = new List<SourceCodeEntity>();
-            if (apiStudio.SecuritySchemeType == SecuritySchemeTypes.OAuth2)
+            if (apiStudio.SecuritySchemeType == SecuritySchemeTypes.OAuth2 ||
+                apiStudio.SecuritySchemeType == SecuritySchemeTypes.OpenIdConnect)
             {
                 var scopeList = new List<string>();
                 apiStudio?.Resourced
