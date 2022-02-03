@@ -15,6 +15,8 @@
     <UseWindowsForms>true</UseWindowsForms>
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <Version>$([System.DateTime]::UtcNow.ToString("yyyy.MM.dd.0"))</Version>
+    <SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("HHmmssfff"))</SourceRevisionId>
   </PropertyGroup>
   <PropertyGroup>
     <RegisterOutputPackage>true</RegisterOutputPackage>

@@ -6,6 +6,8 @@
     <AssemblyName>api-studio.utility</AssemblyName>
     <AssemblyOriginatorKeyFile>..\api-studio-key.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>True</SignAssembly>
+    <Version>$([System.DateTime]::UtcNow.ToString("yyyy.MM.dd.0"))</Version>
+    <SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("HHmmssfff"))</SourceRevisionId>
   </PropertyGroup>
 
   <ItemGroup>
