@@ -2,7 +2,8 @@
 {
     using Microsoft.VisualStudio.Modeling;
     using System;
-
+    using System.ComponentModel;
+    using System.Reflection;
     using DslModeling = global::Microsoft.VisualStudio.Modeling;
 
     public partial class ApiStudio
@@ -33,7 +34,7 @@
         {
             if (Identifier.ToString() == "00000000-0000-0000-0000-000000000000")
             {
-                using (Transaction t = Store.TransactionManager.BeginTransaction("Creating default Identifier"))
+                using (Transaction t = Store.TransactionManager.BeginTransaction("ApiStudio.SetIdentifierValue"))
                 {
                     Identifier = Guid.NewGuid();
                     t.Commit();
@@ -45,5 +46,27 @@
         {
             return $@"{Vendor} {Product} - {ApiName} v{Version}";
         }
+
+        //internal partial class SecuritySchemeTypePropertyHandler
+        //{
+        //    protected override void OnValueChanged(ApiStudio element, SecuritySchemeTypes oldValue, SecuritySchemeTypes newValue)
+        //    {
+        //        base.OnValueChanged(element, oldValue, newValue);
+        //        if (element != null)
+        //        {
+        //            //element.SecurityAuthorizationUrl
+
+        //            var propCollection = TypeDescriptor.GetProperties(element);
+        //            PropertyDescriptor descriptor = propCollection["SecurityAuthorizationUrl"];
+
+        //            BrowsableAttribute attrib = (BrowsableAttribute)descriptor.Attributes[typeof(BrowsableAttribute)];
+        //            FieldInfo isBrow = attrib.GetType().GetField("browsable", BindingFlags.NonPublic | BindingFlags.Instance);
+        //            //Condition to Show or Hide set here:
+        //            isBrow.SetValue(attrib, false);
+        //            //propertyGrid1.Refresh(); //Remember to refresh PropertyGrid to reflect your changes
+                    
+        //        }
+        //    }
+        //}
     }
 }

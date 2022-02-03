@@ -361,6 +361,30 @@
     <value>Response Codes</value>
     <comment>Category for DomainProperty &apos;ResponseCodesServerError&apos; on DomainClass &apos;ApiStudio&apos;</comment>
   </data>
+  <data name="ApiStudioIO.ApiStudio/SecurityApiKey.Description" xml:space="preserve">
+    <value>An internal server error. The response body may contain error messages.</value>
+    <comment>Description for DomainProperty &apos;SecurityApiKey&apos; on DomainClass &apos;ApiStudio&apos;</comment>
+  </data>
+  <data name="ApiStudioIO.ApiStudio/SecurityApiKey.DisplayName" xml:space="preserve">
+    <value>Api Key</value>
+    <comment>DisplayName for DomainProperty &apos;SecurityApiKey&apos; on DomainClass &apos;ApiStudio&apos;</comment>
+  </data>
+  <data name="ApiStudioIO.ApiStudio/SecurityApiKey.Category" xml:space="preserve">
+    <value>Security</value>
+    <comment>Category for DomainProperty &apos;SecurityApiKey&apos; on DomainClass &apos;ApiStudio&apos;</comment>
+  </data>
+  <data name="ApiStudioIO.ApiStudio/SecuritySchemeType.Description" xml:space="preserve">
+    <value>APIs use authorization to ensure that client requests access data securely. This can involve authenticating the sender of a request and verifying that they have permission to access or manipulate the relevant data. If you&apos;re building an API, you can choose from a variety of auth models.</value>
+    <comment>Description for DomainProperty &apos;SecuritySchemeType&apos; on DomainClass &apos;ApiStudio&apos;</comment>
+  </data>
+  <data name="ApiStudioIO.ApiStudio/SecuritySchemeType.DisplayName" xml:space="preserve">
+    <value>Scheme Type</value>
+    <comment>DisplayName for DomainProperty &apos;SecuritySchemeType&apos; on DomainClass &apos;ApiStudio&apos;</comment>
+  </data>
+  <data name="ApiStudioIO.ApiStudio/SecuritySchemeType.Category" xml:space="preserve">
+    <value>Security</value>
+    <comment>Category for DomainProperty &apos;SecuritySchemeType&apos; on DomainClass &apos;ApiStudio&apos;</comment>
+  </data>
   <data name="ApiStudioIO.Resource.Description" xml:space="preserve">
     <value>Elements embedded in the model. Appear as boxes on the diagram.</value>
     <comment>Description for DomainClass &apos;Resource&apos;</comment>
@@ -1593,21 +1617,37 @@
     <value>Description for ApiStudioIO.HttpApiHeaderResponseOnTypes.OnSuccess</value>
     <comment>Description for EnumerationLiteral &apos;OnSuccess&apos; on DomainEnumeration &apos;HttpApiHeaderResponseOnTypes&apos;</comment>
   </data>
-  <data name="ApiStudioIO.HttpApiAuthorizationTypes/Roles.DisplayName" xml:space="preserve">
-    <value>Roles</value>
-    <comment>Display name for EnumerationLiteral &apos;Roles&apos; on DomainEnumeration &apos;HttpApiAuthorizationTypes&apos;</comment>
+  <data name="ApiStudioIO.SecuritySchemeTypes/None.DisplayName" xml:space="preserve">
+    <value>None</value>
+    <comment>Display name for EnumerationLiteral &apos;None&apos; on DomainEnumeration &apos;SecuritySchemeTypes&apos;</comment>
   </data>
-  <data name="ApiStudioIO.HttpApiAuthorizationTypes/Roles.Description" xml:space="preserve">
-    <value>Description for ApiStudioIO.HttpApiAuthorizationTypes.Roles</value>
-    <comment>Description for EnumerationLiteral &apos;Roles&apos; on DomainEnumeration &apos;HttpApiAuthorizationTypes&apos;</comment>
+  <data name="ApiStudioIO.SecuritySchemeTypes/None.Description" xml:space="preserve">
+    <value>Description for ApiStudioIO.SecuritySchemeTypes.None</value>
+    <comment>Description for EnumerationLiteral &apos;None&apos; on DomainEnumeration &apos;SecuritySchemeTypes&apos;</comment>
   </data>
-  <data name="ApiStudioIO.HttpApiAuthorizationTypes/Policy.DisplayName" xml:space="preserve">
-    <value>Policy</value>
-    <comment>Display name for EnumerationLiteral &apos;Policy&apos; on DomainEnumeration &apos;HttpApiAuthorizationTypes&apos;</comment>
+  <data name="ApiStudioIO.SecuritySchemeTypes/Basic.DisplayName" xml:space="preserve">
+    <value>Basic</value>
+    <comment>Display name for EnumerationLiteral &apos;Basic&apos; on DomainEnumeration &apos;SecuritySchemeTypes&apos;</comment>
   </data>
-  <data name="ApiStudioIO.HttpApiAuthorizationTypes/Policy.Description" xml:space="preserve">
-    <value>Description for ApiStudioIO.HttpApiAuthorizationTypes.Policy</value>
-    <comment>Description for EnumerationLiteral &apos;Policy&apos; on DomainEnumeration &apos;HttpApiAuthorizationTypes&apos;</comment>
+  <data name="ApiStudioIO.SecuritySchemeTypes/Basic.Description" xml:space="preserve">
+    <value>Description for ApiStudioIO.SecuritySchemeTypes.Basic</value>
+    <comment>Description for EnumerationLiteral &apos;Basic&apos; on DomainEnumeration &apos;SecuritySchemeTypes&apos;</comment>
+  </data>
+  <data name="ApiStudioIO.SecuritySchemeTypes/OAuth2.DisplayName" xml:space="preserve">
+    <value>OAuth2</value>
+    <comment>Display name for EnumerationLiteral &apos;OAuth2&apos; on DomainEnumeration &apos;SecuritySchemeTypes&apos;</comment>
+  </data>
+  <data name="ApiStudioIO.SecuritySchemeTypes/OAuth2.Description" xml:space="preserve">
+    <value>Description for ApiStudioIO.SecuritySchemeTypes.OAuth2</value>
+    <comment>Description for EnumerationLiteral &apos;OAuth2&apos; on DomainEnumeration &apos;SecuritySchemeTypes&apos;</comment>
+  </data>
+  <data name="ApiStudioIO.SecuritySchemeTypes/OpenIdConnect.DisplayName" xml:space="preserve">
+    <value>OpenIdConnect</value>
+    <comment>Display name for EnumerationLiteral &apos;OpenIdConnect&apos; on DomainEnumeration &apos;SecuritySchemeTypes&apos;</comment>
+  </data>
+  <data name="ApiStudioIO.SecuritySchemeTypes/OpenIdConnect.Description" xml:space="preserve">
+    <value>Description for ApiStudioIO.SecuritySchemeTypes.OpenIdConnect</value>
+    <comment>Description for EnumerationLiteral &apos;OpenIdConnect&apos; on DomainEnumeration &apos;SecuritySchemeTypes&apos;</comment>
   </data>
   <data name="ApiStudioIO.ResourceShape.Description" xml:space="preserve">
     <value>Description for ApiStudioIO.ResourceShape</value>

@@ -10,7 +10,7 @@
 
         internal static void StoreDomainModel(this HttpApi httpApi, List<ApiStudioComponentParameter> value)
         {
-            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("Saving ApiParameters"))
+            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("ApiStudioComponentStoreDomainModel.StoreDomainModel.ApiStudioComponentParameter"))
             {
                 httpApi.HttpApiParameters.Clear();
                 value.OrderBy(x => x.FromType).ThenBy(x => x.Identifier)
@@ -23,7 +23,7 @@
 
         internal static void StoreDomainModel(this HttpApi httpApi, List<ApiStudioComponentHeaderRequest> value)
         {
-            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("Saving ConsumesHeaderd"))
+            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("ApiStudioComponentStoreDomainModel.StoreDomainModel.ApiStudioComponentHeaderRequest"))
             {
                 httpApi.HttpApiHeaderRequests.Clear();
                 value.OrderBy(x => x.Name)
@@ -35,7 +35,7 @@
 
         internal static void StoreDomainModel(this HttpApi httpApi, List<ApiStudioComponentMediaTypeRequest> value)
         {
-            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("Saving ConsumesMediaTyped"))
+            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("ApiStudioComponentStoreDomainModel.StoreDomainModel.ApiStudioComponentMediaTypeRequest"))
             {
                 httpApi.HttpApiMediaTypeRequestd.Clear();
                 value.OrderBy(x => x.Name)
@@ -47,7 +47,7 @@
 
         internal static void StoreDomainModel(this HttpApi httpApi, List<ApiStudioComponentHeaderResponse> value)
         {
-            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("Saving ProducesHeaderd"))
+            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("ApiStudioComponentStoreDomainModel.StoreDomainModel.ApiStudioComponentHeaderResponse"))
             {
                 httpApi.HttpApiHeaderResponses.Clear();
                 value.OrderBy(x => x.Name)
@@ -59,7 +59,7 @@
 
         internal static void StoreDomainModel(this HttpApi httpApi, List<ApiStudioComponentMediaTypeResponse> value)
         {
-            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("Saving ProducesMediaTyped"))
+            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("ApiStudioComponentStoreDomainModel.StoreDomainModel.ApiStudioComponentMediaTypeResponse"))
             {
                 httpApi.HttpApiMediaTypeResponsed.Clear();
                 value.OrderBy(x => x.Name)
@@ -71,7 +71,7 @@
 
         internal static void StoreDomainModel(this HttpApi httpApi, List<ApiStudioComponentResponseStatusCode> value)
         {
-            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("Saving ApiResponses"))
+            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("ApiStudioComponentStoreDomainModel.StoreDomainModel.ApiStudioComponentResponseStatusCode"))
             {
                 httpApi.HttpApiResponseStatusCodes.Clear();
                 value.OrderBy(x => x.HttpStatus)

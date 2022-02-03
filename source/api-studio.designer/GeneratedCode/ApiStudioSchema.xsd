@@ -176,6 +176,18 @@
             <xsd:documentation>An internal server error. The response body may contain error messages.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <!-- Property: SecurityApiKey -->
+        <xsd:attribute name="securityApiKey" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>An internal server error. The response body may contain error messages.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: SecuritySchemeType -->
+        <xsd:attribute name="securitySchemeType" type="SecuritySchemeTypes" >
+          <xsd:annotation>
+            <xsd:documentation>APIs use authorization to ensure that client requests access data securely. This can involve authenticating the sender of a request and verifying that they have permission to access or manipulate the relevant data. If you&apos;re building an API, you can choose from a variety of auth models.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1759,11 +1771,13 @@
     </xsd:restriction>
   </xsd:simpleType>
   
-  <!-- Enum HttpApiAuthorizationTypes -->
-  <xsd:simpleType name="HttpApiAuthorizationTypes">
+  <!-- Enum SecuritySchemeTypes -->
+  <xsd:simpleType name="SecuritySchemeTypes">
     <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="Roles"/>
-      <xsd:enumeration value="Policy"/>
+      <xsd:enumeration value="None"/>
+      <xsd:enumeration value="Basic"/>
+      <xsd:enumeration value="OAuth2"/>
+      <xsd:enumeration value="OpenIdConnect"/>
     </xsd:restriction>
   </xsd:simpleType>
   

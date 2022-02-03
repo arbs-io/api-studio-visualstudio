@@ -162,6 +162,8 @@ namespace ApiStudioIO
 				new DomainMemberInfo(typeof(ApiStudio), "ResponseCodesUnprocessable", ApiStudio.ResponseCodesUnprocessableDomainPropertyId, typeof(ApiStudio.ResponseCodesUnprocessablePropertyHandler)),
 				new DomainMemberInfo(typeof(ApiStudio), "ResponseCodesUnsupportedMediaType", ApiStudio.ResponseCodesUnsupportedMediaTypeDomainPropertyId, typeof(ApiStudio.ResponseCodesUnsupportedMediaTypePropertyHandler)),
 				new DomainMemberInfo(typeof(ApiStudio), "ResponseCodesServerError", ApiStudio.ResponseCodesServerErrorDomainPropertyId, typeof(ApiStudio.ResponseCodesServerErrorPropertyHandler)),
+				new DomainMemberInfo(typeof(ApiStudio), "SecurityApiKey", ApiStudio.SecurityApiKeyDomainPropertyId, typeof(ApiStudio.SecurityApiKeyPropertyHandler)),
+				new DomainMemberInfo(typeof(ApiStudio), "SecuritySchemeType", ApiStudio.SecuritySchemeTypeDomainPropertyId, typeof(ApiStudio.SecuritySchemeTypePropertyHandler)),
 				new DomainMemberInfo(typeof(Resource), "Name", Resource.NameDomainPropertyId, typeof(Resource.NamePropertyHandler)),
 				new DomainMemberInfo(typeof(Resource), "HttpApiUri", Resource.HttpApiUriDomainPropertyId, typeof(Resource.HttpApiUriPropertyHandler)),
 				new DomainMemberInfo(typeof(ResourceInstance), "InstanceIdentity", ResourceInstance.InstanceIdentityDomainPropertyId, typeof(ResourceInstance.InstanceIdentityPropertyHandler)),
@@ -822,24 +824,36 @@ namespace ApiStudioIO
 namespace ApiStudioIO
 {
 	/// <summary>
-	/// DomainEnumeration: HttpApiAuthorizationTypes
-	/// Description for ApiStudioIO.HttpApiAuthorizationTypes
+	/// DomainEnumeration: SecuritySchemeTypes
+	/// Description for ApiStudioIO.SecuritySchemeTypes
 	/// </summary>
 	[global::System.CLSCompliant(true)]
-	public enum HttpApiAuthorizationTypes
+	public enum SecuritySchemeTypes
 	{
 		/// <summary>
-		/// Roles
-		/// Description for ApiStudioIO.HttpApiAuthorizationTypes.Roles
+		/// None
+		/// Description for ApiStudioIO.SecuritySchemeTypes.None
 		/// </summary>
-		[DslDesign::DescriptionResource("ApiStudioIO.HttpApiAuthorizationTypes/Roles.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
-		Roles,
+		[DslDesign::DescriptionResource("ApiStudioIO.SecuritySchemeTypes/None.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		None,
 		/// <summary>
-		/// Policy
-		/// Description for ApiStudioIO.HttpApiAuthorizationTypes.Policy
+		/// Basic
+		/// Description for ApiStudioIO.SecuritySchemeTypes.Basic
 		/// </summary>
-		[DslDesign::DescriptionResource("ApiStudioIO.HttpApiAuthorizationTypes/Policy.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
-		Policy,
+		[DslDesign::DescriptionResource("ApiStudioIO.SecuritySchemeTypes/Basic.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		Basic,
+		/// <summary>
+		/// OAuth2
+		/// Description for ApiStudioIO.SecuritySchemeTypes.OAuth2
+		/// </summary>
+		[DslDesign::DescriptionResource("ApiStudioIO.SecuritySchemeTypes/OAuth2.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		OAuth2,
+		/// <summary>
+		/// OpenIdConnect
+		/// Description for ApiStudioIO.SecuritySchemeTypes.OpenIdConnect
+		/// </summary>
+		[DslDesign::DescriptionResource("ApiStudioIO.SecuritySchemeTypes/OpenIdConnect.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		OpenIdConnect,
 	}
 }
 

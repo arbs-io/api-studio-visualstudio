@@ -5,14 +5,14 @@ namespace ApiStudioIO.CodeGeneration.VisualStudio
 {
     internal static class VisualStudioDteManager
     {
-        internal static void AddNestedFile(DTE dte, string diagramFile, string sourceFile)
+        internal static void AddNestedFile(DTE dte, string sourceFile, string dependentUponFile)
         {
-            ProjectItem projectItem = dte.Solution.FindProjectItem(diagramFile) ?? throw new ArgumentNullException(nameof(projectItem));
+            ProjectItem sourceProjectItem = dte.Solution.FindProjectItem(sourceFile) ?? throw new ArgumentNullException(nameof(sourceProjectItem));
 
-            var codeGeneratedItem = projectItem.ProjectItems.AddFromFile(sourceFile);
+            var dependentUponProjectItem = sourceProjectItem.ProjectItems.AddFromFile(dependentUponFile);
 
-            SetDependentUpon(codeGeneratedItem, projectItem.Name);
-            SetBuildAction(codeGeneratedItem);
+            SetDependentUpon(dependentUponProjectItem, sourceProjectItem.Name);
+            SetBuildAction(dependentUponProjectItem);
         }
 
         internal static void DeleteFile(DTE dte, string projectFile)
@@ -21,11 +21,11 @@ namespace ApiStudioIO.CodeGeneration.VisualStudio
             projectItem.Delete();
         }
 
-        private static void SetDependentUpon(ProjectItem item, string projectItemName)
+        private static void SetDependentUpon(ProjectItem dependentUponProjectItem, string sourceProjectItemName)
         {
-            if (item.ContainsProperty("DependentUpon"))
+            if (dependentUponProjectItem.ContainsProperty("DependentUpon"))
             {
-                item.Properties.Item("DependentUpon").Value = projectItemName;
+                dependentUponProjectItem.Properties.Item("DependentUpon").Value = sourceProjectItemName;
             }
         }
 

@@ -1,0 +1,18 @@
+﻿namespace {{TOKEN_OAS_NAMESPACE}}
+{
+    using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
+    using Microsoft.OpenApi.Models;
+    using System;
+
+    public partial class {{TOKEN_OAS_NAMESPACE}}OpenApiOAuthSecurityFlows : OpenApiOAuthSecurityFlows
+    {
+        public {{TOKEN_OAS_NAMESPACE}}OpenApiOAuthSecurityFlows()
+        {
+            Implicit = new OpenApiOAuthFlow()
+            {
+                AuthorizationUrl = new Uri("http://api-studio.io/oauth2/token"),
+                Scopes = GetScopes()
+            };
+        }
+    }
+}

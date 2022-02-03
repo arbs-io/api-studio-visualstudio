@@ -460,6 +460,40 @@ namespace ApiStudioIO
 					}
 				}
 			}
+			// SecurityApiKey
+			if (!serializationContext.Result.Failed)
+			{
+				string attribSecurityApiKey = ApiStudioIOSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "securityApiKey");
+				if (attribSecurityApiKey != null)
+				{
+					global::System.String valueOfSecurityApiKey;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribSecurityApiKey, out valueOfSecurityApiKey))
+					{
+						instanceOfApiStudio.SecurityApiKey = valueOfSecurityApiKey;
+					}
+					else
+					{	// Invalid property value, ignored.
+						ApiStudioIOSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "securityApiKey", typeof(global::System.String), attribSecurityApiKey);
+					}
+				}
+			}
+			// SecuritySchemeType
+			if (!serializationContext.Result.Failed)
+			{
+				string attribSecuritySchemeType = ApiStudioIOSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "securitySchemeType");
+				if (attribSecuritySchemeType != null)
+				{
+					SecuritySchemeTypes valueOfSecuritySchemeType;
+					if (DslModeling::SerializationUtilities.TryGetValue<SecuritySchemeTypes>(serializationContext, attribSecuritySchemeType, out valueOfSecuritySchemeType))
+					{
+						instanceOfApiStudio.SecuritySchemeType = valueOfSecuritySchemeType;
+					}
+					else
+					{	// Invalid property value, ignored.
+						ApiStudioIOSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "securitySchemeType", typeof(SecuritySchemeTypes), attribSecuritySchemeType);
+					}
+				}
+			}
 		}
 	
 		/// <summary>
@@ -1313,6 +1347,31 @@ namespace ApiStudioIO
 					if (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(serializedPropValue, "false") != 0)
 					{	// No need to write the value out if it's the same as default value.
 						ApiStudioIOSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "ResponseCodesServerError", serializedPropValue);
+					}
+				}
+			}
+			// SecurityApiKey
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.String propValue = instanceOfApiStudio.SecurityApiKey;
+				if (!serializationContext.Result.Failed)
+				{
+					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, string.Empty) != 0))
+					{	// No need to write the value out if it's the same as default value.
+						ApiStudioIOSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "securityApiKey", propValue);
+					}
+				}
+			}
+			// SecuritySchemeType
+			if (!serializationContext.Result.Failed)
+			{
+				SecuritySchemeTypes propValue = instanceOfApiStudio.SecuritySchemeType;
+				string serializedPropValue = DslModeling::SerializationUtilities.GetString<SecuritySchemeTypes>(serializationContext, propValue);
+				if (!serializationContext.Result.Failed)
+				{
+					if (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(serializedPropValue, "None") != 0)
+					{	// No need to write the value out if it's the same as default value.
+						ApiStudioIOSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "securitySchemeType", serializedPropValue);
 					}
 				}
 			}

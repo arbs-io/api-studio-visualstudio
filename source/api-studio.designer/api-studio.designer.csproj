@@ -1,6 +1,6 @@
-﻿<Project>
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <!-- Implicit top import -->
-  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+  <!-- <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" /> -->
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <OutputType>Library</OutputType>
@@ -15,12 +15,15 @@
     <UseWindowsForms>true</UseWindowsForms>
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+	  <Copyright>api-studio.io</Copyright>
+	  <Version>$([System.DateTime]::UtcNow.ToString("yyyy.MM.dd.0"))</Version>
+	  <SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("HHmmssfff"))</SourceRevisionId>
   </PropertyGroup>
   <PropertyGroup>
     <RegisterOutputPackage>true</RegisterOutputPackage>
     <RegisterWithCodebase>true</RegisterWithCodebase>
     <GacTargetOutput>false</GacTargetOutput>
-    <TransformOnBuild>True</TransformOnBuild>
+    <TransformOnBuild>true</TransformOnBuild>
   </PropertyGroup>
   <!-- <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" /> -->
   <!-- <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)'!=''" /> -->

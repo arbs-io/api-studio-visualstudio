@@ -63,6 +63,50 @@ namespace ApiStudioIO.CodeGeneration.AzureFunction.v1.Templates {
         /// <summary>
         ///   Looks up a localized string similar to namespace {{TOKEN_OAS_NAMESPACE}}
         ///{
+        ///    using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
+        ///    using Microsoft.OpenApi.Models;
+        ///    using System;
+        ///
+        ///    public partial class {{TOKEN_OAS_NAMESPACE}}OpenApiOAuthSecurityFlows : OpenApiOAuthSecurityFlows
+        ///    {
+        ///        public {{TOKEN_OAS_NAMESPACE}}OpenApiOAuthSecurityFlows()
+        ///        {
+        ///            Implicit = new OpenApiOAuthFlow()
+        ///            {
+        ///                AuthorizationUrl = new Uri(&quot;http://api-studio.io/oauth2/token&quot;),
+        ///          [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string HttpAuthOAuth2 {
+            get {
+                return ResourceManager.GetString("HttpAuthOAuth2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to namespace {{TOKEN_OAS_NAMESPACE}}
+        ///{
+        ///    using System.Collections.Generic;
+        ///
+        ///    public partial class {{TOKEN_OAS_NAMESPACE}}OpenApiOAuthSecurityFlows
+        ///    {
+        ///        private Dictionary&lt;string, string&gt; GetScopes()
+        ///        {
+        ///            var scopes = new Dictionary&lt;string, string&gt;();
+        ///            scopes.Add(&quot;ApiStudio.Prototype.ApiName.ResourceCollection1.Read&quot;, &quot;TODO&quot;);
+        ///            return scopes;
+        ///        }
+        ///    }
+        ///}.
+        /// </summary>
+        internal static string HttpAuthOAuth2Scopes {
+            get {
+                return ResourceManager.GetString("HttpAuthOAuth2Scopes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to namespace {{TOKEN_OAS_NAMESPACE}}
+        ///{
         ///    using System.Net;
         ///    using System.Threading.Tasks;
         ///    using Microsoft.Azure.Functions.Worker;
@@ -98,12 +142,11 @@ namespace ApiStudioIO.CodeGeneration.AzureFunction.v1.Templates {
         ///    using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
         ///    using Microsoft.OpenApi.Models;
         ///
-        ///    using SecurityFlows;
         ///    using Models;
         ///
         ///    public partial class {{TOKEN_OAS_CLASS_NAME}}
         ///    {
-        ///        [Function(n [rest of string was truncated]&quot;;.
+        ///        [Function(nameof({{TOKEN_OAS_CLASS_NA [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string HttpTriggerDesigner {
             get {

@@ -81,7 +81,7 @@
             return $@"{vendor}.{product}.{apiName}.{resourceName}.{actionName}";
         }
 
-        protected string GetAuthorisationRoleResourceName()
+        private string GetAuthorisationRoleResourceName()
         {
             string FuncGetRootName(Resource resource)
             {
@@ -113,7 +113,7 @@
             return FuncGetRootName(sourceResource);
         }
 
-        public virtual string GetAuthorisationRoleActionName()
+        internal virtual string GetAuthorisationRoleActionName()
         {
             var resource = Resourced.FirstOrDefault();
 

@@ -18,6 +18,9 @@
     <Compile Include="Designer\*.HttpTrigger.cs" Link="Triggers\Http\%(Filename)%(Extension)" />
     <Compile Include="Designer\*.HttpTrigger.Designer.cs" Link="Triggers\Http\%(Filename)%(Extension)" />
     <Compile Include="Designer\*.Model.cs" Link="Models\%(Filename)%(Extension)" />
+    <Compile Include="Designer\*.OAuth2.cs" Link="Security\OAuth2\%(Filename)%(Extension)" />
+    <Compile Include="Designer\*.OAuth2.Scopes.cs" Link="Security\OAuth2\%(Filename)%(Extension)" />
+    <Compile Include="Designer\*.OpenIdConnect.cs" Link="Security\OpenIdConnect\%(Filename)%(Extension)" />
 	</ItemGroup>
   <ItemGroup>
     <None Update="host.json">
@@ -30,11 +33,5 @@
     <None Update="Designer\Default.ApiStudio">
       <Generator>ApiStudioCodeGeneration</Generator>
     </None>
-    <None Update="Designer\Default.build.info">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Default.ApiStudio</DependentUpon>
-    </None>
   </ItemGroup>
-
 </Project>
