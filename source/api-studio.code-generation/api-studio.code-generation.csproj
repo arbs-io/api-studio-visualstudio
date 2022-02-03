@@ -8,6 +8,7 @@
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <EnableNETAnalyzers>True</EnableNETAnalyzers>
     <AnalysisLevel>6.0</AnalysisLevel>
+	  <Copyright>api-studio.io</Copyright>
     <Version>$([System.DateTime]::UtcNow.ToString("yyyy.MM.dd.0"))</Version>
     <SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("HHmmssfff"))</SourceRevisionId>
 	</PropertyGroup>
