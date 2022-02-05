@@ -92,7 +92,7 @@ namespace ApiStudioIO.CodeGeneration.AzureFunction.v1.Templates {
         ///        private Dictionary&lt;string, string&gt; GetScopes()
         ///        {
         ///            var scopes = new Dictionary&lt;string, string&gt;();
-        ///            scopes.Add(&quot;ApiStudio.Prototype.ApiName.ResourceCollection1.Read&quot;, &quot;TODO&quot;);
+        ///{{TOKEN_OAS_SCOPES}}
         ///            return scopes;
         ///        }
         ///    }
