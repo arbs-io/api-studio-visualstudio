@@ -23,8 +23,12 @@ ApiSecurity
 
 ## References 
 
+###
+https://docs.microsoft.com/en-us/visualstudio/extensibility/creating-an-options-page?view=vs-2022
+
 ### Visual Studio vsix
 https://www.vsixcookbook.com/
+
 ### Microsoft.Azure.WebJobs.Extensions.OpenApi.Core
 https://github.com/Azure/azure-functions-openapi-extension/blob/main/docs/openapi-core.md
 
