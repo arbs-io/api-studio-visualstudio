@@ -102,6 +102,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
     </Compile>
     <Compile Include="VsOptions\ApiStudioIOPackageBase.cs" />
+    <Compile Include="VsOptions\ResponseCodesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VsOptions\ResponseCodesControl.Designer.cs">
+      <DependentUpon>ResponseCodesControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="VsOptions\GeneralControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -109,6 +115,9 @@
       <DependentUpon>GeneralControl.cs</DependentUpon>
     </Compile>
     <Compile Include="VsOptions\GeneralDialogPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VsOptions\ResponseCodesDialogPage.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="VsOptions\PropertyDialogPage.cs">
@@ -226,11 +235,18 @@
         DebugSymbolsProjectOutputGroup;
       </IncludeOutputGroupsInVSIXLocalOnly>
     </ProjectReference>
+    <ProjectReference Include="..\api-studio.utility\api-studio.utility.csproj">
+      <Project>{6eddc00d-e89e-49e3-a127-9d8e44d3d2f2}</Project>
+      <Name>api-studio.utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4df5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="VsOptions\ResponseCodesControl.resx">
+      <DependentUpon>ResponseCodesControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VsOptions\GeneralControl.resx">
       <DependentUpon>GeneralControl.cs</DependentUpon>
     </EmbeddedResource>

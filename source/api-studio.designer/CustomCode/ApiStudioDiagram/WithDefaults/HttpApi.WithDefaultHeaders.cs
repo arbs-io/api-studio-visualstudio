@@ -1,5 +1,6 @@
 ﻿namespace ApiStudioIO
 {
+    using ApiStudioIO.Utility.Extensions;
     using Microsoft.VisualStudio.Modeling;
     using System.Collections.Generic;
     using System.Linq;

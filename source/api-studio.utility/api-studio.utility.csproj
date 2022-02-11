@@ -15,6 +15,9 @@
     <Compile Update="Extensions\StringCaseExtension.cs">
       <Generator>ResXFileCodeGenerator</Generator>
     </Compile>
+    <Compile Update="Extensions\HttpResponseExtension.cs">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </Compile>
   </ItemGroup>
 
 </Project>
