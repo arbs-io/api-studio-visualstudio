@@ -1,5 +1,6 @@
 ﻿namespace ApiStudioIO
 {
+    using ApiStudioIO.Utility.Extensions;
     public partial class HttpApiResponseStatusCode
     {
         protected string GetDisplayNameValue()

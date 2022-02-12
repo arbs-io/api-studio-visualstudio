@@ -1,5 +1,6 @@
 ﻿namespace ApiStudioIO
 {
+    using ApiStudioIO.Utility.Extensions;
     using System;
     using System.ComponentModel;
 

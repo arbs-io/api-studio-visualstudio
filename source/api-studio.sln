@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api-studio.designer", "api-studio.designer\api-studio.designer.csproj", "{7B523E77-B1FE-4308-9E04-9E315F8FD25B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-studio.designer", "api-studio.designer\api-studio.designer.csproj", "{7B523E77-B1FE-4308-9E04-9E315F8FD25B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api-studio.package", "api-studio.package\api-studio.package.csproj", "{197679F3-7C3C-4D8D-AC49-337405B09CAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api-studio.code-generation", "api-studio.code-generation\api-studio.code-generation.csproj", "{648A6BFA-5379-402B-921A-D3DB09A27E7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-studio.code-generation", "api-studio.code-generation\api-studio.code-generation.csproj", "{648A6BFA-5379-402B-921A-D3DB09A27E7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api-studio.utility", "api-studio.utility\api-studio.utility.csproj", "{6EDDC00D-E89E-49E3-A127-9D8E44D3D2F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-studio.utility", "api-studio.utility\api-studio.utility.csproj", "{6EDDC00D-E89E-49E3-A127-9D8E44D3D2F2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-studio.vsoptions", "api-studio.vsoptions\api-studio.vsoptions.csproj", "{3251A8E1-EC99-45D0-AB6C-A32A0F705CB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,14 @@ Global
 		{6EDDC00D-E89E-49E3-A127-9D8E44D3D2F2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6EDDC00D-E89E-49E3-A127-9D8E44D3D2F2}.Release|x86.ActiveCfg = Release|Any CPU
 		{6EDDC00D-E89E-49E3-A127-9D8E44D3D2F2}.Release|x86.Build.0 = Release|Any CPU
+		{3251A8E1-EC99-45D0-AB6C-A32A0F705CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3251A8E1-EC99-45D0-AB6C-A32A0F705CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3251A8E1-EC99-45D0-AB6C-A32A0F705CB4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3251A8E1-EC99-45D0-AB6C-A32A0F705CB4}.Debug|x86.Build.0 = Debug|Any CPU
+		{3251A8E1-EC99-45D0-AB6C-A32A0F705CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3251A8E1-EC99-45D0-AB6C-A32A0F705CB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3251A8E1-EC99-45D0-AB6C-A32A0F705CB4}.Release|x86.ActiveCfg = Release|Any CPU
+		{3251A8E1-EC99-45D0-AB6C-A32A0F705CB4}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
