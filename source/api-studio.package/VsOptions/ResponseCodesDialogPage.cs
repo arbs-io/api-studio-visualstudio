@@ -36,7 +36,7 @@ namespace ApiStudioIO.VsOptions
 
         public override void LoadSettingsFromStorage()
         {
-            ThreadHelper.ThrowIfNotOnUIThread(); 
+            ThreadHelper.ThrowIfNotOnUIThread();
             base.LoadSettingsFromStorage(); 
             ApiStudioUserSettingsStore.Instance.Load();
         }

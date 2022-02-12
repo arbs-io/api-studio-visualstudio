@@ -102,7 +102,6 @@
     <Compile Include="CodeGeneration\ApiStudioCodeGeneration.cs">
       <Generator>ResXFileCodeGenerator</Generator>
     </Compile>
-    <Compile Include="VsOptions\ApiStudioUserSettingsStore.cs" />
     <Compile Include="VsOptions\ApiStudioIOPackageBase.cs" />
     <Compile Include="VsOptions\ResponseCodesControl.cs">
       <SubType>UserControl</SubType>
@@ -240,6 +239,10 @@
     <ProjectReference Include="..\api-studio.utility\api-studio.utility.csproj">
       <Project>{6eddc00d-e89e-49e3-a127-9d8e44d3d2f2}</Project>
       <Name>api-studio.utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\api-studio.vsoptions\api-studio.vsoptions.csproj">
+      <Project>{3251a8e1-ec99-45d0-ab6c-a32a0f705cb4}</Project>
+      <Name>api-studio.vsoptions</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
