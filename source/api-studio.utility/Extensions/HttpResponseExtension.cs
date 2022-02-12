@@ -84,10 +84,10 @@
             { 409, new ResponseInformation{ Description = "Conflict", RfcReference = "[RFC7231, Section 6.5.8]"} },
             { 410, new ResponseInformation{ Description = "Gone", RfcReference = "[RFC7231, Section 6.5.9]"} },
             { 411, new ResponseInformation{ Description = "Length Required", RfcReference = "[RFC7231, Section 6.5.10]"} },
-            { 412, new ResponseInformation{ Description = "Precondition Failed", RfcReference = "[RFC7232, Section 4.2][RFC8144, Section 3.2]"} },
+            { 412, new ResponseInformation{ Description = "Precondition Failed", RfcReference = "[RFC8144, Section 3.2]"} },
             { 413, new ResponseInformation{ Description = "Payload Too Large", RfcReference = "[RFC7231, Section 6.5.11]"} },
             { 414, new ResponseInformation{ Description = "URI Too Long", RfcReference = "[RFC7231, Section 6.5.12]"} },
-            { 415, new ResponseInformation{ Description = "Unsupported Media Type", RfcReference = "[RFC7231, Section 6.5.13][RFC7694, Section 3]"} },
+            { 415, new ResponseInformation{ Description = "Unsupported Media Type", RfcReference = "[RFC7694, Section 3]"} },
             { 416, new ResponseInformation{ Description = "Range Not Satisfiable", RfcReference = "[RFC7233, Section 4.4]"} },
             { 417, new ResponseInformation{ Description = "Expectation Failed", RfcReference = "[RFC7231, Section 6.5.14]"} },
 

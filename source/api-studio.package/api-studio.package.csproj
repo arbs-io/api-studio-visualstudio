@@ -73,6 +73,7 @@
     <PackageReference Include="Microsoft.VisualStudio.TextManager.Interop" Version="17.0.*-*" />
     <PackageReference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0" Version="17.0.*-*" />
     <PackageReference Include="Microsoft.VisualStudio.Threading" Version="17.0.*-*" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.ComponentModel">
       <Version>4.3.0</Version>
     </PackageReference>
@@ -101,6 +102,7 @@
     <Compile Include="CodeGeneration\ApiStudioCodeGeneration.cs">
       <Generator>ResXFileCodeGenerator</Generator>
     </Compile>
+    <Compile Include="VsOptions\ApiStudioUserSettingsStore.cs" />
     <Compile Include="VsOptions\ApiStudioIOPackageBase.cs" />
     <Compile Include="VsOptions\ResponseCodesControl.cs">
       <SubType>UserControl</SubType>

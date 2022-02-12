@@ -25,6 +25,7 @@ ApiSecurity
 
 ###
 https://docs.microsoft.com/en-us/visualstudio/extensibility/creating-an-options-page?view=vs-2022
+https://social.msdn.microsoft.com/Forums/security/en-US/516ce577-9e50-4a74-8c5e-4b4ea4f9f86c/store-array-in-options-using-dialogpage?forum=vsx
 
 ### Visual Studio vsix
 https://www.vsixcookbook.com/

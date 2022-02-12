@@ -28,23 +28,24 @@ namespace ApiStudioIO.VsOptions
             lvwResponseCodes.Items.Clear();
             foreach (var httpResponseCode in HttpResponseExtension.HttpResponseCodes)
             {
-                var lvItem = new ListViewItem();
-                
-                lvItem.Text = httpResponseCode.Key.ToString();
+                var lvItem = new ListViewItem
+                {
+                    Text = httpResponseCode.Key.ToString()
+                };
                 lvItem.SubItems.Add(httpResponseCode.Value.Description);
                 lvItem.SubItems.Add(httpResponseCode.Value.RfcReference);
 
-                if (responseCodesDialogPage.ResponseCodes.Contains(httpResponseCode.Key))
+                if (responseCodesDialogPage.ResponseCodeContains(httpResponseCode.Key))
                     lvItem.Checked = true;
 
                 lvwResponseCodes.Items.Add(lvItem);
             }
             
-            autoResizeColumns(lvwResponseCodes);
+            AutoResizeColumns(lvwResponseCodes);
             _isInitialized = true;
         }
 
-        private static void autoResizeColumns(ListView lv)
+        private static void AutoResizeColumns(ListView lv)
         {
             lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             ListView.ColumnHeaderCollection cc = lv.Columns;
@@ -58,14 +59,14 @@ namespace ApiStudioIO.VsOptions
             }
         }
 
-        private void lvwResponseCodes_ItemChecked(object sender, ItemCheckedEventArgs e)
+        private void LvwResponseCodes_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             if (_isInitialized)
             {
                 if (e.Item.Checked)
-                    responseCodesDialogPage.ResponseCodes.Add(int.Parse(e.Item.Text));
+                    responseCodesDialogPage.AddResponseCode(int.Parse(e.Item.Text));
                 else
-                    responseCodesDialogPage.ResponseCodes.Remove(int.Parse(e.Item.Text));
+                    responseCodesDialogPage.RemoveResponseCode(int.Parse(e.Item.Text));
             }
         }
     }

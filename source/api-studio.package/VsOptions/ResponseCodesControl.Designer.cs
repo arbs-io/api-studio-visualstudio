@@ -85,7 +85,7 @@
             this.lvwResponseCodes.TabIndex = 4;
             this.lvwResponseCodes.UseCompatibleStateImageBehavior = false;
             this.lvwResponseCodes.View = System.Windows.Forms.View.Details;
-            this.lvwResponseCodes.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvwResponseCodes_ItemChecked);
+            this.lvwResponseCodes.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.LvwResponseCodes_ItemChecked);
             // 
             // Code
             // 
