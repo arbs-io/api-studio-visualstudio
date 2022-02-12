@@ -63,17 +63,18 @@
     <!-- <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.0.*-*" ExcludeAssets="runtime" />
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.0.*-*" /> -->
     <PackageReference Include="Microsoft.VisualStudio.Setup.Configuration.Interop" Version="3.*" />
-    <PackageReference Include="Microsoft.VisualStudio.Interop" Version="17.0.*-*" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.VisualStudio.OLE.Interop" Version="17.0.*-*" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk" Version="17.0.*-*" />
-    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.Diagrams" Version="17.0.*-*" />
-    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.Shell" Version="17.0.*-*" />
-    <PackageReference Include="Microsoft.VisualStudio.Shell.15.0" Version="17.0.*-*" />
-    <PackageReference Include="Microsoft.VisualStudio.Shell.Framework" Version="17.0.*-*" />
-    <PackageReference Include="Microsoft.VisualStudio.TextManager.Interop" Version="17.0.*-*" />
-    <PackageReference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0" Version="17.0.*-*" />
-    <PackageReference Include="Microsoft.VisualStudio.Threading" Version="17.0.*-*" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Interop" Version="17.*" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.VisualStudio.OLE.Interop" Version="17.*" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk" Version="17.*" />
+    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.Diagrams" Version="17.*" />
+    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.Shell" Version="17.*" />
+    <PackageReference Include="Microsoft.VisualStudio.Shell.15.0" Version="17.*" />
+    <PackageReference Include="Microsoft.VisualStudio.Shell.Framework" Version="17.*" />
+    <PackageReference Include="Microsoft.VisualStudio.TextManager.Interop" Version="17.*" />
+    <PackageReference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0" Version="17.*" />
+    <PackageReference Include="Microsoft.VisualStudio.Threading" Version="17.*" />
+    <PackageReference Include="Microsoft.VisualStudio.Validation" Version="17.*" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.*" />
     <PackageReference Include="System.ComponentModel">
       <Version>4.3.0</Version>
     </PackageReference>

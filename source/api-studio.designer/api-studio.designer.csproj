@@ -36,9 +36,9 @@
     <Reference Include="System.Drawing.Design" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.Diagrams" Version="17.0.31902.203" />
-    <PackageReference Include="Microsoft.VisualStudio.TextTemplating.Modeling" Version="17.0.31902.203" />
-    <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.Diagrams" Version="17.*" />
+    <PackageReference Include="Microsoft.VisualStudio.TextTemplating.Modeling" Version="17.*" />
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.*" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\api-studio-key.snk">
