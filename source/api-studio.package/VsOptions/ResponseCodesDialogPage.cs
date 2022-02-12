@@ -3,15 +3,15 @@ using Microsoft.VisualStudio.Shell;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace ApiStudioIO.VsOptions
 {
     [Guid("d69fefa9-3add-4219-af38-2d9f01a8c314")]
     public class ResponseCodesDialogPage : DialogPage
     {
-        private const string collectionName = "ApiStudio";
+        private ResponseCodesControl control;
 
-        //internal List<int> ResponseCodes { get; set; }
         internal void AddResponseCode(int ResponseCode)
         {
             ApiStudioUserSettingsStore.Instance.ResponseCodes.Add(ResponseCode);
@@ -41,17 +41,24 @@ namespace ApiStudioIO.VsOptions
             ApiStudioUserSettingsStore.Instance.Load();
         }
 
+        protected override void OnActivate(CancelEventArgs e)
+        {
+            base.OnActivate(e);
+
+            if(control != null)
+                control.Initialize();
+        }
+
         protected override IWin32Window Window
         {
             get
             {
                 ThreadHelper.ThrowIfNotOnUIThread();
-                ResponseCodesControl page = new ResponseCodesControl
+                control = new ResponseCodesControl
                 {
                     responseCodesDialogPage = this
                 };
-                page.Initialize();
-                return page;
+                return control;
             }
         }
     }

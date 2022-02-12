@@ -19,12 +19,9 @@ namespace ApiStudioIO.VsOptions
         }
 
         internal ResponseCodesDialogPage responseCodesDialogPage;
-        private bool _isInitialized = false;
 
         public void Initialize()
         {
-            _isInitialized = false;
-
             lvwResponseCodes.Items.Clear();
             foreach (var httpResponseCode in HttpResponseExtension.HttpResponseCodes)
             {
@@ -33,7 +30,7 @@ namespace ApiStudioIO.VsOptions
                     Text = httpResponseCode.Key.ToString()
                 };
                 lvItem.SubItems.Add(httpResponseCode.Value.Description);
-                lvItem.SubItems.Add(httpResponseCode.Value.RfcReference);
+                lvItem.ToolTipText = httpResponseCode.Value.RfcReference;
 
                 if (responseCodesDialogPage.ResponseCodeContains(httpResponseCode.Key))
                     lvItem.Checked = true;
@@ -42,7 +39,6 @@ namespace ApiStudioIO.VsOptions
             }
             
             AutoResizeColumns(lvwResponseCodes);
-            _isInitialized = true;
         }
 
         private static void AutoResizeColumns(ListView lv)
@@ -59,14 +55,17 @@ namespace ApiStudioIO.VsOptions
             }
         }
 
-        private void LvwResponseCodes_ItemChecked(object sender, ItemCheckedEventArgs e)
+
+        private void lvwResponseCodes_Click(object sender, EventArgs e)
         {
-            if (_isInitialized)
+            if (lvwResponseCodes.SelectedItems.Count > 0)
             {
-                if (e.Item.Checked)
-                    responseCodesDialogPage.AddResponseCode(int.Parse(e.Item.Text));
+                var item = lvwResponseCodes.SelectedItems[0];
+                item.Checked = !item.Checked;
+                if (item.Checked)
+                    responseCodesDialogPage.AddResponseCode(int.Parse(item.Text));
                 else
-                    responseCodesDialogPage.RemoveResponseCode(int.Parse(e.Item.Text));
+                    responseCodesDialogPage.RemoveResponseCode(int.Parse(item.Text));
             }
         }
     }

@@ -34,7 +34,6 @@
             this.lvwResponseCodes = new System.Windows.Forms.ListView();
             this.Code = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Rfc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // chkShowSelected
@@ -68,24 +67,25 @@
             // 
             // lvwResponseCodes
             // 
+            this.lvwResponseCodes.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.lvwResponseCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lvwResponseCodes.CheckBoxes = true;
             this.lvwResponseCodes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Code,
-            this.Description,
-            this.Rfc});
-            this.lvwResponseCodes.GridLines = true;
+            this.Description});
+            this.lvwResponseCodes.FullRowSelect = true;
             this.lvwResponseCodes.HideSelection = false;
             this.lvwResponseCodes.Location = new System.Drawing.Point(16, 36);
             this.lvwResponseCodes.MultiSelect = false;
             this.lvwResponseCodes.Name = "lvwResponseCodes";
+            this.lvwResponseCodes.ShowItemToolTips = true;
             this.lvwResponseCodes.Size = new System.Drawing.Size(343, 209);
             this.lvwResponseCodes.TabIndex = 4;
             this.lvwResponseCodes.UseCompatibleStateImageBehavior = false;
             this.lvwResponseCodes.View = System.Windows.Forms.View.Details;
-            this.lvwResponseCodes.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.LvwResponseCodes_ItemChecked);
+            this.lvwResponseCodes.Click += new System.EventHandler(this.lvwResponseCodes_Click);
             // 
             // Code
             // 
@@ -95,12 +95,7 @@
             // Description
             // 
             this.Description.Text = "Description";
-            this.Description.Width = 175;
-            // 
-            // Rfc
-            // 
-            this.Rfc.Text = "Rfc";
-            this.Rfc.Width = 114;
+            this.Description.Width = 268;
             // 
             // ResponseCodesControl
             // 
@@ -124,6 +119,5 @@
         private System.Windows.Forms.ListView lvwResponseCodes;
         private System.Windows.Forms.ColumnHeader Code;
         private System.Windows.Forms.ColumnHeader Description;
-        private System.Windows.Forms.ColumnHeader Rfc;
     }
 }

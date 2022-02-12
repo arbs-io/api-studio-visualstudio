@@ -37,7 +37,7 @@
             var userSettingsStore = settingsManager.GetWritableSettingsStore(SettingsScope.UserSettings);
 
             if (!userSettingsStore.PropertyExists(collectionName, propertyName))
-                return;
+                return; // Set and Cancelled so just reset and forget
 
             var stored = userSettingsStore.GetString(collectionName, propertyName);
             instance = JsonConvert.DeserializeObject<ApiStudioUserSettingsStore>(stored);
