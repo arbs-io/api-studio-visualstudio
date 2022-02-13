@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResponseCodesControl));
             this.chkShowSelected = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Search = new System.Windows.Forms.Label();
             this.lvwResponseCodes = new System.Windows.Forms.ListView();
             this.Code = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ControlImages = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // chkShowSelected
@@ -71,7 +74,6 @@
             this.lvwResponseCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwResponseCodes.CheckBoxes = true;
             this.lvwResponseCodes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Code,
             this.Description});
@@ -97,6 +99,13 @@
             this.Description.Text = "Description";
             this.Description.Width = 268;
             // 
+            // ControlImages
+            // 
+            this.ControlImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ControlImages.ImageStream")));
+            this.ControlImages.TransparentColor = System.Drawing.Color.Transparent;
+            this.ControlImages.Images.SetKeyName(0, "empty.ico");
+            this.ControlImages.Images.SetKeyName(1, "plus_button.ico");
+            // 
             // ResponseCodesControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -119,5 +128,6 @@
         private System.Windows.Forms.ListView lvwResponseCodes;
         private System.Windows.Forms.ColumnHeader Code;
         private System.Windows.Forms.ColumnHeader Description;
+        private System.Windows.Forms.ImageList ControlImages;
     }
 }

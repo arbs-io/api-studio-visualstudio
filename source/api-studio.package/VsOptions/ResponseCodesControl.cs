@@ -16,6 +16,7 @@ namespace ApiStudioIO.VsOptions
         public ResponseCodesControl()
         {
             InitializeComponent();
+            lvwResponseCodes.SmallImageList = ControlImages;
         }
 
         internal ResponseCodesDialogPage responseCodesDialogPage;
@@ -31,9 +32,10 @@ namespace ApiStudioIO.VsOptions
                 };
                 lvItem.SubItems.Add(httpResponseCode.Value.Description);
                 lvItem.ToolTipText = httpResponseCode.Value.RfcReference;
+                lvItem.ImageIndex = 0;
 
                 if (responseCodesDialogPage.ResponseCodeContains(httpResponseCode.Key))
-                    lvItem.Checked = true;
+                    lvItem.ImageIndex = 1;
 
                 lvwResponseCodes.Items.Add(lvItem);
             }
@@ -55,17 +57,21 @@ namespace ApiStudioIO.VsOptions
             }
         }
 
-
         private void lvwResponseCodes_Click(object sender, EventArgs e)
         {
             if (lvwResponseCodes.SelectedItems.Count > 0)
             {
                 var item = lvwResponseCodes.SelectedItems[0];
-                item.Checked = !item.Checked;
-                if (item.Checked)
+                if(item.ImageIndex == 0)
+                {
+                    item.ImageIndex = 1;
                     responseCodesDialogPage.AddResponseCode(int.Parse(item.Text));
+                }
                 else
+                {
+                    item.ImageIndex = 0;
                     responseCodesDialogPage.RemoveResponseCode(int.Parse(item.Text));
+                }
             }
         }
     }
