@@ -71,8 +71,8 @@
             // 
             this.ControlImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ControlImages.ImageStream")));
             this.ControlImages.TransparentColor = System.Drawing.Color.Transparent;
-            this.ControlImages.Images.SetKeyName(0, "empty.ico");
-            this.ControlImages.Images.SetKeyName(1, "plus_button.ico");
+            this.ControlImages.Images.SetKeyName(0, "item-unchecked.ico");
+            this.ControlImages.Images.SetKeyName(1, "item-checked.ico");
             // 
             // ResponseCodesControl
             // 
