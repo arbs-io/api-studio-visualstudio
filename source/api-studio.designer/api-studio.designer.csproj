@@ -236,6 +236,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\api-studio.utility\api-studio.utility.csproj" />
+    <ProjectReference Include="..\api-studio.vsoptions\api-studio.vsoptions.csproj" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="GeneratedCode\DomainModelResx.resx">

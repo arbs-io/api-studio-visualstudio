@@ -41,7 +41,7 @@
                 // Set and Cancelled so just reset and forget. Defaults are:
                 //  (400) Bad Request, (401) Authentication, (403) Forbidden, (404) Not Found, 
                 //  (405) Not Allowed, (415) Unsupported MediaType, (422) Unprocessable, (500) Server Error
-                ResponseCodes = new List<int>() { 400, 401, 403, 404, 405, 415, 422, 500 };
+                ResponseCodes = new List<int>() { 400, 401, 403, 404, 415, 422, 500 };
                 return;
             }
 

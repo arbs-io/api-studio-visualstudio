@@ -71,41 +71,6 @@
             <ExternalTypeMoniker Name="/System/Boolean" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="6f3e9977-0f9f-433d-b248-3ad919a618ab" Description="The request could not be authenticated and\or the request was authenticated but is not authorised to access the resource." Name="ResponseCodesSecurity" DisplayName="(401) Authentication" DefaultValue="true" Category="Response Codes">
-          <Type>
-            <ExternalTypeMoniker Name="/System/Boolean" />
-          </Type>
-        </DomainProperty>
-        <DomainProperty Id="51d3518d-f44b-48f7-bf74-b013feb90f8c" Description="The server cannot process the request (such as malformed request syntax, size too large, invalid request message framing, or deceptive request routing, invalid values in the request)" Name="ResponseCodesBadRequest" DisplayName="(400) Bad Request" DefaultValue="true" Category="Response Codes">
-          <Type>
-            <ExternalTypeMoniker Name="/System/Boolean" />
-          </Type>
-        </DomainProperty>
-        <DomainProperty Id="e89d4c47-0299-4d39-8f45-a0e00248d69a" Description="The resource was not found." Name="ResponseCodesNotFound" DisplayName="(404) Not Found" DefaultValue="true" Category="Response Codes">
-          <Type>
-            <ExternalTypeMoniker Name="/System/Boolean" />
-          </Type>
-        </DomainProperty>
-        <DomainProperty Id="387e8c92-343a-4e7e-9330-470e8aa29509" Description="Method not allowed on resource. The response may include an Allow header containing a list of valid methods for the resource." Name="ResponseCodesNotAllowed" DisplayName="(405) Not Allowed" DefaultValue="false" Category="Response Codes">
-          <Type>
-            <ExternalTypeMoniker Name="/System/Boolean" />
-          </Type>
-        </DomainProperty>
-        <DomainProperty Id="1a6e93f3-1787-4bea-904d-c11b6dc2db06" Description="This status code indicates that the server received the request but it did not fulfil the requirements of the back end. An example is a mandatory field was not provided in the payload." Name="ResponseCodesUnprocessable" DisplayName="(422) Unprocessable" DefaultValue="true" Category="Response Codes">
-          <Type>
-            <ExternalTypeMoniker Name="/System/Boolean" />
-          </Type>
-        </DomainProperty>
-        <DomainProperty Id="f4cf2494-e972-4cc8-8f5a-1d22088acb9d" Description="This status code indicates that the server refuses to accept the request because the content type specified in the request is not supported by the server" Name="ResponseCodesUnsupportedMediaType" DisplayName="(415) Unsupported MediaType" DefaultValue="true" Category="Response Codes">
-          <Type>
-            <ExternalTypeMoniker Name="/System/Boolean" />
-          </Type>
-        </DomainProperty>
-        <DomainProperty Id="7510774d-60ea-4ce9-8e04-2d90e229bfff" Description="An internal server error. The response body may contain error messages." Name="ResponseCodesServerError" DisplayName="(500) Server Error" DefaultValue="false" Category="Response Codes">
-          <Type>
-            <ExternalTypeMoniker Name="/System/Boolean" />
-          </Type>
-        </DomainProperty>
         <DomainProperty Id="5c9bccd9-1593-4db8-819f-4ca5e84ec02b" Description="An internal server error. The response body may contain error messages." Name="SecurityApiKey" DisplayName="Api Key" DefaultValue="" Category="Security">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
@@ -1030,27 +995,6 @@
           </XmlPropertyData>
           <XmlPropertyData XmlName="initialResourceIsRoot">
             <DomainPropertyMoniker Name="ApiStudio/InitialResourceIsRoot" />
-          </XmlPropertyData>
-          <XmlPropertyData XmlName="ResponseCodesSecurity">
-            <DomainPropertyMoniker Name="ApiStudio/ResponseCodesSecurity" />
-          </XmlPropertyData>
-          <XmlPropertyData XmlName="ResponseCodesBadRequest">
-            <DomainPropertyMoniker Name="ApiStudio/ResponseCodesBadRequest" />
-          </XmlPropertyData>
-          <XmlPropertyData XmlName="ResponseCodesNotFound">
-            <DomainPropertyMoniker Name="ApiStudio/ResponseCodesNotFound" />
-          </XmlPropertyData>
-          <XmlPropertyData XmlName="ResponseCodesNotAllowed">
-            <DomainPropertyMoniker Name="ApiStudio/ResponseCodesNotAllowed" />
-          </XmlPropertyData>
-          <XmlPropertyData XmlName="ResponseCodesUnprocessable">
-            <DomainPropertyMoniker Name="ApiStudio/ResponseCodesUnprocessable" />
-          </XmlPropertyData>
-          <XmlPropertyData XmlName="ResponseCodesUnsupportedMediaType">
-            <DomainPropertyMoniker Name="ApiStudio/ResponseCodesUnsupportedMediaType" />
-          </XmlPropertyData>
-          <XmlPropertyData XmlName="ResponseCodesServerError">
-            <DomainPropertyMoniker Name="ApiStudio/ResponseCodesServerError" />
           </XmlPropertyData>
           <XmlRelationshipData UseFullForm="true" RoleElementName="resourced">
             <DomainRelationshipMoniker Name="ApiStudioHasResourced" />

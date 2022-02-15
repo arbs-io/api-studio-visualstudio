@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-	<Identity Id="4a6ef9c8-3428-4bd6-9b17-c57b4285bbd8" Version="2022.2.14.638" Language="en-US" Publisher="api-studio.io" />
+	<Identity Id="4a6ef9c8-3428-4bd6-9b17-c57b4285bbd8" Version="2022.2.15.1400" Language="en-US" Publisher="api-studio.io" />
     <DisplayName>Azure Function (ApiStudio)</DisplayName>
     <Description>Azure Function (ApiStudio) design component for visual studio</Description>
     <MoreInfo>https://api.api-studio.io</MoreInfo>
