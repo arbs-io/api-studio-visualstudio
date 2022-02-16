@@ -11,21 +11,24 @@ using ApiStudioIO.Utility.Extensions;
 
 namespace ApiStudioIO.VsOptions
 {
-    public partial class ResponseCodesControl : UserControl
+    public partial class ResponseCodesGeneralControl : UserControl
     {
-        public ResponseCodesControl()
+        public ResponseCodesGeneralControl()
         {
             InitializeComponent();
-            lvwResponseCodes.SmallImageList = ControlImages;
+            ListviewResponseCodes.SmallImageList = ControlImages;
         }
 
-        internal ResponseCodesDialogPage responseCodesDialogPage;
+        internal ResponseCodesGeneralDialogPage DlgPage;
 
         public void Initialize()
         {
-            lvwResponseCodes.Items.Clear();
+            ListviewResponseCodes.Items.Clear();
             foreach (var httpResponseCode in HttpResponseExtension.HttpResponseCodes)
             {
+                if (httpResponseCode.Key >= 200 && httpResponseCode.Key < 300)
+                    continue;   // No success defaults
+
                 var lvItem = new ListViewItem
                 {
                     Text = httpResponseCode.Key.ToString()
@@ -34,13 +37,13 @@ namespace ApiStudioIO.VsOptions
                 lvItem.ToolTipText = httpResponseCode.Value.RfcReference;
                 lvItem.ImageIndex = 0;
 
-                if (responseCodesDialogPage.ResponseCodeContains(httpResponseCode.Key))
+                if (DlgPage.ResponseCodeContains(httpResponseCode.Key))
                     lvItem.ImageIndex = 1;
 
-                lvwResponseCodes.Items.Add(lvItem);
+                ListviewResponseCodes.Items.Add(lvItem);
             }
             
-            AutoResizeColumns(lvwResponseCodes);
+            AutoResizeColumns(ListviewResponseCodes);
         }
 
         private static void AutoResizeColumns(ListView lv)
@@ -57,20 +60,20 @@ namespace ApiStudioIO.VsOptions
             }
         }
 
-        private void lvwResponseCodes_Click(object sender, EventArgs e)
+        private void ListviewResponseCodes_Click(object sender, EventArgs e)
         {
-            if (lvwResponseCodes.SelectedItems.Count > 0)
+            if (ListviewResponseCodes.SelectedItems.Count > 0)
             {
-                var item = lvwResponseCodes.SelectedItems[0];
-                if(item.ImageIndex == 0)
+                var item = ListviewResponseCodes.SelectedItems[0];
+                if (item.ImageIndex == 0)
                 {
                     item.ImageIndex = 1;
-                    responseCodesDialogPage.AddResponseCode(int.Parse(item.Text));
+                    DlgPage.AddResponseCode(int.Parse(item.Text));
                 }
                 else
                 {
                     item.ImageIndex = 0;
-                    responseCodesDialogPage.RemoveResponseCode(int.Parse(item.Text));
+                    DlgPage.RemoveResponseCode(int.Parse(item.Text));
                 }
             }
         }

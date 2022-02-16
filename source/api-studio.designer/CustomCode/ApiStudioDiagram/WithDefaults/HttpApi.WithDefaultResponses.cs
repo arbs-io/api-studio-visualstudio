@@ -39,39 +39,39 @@
             switch (httpApi)
             {
                 case HttpApiGet _:          // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET
-                    apiResponses.Add(200);
+                    apiResponses.Add(ApiStudioUserSettingsStore.Instance.HttpDefaultGet);
                     break;
 
                 case HttpApiPut _:          // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PUT
-                    apiResponses.Add(202);  // 200, 201, 204
+                    apiResponses.Add(ApiStudioUserSettingsStore.Instance.HttpDefaultPut);  // 200, 201, 204
                     if (defaultResponseCodes.Contains(422))  //[Unprocessable]
                         apiResponses.Add(422);
                     break;
 
                 case HttpApiPost _:         // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST
-                    apiResponses.Add(201);
+                    apiResponses.Add(ApiStudioUserSettingsStore.Instance.HttpDefaultPost);
                     if (defaultResponseCodes.Contains(422))  //[Unprocessable]
                         apiResponses.Add(422);
                     break;
 
                 case HttpApiDelete _:       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/DELETE
-                    apiResponses.Add(202);  // 200, 202, 204
+                    apiResponses.Add(ApiStudioUserSettingsStore.Instance.HttpDefaultDelete);  // 200, 202, 204
                     break;
 
                 case HttpApiPatch _:        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PATCH
-                    apiResponses.Add(204);  // 200, 204
+                    apiResponses.Add(ApiStudioUserSettingsStore.Instance.HttpDefaultPatch);  // 200, 204
                     break;
 
                 case HttpApiTrace _:        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/TRACE
-                    apiResponses.Add(200);
+                    apiResponses.Add(ApiStudioUserSettingsStore.Instance.HttpDefaultTrace);
                     break;
 
                 case HttpApiHead _:         // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/HEAD
-                    apiResponses.Add(200);
+                    apiResponses.Add(ApiStudioUserSettingsStore.Instance.HttpDefaultHead);
                     break;
 
                 case HttpApiOptions _:      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS
-                    apiResponses.Add(204);
+                    apiResponses.Add(ApiStudioUserSettingsStore.Instance.HttpDefaultOptions);
                     break;
             }
 

@@ -67,5 +67,29 @@
         [JsonProperty("response_codes")]
         public List<int> ResponseCodes { get; set; } = new List<int>();
 
+        [JsonProperty("http_default_get")]
+        public int HttpDefaultGet { get; set; } = 200;
+
+        [JsonProperty("http_default_put")]
+        public int HttpDefaultPut { get; set; } = 202;
+
+        [JsonProperty("http_default_post")]
+        public int HttpDefaultPost { get; set; } = 201;
+
+        [JsonProperty("http_default_delete")]
+        public int HttpDefaultDelete { get; set; } = 202;
+
+        [JsonProperty("http_default_patch")]
+        public int HttpDefaultPatch { get; set; } = 202;
+
+        [JsonProperty("http_default_trace")]
+        public int HttpDefaultTrace { get; set; } = 200;
+
+        [JsonProperty("http_default_head")]
+        public int HttpDefaultHead { get; set; } = 200;
+
+        [JsonProperty("http_default_options")]
+        public int HttpDefaultOptions { get; set; } = 204;
+
     }
 }

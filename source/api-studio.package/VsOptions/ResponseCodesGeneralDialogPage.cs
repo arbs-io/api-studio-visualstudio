@@ -8,9 +8,9 @@ using System.ComponentModel;
 namespace ApiStudioIO.VsOptions
 {
     [Guid("d69fefa9-3add-4219-af38-2d9f01a8c314")]
-    public class ResponseCodesDialogPage : DialogPage
+    public class ResponseCodesGeneralDialogPage : DialogPage
     {
-        private ResponseCodesControl control;
+        private ResponseCodesGeneralControl control;
 
         internal void AddResponseCode(int ResponseCode)
         {
@@ -54,9 +54,9 @@ namespace ApiStudioIO.VsOptions
             get
             {
                 ThreadHelper.ThrowIfNotOnUIThread();
-                control = new ResponseCodesControl
+                control = new ResponseCodesGeneralControl
                 {
-                    responseCodesDialogPage = this
+                    DlgPage = this
                 };
                 return control;
             }
