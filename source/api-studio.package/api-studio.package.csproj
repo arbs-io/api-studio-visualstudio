@@ -65,9 +65,9 @@
     <PackageReference Include="Microsoft.VisualStudio.Setup.Configuration.Interop" Version="3.*" />
     <PackageReference Include="Microsoft.VisualStudio.Interop" Version="17.*" ExcludeAssets="runtime" />
     <PackageReference Include="Microsoft.VisualStudio.OLE.Interop" Version="17.*" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk" Version="17.*" />
-    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.Diagrams" Version="17.*" />
-    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.Shell" Version="17.*" />
+    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk" Version="17.0.31902.203" />
+    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.Diagrams" Version="17.0.31902.203" />
+    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.Shell" Version="17.0.31902.203" />
     <PackageReference Include="Microsoft.VisualStudio.Shell.15.0" Version="17.*" />
     <PackageReference Include="Microsoft.VisualStudio.Shell.Framework" Version="17.*" />
     <PackageReference Include="Microsoft.VisualStudio.TextManager.Interop" Version="17.*" />
