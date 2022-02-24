@@ -31,7 +31,7 @@
         private static void CreateDefaults(HttpApi httpApi)
         {
             var sourceApiStudio = httpApi.ApiStudio ??
-                                 throw new ArgumentNullException(nameof(httpApi.ApiStudio));
+                                throw new ArgumentNullException(nameof(httpApi.ApiStudio));
 
             var managedList = new List<ApiStudioComponentParameter>();
             var variableCaseType = sourceApiStudio.CodeGenerationVariableCaseType;
