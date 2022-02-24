@@ -103,12 +103,13 @@
     <Compile Include="CodeGeneration\ApiStudioCodeGeneration.cs">
       <Generator>ResXFileCodeGenerator</Generator>
     </Compile>
+    <Compile Include="VsOptions\ResponseCodesSuccess.cs" />
     <Compile Include="VsOptions\ApiStudioIOPackageBase.cs" />
-    <Compile Include="VsOptions\ResponseCodesGeneralControl.cs">
+    <Compile Include="VsOptions\ResponseCodesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="VsOptions\ResponseCodesGeneralControl.Designer.cs">
-      <DependentUpon>ResponseCodesGeneralControl.cs</DependentUpon>
+    <Compile Include="VsOptions\ResponseCodesControl.Designer.cs">
+      <DependentUpon>ResponseCodesControl.cs</DependentUpon>
     </Compile>
     <Compile Include="VsOptions\GeneralControl.cs">
       <SubType>UserControl</SubType>
@@ -119,10 +120,7 @@
     <Compile Include="VsOptions\GeneralDialogPage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="VsOptions\ResponseCodesGeneralDialogPage.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="VsOptions\ResponseCodesSuccessDialogPage.cs">
+    <Compile Include="VsOptions\ResponseCodesDialogPage.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="VSPackage.Designer.cs">
@@ -250,8 +248,8 @@
     <Service Include="{508349B6-6B84-4df5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="VsOptions\ResponseCodesGeneralControl.resx">
-      <DependentUpon>ResponseCodesGeneralControl.cs</DependentUpon>
+    <EmbeddedResource Include="VsOptions\ResponseCodesControl.resx">
+      <DependentUpon>ResponseCodesControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VsOptions\GeneralControl.resx">
       <DependentUpon>GeneralControl.cs</DependentUpon>

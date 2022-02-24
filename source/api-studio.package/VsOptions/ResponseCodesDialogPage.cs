@@ -8,23 +8,23 @@ using System.ComponentModel;
 namespace ApiStudioIO.VsOptions
 {
     [Guid("d69fefa9-3add-4219-af38-2d9f01a8c314")]
-    public class ResponseCodesGeneralDialogPage : DialogPage
+    public class ResponseCodesDialogPage : DialogPage
     {
-        private ResponseCodesGeneralControl control;
+        private ResponseCodesControl control;
 
         internal void AddResponseCode(int ResponseCode)
         {
-            ApiStudioUserSettingsStore.Instance.ResponseCodes.Add(ResponseCode);
+            ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.StandardResponseCodes.Add(ResponseCode);
         }
 
         internal void RemoveResponseCode(int ResponseCode)
         {
-            ApiStudioUserSettingsStore.Instance.ResponseCodes.Remove(ResponseCode);
+            ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.StandardResponseCodes.Remove(ResponseCode);
         }
 
         internal bool ResponseCodeContains(int ResponseCode)
         {
-            return ApiStudioUserSettingsStore.Instance.ResponseCodes.Contains(ResponseCode);
+            return ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.StandardResponseCodes.Contains(ResponseCode);
         }
 
         public override void SaveSettingsToStorage()
@@ -54,7 +54,7 @@ namespace ApiStudioIO.VsOptions
             get
             {
                 ThreadHelper.ThrowIfNotOnUIThread();
-                control = new ResponseCodesGeneralControl
+                control = new ResponseCodesControl
                 {
                     DlgPage = this
                 };

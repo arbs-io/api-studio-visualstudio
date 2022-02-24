@@ -27,8 +27,8 @@
         #endregion Singleton
 
         #region Visual Studio Interop
-        private const string collectionName = "ApiStudio";
-        private const string propertyName = "Configuration";
+        private const string collectionName = "api-studio";
+        private const string propertyName = "configuration-v1";
 
         public void Load()
         {
@@ -38,12 +38,10 @@
 
             if (!userSettingsStore.PropertyExists(collectionName, propertyName))
             {
-                // Set and Cancelled so just reset and forget. Defaults are:
-                //  (400) Bad Request, (401) Authentication, (403) Forbidden, (404) Not Found, 
-                //  (405) Not Allowed, (415) Unsupported MediaType, (422) Unprocessable, (500) Server Error
-                ResponseCodes = new List<int>() { 400, 401, 403, 404, 415, 422, 500 };
+                instance.DefaultResponseCodes.LoadDefaults();
                 return;
             }
+                
 
             var stored = userSettingsStore.GetString(collectionName, propertyName);
             instance = JsonConvert.DeserializeObject<ApiStudioUserSettingsStore>(stored);
@@ -64,32 +62,7 @@
         }
         #endregion Visual Studio Interop
 
-        [JsonProperty("response_codes")]
-        public List<int> ResponseCodes { get; set; } = new List<int>();
-
-        [JsonProperty("http_default_get")]
-        public int HttpDefaultGet { get; set; } = 200;
-
-        [JsonProperty("http_default_put")]
-        public int HttpDefaultPut { get; set; } = 202;
-
-        [JsonProperty("http_default_post")]
-        public int HttpDefaultPost { get; set; } = 201;
-
-        [JsonProperty("http_default_delete")]
-        public int HttpDefaultDelete { get; set; } = 202;
-
-        [JsonProperty("http_default_patch")]
-        public int HttpDefaultPatch { get; set; } = 202;
-
-        [JsonProperty("http_default_trace")]
-        public int HttpDefaultTrace { get; set; } = 200;
-
-        [JsonProperty("http_default_head")]
-        public int HttpDefaultHead { get; set; } = 200;
-
-        [JsonProperty("http_default_options")]
-        public int HttpDefaultOptions { get; set; } = 204;
-
+        [JsonProperty("DefaultResponseCodes")]
+        public DefaultResponseCodes DefaultResponseCodes { get; set; } = new DefaultResponseCodes();
     }
 }
