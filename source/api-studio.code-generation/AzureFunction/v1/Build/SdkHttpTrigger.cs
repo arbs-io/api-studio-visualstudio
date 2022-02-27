@@ -31,8 +31,23 @@ namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
                 .Replace("{{TOKEN_OAS_FUNCTION_NAME}}", httpApi.DisplayName.ToAlphaNumeric())
                 .Replace("{{TOKEN_OAS_FUNCTION_DESCRIPTION}}", httpApi.Description)
                 .Replace("{{TOKEN_OAS_HTTP_VERB}}", httpApi.HttpVerb.ToUpper())
-                .Replace("{{TOKEN_OAS_HTTP_URI}}", resource.HttpApiUri);
+                .Replace("{{TOKEN_OAS_HTTP_URI}}", resource.HttpApiUri)
+                .Replace("{{TOKEN_OAS_HTTP_STATUS_CODE}}", BuildHttpTriggerResponseStatusCodes(httpApi));
             return new SourceCodeEntity($"{modelName}-{httpApi.DisplayName}.HttpTrigger.cs", httpTriggerSourceCode, false);
+        }
+
+        private static string BuildHttpTriggerResponseStatusCodes(HttpApi httpApi)
+        {
+            var statusCode = httpApi.ResponseStatusCodes
+                .Where(p => p.Type == "Success")
+                .First();
+            var httpStatus = Enum.GetName(typeof(HttpStatusCode), statusCode.HttpStatus);
+            if (httpStatus != null)
+                return $"HttpStatusCode.{httpStatus}";
+            else if (statusCode != null)
+                return $"(HttpStatusCode){statusCode.HttpStatus}";
+            else
+                return "HttpStatusCode.OK";
         }
     }
 }

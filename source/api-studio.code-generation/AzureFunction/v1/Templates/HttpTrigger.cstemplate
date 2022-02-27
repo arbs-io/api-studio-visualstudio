@@ -14,9 +14,9 @@
             _logger = loggerFactory.CreateLogger<{{TOKEN_OAS_CLASS_NAME}}>();
         }
 
-        public async Task<HttpResponseData> RunAsync(FunctionContext functionContext, HttpRequestData httpRequestData)
+        public async Task<HttpResponseData> RunAsync(HttpRequestData httpRequestData)
         {
-            HttpResponseData response = httpRequestData.CreateResponse(HttpStatusCode.OK);
+            HttpResponseData response = httpRequestData.CreateResponse({{TOKEN_OAS_HTTP_STATUS_CODE}});
             response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
 
             await response.WriteStringAsync($"Welcome to Azure Functions!").ConfigureAwait(false);

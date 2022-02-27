@@ -19,9 +19,9 @@
 {{TOKEN_OAS_HTTP_OPENAPI_ATTRIBUTE}}
         public async Task<HttpResponseData> {{TOKEN_OAS_FUNCTION_NAME}}(
             [HttpTrigger(AuthorizationLevel.Function, "{{TOKEN_OAS_HTTP_VERB}}", 
-            Route = "{{TOKEN_OAS_HTTP_URI}}")] FunctionContext functionContext, HttpRequestData httpRequestData)
+            Route = "{{TOKEN_OAS_HTTP_URI}}")] HttpRequestData httpRequestData)
         {
-            return await RunAsync(functionContext, httpRequestData);
+            return await RunAsync(httpRequestData);
         }
     }
 }
