@@ -9,20 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ApiStudioIO.Utility.Extensions;
 
-namespace ApiStudioIO.VsOptions
+namespace ApiStudioIO.VsOptions.HttpResponseCodes
 {
-    public partial class ResponseCodesControl : UserControl
+    public partial class HttpResponseCodesControl : UserControl
     {
-        public ResponseCodesControl()
+        internal HttpResponseCodesDialogPage DlgPage { get; set; }
+        public HttpResponseCodesControl()
         {
             InitializeComponent();
         }
 
-        internal ResponseCodesDialogPage DlgPage;
-
         public void Initialize()
         {
-            SuccessPropertyGrid.SelectedObject = new ResponseCodesSuccess();
+            SuccessPropertyGrid.SelectedObject = new HttpHeader();
             lsvResponseCodesInformation.SmallImageList = ControlImages;
             lsvResponseCodesRedirection.SmallImageList = ControlImages;
             lsvResponseCodesClientError.SmallImageList = ControlImages;

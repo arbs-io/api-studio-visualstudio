@@ -1,4 +1,4 @@
-﻿namespace ApiStudioIO.VsOptions
+﻿namespace ApiStudioIO.VsOptions.General
 {
     partial class GeneralControl
     {
@@ -49,8 +49,8 @@
             // 
             // VersionValue
             // 
-            this.VersionValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.VersionValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.VersionValue.Location = new System.Drawing.Point(54, 52);
             this.VersionValue.Name = "VersionValue";
@@ -69,8 +69,8 @@
             // 
             // Description
             // 
-            this.Description.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.Description.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Description.Location = new System.Drawing.Point(54, 78);
             this.Description.Name = "Description";

@@ -1,6 +1,6 @@
-﻿namespace ApiStudioIO.VsOptions
+﻿namespace ApiStudioIO.VsOptions.HttpResponseCodes
 {
-    partial class ResponseCodesControl
+    partial class HttpResponseCodesControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResponseCodesControl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HttpResponseCodesControl));
             this.ControlImages = new System.Windows.Forms.ImageList(this.components);
             this.tabResponseCodes = new System.Windows.Forms.TabControl();
             this.tabPageInformation = new System.Windows.Forms.TabPage();

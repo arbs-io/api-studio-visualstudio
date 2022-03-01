@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.ComponentModel;
 
-namespace ApiStudioIO.VsOptions
+namespace ApiStudioIO.VsOptions.HttpResponseCodes
 {
     [Guid("d69fefa9-3add-4219-af38-2d9f01a8c314")]
-    public class ResponseCodesDialogPage : DialogPage
+    public class HttpResponseCodesDialogPage : DialogPage
     {
-        private ResponseCodesControl control;
+        private HttpResponseCodesControl control;
 
         internal void AddResponseCode(int ResponseCode)
         {
@@ -54,7 +54,7 @@ namespace ApiStudioIO.VsOptions
             get
             {
                 ThreadHelper.ThrowIfNotOnUIThread();
-                control = new ResponseCodesControl
+                control = new HttpResponseCodesControl
                 {
                     DlgPage = this
                 };

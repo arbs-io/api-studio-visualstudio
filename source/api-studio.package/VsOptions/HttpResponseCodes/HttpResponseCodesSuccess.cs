@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.Shell;
 using System.ComponentModel;
 
-namespace ApiStudioIO.VsOptions
+namespace ApiStudioIO.VsOptions.HttpResponseCodes
 {
-    public class ResponseCodesSuccess
+    public class HttpHeader
     {
         public enum HttpDefaultGetEnum
         {

@@ -103,24 +103,34 @@
     <Compile Include="CodeGeneration\ApiStudioCodeGeneration.cs">
       <Generator>ResXFileCodeGenerator</Generator>
     </Compile>
-    <Compile Include="VsOptions\ResponseCodesSuccess.cs" />
-    <Compile Include="VsOptions\ApiStudioIOPackageBase.cs" />
-    <Compile Include="VsOptions\ResponseCodesControl.cs">
+    <Compile Include="VsOptions\HttpHeaders\HttpHeadersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="VsOptions\ResponseCodesControl.Designer.cs">
-      <DependentUpon>ResponseCodesControl.cs</DependentUpon>
+    <Compile Include="VsOptions\HttpHeaders\HttpHeadersControl.Designer.cs">
+      <DependentUpon>HttpHeadersControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="VsOptions\GeneralControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="VsOptions\GeneralControl.Designer.cs">
-      <DependentUpon>GeneralControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VsOptions\GeneralDialogPage.cs">
+    <Compile Include="VsOptions\HttpHeaders\HttpHeadersDialogPage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="VsOptions\ResponseCodesDialogPage.cs">
+    <Compile Include="VsOptions\HttpHeaders\HttpHeader.cs" />
+    <Compile Include="VsOptions\HttpResponseCodes\HttpResponseCodesSuccess.cs" />
+    <Compile Include="VsOptions\ApiStudioIOPackageBase.cs" />
+    <Compile Include="VsOptions\HttpResponseCodes\HttpResponseCodesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VsOptions\HttpResponseCodes\HttpResponseCodesControl.Designer.cs">
+      <DependentUpon>HttpResponseCodesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VsOptions\General\GeneralControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VsOptions\General\GeneralControl.Designer.cs">
+      <DependentUpon>GeneralControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VsOptions\General\GeneralDialogPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VsOptions\HttpResponseCodes\HttpResponseCodesDialogPage.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="VSPackage.Designer.cs">
@@ -248,10 +258,13 @@
     <Service Include="{508349B6-6B84-4df5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="VsOptions\ResponseCodesControl.resx">
-      <DependentUpon>ResponseCodesControl.cs</DependentUpon>
+    <EmbeddedResource Include="VsOptions\HttpHeaders\HttpHeadersControl.resx">
+      <DependentUpon>HttpHeadersControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VsOptions\GeneralControl.resx">
+    <EmbeddedResource Include="VsOptions\HttpResponseCodes\HttpResponseCodesControl.resx">
+      <DependentUpon>HttpResponseCodesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VsOptions\General\GeneralControl.resx">
       <DependentUpon>GeneralControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VSPackage.resx">
