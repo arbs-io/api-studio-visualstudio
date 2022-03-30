@@ -123,7 +123,7 @@
         </DomainProperty>
       </Properties>
     </DomainClass>
-    <DomainClass Id="f3e51359-b5a8-464c-958d-ab9ac499294f" Description="A document resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources." Name="ResourceInstance" DisplayName="Document" Namespace="ApiStudioIO">
+    <DomainClass Id="f3e51359-b5a8-464c-958d-ab9ac499294f" Description="A instance resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources." Name="ResourceInstance" DisplayName="Document" Namespace="ApiStudioIO">
       <BaseClass>
         <DomainClassMoniker Name="Resource" />
       </BaseClass>
@@ -818,7 +818,7 @@
       </ShapeHasDecorators>
       <Compartment FillColor="Transparent" TitleFillColor="Transparent" Name="HttpApi" TitleFontStyle="Bold" Title="HTTP APIs" />
     </CompartmentShape>
-    <CompartmentShape Id="48ad5525-6cdd-4c82-82f7-86808f325f47" Description="A document resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources." Name="ResourceInstanceShape" DisplayName="Document Resource" Namespace="ApiStudioIO" FixedTooltipText="A document resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources." FillColor="210, 223, 255" OutlineColor="111, 154, 246" InitialHeight="1" Geometry="Rectangle">
+    <CompartmentShape Id="48ad5525-6cdd-4c82-82f7-86808f325f47" Description="A instance resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources." Name="ResourceInstanceShape" DisplayName="Document Resource" Namespace="ApiStudioIO" FixedTooltipText="A instance resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources." FillColor="210, 223, 255" OutlineColor="111, 154, 246" InitialHeight="1" Geometry="Rectangle">
       <BaseCompartmentShape>
         <CompartmentShapeMoniker Name="ResourceShape" />
       </BaseCompartmentShape>
@@ -1743,7 +1743,7 @@
       <ElementTool Name="ResourceCollectionTool" ToolboxIcon="Resources\ResourceCollection.bmp" Caption="Collection" Tooltip="A collection resource is a server-managed directory of resources. Clients may propose new resources to be added to a collection. However, it is up to the collection to choose to create a new resource, or not. A collection resource chooses what it wants to contain and also decides the URIs of each contained resource." HelpKeyword="F1KeywordResourceCollection">
         <DomainClassMoniker Name="ResourceCollection" />
       </ElementTool>
-      <ElementTool Name="ResourceInstanceTool" ToolboxIcon="Resources\ResourceInstance.bmp" Caption="Instance" Tooltip="A document resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources." HelpKeyword="F1KeywordResourceInstance">
+      <ElementTool Name="ResourceInstanceTool" ToolboxIcon="Resources\ResourceInstance.bmp" Caption="Instance" Tooltip="A instance resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources." HelpKeyword="F1KeywordResourceInstance">
         <DomainClassMoniker Name="ResourceInstance" />
       </ElementTool>
       <ElementTool Name="ResourceAttributeTool" ToolboxIcon="Resources\ResourceAttribute.bmp" Caption="Attribute" Tooltip="An attribute resource is a procedural concept. Attributes allow the specific resource for a given attribute of a parent resource. Typically Getter and Putter functionality." HelpKeyword="F1KeywordResourceAttribute">

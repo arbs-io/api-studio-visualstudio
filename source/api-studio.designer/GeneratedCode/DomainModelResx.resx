@@ -334,7 +334,7 @@
     <comment>Category for DomainProperty &apos;HttpApiUri&apos; on DomainClass &apos;Resource&apos;</comment>
   </data>
   <data name="ApiStudioIO.ResourceInstance.Description" xml:space="preserve">
-    <value>A document resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources.</value>
+    <value>A instance resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources.</value>
     <comment>Description for DomainClass &apos;ResourceInstance&apos;</comment>
   </data>
   <data name="ApiStudioIO.ResourceInstance.DisplayName" xml:space="preserve">
@@ -1582,7 +1582,7 @@
     <comment>Text decorator default text</comment>
   </data>
   <data name="ApiStudioIO.ResourceInstanceShape.Description" xml:space="preserve">
-    <value>A document resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources.</value>
+    <value>A instance resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources.</value>
     <comment>Description for DomainClass &apos;ResourceInstanceShape&apos;</comment>
   </data>
   <data name="ApiStudioIO.ResourceInstanceShape.DisplayName" xml:space="preserve">
@@ -1810,7 +1810,7 @@
     <comment>Toolbox item name</comment>
   </data>
   <data name="ResourceInstanceToolToolboxTooltip" xml:space="preserve">
-    <value>A document resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources.</value>
+    <value>A instance resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources.</value>
     <comment>Toolbox tooltip text</comment>
   </data>
   <data name="ResourceAttributeToolToolboxItem" xml:space="preserve">
@@ -2271,5 +2271,3 @@ A DomainClass can be serialized as a moniker only if
     <comment>Toolbox item image</comment>
   </data>
 </root>
-
-

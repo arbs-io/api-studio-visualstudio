@@ -1741,7 +1741,7 @@ namespace ApiStudioIO
 {
 	/// <summary>
 	/// DomainClass ResourceInstance
-	/// A document resource is a singular concept that is akin to an object instance or
+	/// A instance resource is a singular concept that is akin to an object instance or
 	/// database record. In REST, you can view it as a single resource inside resource
 	/// collection. A document’s state representation typically includes both fields
 	/// with values and links to other related resources.

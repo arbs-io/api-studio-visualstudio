@@ -244,7 +244,7 @@
   <xsd:element name="ResourceInstance" type="ResourceInstance" substitutionGroup="resource" />
   <xsd:complexType name="ResourceInstance">
     <xsd:annotation>
-      <xsd:documentation>A document resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources.</xsd:documentation>
+      <xsd:documentation>A instance resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="Resource">
@@ -1740,4 +1740,3 @@
   </xsd:simpleType>
   
 </xsd:schema>
-
