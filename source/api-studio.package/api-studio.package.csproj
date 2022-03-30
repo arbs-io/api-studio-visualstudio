@@ -63,17 +63,17 @@
     <!-- <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.0.*-*" ExcludeAssets="runtime" />
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.0.*-*" /> -->
     <PackageReference Include="Microsoft.VisualStudio.Setup.Configuration.Interop" Version="3.*" />
-    <PackageReference Include="Microsoft.VisualStudio.Interop" Version="17.*" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.VisualStudio.OLE.Interop" Version="17.*" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk" Version="17.*" />
-    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.Diagrams" Version="17.*" />
-    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.Shell" Version="17.*" />
-    <PackageReference Include="Microsoft.VisualStudio.Shell.15.0" Version="17.*" />
-    <PackageReference Include="Microsoft.VisualStudio.Shell.Framework" Version="17.*" />
-    <PackageReference Include="Microsoft.VisualStudio.TextManager.Interop" Version="17.*" />
-    <PackageReference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0" Version="17.*" />
-    <PackageReference Include="Microsoft.VisualStudio.Threading" Version="17.*" />
-    <PackageReference Include="Microsoft.VisualStudio.Validation" Version="17.*" />
+    <PackageReference Include="Microsoft.VisualStudio.Interop" Version="17.0.31902.203" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.VisualStudio.OLE.Interop" Version="17.0.31902.203" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk" Version="17.0.31902.203" />
+    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.Diagrams" Version="17.0.31902.203" />
+    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.Shell" Version="17.0.31902.203" />
+    <PackageReference Include="Microsoft.VisualStudio.Shell.15.0" Version="17.0.31902.203" />
+    <PackageReference Include="Microsoft.VisualStudio.Shell.Framework" Version="17.0.31902.203" />
+    <PackageReference Include="Microsoft.VisualStudio.TextManager.Interop" Version="17.0.31902.203" />
+    <PackageReference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0" Version="17.0.31902.203" />
+    <PackageReference Include="Microsoft.VisualStudio.Threading" Version="17.1.46" />
+    <PackageReference Include="Microsoft.VisualStudio.Validation" Version="17.0.43" />
     <PackageReference Include="Newtonsoft.Json" Version="13.*" />
     <PackageReference Include="System.ComponentModel">
       <Version>4.3.0</Version>
@@ -103,26 +103,34 @@
     <Compile Include="CodeGeneration\ApiStudioCodeGeneration.cs">
       <Generator>ResXFileCodeGenerator</Generator>
     </Compile>
+    <Compile Include="VsOptions\HttpHeaders\HttpHeadersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VsOptions\HttpHeaders\HttpHeadersControl.Designer.cs">
+      <DependentUpon>HttpHeadersControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VsOptions\HttpHeaders\HttpHeadersDialogPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VsOptions\HttpHeaders\HttpHeader.cs" />
+    <Compile Include="VsOptions\HttpResponseCodes\HttpResponseCodesSuccess.cs" />
     <Compile Include="VsOptions\ApiStudioIOPackageBase.cs" />
-    <Compile Include="VsOptions\ResponseCodesControl.cs">
+    <Compile Include="VsOptions\HttpResponseCodes\HttpResponseCodesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="VsOptions\ResponseCodesControl.Designer.cs">
-      <DependentUpon>ResponseCodesControl.cs</DependentUpon>
+    <Compile Include="VsOptions\HttpResponseCodes\HttpResponseCodesControl.Designer.cs">
+      <DependentUpon>HttpResponseCodesControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="VsOptions\GeneralControl.cs">
+    <Compile Include="VsOptions\General\GeneralControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="VsOptions\GeneralControl.Designer.cs">
+    <Compile Include="VsOptions\General\GeneralControl.Designer.cs">
       <DependentUpon>GeneralControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="VsOptions\GeneralDialogPage.cs">
+    <Compile Include="VsOptions\General\GeneralDialogPage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="VsOptions\ResponseCodesDialogPage.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="VsOptions\PropertyDialogPage.cs">
+    <Compile Include="VsOptions\HttpResponseCodes\HttpResponseCodesDialogPage.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="VSPackage.Designer.cs">
@@ -250,10 +258,13 @@
     <Service Include="{508349B6-6B84-4df5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="VsOptions\ResponseCodesControl.resx">
-      <DependentUpon>ResponseCodesControl.cs</DependentUpon>
+    <EmbeddedResource Include="VsOptions\HttpHeaders\HttpHeadersControl.resx">
+      <DependentUpon>HttpHeadersControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VsOptions\GeneralControl.resx">
+    <EmbeddedResource Include="VsOptions\HttpResponseCodes\HttpResponseCodesControl.resx">
+      <DependentUpon>HttpResponseCodesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VsOptions\General\GeneralControl.resx">
       <DependentUpon>GeneralControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VSPackage.resx">

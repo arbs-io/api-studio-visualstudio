@@ -134,48 +134,6 @@
             <xsd:documentation>Determine if the first resource in the resource tree (uri) is used as the root uri e.g. &quot;/&quot; or &quot;/accounts&quot;</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <!-- Property: ResponseCodesSecurity -->
-        <xsd:attribute name="ResponseCodesSecurity" type="xsd:boolean" >
-          <xsd:annotation>
-            <xsd:documentation>The request could not be authenticated and\or the request was authenticated but is not authorised to access the resource.</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-        <!-- Property: ResponseCodesBadRequest -->
-        <xsd:attribute name="ResponseCodesBadRequest" type="xsd:boolean" >
-          <xsd:annotation>
-            <xsd:documentation>The server cannot process the request (such as malformed request syntax, size too large, invalid request message framing, or deceptive request routing, invalid values in the request)</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-        <!-- Property: ResponseCodesNotFound -->
-        <xsd:attribute name="ResponseCodesNotFound" type="xsd:boolean" >
-          <xsd:annotation>
-            <xsd:documentation>The resource was not found.</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-        <!-- Property: ResponseCodesNotAllowed -->
-        <xsd:attribute name="ResponseCodesNotAllowed" type="xsd:boolean" >
-          <xsd:annotation>
-            <xsd:documentation>Method not allowed on resource. The response may include an Allow header containing a list of valid methods for the resource.</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-        <!-- Property: ResponseCodesUnprocessable -->
-        <xsd:attribute name="ResponseCodesUnprocessable" type="xsd:boolean" >
-          <xsd:annotation>
-            <xsd:documentation>This status code indicates that the server received the request but it did not fulfil the requirements of the back end. An example is a mandatory field was not provided in the payload.</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-        <!-- Property: ResponseCodesUnsupportedMediaType -->
-        <xsd:attribute name="ResponseCodesUnsupportedMediaType" type="xsd:boolean" >
-          <xsd:annotation>
-            <xsd:documentation>This status code indicates that the server refuses to accept the request because the content type specified in the request is not supported by the server</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-        <!-- Property: ResponseCodesServerError -->
-        <xsd:attribute name="ResponseCodesServerError" type="xsd:boolean" >
-          <xsd:annotation>
-            <xsd:documentation>An internal server error. The response body may contain error messages.</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
         <!-- Property: SecurityApiKey -->
         <xsd:attribute name="securityApiKey" type="xsd:string" >
           <xsd:annotation>
@@ -286,7 +244,7 @@
   <xsd:element name="ResourceInstance" type="ResourceInstance" substitutionGroup="resource" />
   <xsd:complexType name="ResourceInstance">
     <xsd:annotation>
-      <xsd:documentation>A document resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources.</xsd:documentation>
+      <xsd:documentation>A instance resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="Resource">
@@ -1782,4 +1740,3 @@
   </xsd:simpleType>
   
 </xsd:schema>
-

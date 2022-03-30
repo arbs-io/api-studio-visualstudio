@@ -12,11 +12,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Interop" Version="17.*" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.VisualStudio.Shell.15.0" Version="17.*" />
-    <PackageReference Include="Microsoft.VisualStudio.Shell.Framework" Version="17.*" />
-    <PackageReference Include="Microsoft.VisualStudio.Threading" Version="17.*" />
-    <PackageReference Include="Microsoft.VisualStudio.Validation" Version="17.*" />
+    <PackageReference Include="Microsoft.VisualStudio.Interop" Version="17.0.31902.203" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.VisualStudio.Shell.15.0" Version="17.0.31902.203" />
+    <PackageReference Include="Microsoft.VisualStudio.Shell.Framework" Version="17.0.31902.203" />
+    <PackageReference Include="Microsoft.VisualStudio.Threading" Version="17.1.46" />
+    <PackageReference Include="Microsoft.VisualStudio.Validation" Version="17.0.43" />
     <PackageReference Include="Newtonsoft.Json" Version="13.*" />
   </ItemGroup>
 </Project>

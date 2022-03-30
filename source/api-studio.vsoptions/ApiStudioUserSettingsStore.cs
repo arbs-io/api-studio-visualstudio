@@ -27,8 +27,8 @@
         #endregion Singleton
 
         #region Visual Studio Interop
-        private const string collectionName = "ApiStudio";
-        private const string propertyName = "Configuration";
+        private const string collectionName = "api-studio";
+        private const string propertyName = "configuration-v1";
 
         public void Load()
         {
@@ -37,7 +37,11 @@
             var userSettingsStore = settingsManager.GetWritableSettingsStore(SettingsScope.UserSettings);
 
             if (!userSettingsStore.PropertyExists(collectionName, propertyName))
+            {
+                instance.DefaultResponseCodes.LoadDefaults();
                 return;
+            }
+                
 
             var stored = userSettingsStore.GetString(collectionName, propertyName);
             instance = JsonConvert.DeserializeObject<ApiStudioUserSettingsStore>(stored);
@@ -58,8 +62,7 @@
         }
         #endregion Visual Studio Interop
 
-        [JsonProperty("response_codes")]
-        public List<int> ResponseCodes { get; set; } = new List<int>();
-
+        [JsonProperty("DefaultResponseCodes")]
+        public DefaultResponseCodes DefaultResponseCodes { get; set; } = new DefaultResponseCodes();
     }
 }

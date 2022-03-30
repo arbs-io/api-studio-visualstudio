@@ -3,28 +3,28 @@ using Microsoft.VisualStudio.Shell;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.ComponentModel;
 
-namespace ApiStudioIO.VsOptions
+namespace ApiStudioIO.VsOptions.HttpResponseCodes
 {
     [Guid("d69fefa9-3add-4219-af38-2d9f01a8c314")]
-    public class ResponseCodesDialogPage : DialogPage
+    public class HttpResponseCodesDialogPage : DialogPage
     {
-        private const string collectionName = "ApiStudio";
+        private HttpResponseCodesControl control;
 
-        //internal List<int> ResponseCodes { get; set; }
         internal void AddResponseCode(int ResponseCode)
         {
-            ApiStudioUserSettingsStore.Instance.ResponseCodes.Add(ResponseCode);
+            ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.StandardResponseCodes.Add(ResponseCode);
         }
 
         internal void RemoveResponseCode(int ResponseCode)
         {
-            ApiStudioUserSettingsStore.Instance.ResponseCodes.Remove(ResponseCode);
+            ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.StandardResponseCodes.Remove(ResponseCode);
         }
 
         internal bool ResponseCodeContains(int ResponseCode)
         {
-            return ApiStudioUserSettingsStore.Instance.ResponseCodes.Contains(ResponseCode);
+            return ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.StandardResponseCodes.Contains(ResponseCode);
         }
 
         public override void SaveSettingsToStorage()
@@ -41,17 +41,24 @@ namespace ApiStudioIO.VsOptions
             ApiStudioUserSettingsStore.Instance.Load();
         }
 
+        protected override void OnActivate(CancelEventArgs e)
+        {
+            base.OnActivate(e);
+
+            if(control != null)
+                control.Initialize();
+        }
+
         protected override IWin32Window Window
         {
             get
             {
                 ThreadHelper.ThrowIfNotOnUIThread();
-                ResponseCodesControl page = new ResponseCodesControl
+                control = new HttpResponseCodesControl
                 {
-                    responseCodesDialogPage = this
+                    DlgPage = this
                 };
-                page.Initialize();
-                return page;
+                return control;
             }
         }
     }

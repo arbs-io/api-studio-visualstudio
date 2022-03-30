@@ -277,90 +277,6 @@
     <value>Design</value>
     <comment>Category for DomainProperty &apos;InitialResourceIsRoot&apos; on DomainClass &apos;ApiStudio&apos;</comment>
   </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesSecurity.Description" xml:space="preserve">
-    <value>The request could not be authenticated and\or the request was authenticated but is not authorised to access the resource.</value>
-    <comment>Description for DomainProperty &apos;ResponseCodesSecurity&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesSecurity.DisplayName" xml:space="preserve">
-    <value>(401) Authentication</value>
-    <comment>DisplayName for DomainProperty &apos;ResponseCodesSecurity&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesSecurity.Category" xml:space="preserve">
-    <value>Response Codes</value>
-    <comment>Category for DomainProperty &apos;ResponseCodesSecurity&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesBadRequest.Description" xml:space="preserve">
-    <value>The server cannot process the request (such as malformed request syntax, size too large, invalid request message framing, or deceptive request routing, invalid values in the request)</value>
-    <comment>Description for DomainProperty &apos;ResponseCodesBadRequest&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesBadRequest.DisplayName" xml:space="preserve">
-    <value>(400) Bad Request</value>
-    <comment>DisplayName for DomainProperty &apos;ResponseCodesBadRequest&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesBadRequest.Category" xml:space="preserve">
-    <value>Response Codes</value>
-    <comment>Category for DomainProperty &apos;ResponseCodesBadRequest&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesNotFound.Description" xml:space="preserve">
-    <value>The resource was not found.</value>
-    <comment>Description for DomainProperty &apos;ResponseCodesNotFound&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesNotFound.DisplayName" xml:space="preserve">
-    <value>(404) Not Found</value>
-    <comment>DisplayName for DomainProperty &apos;ResponseCodesNotFound&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesNotFound.Category" xml:space="preserve">
-    <value>Response Codes</value>
-    <comment>Category for DomainProperty &apos;ResponseCodesNotFound&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesNotAllowed.Description" xml:space="preserve">
-    <value>Method not allowed on resource. The response may include an Allow header containing a list of valid methods for the resource.</value>
-    <comment>Description for DomainProperty &apos;ResponseCodesNotAllowed&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesNotAllowed.DisplayName" xml:space="preserve">
-    <value>(405) Not Allowed</value>
-    <comment>DisplayName for DomainProperty &apos;ResponseCodesNotAllowed&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesNotAllowed.Category" xml:space="preserve">
-    <value>Response Codes</value>
-    <comment>Category for DomainProperty &apos;ResponseCodesNotAllowed&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesUnprocessable.Description" xml:space="preserve">
-    <value>This status code indicates that the server received the request but it did not fulfil the requirements of the back end. An example is a mandatory field was not provided in the payload.</value>
-    <comment>Description for DomainProperty &apos;ResponseCodesUnprocessable&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesUnprocessable.DisplayName" xml:space="preserve">
-    <value>(422) Unprocessable</value>
-    <comment>DisplayName for DomainProperty &apos;ResponseCodesUnprocessable&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesUnprocessable.Category" xml:space="preserve">
-    <value>Response Codes</value>
-    <comment>Category for DomainProperty &apos;ResponseCodesUnprocessable&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesUnsupportedMediaType.Description" xml:space="preserve">
-    <value>This status code indicates that the server refuses to accept the request because the content type specified in the request is not supported by the server</value>
-    <comment>Description for DomainProperty &apos;ResponseCodesUnsupportedMediaType&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesUnsupportedMediaType.DisplayName" xml:space="preserve">
-    <value>(415) Unsupported MediaType</value>
-    <comment>DisplayName for DomainProperty &apos;ResponseCodesUnsupportedMediaType&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesUnsupportedMediaType.Category" xml:space="preserve">
-    <value>Response Codes</value>
-    <comment>Category for DomainProperty &apos;ResponseCodesUnsupportedMediaType&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesServerError.Description" xml:space="preserve">
-    <value>An internal server error. The response body may contain error messages.</value>
-    <comment>Description for DomainProperty &apos;ResponseCodesServerError&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesServerError.DisplayName" xml:space="preserve">
-    <value>(500) Server Error</value>
-    <comment>DisplayName for DomainProperty &apos;ResponseCodesServerError&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
-  <data name="ApiStudioIO.ApiStudio/ResponseCodesServerError.Category" xml:space="preserve">
-    <value>Response Codes</value>
-    <comment>Category for DomainProperty &apos;ResponseCodesServerError&apos; on DomainClass &apos;ApiStudio&apos;</comment>
-  </data>
   <data name="ApiStudioIO.ApiStudio/SecurityApiKey.Description" xml:space="preserve">
     <value>An internal server error. The response body may contain error messages.</value>
     <comment>Description for DomainProperty &apos;SecurityApiKey&apos; on DomainClass &apos;ApiStudio&apos;</comment>
@@ -418,7 +334,7 @@
     <comment>Category for DomainProperty &apos;HttpApiUri&apos; on DomainClass &apos;Resource&apos;</comment>
   </data>
   <data name="ApiStudioIO.ResourceInstance.Description" xml:space="preserve">
-    <value>A document resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources.</value>
+    <value>A instance resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources.</value>
     <comment>Description for DomainClass &apos;ResourceInstance&apos;</comment>
   </data>
   <data name="ApiStudioIO.ResourceInstance.DisplayName" xml:space="preserve">
@@ -1666,7 +1582,7 @@
     <comment>Text decorator default text</comment>
   </data>
   <data name="ApiStudioIO.ResourceInstanceShape.Description" xml:space="preserve">
-    <value>A document resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources.</value>
+    <value>A instance resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources.</value>
     <comment>Description for DomainClass &apos;ResourceInstanceShape&apos;</comment>
   </data>
   <data name="ApiStudioIO.ResourceInstanceShape.DisplayName" xml:space="preserve">
@@ -1894,7 +1810,7 @@
     <comment>Toolbox item name</comment>
   </data>
   <data name="ResourceInstanceToolToolboxTooltip" xml:space="preserve">
-    <value>A document resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources.</value>
+    <value>A instance resource is a singular concept that is akin to an object instance or database record. In REST, you can view it as a single resource inside resource collection. A document’s state representation typically includes both fields with values and links to other related resources.</value>
     <comment>Toolbox tooltip text</comment>
   </data>
   <data name="ResourceAttributeToolToolboxItem" xml:space="preserve">
@@ -2355,5 +2271,3 @@ A DomainClass can be serialized as a moniker only if
     <comment>Toolbox item image</comment>
   </data>
 </root>
-
-

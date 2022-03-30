@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace ApiStudioIO.VsOptions
+namespace ApiStudioIO.VsOptions.General
 {
     [Guid("3fbe168a-cba9-4cb3-a6e0-a919dfaa3710")]
     public class GeneralDialogPage : DialogPage
@@ -13,7 +13,7 @@ namespace ApiStudioIO.VsOptions
         {
             get
             {
-                GeneralControl page = new GeneralControl
+                var page = new GeneralControl
                 {
                     generalDialogPage = this
                 };
