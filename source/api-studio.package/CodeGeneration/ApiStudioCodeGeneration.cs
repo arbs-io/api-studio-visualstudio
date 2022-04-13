@@ -23,9 +23,11 @@
             return ".ApiStudio.json";
         }
 
-        protected override byte[] GenerateCode(string apiStudioFilePath, string inputFileContent)
+        protected override byte[] GenerateCode(string inputFileName, string inputFileContent)
         {
-            var buildInfo = ApiStudioCompiler.Run(Dte, apiStudioFilePath);
+            _ = string.IsNullOrWhiteSpace(inputFileName) ? throw new System.ArgumentException($"'{nameof(inputFileName)}' cannot be null or whitespace.", nameof(inputFileName));
+
+            var buildInfo = ApiStudioCompiler.Run(Dte, inputFileName);
             return Encoding.ASCII.GetBytes(buildInfo);
         }
     }
