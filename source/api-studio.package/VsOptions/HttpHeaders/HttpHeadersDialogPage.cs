@@ -1,9 +1,8 @@
-﻿using System;
-using Microsoft.VisualStudio.Shell;
-using System.Collections.Generic;
+﻿using Microsoft.VisualStudio.Shell;
+using System;
+using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using System.ComponentModel;
 
 namespace ApiStudioIO.VsOptions.HttpHeaders
 {
@@ -14,7 +13,7 @@ namespace ApiStudioIO.VsOptions.HttpHeaders
 
         public override void SaveSettingsToStorage()
         {
-            ThreadHelper.ThrowIfNotOnUIThread(); 
+            ThreadHelper.ThrowIfNotOnUIThread();
             base.SaveSettingsToStorage();
             ApiStudioUserSettingsStore.Instance.Save();
         }
@@ -22,7 +21,7 @@ namespace ApiStudioIO.VsOptions.HttpHeaders
         public override void LoadSettingsFromStorage()
         {
             ThreadHelper.ThrowIfNotOnUIThread();
-            base.LoadSettingsFromStorage(); 
+            base.LoadSettingsFromStorage();
             ApiStudioUserSettingsStore.Instance.Load();
         }
 
@@ -30,7 +29,7 @@ namespace ApiStudioIO.VsOptions.HttpHeaders
         {
             base.OnActivate(e);
 
-            if(control != null)
+            if (control != null)
                 control.Initialize();
         }
 

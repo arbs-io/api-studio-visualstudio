@@ -4,13 +4,13 @@
     using Microsoft.VisualStudio.Shell;
     using Microsoft.VisualStudio.Shell.Settings;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
 
     public sealed class ApiStudioUserSettingsStore
     {
         #region Singleton
         //This should be readonly but we want to load from visual studion
-        private static ApiStudioUserSettingsStore instance = new ApiStudioUserSettingsStore();
+        private static readonly ApiStudioUserSettingsStore instance = new ApiStudioUserSettingsStore();
+
         static ApiStudioUserSettingsStore()
         {
         }
@@ -38,13 +38,12 @@
 
             if (!userSettingsStore.PropertyExists(collectionName, propertyName))
             {
-                instance.DefaultResponseCodes.LoadDefaults();
+                ResetDefaults();
                 return;
             }
-                
 
             var stored = userSettingsStore.GetString(collectionName, propertyName);
-            instance = JsonConvert.DeserializeObject<ApiStudioUserSettingsStore>(stored);
+            Data = JsonConvert.DeserializeObject<ApiStudioOptions>(stored);
         }
 
         public void Save()
@@ -56,13 +55,17 @@
             if (!userSettingsStore.CollectionExists(collectionName))
                 userSettingsStore.CreateCollection(collectionName);
 
-            var store = JsonConvert.SerializeObject(this, Formatting.Indented);
+            var store = JsonConvert.SerializeObject(Data, Formatting.Indented);
 
             userSettingsStore.SetString(collectionName, propertyName, store);
         }
+
+        public void ResetDefaults()
+        {
+            Data.DefaultResponseCodes.LoadDefaults();
+        }
         #endregion Visual Studio Interop
 
-        [JsonProperty("DefaultResponseCodes")]
-        public DefaultResponseCodes DefaultResponseCodes { get; set; } = new DefaultResponseCodes();
+        public ApiStudioOptions Data { get; private set; } = new ApiStudioOptions();
     }
 }

@@ -113,6 +113,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="VsOptions\HttpHeaders\HttpHeader.cs" />
+    <Compile Include="VsOptions\HttpResponseCodes\HttpResponseCodesControlHelpers.cs" />
     <Compile Include="VsOptions\HttpResponseCodes\HttpResponseCodesSuccess.cs" />
     <Compile Include="VsOptions\ApiStudioIOPackageBase.cs" />
     <Compile Include="VsOptions\HttpResponseCodes\HttpResponseCodesControl.cs">

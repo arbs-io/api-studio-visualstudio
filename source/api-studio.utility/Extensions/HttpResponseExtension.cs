@@ -117,10 +117,9 @@
             { 509, new ResponseInformation{ Description = "Unassigned", RfcReference = ""} },
             { 510, new ResponseInformation{ Description = "Not Extended", RfcReference = "[RFC2774]"} },
             { 511, new ResponseInformation{ Description = "Network Authentication Required", RfcReference = "[RFC6585]"} },
-            
+
         };
     }
 }
 
 
-            

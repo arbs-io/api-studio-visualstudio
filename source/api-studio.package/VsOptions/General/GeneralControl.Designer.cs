@@ -34,6 +34,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Description = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.BtnReset = new System.Windows.Forms.Button();
+            this.BtnExport = new System.Windows.Forms.Button();
+            this.BtnInput = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,12 +52,12 @@
             // 
             // VersionValue
             // 
-            this.VersionValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.VersionValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.VersionValue.Location = new System.Drawing.Point(54, 52);
             this.VersionValue.Name = "VersionValue";
-            this.VersionValue.Size = new System.Drawing.Size(258, 20);
+            this.VersionValue.Size = new System.Drawing.Size(268, 20);
             this.VersionValue.TabIndex = 1;
             this.VersionValue.TextChanged += new System.EventHandler(this.VersionValue_TextChanged);
             // 
@@ -69,12 +72,12 @@
             // 
             // Description
             // 
-            this.Description.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.Description.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Description.Location = new System.Drawing.Point(54, 78);
             this.Description.Name = "Description";
-            this.Description.Size = new System.Drawing.Size(258, 20);
+            this.Description.Size = new System.Drawing.Size(268, 20);
             this.Description.TabIndex = 3;
             this.Description.TextChanged += new System.EventHandler(this.Description_TextChanged);
             // 
@@ -87,17 +90,53 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "ABC:";
             // 
+            // BtnReset
+            // 
+            this.BtnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnReset.Location = new System.Drawing.Point(247, 134);
+            this.BtnReset.Name = "BtnReset";
+            this.BtnReset.Size = new System.Drawing.Size(75, 23);
+            this.BtnReset.TabIndex = 5;
+            this.BtnReset.Text = "Reset";
+            this.BtnReset.UseVisualStyleBackColor = true;
+            this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
+            // 
+            // BtnExport
+            // 
+            this.BtnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnExport.Location = new System.Drawing.Point(166, 134);
+            this.BtnExport.Name = "BtnExport";
+            this.BtnExport.Size = new System.Drawing.Size(75, 23);
+            this.BtnExport.TabIndex = 6;
+            this.BtnExport.Text = "Export";
+            this.BtnExport.UseVisualStyleBackColor = true;
+            this.BtnExport.Click += new System.EventHandler(this.BtnExport_Click);
+            // 
+            // BtnInput
+            // 
+            this.BtnInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnInput.Location = new System.Drawing.Point(85, 134);
+            this.BtnInput.Name = "BtnInput";
+            this.BtnInput.Size = new System.Drawing.Size(75, 23);
+            this.BtnInput.TabIndex = 7;
+            this.BtnInput.Text = "Input";
+            this.BtnInput.UseVisualStyleBackColor = true;
+            this.BtnInput.Click += new System.EventHandler(this.BtnInput_Click);
+            // 
             // GeneralControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.BtnInput);
+            this.Controls.Add(this.BtnExport);
+            this.Controls.Add(this.BtnReset);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Description);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.VersionValue);
             this.Controls.Add(this.pictureBox1);
             this.Name = "GeneralControl";
-            this.Size = new System.Drawing.Size(325, 164);
+            this.Size = new System.Drawing.Size(335, 171);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -111,5 +150,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox Description;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button BtnReset;
+        private System.Windows.Forms.Button BtnExport;
+        private System.Windows.Forms.Button BtnInput;
     }
 }

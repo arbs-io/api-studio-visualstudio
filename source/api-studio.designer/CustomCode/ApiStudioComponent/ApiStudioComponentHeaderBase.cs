@@ -1,6 +1,5 @@
 ﻿namespace ApiStudioIO
 {
-    using System;
     using System.ComponentModel;
 
     public abstract class ApiStudioComponentHeaderBase : IApiStudioComponent

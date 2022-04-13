@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ApiStudioIO.VsOptions.General
@@ -33,6 +26,32 @@ namespace ApiStudioIO.VsOptions.General
         private void Description_TextChanged(object sender, EventArgs e)
         {
             generalDialogPage.Description = Description.Text;
+        }
+
+        private void BtnInput_Click(object sender, EventArgs e)
+        {
+            var openFileDialog = new OpenFileDialog
+            {
+                Filter = "api studio (*.api-studio)|All files (*.*)|*.*",
+                Multiselect = false
+            };
+            openFileDialog.ShowDialog();
+            var filename = openFileDialog.FileName;
+            _ = MessageBox.Show(filename);
+        }
+
+        private void BtnExport_Click(object sender, EventArgs e)
+        {
+            var saveFileDialog = new SaveFileDialog();
+            saveFileDialog.ShowDialog();
+            var filename = saveFileDialog.FileName;
+            _ = MessageBox.Show(filename);
+
+        }
+
+        private void BtnReset_Click(object sender, EventArgs e)
+        {
+            ApiStudioUserSettingsStore.Instance.ResetDefaults();
         }
     }
 }

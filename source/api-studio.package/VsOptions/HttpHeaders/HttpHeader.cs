@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualStudio.Shell;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace ApiStudioIO.VsOptions.HttpHeaders
 {
@@ -16,8 +15,8 @@ namespace ApiStudioIO.VsOptions.HttpHeaders
         [TypeConverter(typeof(EnumConverter))]
         public HttpDefaultGetEnum HttpDefaultGet
         {
-            get { return (HttpDefaultGetEnum)ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessGet; }
-            set { ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessGet = (int)value; }
+            get { return (HttpDefaultGetEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessGet; }
+            set { ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessGet = (int)value; }
         }
 
     }

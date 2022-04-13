@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text;
 
 namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
 {
@@ -24,6 +23,13 @@ namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
 
         private static SourceCodeEntity GenerateHttpTrigger(string modelName, Resource resource, HttpApi httpApi)
         {
+            if (string.IsNullOrWhiteSpace(modelName))
+            {
+                throw new ArgumentException($"'{nameof(modelName)}' cannot be null or whitespace.", nameof(modelName));
+            }
+            _ = resource ?? throw new ArgumentNullException(nameof(resource));
+            _ = httpApi ?? throw new ArgumentNullException(nameof(httpApi));
+
             var httpTriggerSourceCode = Templates.Resource.HttpTrigger
                 .Replace("{{TOKEN_OAS_NAMESPACE}}", modelName)
                 .Replace("{{TOKEN_OAS_MODEL}}", modelName)
@@ -39,8 +45,7 @@ namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
         private static string BuildHttpTriggerResponseStatusCodes(HttpApi httpApi)
         {
             var statusCode = httpApi.ResponseStatusCodes
-                .Where(p => p.Type == "Success")
-                .First();
+                .First(p => p.Type == "Success");
             var httpStatus = Enum.GetName(typeof(HttpStatusCode), statusCode.HttpStatus);
             if (httpStatus != null)
                 return $"HttpStatusCode.{httpStatus}";

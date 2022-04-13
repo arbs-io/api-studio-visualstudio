@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualStudio.Shell;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace ApiStudioIO.VsOptions.HttpResponseCodes
 {
@@ -16,8 +15,8 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
         [TypeConverter(typeof(EnumConverter))]
         public HttpDefaultGetEnum HttpDefaultGet
         {
-            get { return (HttpDefaultGetEnum)ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessGet; }
-            set { ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessGet = (int)value; }
+            get { return (HttpDefaultGetEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessGet; }
+            set { ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessGet = (int)value; }
         }
 
         public enum HttpDefaultPutEnum
@@ -34,8 +33,8 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
         [TypeConverter(typeof(EnumConverter))]
         public HttpDefaultPutEnum HttpDefaultPut
         {
-            get { return (HttpDefaultPutEnum)ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessPut; }
-            set { ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessPut = (int)value; }
+            get { return (HttpDefaultPutEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPut; }
+            set { ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPut = (int)value; }
         }
 
         public enum HttpDefaultPostEnum
@@ -49,8 +48,8 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
         [TypeConverter(typeof(EnumConverter))]
         public HttpDefaultPostEnum HttpDefaultPost
         {
-            get { return (HttpDefaultPostEnum)ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessPost; }
-            set { ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessPost = (int)value; }
+            get { return (HttpDefaultPostEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPost; }
+            set { ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPost = (int)value; }
         }
 
         public enum HttpDefaultDeleteEnum
@@ -66,8 +65,8 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
         [TypeConverter(typeof(EnumConverter))]
         public HttpDefaultDeleteEnum HttpDefaultDelete
         {
-            get { return (HttpDefaultDeleteEnum)ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessDelete; }
-            set { ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessDelete = (int)value; }
+            get { return (HttpDefaultDeleteEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessDelete; }
+            set { ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessDelete = (int)value; }
         }
 
         public enum HttpDefaultPatchEnum
@@ -84,8 +83,8 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
         [TypeConverter(typeof(EnumConverter))]
         public HttpDefaultPatchEnum HttpDefaultPatch
         {
-            get { return (HttpDefaultPatchEnum)ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessPatch; }
-            set { ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessPatch = (int)value; }
+            get { return (HttpDefaultPatchEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPatch; }
+            set { ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPatch = (int)value; }
         }
 
         public enum HttpDefaultTraceEnum
@@ -99,8 +98,8 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
         [TypeConverter(typeof(EnumConverter))]
         public HttpDefaultTraceEnum HttpDefaultTrace
         {
-            get { return (HttpDefaultTraceEnum)ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessTrace; }
-            set { ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessTrace = (int)value; }
+            get { return (HttpDefaultTraceEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessTrace; }
+            set { ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessTrace = (int)value; }
         }
 
         public enum HttpDefaultHeadEnum
@@ -114,8 +113,8 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
         [TypeConverter(typeof(EnumConverter))]
         public HttpDefaultHeadEnum HttpDefaultHead
         {
-            get { return (HttpDefaultHeadEnum)ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessHead; }
-            set { ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessHead = (int)value; }
+            get { return (HttpDefaultHeadEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessHead; }
+            set { ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessHead = (int)value; }
         }
 
         public enum HttpDefaultOptionsEnum
@@ -129,8 +128,8 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
         [TypeConverter(typeof(EnumConverter))]
         public HttpDefaultOptionsEnum HttpDefaultOptions
         {
-            get { return (HttpDefaultOptionsEnum)ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessOptions; }
-            set { ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessOptions = (int)value; }
+            get { return (HttpDefaultOptionsEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessOptions; }
+            set { ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessOptions = (int)value; }
         }
     }
 }

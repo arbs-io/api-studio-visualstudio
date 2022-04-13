@@ -1,5 +1,4 @@
-﻿using System;
-using DslModeling = Microsoft.VisualStudio.Modeling;
+﻿using DslModeling = Microsoft.VisualStudio.Modeling;
 
 namespace ApiStudioIO
 {
@@ -80,7 +79,7 @@ namespace ApiStudioIO
             {
                 return candidateTarget != null ? throw new System.ArgumentNullException(nameof(candidateSource)) : false;
             }
-            bool acceptSource = CanAcceptSource(candidateSource) & CanAcceptTarget(candidateTarget);
+            bool acceptSource = CanAcceptSource(candidateSource) && CanAcceptTarget(candidateTarget);
             // If the source wasn't accepted then there's no point checking targets.
             // If there is no target then the source controls the accept.
             if (!acceptSource || candidateTarget == null)
@@ -89,17 +88,14 @@ namespace ApiStudioIO
             }
             else // Check combinations
             {
-                if (candidateSource is Resource sourceResource)
+                if (candidateSource is Resource sourceResource && candidateTarget is Api targetApi)
                 {
-                    if (candidateTarget is Api targetApi)
+                    if (ResourceReferencesApis.GetLinks(sourceResource, targetApi).Count > 0)
                     {
-                        if (ResourceReferencesApis.GetLinks(sourceResource, targetApi).Count > 0)
-                        {
-                            return false;
-                        }
-
-                        return true;
+                        return false;
                     }
+
+                    return true;
                 }
             }
             return false;
@@ -126,22 +122,16 @@ namespace ApiStudioIO
                 throw new System.ArgumentNullException(nameof(target));
             }
 
-            if (CanAcceptSourceAndTarget(source, target))
+            if (CanAcceptSourceAndTarget(source, target) && source is Resource sourceAccepted && target is Api targetAccepted)
             {
-                if (source is Resource sourceAccepted)
+                DslModeling::ElementLink result = new ResourceReferencesApis(sourceAccepted, targetAccepted);
+                if (DslModeling::DomainClassInfo.HasNameProperty(result))
                 {
-                    if (target is Api targetAccepted)
-                    {
-                        DslModeling::ElementLink result = new ResourceReferencesApis(sourceAccepted, targetAccepted);
-                        if (DslModeling::DomainClassInfo.HasNameProperty(result))
-                        {
-                            DslModeling::DomainClassInfo.SetUniqueName(result);
-                        }
-                        CreateDefaultHttpApiOnConnect(targetAccepted);  //ApiStudio Add Defaults
-
-                        return result;
-                    }
+                    DslModeling::DomainClassInfo.SetUniqueName(result);
                 }
+                CreateDefaultHttpApiOnConnect(targetAccepted);  //ApiStudio Add Defaults
+
+                return result;
             }
             System.Diagnostics.Debug.Fail("Having agreed that the connection can be accepted we should never fail to make one.");
             throw new System.InvalidOperationException();
@@ -151,15 +141,12 @@ namespace ApiStudioIO
 
         #region Create Defaults
 
-        private static void CreateDefaultHttpApiOnConnect(Api targetAccepted)
-        {
-            (targetAccepted as HttpApi)?
+        private static void CreateDefaultHttpApiOnConnect(Api targetAccepted) => (targetAccepted as HttpApi)?
                 .WithDefaultProperties()
                 .WithDefaultHeaders()
                 .WithDefaultParameters()
                 .WithDefaultMediaTypes()
                 .WithDefaultResponses();
-        }
 
         #endregion Create Defaults
     }

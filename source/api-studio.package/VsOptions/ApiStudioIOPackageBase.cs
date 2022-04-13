@@ -1,5 +1,4 @@
-﻿using ApiStudioIO.VsOptions;
-using Microsoft.VisualStudio.Shell;
+﻿using Microsoft.VisualStudio.Shell;
 
 namespace ApiStudioIO
 {

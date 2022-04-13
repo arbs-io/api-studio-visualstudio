@@ -1,7 +1,7 @@
 ﻿namespace ApiStudioIO
 {
     using System;
-    
+
     public class ApiStudioComponentMediaTypeRequest : ApiStudioComponentMediaTypeBase
     {
         public static implicit operator ApiStudioComponentMediaTypeRequest(HttpApiMediaType domain)

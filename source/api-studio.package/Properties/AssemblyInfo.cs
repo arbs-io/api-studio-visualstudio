@@ -36,4 +36,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion(@"1.0.*")]
 [assembly: ComVisible(false)]
 [assembly: CLSCompliant(false)]
-[assembly: ReliabilityContract(Consistency.MayCorruptProcess, Cer.None)]
+[assembly: ReliabilityContract(Consistency.MayCorruptProcess, Cer.None)] 

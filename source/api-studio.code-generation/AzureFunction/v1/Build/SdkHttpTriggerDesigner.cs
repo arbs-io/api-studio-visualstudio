@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text;
 
 namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
 {
@@ -24,6 +23,13 @@ namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
 
         private static SourceCodeEntity GenerateHttpTrigger(string modelName, Resource resource, HttpApi httpApi)
         {
+            if (string.IsNullOrWhiteSpace(modelName))
+            {
+                throw new ArgumentException($"'{nameof(modelName)}' cannot be null or whitespace.", nameof(modelName));
+            }
+            _ = resource ?? throw new ArgumentNullException(nameof(resource));
+            _ = httpApi ?? throw new ArgumentNullException(nameof(httpApi));
+
             var attributes = new List<string>();
             attributes.AddRange(BuildHttpTriggerSecurity(modelName, httpApi));
             attributes.AddRange(BuildHttpTriggerParameters(httpApi));
@@ -51,7 +57,7 @@ namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
                 attributes.Add($"\t\t[OpenApiSecurity(\"ApiKey\", SecuritySchemeType.ApiKey, Name = \"{securityApiKey}\", In = OpenApiSecurityLocationType.Header)]");
             }
 
-            if(httpApi.ApiStudio.SecuritySchemeType == SecuritySchemeTypes.OAuth2)
+            if (httpApi.ApiStudio.SecuritySchemeType == SecuritySchemeTypes.OAuth2)
             {
                 attributes.Add($"\t\t[OpenApiSecurity(\"ApiStudioOAuth2\", SecuritySchemeType.OAuth2, Flows = typeof({modelName}OpenApiOAuthSecurityFlows))]");
             }

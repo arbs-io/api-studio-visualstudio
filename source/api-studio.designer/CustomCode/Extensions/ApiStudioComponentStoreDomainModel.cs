@@ -1,7 +1,6 @@
 ﻿namespace ApiStudioIO
 {
     using Microsoft.VisualStudio.Modeling;
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -16,7 +15,7 @@
                 value.OrderBy(x => x.FromType).ThenBy(x => x.Identifier)
                     .ToList()
                     .ForEach(domainModel => httpApi.HttpApiParameters.Add(domainModel.ToDomainModel(httpApi.Store)));
-                
+
                 t.Commit();
             }
         }
