@@ -10,7 +10,7 @@
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.*" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.*" OutputItemType="Analyzer" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.*" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.OpenApi" Version="1.*" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.OpenApi" Version="1.2.0" />
   </ItemGroup>
 	<ItemGroup>
 		<Compile Remove="Designer\*.cs" />
