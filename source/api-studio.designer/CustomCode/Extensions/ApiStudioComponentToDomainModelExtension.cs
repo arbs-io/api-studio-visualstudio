@@ -33,7 +33,7 @@
         {
             return new HttpApiMediaTypeRequest(store)
             {
-                PrimaryType = propertyHttpApi.PrimaryTypeName,
+                DiscreteType = propertyHttpApi.DiscreteTypeName,
                 SubType = propertyHttpApi.SubType
             };
         }
@@ -42,7 +42,7 @@
         {
             return new HttpApiMediaTypeResponse(store)
             {
-                PrimaryType = propertyHttpApi.PrimaryTypeName,
+                DiscreteType = propertyHttpApi.DiscreteTypeName,
                 SubType = propertyHttpApi.SubType
             };
         }

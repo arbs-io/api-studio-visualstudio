@@ -6,12 +6,12 @@
     {
         public static implicit operator ApiStudioComponentMediaTypeRequest(HttpApiMediaType domain)
         {
-            var primaryType = (string.IsNullOrEmpty(domain.PrimaryType) || string.IsNullOrEmpty(domain.SubType)) ?
-                PrimaryTypeEnum.application : (PrimaryTypeEnum)Enum.Parse(typeof(PrimaryTypeEnum), domain.PrimaryType);
+            var DiscreteType = (string.IsNullOrEmpty(domain.DiscreteType) || string.IsNullOrEmpty(domain.SubType)) ?
+                AllowedDiscreteType.application : (AllowedDiscreteType)Enum.Parse(typeof(AllowedDiscreteType), domain.DiscreteType);
 
             var apiStudioComponent = new ApiStudioComponentMediaTypeRequest
             {
-                PrimaryType = primaryType,
+                DiscreteType = DiscreteType,
                 SubType = domain.SubType
             };
             return apiStudioComponent;

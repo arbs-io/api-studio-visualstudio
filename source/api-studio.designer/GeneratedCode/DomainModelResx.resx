@@ -845,17 +845,17 @@
     <value>Hidden</value>
     <comment>Category for DomainProperty &apos;DisplayName&apos; on DomainClass &apos;HttpApiMediaType&apos;</comment>
   </data>
-  <data name="ApiStudioIO.HttpApiMediaType/PrimaryType.Description" xml:space="preserve">
+  <data name="ApiStudioIO.HttpApiMediaType/DiscreteType.Description" xml:space="preserve">
     <value>Description for ApiStudioIO.HttpApiMediaType.Primary Type</value>
-    <comment>Description for DomainProperty &apos;PrimaryType&apos; on DomainClass &apos;HttpApiMediaType&apos;</comment>
+    <comment>Description for DomainProperty &apos;DiscreteType&apos; on DomainClass &apos;HttpApiMediaType&apos;</comment>
   </data>
-  <data name="ApiStudioIO.HttpApiMediaType/PrimaryType.DisplayName" xml:space="preserve">
+  <data name="ApiStudioIO.HttpApiMediaType/DiscreteType.DisplayName" xml:space="preserve">
     <value>Primary Type</value>
-    <comment>DisplayName for DomainProperty &apos;PrimaryType&apos; on DomainClass &apos;HttpApiMediaType&apos;</comment>
+    <comment>DisplayName for DomainProperty &apos;DiscreteType&apos; on DomainClass &apos;HttpApiMediaType&apos;</comment>
   </data>
-  <data name="ApiStudioIO.HttpApiMediaType/PrimaryType.Category" xml:space="preserve">
+  <data name="ApiStudioIO.HttpApiMediaType/DiscreteType.Category" xml:space="preserve">
     <value>Definition</value>
-    <comment>Category for DomainProperty &apos;PrimaryType&apos; on DomainClass &apos;HttpApiMediaType&apos;</comment>
+    <comment>Category for DomainProperty &apos;DiscreteType&apos; on DomainClass &apos;HttpApiMediaType&apos;</comment>
   </data>
   <data name="ApiStudioIO.HttpApiMediaType/SubType.Description" xml:space="preserve">
     <value>Description for ApiStudioIO.HttpApiMediaType.Sub Type</value>
@@ -2271,3 +2271,5 @@ A DomainClass can be serialized as a moniker only if
     <comment>Toolbox item image</comment>
   </data>
 </root>
+
+

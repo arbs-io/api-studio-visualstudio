@@ -18,7 +18,7 @@
                 var managedList = new List<ApiStudioComponentMediaTypeResponse>();
                 var managed = new ApiStudioComponentMediaTypeResponse
                 {
-                    PrimaryType = ApiStudioComponentMediaTypeBase.PrimaryTypeEnum.application,
+                    DiscreteType = ApiStudioComponentMediaTypeBase.AllowedDiscreteType.application,
                     SubType = "json"
                 };
                 managedList.Add(managed);
@@ -30,7 +30,7 @@
                 var managedList = new List<ApiStudioComponentMediaTypeRequest>();
                 var managed = new ApiStudioComponentMediaTypeRequest
                 {
-                    PrimaryType = ApiStudioComponentMediaTypeBase.PrimaryTypeEnum.application,
+                    DiscreteType = ApiStudioComponentMediaTypeBase.AllowedDiscreteType.application,
                     SubType = "json"
                 };
                 managedList.Add(managed);

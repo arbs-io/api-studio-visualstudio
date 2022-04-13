@@ -5459,60 +5459,60 @@ namespace ApiStudioIO
 		}
 		
 		#endregion
-		#region PrimaryType domain property code
+		#region DiscreteType domain property code
 		
 		/// <summary>
-		/// PrimaryType domain property Id.
+		/// DiscreteType domain property Id.
 		/// </summary>
-		public static readonly global::System.Guid PrimaryTypeDomainPropertyId = new global::System.Guid(0x518771c0, 0xb2e4, 0x415c, 0x98, 0xe1, 0xf5, 0xb0, 0x0b, 0x3d, 0x66, 0x96);
+		public static readonly global::System.Guid DiscreteTypeDomainPropertyId = new global::System.Guid(0x518771c0, 0xb2e4, 0x415c, 0x98, 0xe1, 0xf5, 0xb0, 0x0b, 0x3d, 0x66, 0x96);
 		
 		/// <summary>
-		/// Storage for PrimaryType
+		/// Storage for DiscreteType
 		/// </summary>
-		private global::System.String primaryTypePropertyStorage = string.Empty;
+		private global::System.String discreteTypePropertyStorage = string.Empty;
 		
 		/// <summary>
-		/// Gets or sets the value of PrimaryType domain property.
+		/// Gets or sets the value of DiscreteType domain property.
 		/// Description for ApiStudioIO.HttpApiMediaType.Primary Type
 		/// </summary>
-		[DslDesign::DisplayNameResource("ApiStudioIO.HttpApiMediaType/PrimaryType.DisplayName", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
-		[DslDesign::CategoryResource("ApiStudioIO.HttpApiMediaType/PrimaryType.Category", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("ApiStudioIO.HttpApiMediaType/PrimaryType.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		[DslDesign::DisplayNameResource("ApiStudioIO.HttpApiMediaType/DiscreteType.DisplayName", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("ApiStudioIO.HttpApiMediaType/DiscreteType.Category", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("ApiStudioIO.HttpApiMediaType/DiscreteType.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[DslModeling::DomainObjectId("518771c0-b2e4-415c-98e1-f5b00b3d6696")]
-		public global::System.String PrimaryType
+		public global::System.String DiscreteType
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return primaryTypePropertyStorage;
+				return discreteTypePropertyStorage;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				PrimaryTypePropertyHandler.Instance.SetValue(this, value);
+				DiscreteTypePropertyHandler.Instance.SetValue(this, value);
 			}
 		}
 		/// <summary>
-		/// Value handler for the HttpApiMediaType.PrimaryType domain property.
+		/// Value handler for the HttpApiMediaType.DiscreteType domain property.
 		/// </summary>
-		internal sealed partial class PrimaryTypePropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiMediaType, global::System.String>
+		internal sealed partial class DiscreteTypePropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiMediaType, global::System.String>
 		{
-			private PrimaryTypePropertyHandler() { }
+			private DiscreteTypePropertyHandler() { }
 		
 			/// <summary>
-			/// Gets the singleton instance of the HttpApiMediaType.PrimaryType domain property value handler.
+			/// Gets the singleton instance of the HttpApiMediaType.DiscreteType domain property value handler.
 			/// </summary>
-			public static readonly PrimaryTypePropertyHandler Instance = new PrimaryTypePropertyHandler();
+			public static readonly DiscreteTypePropertyHandler Instance = new DiscreteTypePropertyHandler();
 		
 			/// <summary>
-			/// Gets the Id of the HttpApiMediaType.PrimaryType domain property.
+			/// Gets the Id of the HttpApiMediaType.DiscreteType domain property.
 			/// </summary>
 			public sealed override global::System.Guid DomainPropertyId
 			{
 				[global::System.Diagnostics.DebuggerStepThrough]
 				get
 				{
-					return PrimaryTypeDomainPropertyId;
+					return DiscreteTypeDomainPropertyId;
 				}
 			}
 			
@@ -5524,7 +5524,7 @@ namespace ApiStudioIO
 			public override sealed global::System.String GetValue(HttpApiMediaType element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-				return element.primaryTypePropertyStorage;
+				return element.discreteTypePropertyStorage;
 			}
 		
 			/// <summary>
@@ -5540,7 +5540,7 @@ namespace ApiStudioIO
 				if (newValue != oldValue)
 				{
 					ValueChanging(element, oldValue, newValue);
-					element.primaryTypePropertyStorage = newValue;
+					element.discreteTypePropertyStorage = newValue;
 					ValueChanged(element, oldValue, newValue);
 				}
 			}

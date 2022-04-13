@@ -460,7 +460,7 @@
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="518771c0-b2e4-415c-98e1-f5b00b3d6696" Description="Description for ApiStudioIO.HttpApiMediaType.Primary Type" Name="PrimaryType" DisplayName="Primary Type" Category="Definition">
+        <DomainProperty Id="518771c0-b2e4-415c-98e1-f5b00b3d6696" Description="Description for ApiStudioIO.HttpApiMediaType.Primary Type" Name="DiscreteType" DisplayName="Primary Type" Category="Definition">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -1284,8 +1284,8 @@
           <XmlPropertyData XmlName="displayName" Representation="Ignore">
             <DomainPropertyMoniker Name="HttpApiMediaType/DisplayName" />
           </XmlPropertyData>
-          <XmlPropertyData XmlName="primaryType">
-            <DomainPropertyMoniker Name="HttpApiMediaType/PrimaryType" />
+          <XmlPropertyData XmlName="DiscreteType">
+            <DomainPropertyMoniker Name="HttpApiMediaType/DiscreteType" />
           </XmlPropertyData>
           <XmlPropertyData XmlName="subType">
             <DomainPropertyMoniker Name="HttpApiMediaType/SubType" />

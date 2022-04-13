@@ -25,7 +25,7 @@
 
         protected override byte[] GenerateCode(string inputFileName, string inputFileContent)
         {
-            _ = string.IsNullOrWhiteSpace(inputFileName) ? throw new System.ArgumentException($"'{nameof(inputFileName)}' cannot be null or whitespace.", nameof(inputFileName));
+            _ = inputFileName ?? throw new System.ArgumentException($"'{nameof(inputFileName)}' cannot be null or whitespace.", nameof(inputFileName));
 
             var buildInfo = ApiStudioCompiler.Run(Dte, inputFileName);
             return Encoding.ASCII.GetBytes(buildInfo);
