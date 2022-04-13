@@ -1,8 +1,7 @@
 ﻿namespace ApiStudioIO
 {
-    using ApiStudioIO.VsOptions;
+    using ApiStudioIO.VsOptions.ConfigurationV1;
     using Microsoft.VisualStudio.Modeling;
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 

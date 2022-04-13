@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using ApiStudioIO.VsOptions.ConfigurationV1;
+using System.ComponentModel;
 
 namespace ApiStudioIO.VsOptions.HttpResponseCodes
 {

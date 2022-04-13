@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApiStudioIO.VsOptions.ConfigurationV1;
+using System;
 using System.Windows.Forms;
 
 namespace ApiStudioIO.VsOptions.General

@@ -1,5 +1,6 @@
-﻿namespace ApiStudioIO.VsOptions
+﻿namespace ApiStudioIO.VsOptions.ConfigurationV1
 {
+    using ApiStudioIO.VsOptions.ConfigurationV1.Models;
     using Microsoft.VisualStudio.Settings;
     using Microsoft.VisualStudio.Shell;
     using Microsoft.VisualStudio.Shell.Settings;
@@ -27,8 +28,7 @@
         #endregion Singleton
 
         #region Visual Studio Interop
-        private const string collectionName = "api-studio";
-        private const string propertyName = "configuration-v1";
+
 
         public void Load()
         {
@@ -36,13 +36,13 @@
             var settingsManager = new ShellSettingsManager(ServiceProvider.GlobalProvider);
             var userSettingsStore = settingsManager.GetWritableSettingsStore(SettingsScope.UserSettings);
 
-            if (!userSettingsStore.PropertyExists(collectionName, propertyName))
+            if (!userSettingsStore.PropertyExists(ConfigurationV1Consts.CollectionName, ConfigurationV1Consts.PropertyName))
             {
                 ResetDefaults();
                 return;
             }
 
-            var stored = userSettingsStore.GetString(collectionName, propertyName);
+            var stored = userSettingsStore.GetString(ConfigurationV1Consts.CollectionName, ConfigurationV1Consts.PropertyName);
             Data = JsonConvert.DeserializeObject<ApiStudioOptions>(stored);
         }
 
@@ -52,12 +52,12 @@
             var settingsManager = new ShellSettingsManager(ServiceProvider.GlobalProvider);
             var userSettingsStore = settingsManager.GetWritableSettingsStore(SettingsScope.UserSettings);
 
-            if (!userSettingsStore.CollectionExists(collectionName))
-                userSettingsStore.CreateCollection(collectionName);
+            if (!userSettingsStore.CollectionExists(ConfigurationV1Consts.CollectionName))
+                userSettingsStore.CreateCollection(ConfigurationV1Consts.CollectionName);
 
             var store = JsonConvert.SerializeObject(Data, Formatting.Indented);
 
-            userSettingsStore.SetString(collectionName, propertyName, store);
+            userSettingsStore.SetString(ConfigurationV1Consts.CollectionName, ConfigurationV1Consts.PropertyName, store);
         }
 
         public void ResetDefaults()

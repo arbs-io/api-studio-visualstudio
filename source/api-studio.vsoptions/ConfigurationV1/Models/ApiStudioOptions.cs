@@ -1,8 +1,5 @@
-﻿namespace ApiStudioIO.VsOptions
+﻿namespace ApiStudioIO.VsOptions.ConfigurationV1.Models
 {
-    using Microsoft.VisualStudio.Settings;
-    using Microsoft.VisualStudio.Shell;
-    using Microsoft.VisualStudio.Shell.Settings;
     using Newtonsoft.Json;
 
     public sealed class ApiStudioOptions

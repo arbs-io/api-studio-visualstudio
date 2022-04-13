@@ -55,7 +55,7 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
                 if (httpResponseCode.Key >= 500)
                     lsvResponseCodesServerError.Items.Add(lvItem);
             }
-            
+
             HttpResponseCodesControlHelpers.AutoResizeColumns(lsvResponseCodesInformation);
             HttpResponseCodesControlHelpers.AutoResizeColumns(lsvResponseCodesRedirection);
             HttpResponseCodesControlHelpers.AutoResizeColumns(lsvResponseCodesClientError);
