@@ -186,78 +186,78 @@
           <Attributes>
             <ClrAttribute Name="System.ComponentModel.Editor">
               <Parameters>
-                <AttributeParameter Value="typeof(ApiStudioComponentUITypeEditor&lt;HttpApi, ApiStudioComponentParameter&gt;)" />
+                <AttributeParameter Value="typeof(ApiStudioComponentUITypeEditor&lt;HttpApi, ApiStudioIO.Common.Models.Http.HttpResourceParameter&gt;)" />
                 <AttributeParameter Value="typeof(System.Drawing.Design.UITypeEditor)" />
               </Parameters>
             </ClrAttribute>
           </Attributes>
           <Type>
-            <ExternalTypeMoniker Name="/System.Collections.Generic/List&lt;ApiStudioComponentParameter&gt;" />
+            <ExternalTypeMoniker Name="/System.Collections.Generic/List&lt;ApiStudioIO.Common.Models.Http.HttpResourceParameter&gt;" />
           </Type>
         </DomainProperty>
         <DomainProperty Id="525d924f-4072-47a0-b74c-b150fd8a11a2" Description="Valid HTTP status codes which provide from the HTTP Api" Name="ResponseStatusCodes" DisplayName="Status Codes" Kind="Calculated" Category="Response">
           <Attributes>
             <ClrAttribute Name="System.ComponentModel.Editor">
               <Parameters>
-                <AttributeParameter Value="typeof(ApiStudioComponentUITypeEditor&lt;HttpApi, ApiStudioComponentResponseStatusCode&gt;)" />
+                <AttributeParameter Value="typeof(ApiStudioComponentUITypeEditor&lt;HttpApi, ApiStudioIO.Common.Models.Http.HttpResourceResponseStatusCode&gt;)" />
                 <AttributeParameter Value="typeof(System.Drawing.Design.UITypeEditor)" />
               </Parameters>
             </ClrAttribute>
           </Attributes>
           <Type>
-            <ExternalTypeMoniker Name="/System.Collections.Generic/List&lt;ApiStudioComponentResponseStatusCode&gt;" />
+            <ExternalTypeMoniker Name="/System.Collections.Generic/List&lt;ApiStudioIO.Common.Models.Http.HttpResourceResponseStatusCode&gt;" />
           </Type>
         </DomainProperty>
         <DomainProperty Id="cae73e7a-8e11-444f-be69-b4a55d76eab6" Description="API output media type collection for the HTTP Api" Name="ResponseMediaTypes" DisplayName="Media Types" Kind="Calculated" Category="Response">
           <Attributes>
             <ClrAttribute Name="System.ComponentModel.Editor">
               <Parameters>
-                <AttributeParameter Value="typeof(ApiStudioComponentUITypeEditor&lt;HttpApi, ApiStudioComponentMediaTypeResponse&gt;)" />
+                <AttributeParameter Value="typeof(ApiStudioComponentUITypeEditor&lt;HttpApi, ApiStudioIO.Common.Models.Http.HttpResourceMediaTypeResponse&gt;)" />
                 <AttributeParameter Value="typeof(System.Drawing.Design.UITypeEditor)" />
               </Parameters>
             </ClrAttribute>
           </Attributes>
           <Type>
-            <ExternalTypeMoniker Name="/System.Collections.Generic/List&lt;ApiStudioComponentMediaTypeResponse&gt;" />
+            <ExternalTypeMoniker Name="/System.Collections.Generic/List&lt;ApiStudioIO.Common.Models.Http.HttpResourceMediaTypeResponse&gt;" />
           </Type>
         </DomainProperty>
         <DomainProperty Id="54f44c42-8781-4bbc-85bc-a9cd0528f456" Description="API input media type collection for the HTTP Api" Name="RequestMediaTypes" DisplayName="Media Types" Kind="Calculated" Category="Request">
           <Attributes>
             <ClrAttribute Name="System.ComponentModel.Editor">
               <Parameters>
-                <AttributeParameter Value="typeof(ApiStudioComponentUITypeEditor&lt;HttpApi, ApiStudioComponentMediaTypeRequest&gt;)" />
+                <AttributeParameter Value="typeof(ApiStudioComponentUITypeEditor&lt;HttpApi, ApiStudioIO.Common.Models.Http.HttpResourceMediaTypeRequest&gt;)" />
                 <AttributeParameter Value="typeof(System.Drawing.Design.UITypeEditor)" />
               </Parameters>
             </ClrAttribute>
           </Attributes>
           <Type>
-            <ExternalTypeMoniker Name="/System.Collections.Generic/List&lt;ApiStudioComponentMediaTypeRequest&gt;" />
+            <ExternalTypeMoniker Name="/System.Collections.Generic/List&lt;ApiStudioIO.Common.Models.Http.HttpResourceMediaTypeRequest&gt;" />
           </Type>
         </DomainProperty>
         <DomainProperty Id="ad456fa9-3544-4337-b88f-ddaa34d69ddd" Description="API headers for the outbound HTTP Api" Name="ResponseHeaders" DisplayName="Headers" Kind="Calculated" Category="Response">
           <Attributes>
             <ClrAttribute Name="System.ComponentModel.Editor">
               <Parameters>
-                <AttributeParameter Value="typeof(ApiStudioComponentUITypeEditor&lt;HttpApi, ApiStudioComponentHeaderResponse&gt;)" />
+                <AttributeParameter Value="typeof(ApiStudioComponentUITypeEditor&lt;HttpApi, ApiStudioIO.Common.Models.Http.HttpResourceHeaderResponse&gt;)" />
                 <AttributeParameter Value="typeof(System.Drawing.Design.UITypeEditor)" />
               </Parameters>
             </ClrAttribute>
           </Attributes>
           <Type>
-            <ExternalTypeMoniker Name="/System.Collections.Generic/List&lt;ApiStudioComponentHeaderResponse&gt;" />
+            <ExternalTypeMoniker Name="/System.Collections.Generic/List&lt;ApiStudioIO.Common.Models.Http.HttpResourceHeaderResponse&gt;" />
           </Type>
         </DomainProperty>
         <DomainProperty Id="838e029b-464a-4a1b-9109-81762175271a" Description="API headers for the inbound HTTP Api" Name="RequestHeaders" DisplayName="Headers" Kind="Calculated" Category="Request">
           <Attributes>
             <ClrAttribute Name="System.ComponentModel.Editor">
               <Parameters>
-                <AttributeParameter Value="typeof(ApiStudioComponentUITypeEditor&lt;HttpApi, ApiStudioComponentHeaderRequest&gt;)" />
+                <AttributeParameter Value="typeof(ApiStudioComponentUITypeEditor&lt;HttpApi, ApiStudioIO.Common.Models.Http.HttpResourceHeaderRequest&gt;)" />
                 <AttributeParameter Value="typeof(System.Drawing.Design.UITypeEditor)" />
               </Parameters>
             </ClrAttribute>
           </Attributes>
           <Type>
-            <ExternalTypeMoniker Name="/System.Collections.Generic/List&lt;ApiStudioComponentHeaderRequest&gt;" />
+            <ExternalTypeMoniker Name="/System.Collections.Generic/List&lt;ApiStudioIO.Common.Models.Http.HttpResourceHeaderRequest&gt;" />
           </Type>
         </DomainProperty>
       </Properties>
@@ -460,7 +460,7 @@
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="518771c0-b2e4-415c-98e1-f5b00b3d6696" Description="Description for ApiStudioIO.HttpApiMediaType.Primary Type" Name="PrimaryType" DisplayName="Primary Type" Category="Definition">
+        <DomainProperty Id="518771c0-b2e4-415c-98e1-f5b00b3d6696" Description="Description for ApiStudioIO.HttpApiMediaType.Primary Type" Name="DiscreteType" DisplayName="Primary Type" Category="Definition">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -779,10 +779,10 @@
         <EnumerationLiteral Description="Description for ApiStudioIO.CodeGenerationVariableCaseTypes.SnakeCase" Name="SnakeCase" Value="2" />
       </Literals>
     </DomainEnumeration>
-    <ExternalType Name="List&lt;ApiStudioComponentMediaTypeRequest&gt;" Namespace="System.Collections.Generic" />
-    <ExternalType Name="List&lt;ApiStudioComponentMediaTypeResponse&gt;" Namespace="System.Collections.Generic" />
-    <ExternalType Name="List&lt;ApiStudioComponentParameter&gt;" Namespace="System.Collections.Generic" />
-    <ExternalType Name="List&lt;ApiStudioComponentResponseStatusCode&gt;" Namespace="System.Collections.Generic" />
+    <ExternalType Name="List&lt;ApiStudioIO.Common.Models.Http.HttpResourceMediaTypeRequest&gt;" Namespace="System.Collections.Generic" />
+    <ExternalType Name="List&lt;ApiStudioIO.Common.Models.Http.HttpResourceMediaTypeResponse&gt;" Namespace="System.Collections.Generic" />
+    <ExternalType Name="List&lt;ApiStudioIO.Common.Models.Http.HttpResourceParameter&gt;" Namespace="System.Collections.Generic" />
+    <ExternalType Name="List&lt;ApiStudioIO.Common.Models.Http.HttpResourceResponseStatusCode&gt;" Namespace="System.Collections.Generic" />
     <DomainEnumeration Name="HttpApiAudienceTypes" Namespace="ApiStudioIO" Description="Description for ApiStudioIO.HttpApiAudienceTypes">
       <Literals>
         <EnumerationLiteral Description="Description for ApiStudioIO.HttpApiAudienceTypes.Private" Name="Private" Value="" />
@@ -790,8 +790,8 @@
         <EnumerationLiteral Description="Description for ApiStudioIO.HttpApiAudienceTypes.Public" Name="Public" Value="" />
       </Literals>
     </DomainEnumeration>
-    <ExternalType Name="List&lt;ApiStudioComponentHeaderRequest&gt;" Namespace="System.Collections.Generic" />
-    <ExternalType Name="List&lt;ApiStudioComponentHeaderResponse&gt;" Namespace="System.Collections.Generic" />
+    <ExternalType Name="List&lt;ApiStudioIO.Common.Models.Http.HttpResourceHeaderRequest&gt;" Namespace="System.Collections.Generic" />
+    <ExternalType Name="List&lt;ApiStudioIO.Common.Models.Http.HttpResourceHeaderResponse&gt;" Namespace="System.Collections.Generic" />
     <DomainEnumeration Name="HttpApiHeaderResponseOnTypes" Namespace="ApiStudioIO" Description="Description for ApiStudioIO.HttpApiHeaderResponseOnTypes">
       <Literals>
         <EnumerationLiteral Description="Description for ApiStudioIO.HttpApiHeaderResponseOnTypes.OnAlways" Name="OnAlways" Value="0" />
@@ -1284,8 +1284,8 @@
           <XmlPropertyData XmlName="displayName" Representation="Ignore">
             <DomainPropertyMoniker Name="HttpApiMediaType/DisplayName" />
           </XmlPropertyData>
-          <XmlPropertyData XmlName="primaryType">
-            <DomainPropertyMoniker Name="HttpApiMediaType/PrimaryType" />
+          <XmlPropertyData XmlName="DiscreteType">
+            <DomainPropertyMoniker Name="HttpApiMediaType/DiscreteType" />
           </XmlPropertyData>
           <XmlPropertyData XmlName="subType">
             <DomainPropertyMoniker Name="HttpApiMediaType/SubType" />

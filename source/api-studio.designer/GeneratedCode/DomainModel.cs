@@ -191,7 +191,7 @@ namespace ApiStudioIO
 				new DomainMemberInfo(typeof(Api), "ImperativeVerb", Api.ImperativeVerbDomainPropertyId, typeof(Api.ImperativeVerbPropertyHandler)),
 				new DomainMemberInfo(typeof(Api), "Identifier", Api.IdentifierDomainPropertyId, typeof(Api.IdentifierPropertyHandler)),
 				new DomainMemberInfo(typeof(HttpApiMediaType), "DisplayName", HttpApiMediaType.DisplayNameDomainPropertyId, typeof(HttpApiMediaType.DisplayNamePropertyHandler)),
-				new DomainMemberInfo(typeof(HttpApiMediaType), "PrimaryType", HttpApiMediaType.PrimaryTypeDomainPropertyId, typeof(HttpApiMediaType.PrimaryTypePropertyHandler)),
+				new DomainMemberInfo(typeof(HttpApiMediaType), "DiscreteType", HttpApiMediaType.DiscreteTypeDomainPropertyId, typeof(HttpApiMediaType.DiscreteTypePropertyHandler)),
 				new DomainMemberInfo(typeof(HttpApiMediaType), "SubType", HttpApiMediaType.SubTypeDomainPropertyId, typeof(HttpApiMediaType.SubTypePropertyHandler)),
 				new DomainMemberInfo(typeof(HttpApiHeader), "Name", HttpApiHeader.NameDomainPropertyId, typeof(HttpApiHeader.NamePropertyHandler)),
 				new DomainMemberInfo(typeof(HttpApiHeader), "Description", HttpApiHeader.DescriptionDomainPropertyId, typeof(HttpApiHeader.DescriptionPropertyHandler)),

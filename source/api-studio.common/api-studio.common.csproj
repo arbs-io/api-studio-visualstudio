@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>ApiStudioIO.Common</RootNamespace>
+    <AssemblyName>api-studio.common</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\api-studio-key.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>True</SignAssembly>
+    <Copyright>api-studio.io</Copyright>
+    <Version>$([System.DateTime]::UtcNow.ToString("yyyy.MM.dd.0"))</Version>
+    <SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("HHmmssfff"))</SourceRevisionId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
+    <ProjectReference Include="..\api-studio.utility\api-studio.utility.csproj" />
+  </ItemGroup>
+
+</Project>

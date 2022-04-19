@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ApiStudioIO.Utility.Extensions;
+using System;
 using System.Windows.Forms;
-using ApiStudioIO.Utility.Extensions;
 
 namespace ApiStudioIO.VsOptions.HttpResponseCodes
 {
@@ -21,6 +14,11 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
 
         public void Initialize()
         {
+            lsvResponseCodesInformation.BeginUpdate();
+            lsvResponseCodesRedirection.BeginUpdate();
+            lsvResponseCodesClientError.BeginUpdate();
+            lsvResponseCodesServerError.BeginUpdate();
+
             SuccessPropertyGrid.SelectedObject = new HttpHeader();
             lsvResponseCodesInformation.SmallImageList = ControlImages;
             lsvResponseCodesRedirection.SmallImageList = ControlImages;
@@ -35,18 +33,6 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
 
             foreach (var httpResponseCode in HttpResponseExtension.HttpResponseCodes)
             {
-                var lsv = new ListView();
-                if (httpResponseCode.Key < 200)
-                    lsv = lsvResponseCodesInformation;
-                if (httpResponseCode.Key >= 200 && httpResponseCode.Key < 300)
-                    continue;   // No success defaults
-                if (httpResponseCode.Key >= 300 && httpResponseCode.Key < 400)
-                    lsv = lsvResponseCodesRedirection;
-                if (httpResponseCode.Key >= 400 && httpResponseCode.Key < 500)
-                    lsv = lsvResponseCodesClientError;
-                if (httpResponseCode.Key >= 500)
-                    lsv = lsvResponseCodesServerError;
-
                 var lvItem = new ListViewItem
                 {
                     Text = httpResponseCode.Key.ToString()
@@ -57,29 +43,29 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
 
                 if (DlgPage.ResponseCodeContains(httpResponseCode.Key))
                     lvItem.ImageIndex = 1;
-                lsv.Items.Add(lvItem);
+
+                if (httpResponseCode.Key < 200)
+                    lsvResponseCodesInformation.Items.Add(lvItem);
+                if (httpResponseCode.Key >= 200 && httpResponseCode.Key < 300)
+                    continue;   // No success defaults
+                if (httpResponseCode.Key >= 300 && httpResponseCode.Key < 400)
+                    lsvResponseCodesRedirection.Items.Add(lvItem);
+                if (httpResponseCode.Key >= 400 && httpResponseCode.Key < 500)
+                    lsvResponseCodesClientError.Items.Add(lvItem);
+                if (httpResponseCode.Key >= 500)
+                    lsvResponseCodesServerError.Items.Add(lvItem);
             }
 
-            AutoResizeColumns(lsvResponseCodesInformation);
-            AutoResizeColumns(lsvResponseCodesRedirection);
-            AutoResizeColumns(lsvResponseCodesClientError);
-            AutoResizeColumns(lsvResponseCodesServerError);
-        }
+            HttpResponseCodesControlHelpers.AutoResizeColumns(lsvResponseCodesInformation);
+            HttpResponseCodesControlHelpers.AutoResizeColumns(lsvResponseCodesRedirection);
+            HttpResponseCodesControlHelpers.AutoResizeColumns(lsvResponseCodesClientError);
+            HttpResponseCodesControlHelpers.AutoResizeColumns(lsvResponseCodesServerError);
 
-        private static void AutoResizeColumns(ListView lv)
-        {
-            lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            ListView.ColumnHeaderCollection cc = lv.Columns;
-            for (int i = 0; i < cc.Count; i++)
-            {
-                int colWidth = TextRenderer.MeasureText(cc[i].Text, lv.Font).Width + 10;
-                if (colWidth > cc[i].Width)
-                {
-                    cc[i].Width = colWidth;
-                }
-            }
+            lsvResponseCodesInformation.EndUpdate();
+            lsvResponseCodesRedirection.EndUpdate();
+            lsvResponseCodesClientError.EndUpdate();
+            lsvResponseCodesServerError.EndUpdate();
         }
-
 
         private void ResponseCodesRedirection_Click(object sender, EventArgs e)
         {
@@ -104,6 +90,8 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
 
         private void ListviewClicked(ListView listview)
         {
+            _ = listview ?? throw new ArgumentNullException(nameof(listview));
+
             if (listview.SelectedItems.Count > 0)
             {
                 var item = listview.SelectedItems[0];

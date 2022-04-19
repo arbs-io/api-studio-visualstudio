@@ -1,9 +1,9 @@
-﻿using System;
+﻿using ApiStudioIO.VsOptions.ConfigurationV1;
 using Microsoft.VisualStudio.Shell;
-using System.Collections.Generic;
+using System;
+using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using System.ComponentModel;
 
 namespace ApiStudioIO.VsOptions.HttpResponseCodes
 {
@@ -14,22 +14,22 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
 
         internal void AddResponseCode(int ResponseCode)
         {
-            ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.StandardResponseCodes.Add(ResponseCode);
+            ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.StandardResponseCodes.Add(ResponseCode);
         }
 
         internal void RemoveResponseCode(int ResponseCode)
         {
-            ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.StandardResponseCodes.Remove(ResponseCode);
+            ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.StandardResponseCodes.Remove(ResponseCode);
         }
 
         internal bool ResponseCodeContains(int ResponseCode)
         {
-            return ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.StandardResponseCodes.Contains(ResponseCode);
+            return ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.StandardResponseCodes.Contains(ResponseCode);
         }
 
         public override void SaveSettingsToStorage()
         {
-            ThreadHelper.ThrowIfNotOnUIThread(); 
+            ThreadHelper.ThrowIfNotOnUIThread();
             base.SaveSettingsToStorage();
             ApiStudioUserSettingsStore.Instance.Save();
         }
@@ -37,7 +37,7 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
         public override void LoadSettingsFromStorage()
         {
             ThreadHelper.ThrowIfNotOnUIThread();
-            base.LoadSettingsFromStorage(); 
+            base.LoadSettingsFromStorage();
             ApiStudioUserSettingsStore.Instance.Load();
         }
 
@@ -45,7 +45,7 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
         {
             base.OnActivate(e);
 
-            if(control != null)
+            if (control != null)
                 control.Initialize();
         }
 

@@ -1,16 +1,17 @@
-﻿namespace ApiStudioIO.VsOptions
+﻿namespace ApiStudioIO.VsOptions.ConfigurationV1
 {
+    using ApiStudioIO.VsOptions.ConfigurationV1.Models;
     using Microsoft.VisualStudio.Settings;
     using Microsoft.VisualStudio.Shell;
     using Microsoft.VisualStudio.Shell.Settings;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
 
     public sealed class ApiStudioUserSettingsStore
     {
         #region Singleton
         //This should be readonly but we want to load from visual studion
-        private static ApiStudioUserSettingsStore instance = new ApiStudioUserSettingsStore();
+        private static readonly ApiStudioUserSettingsStore instance = new ApiStudioUserSettingsStore();
+
         static ApiStudioUserSettingsStore()
         {
         }
@@ -27,8 +28,7 @@
         #endregion Singleton
 
         #region Visual Studio Interop
-        private const string collectionName = "api-studio";
-        private const string propertyName = "configuration-v1";
+
 
         public void Load()
         {
@@ -36,15 +36,14 @@
             var settingsManager = new ShellSettingsManager(ServiceProvider.GlobalProvider);
             var userSettingsStore = settingsManager.GetWritableSettingsStore(SettingsScope.UserSettings);
 
-            if (!userSettingsStore.PropertyExists(collectionName, propertyName))
+            if (!userSettingsStore.PropertyExists(ConfigurationV1Consts.CollectionName, ConfigurationV1Consts.PropertyName))
             {
-                instance.DefaultResponseCodes.LoadDefaults();
+                ResetDefaults();
                 return;
             }
-                
 
-            var stored = userSettingsStore.GetString(collectionName, propertyName);
-            instance = JsonConvert.DeserializeObject<ApiStudioUserSettingsStore>(stored);
+            var stored = userSettingsStore.GetString(ConfigurationV1Consts.CollectionName, ConfigurationV1Consts.PropertyName);
+            Data = JsonConvert.DeserializeObject<ApiStudioOptions>(stored);
         }
 
         public void Save()
@@ -53,16 +52,20 @@
             var settingsManager = new ShellSettingsManager(ServiceProvider.GlobalProvider);
             var userSettingsStore = settingsManager.GetWritableSettingsStore(SettingsScope.UserSettings);
 
-            if (!userSettingsStore.CollectionExists(collectionName))
-                userSettingsStore.CreateCollection(collectionName);
+            if (!userSettingsStore.CollectionExists(ConfigurationV1Consts.CollectionName))
+                userSettingsStore.CreateCollection(ConfigurationV1Consts.CollectionName);
 
-            var store = JsonConvert.SerializeObject(this, Formatting.Indented);
+            var store = JsonConvert.SerializeObject(Data, Formatting.Indented);
 
-            userSettingsStore.SetString(collectionName, propertyName, store);
+            userSettingsStore.SetString(ConfigurationV1Consts.CollectionName, ConfigurationV1Consts.PropertyName, store);
+        }
+
+        public void ResetDefaults()
+        {
+            Data.DefaultResponseCodes.LoadDefaults();
         }
         #endregion Visual Studio Interop
 
-        [JsonProperty("DefaultResponseCodes")]
-        public DefaultResponseCodes DefaultResponseCodes { get; set; } = new DefaultResponseCodes();
+        public ApiStudioOptions Data { get; private set; } = new ApiStudioOptions();
     }
 }

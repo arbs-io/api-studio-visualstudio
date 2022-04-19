@@ -1,7 +1,6 @@
 ﻿namespace ApiStudioIO
 {
     using System;
-    using Microsoft.VisualStudio.Modeling;
 
     public partial class HttpApiParameter
     {

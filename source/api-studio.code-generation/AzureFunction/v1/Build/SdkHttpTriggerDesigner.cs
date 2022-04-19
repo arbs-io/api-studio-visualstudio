@@ -1,13 +1,13 @@
-﻿using ApiStudioIO.CodeGeneration.VisualStudio;
-using ApiStudioIO.Utility.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-
-namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
+﻿namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
 {
+    using ApiStudioIO.CodeGeneration.VisualStudio;
+    using ApiStudioIO.Utility.Extensions;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Linq;
+    using System.Net;
+
     internal static class SdkHttpTriggerDesigner
     {
         internal static List<SourceCodeEntity> Build(ApiStudio apiStudio, string modelName)
@@ -24,6 +24,13 @@ namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
 
         private static SourceCodeEntity GenerateHttpTrigger(string modelName, Resource resource, HttpApi httpApi)
         {
+            if (string.IsNullOrWhiteSpace(modelName))
+            {
+                throw new ArgumentException($"'{nameof(modelName)}' cannot be null or whitespace.", nameof(modelName));
+            }
+            _ = resource ?? throw new ArgumentNullException(nameof(resource));
+            _ = httpApi ?? throw new ArgumentNullException(nameof(httpApi));
+
             var attributes = new List<string>();
             attributes.AddRange(BuildHttpTriggerSecurity(modelName, httpApi));
             attributes.AddRange(BuildHttpTriggerParameters(httpApi));
@@ -51,7 +58,7 @@ namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
                 attributes.Add($"\t\t[OpenApiSecurity(\"ApiKey\", SecuritySchemeType.ApiKey, Name = \"{securityApiKey}\", In = OpenApiSecurityLocationType.Header)]");
             }
 
-            if(httpApi.ApiStudio.SecuritySchemeType == SecuritySchemeTypes.OAuth2)
+            if (httpApi.ApiStudio.SecuritySchemeType == SecuritySchemeTypes.OAuth2)
             {
                 attributes.Add($"\t\t[OpenApiSecurity(\"ApiStudioOAuth2\", SecuritySchemeType.OAuth2, Flows = typeof({modelName}OpenApiOAuthSecurityFlows))]");
             }
@@ -137,18 +144,16 @@ namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
             return attributes;
         }
 
-        private static string ConvertOpenApiAttribute(this HttpApiParameterTypes httpApiParameterTypes)
+        private static string ConvertOpenApiAttribute(this HttpTypeParameterLocation httpTypeParameterLocation)
         {
-            switch (httpApiParameterTypes)
+            switch (httpTypeParameterLocation)
             {
-                case HttpApiParameterTypes.Query:
-                    return "ParameterLocation.Query";
-                case HttpApiParameterTypes.Path:
-                    return "ParameterLocation.Path";
-                case HttpApiParameterTypes.Body:
-                    return "ParameterLocation.Body";
+                case HttpTypeParameterLocation.Query: return "ParameterLocation.Query";
+                case HttpTypeParameterLocation.Path: return "ParameterLocation.Path";
+                case HttpTypeParameterLocation.Body: return "ParameterLocation.Body";
+
                 default:
-                    return "ParameterLocation.Undefined";
+                    throw new InvalidEnumArgumentException(nameof(httpTypeParameterLocation), (int)httpTypeParameterLocation, typeof(HttpTypeParameterLocation));
             }
         }
     }

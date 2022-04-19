@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using DslModeling = Microsoft.VisualStudio.Modeling;
-
-namespace ApiStudioIO
+﻿namespace ApiStudioIO
 {
+    using ApiStudioIO.Common.Models.Http;
+    using System;
+    using System.Collections.Generic;
+    using DslModeling = Microsoft.VisualStudio.Modeling;
+
     public static class ApiStudioComponentTransactionManager
     {
         internal static void Save<TDomainEntity, TPropertyEntity>(TDomainEntity domainEntity, List<TPropertyEntity> propertyEntityList)
@@ -23,27 +24,27 @@ namespace ApiStudioIO
             {
                 switch (propertyEntityList)
                 {
-                    case List<ApiStudioComponentMediaTypeResponse> HttpApiMediaTypeResponses:
+                    case List<HttpResourceMediaTypeResponse> HttpApiMediaTypeResponses:
                         httpApi.StoreDomainModel(HttpApiMediaTypeResponses);
                         break;
 
-                    case List<ApiStudioComponentMediaTypeRequest> HttpApiMediaTypeRequests:
+                    case List<HttpResourceMediaTypeRequest> HttpApiMediaTypeRequests:
                         httpApi.StoreDomainModel(HttpApiMediaTypeRequests);
                         break;
 
-                    case List<ApiStudioComponentParameter> httpApiParameter:
+                    case List<HttpResourceParameter> httpApiParameter:
                         httpApi.StoreDomainModel(httpApiParameter);
                         break;
 
-                    case List<ApiStudioComponentResponseStatusCode> httpApiResponseStatusCode:
+                    case List<HttpResourceResponseStatusCode> httpApiResponseStatusCode:
                         httpApi.StoreDomainModel(httpApiResponseStatusCode);
                         break;
 
-                    case List<ApiStudioComponentHeaderResponse> HttpApiHeaderResponse:
+                    case List<HttpResourceHeaderResponse> HttpApiHeaderResponse:
                         httpApi.StoreDomainModel(HttpApiHeaderResponse);
                         break;
 
-                    case List<ApiStudioComponentHeaderRequest> HttpApiHeaderRequest:
+                    case List<HttpResourceHeaderRequest> HttpApiHeaderRequest:
                         httpApi.StoreDomainModel(HttpApiHeaderRequest);
                         break;
                 }

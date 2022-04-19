@@ -4,7 +4,7 @@
     {
         public string GetDisplayNameValue()
         {
-            return $"{PrimaryType}/{SubType}";
+            return $"{DiscreteType}/{SubType}";
         }
     }
 }

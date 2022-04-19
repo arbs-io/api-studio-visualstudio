@@ -1,7 +1,5 @@
 ﻿using ApiStudioIO.CodeGeneration.VisualStudio;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
 {

@@ -12060,20 +12060,20 @@ namespace ApiStudioIO
 			HttpApiMediaType instanceOfHttpApiMediaType = element as HttpApiMediaType;
 			global::System.Diagnostics.Debug.Assert(instanceOfHttpApiMediaType != null, "Expecting an instance of HttpApiMediaType");
 	
-			// PrimaryType
+			// DiscreteType
 			if (!serializationContext.Result.Failed)
 			{
-				string attribPrimaryType = ApiStudioIOSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "primaryType");
-				if (attribPrimaryType != null)
+				string attribDiscreteType = ApiStudioIOSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "DiscreteType");
+				if (attribDiscreteType != null)
 				{
-					global::System.String valueOfPrimaryType;
-					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribPrimaryType, out valueOfPrimaryType))
+					global::System.String valueOfDiscreteType;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribDiscreteType, out valueOfDiscreteType))
 					{
-						instanceOfHttpApiMediaType.PrimaryType = valueOfPrimaryType;
+						instanceOfHttpApiMediaType.DiscreteType = valueOfDiscreteType;
 					}
 					else
 					{	// Invalid property value, ignored.
-						ApiStudioIOSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "primaryType", typeof(global::System.String), attribPrimaryType);
+						ApiStudioIOSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "DiscreteType", typeof(global::System.String), attribDiscreteType);
 					}
 				}
 			}
@@ -12519,14 +12519,14 @@ namespace ApiStudioIO
 			HttpApiMediaType instanceOfHttpApiMediaType = element as HttpApiMediaType;
 			global::System.Diagnostics.Debug.Assert(instanceOfHttpApiMediaType != null, "Expecting an instance of HttpApiMediaType");
 	
-			// PrimaryType
+			// DiscreteType
 			if (!serializationContext.Result.Failed)
 			{
-				global::System.String propValue = instanceOfHttpApiMediaType.PrimaryType;
+				global::System.String propValue = instanceOfHttpApiMediaType.DiscreteType;
 				if (!serializationContext.Result.Failed)
 				{
 					if (!string.IsNullOrEmpty(propValue))
-						ApiStudioIOSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "primaryType", propValue);
+						ApiStudioIOSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "DiscreteType", propValue);
 	
 				}
 			}

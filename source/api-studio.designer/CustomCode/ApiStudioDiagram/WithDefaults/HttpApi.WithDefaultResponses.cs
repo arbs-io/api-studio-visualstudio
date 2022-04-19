@@ -1,8 +1,8 @@
 ﻿namespace ApiStudioIO
 {
-    using ApiStudioIO.VsOptions;
+    using ApiStudioIO.Common.Models.Http;
+    using ApiStudioIO.VsOptions.ConfigurationV1;
     using Microsoft.VisualStudio.Modeling;
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -31,57 +31,56 @@
 
         private static void CreateDefaults(HttpApi httpApi)
         {
-            var sourceResource = httpApi.Resourced.FirstOrDefault() ??
-                                throw new ArgumentNullException(nameof(httpApi.Resourced));
+            var standardResponseCodes = ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.StandardResponseCodes;
+            var apiResponses = new List<HttpResourceResponseStatusCode>();
+            var responseCodes = ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes;
             
-            var standardResponseCodes = ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.StandardResponseCodes;
-            var apiResponses = new List<ApiStudioComponentResponseStatusCode>();
             switch (httpApi)
             {
                 case HttpApiGet _:          // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET
-                    apiResponses.Add(ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessGet);
+                    apiResponses.Add(ConvertResponseStatusCode(responseCodes.SuccessGet));
                     break;
 
                 case HttpApiPut _:          // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PUT
-                    apiResponses.Add(ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessPut);  // 200, 201, 204
+                    apiResponses.Add(ConvertResponseStatusCode(responseCodes.SuccessPut));  // 200, 201, 204
                     if (standardResponseCodes.Contains(422))  //[Unprocessable]
-                        apiResponses.Add(422);
+                        apiResponses.Add(ConvertResponseStatusCode(422));
                     break;
 
                 case HttpApiPost _:         // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST
-                    apiResponses.Add(ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessPost);
+                    apiResponses.Add(ConvertResponseStatusCode(responseCodes.SuccessPost));
                     if (standardResponseCodes.Contains(422))  //[Unprocessable]
-                        apiResponses.Add(422);
+                        apiResponses.Add(ConvertResponseStatusCode(422));
                     break;
 
                 case HttpApiDelete _:       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/DELETE
-                    apiResponses.Add(ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessDelete);  // 200, 202, 204
+                    apiResponses.Add(ConvertResponseStatusCode(responseCodes.SuccessDelete));  // 200, 202, 204
                     break;
 
                 case HttpApiPatch _:        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PATCH
-                    apiResponses.Add(ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessPatch);  // 200, 204
+                    apiResponses.Add(ConvertResponseStatusCode(responseCodes.SuccessPatch));  // 200, 204
                     break;
 
                 case HttpApiTrace _:        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/TRACE
-                    apiResponses.Add(ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessTrace);
+                    apiResponses.Add(ConvertResponseStatusCode(responseCodes.SuccessTrace));
                     break;
 
                 case HttpApiHead _:         // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/HEAD
-                    apiResponses.Add(ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessHead);
+                    apiResponses.Add(ConvertResponseStatusCode(responseCodes.SuccessHead));
                     break;
 
                 case HttpApiOptions _:      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS
-                    apiResponses.Add(ApiStudioUserSettingsStore.Instance.DefaultResponseCodes.SuccessOptions);
+                    apiResponses.Add(ConvertResponseStatusCode(responseCodes.SuccessOptions));
                     break;
             }
 
             if (HasDocumentResourceInPath(httpApi) && standardResponseCodes.Contains(404))
-                apiResponses.Add(404);  //[Not found]
+                apiResponses.Add(ConvertResponseStatusCode(404));  //[Not found]
 
             standardResponseCodes.RemoveAll(t => t == 404 || t == 422);  //Remove technical response codes
             foreach (var responseCode in standardResponseCodes)
             {
-                apiResponses.Add(responseCode);
+                apiResponses.Add(ConvertResponseStatusCode(responseCode));
             }
 
             ApiStudioComponentTransactionManager.Save(httpApi, apiResponses);
@@ -102,6 +101,17 @@
                 source = source.SourceResource.FirstOrDefault();
             }
             return false;
+        }
+
+
+        private static HttpResourceResponseStatusCode ConvertResponseStatusCode(int httpStatus)
+        {
+            var apiStudioComponent = new HttpResourceResponseStatusCode
+            {
+                HttpStatus = httpStatus,
+                IsAutoGenerated = true
+            };
+            return apiStudioComponent;
         }
     }
 }

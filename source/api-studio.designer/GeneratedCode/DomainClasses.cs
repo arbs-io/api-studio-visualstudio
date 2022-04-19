@@ -2544,14 +2544,14 @@ namespace ApiStudioIO
 		/// Gets or sets the value of RequestParameters domain property.
 		/// API parameter collection for the RESTFul resource
 		/// </summary>
-		[System.ComponentModel.Editor(typeof(ApiStudioComponentUITypeEditor<HttpApi, ApiStudioComponentParameter>), typeof(System.Drawing.Design.UITypeEditor))]
+		[System.ComponentModel.Editor(typeof(ApiStudioComponentUITypeEditor<HttpApi, ApiStudioIO.Common.Models.Http.HttpResourceParameter>), typeof(System.Drawing.Design.UITypeEditor))]
 		[DslDesign::DisplayNameResource("ApiStudioIO.HttpApi/RequestParameters.DisplayName", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("ApiStudioIO.HttpApi/RequestParameters.Category", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("ApiStudioIO.HttpApi/RequestParameters.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainProperty(Kind = DslModeling::DomainPropertyKind.Calculated)]
 		[DslModeling::DomainObjectId("0b0bd3d5-7c95-4964-b544-b90cd4af96f8")]
-		public global::System.Collections.Generic.List<ApiStudioComponentParameter> RequestParameters
+		public global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceParameter> RequestParameters
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
@@ -2562,7 +2562,7 @@ namespace ApiStudioIO
 		/// <summary>
 		/// Value handler for the HttpApi.RequestParameters domain property.
 		/// </summary>
-		internal sealed partial class RequestParametersPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.Collections.Generic.List<ApiStudioComponentParameter>>
+		internal sealed partial class RequestParametersPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceParameter>>
 		{
 			private RequestParametersPropertyHandler() { }
 		
@@ -2588,7 +2588,7 @@ namespace ApiStudioIO
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.Collections.Generic.List<ApiStudioComponentParameter> GetValue(HttpApi element)
+			public override sealed global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceParameter> GetValue(HttpApi element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				// There is no storage for RequestParameters because its Kind is
@@ -2611,14 +2611,14 @@ namespace ApiStudioIO
 		/// Gets or sets the value of ResponseStatusCodes domain property.
 		/// Valid HTTP status codes which provide from the HTTP Api
 		/// </summary>
-		[System.ComponentModel.Editor(typeof(ApiStudioComponentUITypeEditor<HttpApi, ApiStudioComponentResponseStatusCode>), typeof(System.Drawing.Design.UITypeEditor))]
+		[System.ComponentModel.Editor(typeof(ApiStudioComponentUITypeEditor<HttpApi, ApiStudioIO.Common.Models.Http.HttpResourceResponseStatusCode>), typeof(System.Drawing.Design.UITypeEditor))]
 		[DslDesign::DisplayNameResource("ApiStudioIO.HttpApi/ResponseStatusCodes.DisplayName", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("ApiStudioIO.HttpApi/ResponseStatusCodes.Category", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("ApiStudioIO.HttpApi/ResponseStatusCodes.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainProperty(Kind = DslModeling::DomainPropertyKind.Calculated)]
 		[DslModeling::DomainObjectId("525d924f-4072-47a0-b74c-b150fd8a11a2")]
-		public global::System.Collections.Generic.List<ApiStudioComponentResponseStatusCode> ResponseStatusCodes
+		public global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceResponseStatusCode> ResponseStatusCodes
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
@@ -2629,7 +2629,7 @@ namespace ApiStudioIO
 		/// <summary>
 		/// Value handler for the HttpApi.ResponseStatusCodes domain property.
 		/// </summary>
-		internal sealed partial class ResponseStatusCodesPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.Collections.Generic.List<ApiStudioComponentResponseStatusCode>>
+		internal sealed partial class ResponseStatusCodesPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceResponseStatusCode>>
 		{
 			private ResponseStatusCodesPropertyHandler() { }
 		
@@ -2655,7 +2655,7 @@ namespace ApiStudioIO
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.Collections.Generic.List<ApiStudioComponentResponseStatusCode> GetValue(HttpApi element)
+			public override sealed global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceResponseStatusCode> GetValue(HttpApi element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				// There is no storage for ResponseStatusCodes because its Kind is
@@ -2678,14 +2678,14 @@ namespace ApiStudioIO
 		/// Gets or sets the value of ResponseMediaTypes domain property.
 		/// API output media type collection for the HTTP Api
 		/// </summary>
-		[System.ComponentModel.Editor(typeof(ApiStudioComponentUITypeEditor<HttpApi, ApiStudioComponentMediaTypeResponse>), typeof(System.Drawing.Design.UITypeEditor))]
+		[System.ComponentModel.Editor(typeof(ApiStudioComponentUITypeEditor<HttpApi, ApiStudioIO.Common.Models.Http.HttpResourceMediaTypeResponse>), typeof(System.Drawing.Design.UITypeEditor))]
 		[DslDesign::DisplayNameResource("ApiStudioIO.HttpApi/ResponseMediaTypes.DisplayName", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("ApiStudioIO.HttpApi/ResponseMediaTypes.Category", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("ApiStudioIO.HttpApi/ResponseMediaTypes.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainProperty(Kind = DslModeling::DomainPropertyKind.Calculated)]
 		[DslModeling::DomainObjectId("cae73e7a-8e11-444f-be69-b4a55d76eab6")]
-		public global::System.Collections.Generic.List<ApiStudioComponentMediaTypeResponse> ResponseMediaTypes
+		public global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceMediaTypeResponse> ResponseMediaTypes
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
@@ -2696,7 +2696,7 @@ namespace ApiStudioIO
 		/// <summary>
 		/// Value handler for the HttpApi.ResponseMediaTypes domain property.
 		/// </summary>
-		internal sealed partial class ResponseMediaTypesPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.Collections.Generic.List<ApiStudioComponentMediaTypeResponse>>
+		internal sealed partial class ResponseMediaTypesPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceMediaTypeResponse>>
 		{
 			private ResponseMediaTypesPropertyHandler() { }
 		
@@ -2722,7 +2722,7 @@ namespace ApiStudioIO
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.Collections.Generic.List<ApiStudioComponentMediaTypeResponse> GetValue(HttpApi element)
+			public override sealed global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceMediaTypeResponse> GetValue(HttpApi element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				// There is no storage for ResponseMediaTypes because its Kind is
@@ -2745,14 +2745,14 @@ namespace ApiStudioIO
 		/// Gets or sets the value of RequestMediaTypes domain property.
 		/// API input media type collection for the HTTP Api
 		/// </summary>
-		[System.ComponentModel.Editor(typeof(ApiStudioComponentUITypeEditor<HttpApi, ApiStudioComponentMediaTypeRequest>), typeof(System.Drawing.Design.UITypeEditor))]
+		[System.ComponentModel.Editor(typeof(ApiStudioComponentUITypeEditor<HttpApi, ApiStudioIO.Common.Models.Http.HttpResourceMediaTypeRequest>), typeof(System.Drawing.Design.UITypeEditor))]
 		[DslDesign::DisplayNameResource("ApiStudioIO.HttpApi/RequestMediaTypes.DisplayName", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("ApiStudioIO.HttpApi/RequestMediaTypes.Category", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("ApiStudioIO.HttpApi/RequestMediaTypes.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainProperty(Kind = DslModeling::DomainPropertyKind.Calculated)]
 		[DslModeling::DomainObjectId("54f44c42-8781-4bbc-85bc-a9cd0528f456")]
-		public global::System.Collections.Generic.List<ApiStudioComponentMediaTypeRequest> RequestMediaTypes
+		public global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceMediaTypeRequest> RequestMediaTypes
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
@@ -2763,7 +2763,7 @@ namespace ApiStudioIO
 		/// <summary>
 		/// Value handler for the HttpApi.RequestMediaTypes domain property.
 		/// </summary>
-		internal sealed partial class RequestMediaTypesPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.Collections.Generic.List<ApiStudioComponentMediaTypeRequest>>
+		internal sealed partial class RequestMediaTypesPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceMediaTypeRequest>>
 		{
 			private RequestMediaTypesPropertyHandler() { }
 		
@@ -2789,7 +2789,7 @@ namespace ApiStudioIO
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.Collections.Generic.List<ApiStudioComponentMediaTypeRequest> GetValue(HttpApi element)
+			public override sealed global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceMediaTypeRequest> GetValue(HttpApi element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				// There is no storage for RequestMediaTypes because its Kind is
@@ -2812,14 +2812,14 @@ namespace ApiStudioIO
 		/// Gets or sets the value of ResponseHeaders domain property.
 		/// API headers for the outbound HTTP Api
 		/// </summary>
-		[System.ComponentModel.Editor(typeof(ApiStudioComponentUITypeEditor<HttpApi, ApiStudioComponentHeaderResponse>), typeof(System.Drawing.Design.UITypeEditor))]
+		[System.ComponentModel.Editor(typeof(ApiStudioComponentUITypeEditor<HttpApi, ApiStudioIO.Common.Models.Http.HttpResourceHeaderResponse>), typeof(System.Drawing.Design.UITypeEditor))]
 		[DslDesign::DisplayNameResource("ApiStudioIO.HttpApi/ResponseHeaders.DisplayName", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("ApiStudioIO.HttpApi/ResponseHeaders.Category", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("ApiStudioIO.HttpApi/ResponseHeaders.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainProperty(Kind = DslModeling::DomainPropertyKind.Calculated)]
 		[DslModeling::DomainObjectId("ad456fa9-3544-4337-b88f-ddaa34d69ddd")]
-		public global::System.Collections.Generic.List<ApiStudioComponentHeaderResponse> ResponseHeaders
+		public global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceHeaderResponse> ResponseHeaders
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
@@ -2830,7 +2830,7 @@ namespace ApiStudioIO
 		/// <summary>
 		/// Value handler for the HttpApi.ResponseHeaders domain property.
 		/// </summary>
-		internal sealed partial class ResponseHeadersPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.Collections.Generic.List<ApiStudioComponentHeaderResponse>>
+		internal sealed partial class ResponseHeadersPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceHeaderResponse>>
 		{
 			private ResponseHeadersPropertyHandler() { }
 		
@@ -2856,7 +2856,7 @@ namespace ApiStudioIO
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.Collections.Generic.List<ApiStudioComponentHeaderResponse> GetValue(HttpApi element)
+			public override sealed global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceHeaderResponse> GetValue(HttpApi element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				// There is no storage for ResponseHeaders because its Kind is
@@ -2879,14 +2879,14 @@ namespace ApiStudioIO
 		/// Gets or sets the value of RequestHeaders domain property.
 		/// API headers for the inbound HTTP Api
 		/// </summary>
-		[System.ComponentModel.Editor(typeof(ApiStudioComponentUITypeEditor<HttpApi, ApiStudioComponentHeaderRequest>), typeof(System.Drawing.Design.UITypeEditor))]
+		[System.ComponentModel.Editor(typeof(ApiStudioComponentUITypeEditor<HttpApi, ApiStudioIO.Common.Models.Http.HttpResourceHeaderRequest>), typeof(System.Drawing.Design.UITypeEditor))]
 		[DslDesign::DisplayNameResource("ApiStudioIO.HttpApi/RequestHeaders.DisplayName", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("ApiStudioIO.HttpApi/RequestHeaders.Category", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("ApiStudioIO.HttpApi/RequestHeaders.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainProperty(Kind = DslModeling::DomainPropertyKind.Calculated)]
 		[DslModeling::DomainObjectId("838e029b-464a-4a1b-9109-81762175271a")]
-		public global::System.Collections.Generic.List<ApiStudioComponentHeaderRequest> RequestHeaders
+		public global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceHeaderRequest> RequestHeaders
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
@@ -2897,7 +2897,7 @@ namespace ApiStudioIO
 		/// <summary>
 		/// Value handler for the HttpApi.RequestHeaders domain property.
 		/// </summary>
-		internal sealed partial class RequestHeadersPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.Collections.Generic.List<ApiStudioComponentHeaderRequest>>
+		internal sealed partial class RequestHeadersPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceHeaderRequest>>
 		{
 			private RequestHeadersPropertyHandler() { }
 		
@@ -2923,7 +2923,7 @@ namespace ApiStudioIO
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.Collections.Generic.List<ApiStudioComponentHeaderRequest> GetValue(HttpApi element)
+			public override sealed global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceHeaderRequest> GetValue(HttpApi element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				// There is no storage for RequestHeaders because its Kind is
@@ -5459,60 +5459,60 @@ namespace ApiStudioIO
 		}
 		
 		#endregion
-		#region PrimaryType domain property code
+		#region DiscreteType domain property code
 		
 		/// <summary>
-		/// PrimaryType domain property Id.
+		/// DiscreteType domain property Id.
 		/// </summary>
-		public static readonly global::System.Guid PrimaryTypeDomainPropertyId = new global::System.Guid(0x518771c0, 0xb2e4, 0x415c, 0x98, 0xe1, 0xf5, 0xb0, 0x0b, 0x3d, 0x66, 0x96);
+		public static readonly global::System.Guid DiscreteTypeDomainPropertyId = new global::System.Guid(0x518771c0, 0xb2e4, 0x415c, 0x98, 0xe1, 0xf5, 0xb0, 0x0b, 0x3d, 0x66, 0x96);
 		
 		/// <summary>
-		/// Storage for PrimaryType
+		/// Storage for DiscreteType
 		/// </summary>
-		private global::System.String primaryTypePropertyStorage = string.Empty;
+		private global::System.String discreteTypePropertyStorage = string.Empty;
 		
 		/// <summary>
-		/// Gets or sets the value of PrimaryType domain property.
+		/// Gets or sets the value of DiscreteType domain property.
 		/// Description for ApiStudioIO.HttpApiMediaType.Primary Type
 		/// </summary>
-		[DslDesign::DisplayNameResource("ApiStudioIO.HttpApiMediaType/PrimaryType.DisplayName", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
-		[DslDesign::CategoryResource("ApiStudioIO.HttpApiMediaType/PrimaryType.Category", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("ApiStudioIO.HttpApiMediaType/PrimaryType.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		[DslDesign::DisplayNameResource("ApiStudioIO.HttpApiMediaType/DiscreteType.DisplayName", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("ApiStudioIO.HttpApiMediaType/DiscreteType.Category", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("ApiStudioIO.HttpApiMediaType/DiscreteType.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[DslModeling::DomainObjectId("518771c0-b2e4-415c-98e1-f5b00b3d6696")]
-		public global::System.String PrimaryType
+		public global::System.String DiscreteType
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return primaryTypePropertyStorage;
+				return discreteTypePropertyStorage;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				PrimaryTypePropertyHandler.Instance.SetValue(this, value);
+				DiscreteTypePropertyHandler.Instance.SetValue(this, value);
 			}
 		}
 		/// <summary>
-		/// Value handler for the HttpApiMediaType.PrimaryType domain property.
+		/// Value handler for the HttpApiMediaType.DiscreteType domain property.
 		/// </summary>
-		internal sealed partial class PrimaryTypePropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiMediaType, global::System.String>
+		internal sealed partial class DiscreteTypePropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiMediaType, global::System.String>
 		{
-			private PrimaryTypePropertyHandler() { }
+			private DiscreteTypePropertyHandler() { }
 		
 			/// <summary>
-			/// Gets the singleton instance of the HttpApiMediaType.PrimaryType domain property value handler.
+			/// Gets the singleton instance of the HttpApiMediaType.DiscreteType domain property value handler.
 			/// </summary>
-			public static readonly PrimaryTypePropertyHandler Instance = new PrimaryTypePropertyHandler();
+			public static readonly DiscreteTypePropertyHandler Instance = new DiscreteTypePropertyHandler();
 		
 			/// <summary>
-			/// Gets the Id of the HttpApiMediaType.PrimaryType domain property.
+			/// Gets the Id of the HttpApiMediaType.DiscreteType domain property.
 			/// </summary>
 			public sealed override global::System.Guid DomainPropertyId
 			{
 				[global::System.Diagnostics.DebuggerStepThrough]
 				get
 				{
-					return PrimaryTypeDomainPropertyId;
+					return DiscreteTypeDomainPropertyId;
 				}
 			}
 			
@@ -5524,7 +5524,7 @@ namespace ApiStudioIO
 			public override sealed global::System.String GetValue(HttpApiMediaType element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-				return element.primaryTypePropertyStorage;
+				return element.discreteTypePropertyStorage;
 			}
 		
 			/// <summary>
@@ -5540,7 +5540,7 @@ namespace ApiStudioIO
 				if (newValue != oldValue)
 				{
 					ValueChanging(element, oldValue, newValue);
-					element.primaryTypePropertyStorage = newValue;
+					element.discreteTypePropertyStorage = newValue;
 					ValueChanged(element, oldValue, newValue);
 				}
 			}

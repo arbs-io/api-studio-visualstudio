@@ -15,7 +15,7 @@
             sourceList.AddRange(SdkModel.Build(apiStudio, modelName));
             sourceList.AddRange(SdkHttpAuthOAuth2.Build(apiStudio, modelName));
             sourceList.AddRange(SdkHttpAuthOAuth2Scopes.Build(apiStudio, modelName));
-            
+
             return sourceList;
         }
     }

@@ -6,6 +6,7 @@
     using EnvDTE;
     using Newtonsoft.Json;
     using System;
+    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
 
@@ -67,14 +68,21 @@
             if (File.Exists($"{apiStudioFilePath}.json"))
             {
                 var sourceDirectory = new FileInfo(apiStudioFilePath).Directory.FullName;
+                var ext = new List<string> { "cs" };
+                var existingFiles = Directory
+                    .EnumerateFiles(sourceDirectory, "*.*", SearchOption.AllDirectories)
+                    .Where(s => ext.Contains(Path.GetExtension(s).TrimStart('.').ToLowerInvariant()))
+                    .ToList();
 
-                var previousCodeGenerationInfoJson = File.ReadAllText($"{apiStudioFilePath}.json");
-                var previousCodeGenerationInfo = JsonConvert.DeserializeObject<CodeGenerationModel>(previousCodeGenerationInfoJson);
+                var sourceFiles = codeGeneration.ResourcesInfoSegment
+                    .GroupBy(s => s.Filename)
+                    .Select(grp => $"{sourceDirectory}\\{grp.First().Filename}")
+                    .ToList();
 
-                previousCodeGenerationInfo.ResourcesInfoSegment
-                    .Where(p => codeGeneration.ResourcesInfoSegment.All(p2 => p2.Filename != p.Filename))
+                existingFiles
+                    .Except(sourceFiles)
                     .ToList()
-                    .ForEach(buildStep => VisualStudioDteManager.DeleteFile(dte, $"{sourceDirectory}\\{buildStep.Filename}"));
+                    .ForEach(buildStep => VisualStudioDteManager.DeleteFile(dte, $"{buildStep}"));
             }
         }
     }
