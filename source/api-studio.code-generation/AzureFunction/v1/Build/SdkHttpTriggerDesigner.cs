@@ -1,12 +1,13 @@
-﻿using ApiStudioIO.CodeGeneration.VisualStudio;
-using ApiStudioIO.Utility.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-
-namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
+﻿namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
 {
+    using ApiStudioIO.CodeGeneration.VisualStudio;
+    using ApiStudioIO.Utility.Extensions;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Linq;
+    using System.Net;
+
     internal static class SdkHttpTriggerDesigner
     {
         internal static List<SourceCodeEntity> Build(ApiStudio apiStudio, string modelName)
@@ -143,18 +144,16 @@ namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
             return attributes;
         }
 
-        private static string ConvertOpenApiAttribute(this HttpApiParameterTypes httpApiParameterTypes)
+        private static string ConvertOpenApiAttribute(this HttpTypeParameterLocation httpTypeParameterLocation)
         {
-            switch (httpApiParameterTypes)
+            switch (httpTypeParameterLocation)
             {
-                case HttpApiParameterTypes.Query:
-                    return "ParameterLocation.Query";
-                case HttpApiParameterTypes.Path:
-                    return "ParameterLocation.Path";
-                case HttpApiParameterTypes.Body:
-                    return "ParameterLocation.Body";
+                case HttpTypeParameterLocation.Query: return "ParameterLocation.Query";
+                case HttpTypeParameterLocation.Path: return "ParameterLocation.Path";
+                case HttpTypeParameterLocation.Body: return "ParameterLocation.Body";
+
                 default:
-                    return "ParameterLocation.Undefined";
+                    throw new InvalidEnumArgumentException(nameof(httpTypeParameterLocation), (int)httpTypeParameterLocation, typeof(HttpTypeParameterLocation));
             }
         }
     }

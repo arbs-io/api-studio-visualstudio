@@ -6,10 +6,10 @@
     public class HttpResourceHeaderResponse : HttpResourceHeaderBase
     {
         [Category("Scope")]
-        public HttpResourceHeaderOnResponse IncludeOn { get; set; }
+        public HttpTypeHeaderOnResponse IncludeOn { get; set; }
 
         [Category("Hidden")]
         [Browsable(false)]
-        public string IncludeOnName => $"{Enum.GetName(typeof(HttpResourceHeaderOnResponse), IncludeOn)}";
+        public string IncludeOnName => $"{Enum.GetName(typeof(HttpTypeHeaderOnResponse), IncludeOn)}";
     }
 }

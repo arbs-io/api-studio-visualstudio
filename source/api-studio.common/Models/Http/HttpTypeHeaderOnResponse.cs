@@ -1,6 +1,6 @@
 ﻿namespace ApiStudioIO
 {
-    public enum HttpResourceHeaderOnResponse
+    public enum HttpTypeHeaderOnResponse
     {
 		OnAlways = 0,
 		OnInformation = 1,

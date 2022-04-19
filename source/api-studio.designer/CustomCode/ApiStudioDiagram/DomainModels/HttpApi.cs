@@ -1,5 +1,6 @@
 ﻿namespace ApiStudioIO
 {
+    using ApiStudioIO.Common.Models.Http;
     using ApiStudioIO.Utility.Extensions;
     using System.Collections.Generic;
     using System.Linq;
@@ -142,57 +143,57 @@
 
         #region CalculatedPropertiesApiStudioComponent
 
-        internal virtual List<ApiStudioComponentParameter> GetRequestParametersValue()
+        internal virtual List<HttpResourceParameter> GetRequestParametersValue()
         {
-            var managedList = new List<ApiStudioComponentParameter>();
+            var managedList = new List<HttpResourceParameter>();
             HttpApiParameters.OrderBy(x => x.FromType).ThenBy(x => x.Identifier)
                 .ToList()
-                .ForEach(domainModel => managedList.Add(domainModel.Convert()));
+                .ForEach(domainModel => managedList.Add(domainModel.ToHttpResource()));
             return managedList;
         }
 
-        internal List<ApiStudioComponentHeaderRequest> GetRequestHeadersValue()
+        internal List<HttpResourceHeaderRequest> GetRequestHeadersValue()
         {
-            var managedList = new List<ApiStudioComponentHeaderRequest>();
+            var managedList = new List<HttpResourceHeaderRequest>();
             HttpApiHeaderRequests.OrderBy(x => x.Name)
                 .ToList()
-                .ForEach(domainModel => managedList.Add(domainModel.Convert()));
+                .ForEach(domainModel => managedList.Add(domainModel.ToHttpResource()));
             return managedList;
         }
 
-        internal List<ApiStudioComponentMediaTypeRequest> GetRequestMediaTypesValue()
+        internal List<HttpResourceMediaTypeRequest> GetRequestMediaTypesValue()
         {
-            var managedList = new List<ApiStudioComponentMediaTypeRequest>();
+            var managedList = new List<HttpResourceMediaTypeRequest>();
             HttpApiMediaTypeRequestd.OrderBy(x => x.DisplayName)
                 .ToList()
-                .ForEach(domainModel => managedList.Add(domainModel.ConvertRequest()));
+                .ForEach(domainModel => managedList.Add(domainModel.ToHttpResourceRequest()));
             return managedList;
         }
 
-        internal List<ApiStudioComponentHeaderResponse> GetResponseHeadersValue()
+        internal List<HttpResourceHeaderResponse> GetResponseHeadersValue()
         {
-            var managedList = new List<ApiStudioComponentHeaderResponse>();
+            var managedList = new List<HttpResourceHeaderResponse>();
             HttpApiHeaderResponses.OrderBy(x => x.Name)
                 .ToList()
-                .ForEach(domainModel => managedList.Add(domainModel.Convert()));
+                .ForEach(domainModel => managedList.Add(domainModel.ToHttpResource()));
             return managedList;
         }
 
-        internal List<ApiStudioComponentMediaTypeResponse> GetResponseMediaTypesValue()
+        internal List<HttpResourceMediaTypeResponse> GetResponseMediaTypesValue()
         {
-            var managedList = new List<ApiStudioComponentMediaTypeResponse>();
+            var managedList = new List<HttpResourceMediaTypeResponse>();
             HttpApiMediaTypeResponsed.OrderBy(x => x.DisplayName)
                 .ToList()
-                .ForEach(domainModel => managedList.Add(domainModel.ConvertResponse()));
+                .ForEach(domainModel => managedList.Add(domainModel.ToHttpResourceResponse()));
             return managedList;
         }
 
-        internal virtual List<ApiStudioComponentResponseStatusCode> GetResponseStatusCodesValue()
+        internal virtual List<HttpResourceResponseStatusCode> GetResponseStatusCodesValue()
         {
-            var managedList = new List<ApiStudioComponentResponseStatusCode>();
+            var managedList = new List<HttpResourceResponseStatusCode>();
             HttpApiResponseStatusCodes.OrderBy(x => x.HttpStatus)
                 .ToList()
-                .ForEach(domainModel => managedList.Add(domainModel.Convert()));
+                .ForEach(domainModel => managedList.Add(domainModel.ToHttpResource()));
             return managedList;
         }
 

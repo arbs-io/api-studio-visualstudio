@@ -1,15 +1,16 @@
 ﻿namespace ApiStudioIO
 {
+    using ApiStudioIO.Common.Models.Http;
     using Microsoft.VisualStudio.Modeling;
     using System.Collections.Generic;
     using System.Linq;
 
-    internal static class ApiStudioComponentStoreDomainModel
+    internal static class StoreDomainModelHelpers
     {
 
-        internal static void StoreDomainModel(this HttpApi httpApi, List<ApiStudioComponentParameter> value)
+        internal static void StoreDomainModel(this HttpApi httpApi, List<HttpResourceParameter> value)
         {
-            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("ApiStudioComponentStoreDomainModel.StoreDomainModel.ApiStudioComponentParameter"))
+            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("ApiStudioComponentStoreDomainModel.StoreDomainModel.HttpResourceParameter"))
             {
                 httpApi.HttpApiParameters.Clear();
                 value.OrderBy(x => x.FromType).ThenBy(x => x.Identifier)
@@ -20,9 +21,9 @@
             }
         }
 
-        internal static void StoreDomainModel(this HttpApi httpApi, List<ApiStudioComponentHeaderRequest> value)
+        internal static void StoreDomainModel(this HttpApi httpApi, List<HttpResourceHeaderRequest> value)
         {
-            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("ApiStudioComponentStoreDomainModel.StoreDomainModel.ApiStudioComponentHeaderRequest"))
+            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("ApiStudioComponentStoreDomainModel.StoreDomainModel.HttpResourceHeaderRequest"))
             {
                 httpApi.HttpApiHeaderRequests.Clear();
                 value.OrderBy(x => x.Name)
@@ -32,9 +33,9 @@
             }
         }
 
-        internal static void StoreDomainModel(this HttpApi httpApi, List<ApiStudioComponentMediaTypeRequest> value)
+        internal static void StoreDomainModel(this HttpApi httpApi, List<HttpResourceMediaTypeRequest> value)
         {
-            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("ApiStudioComponentStoreDomainModel.StoreDomainModel.ApiStudioComponentMediaTypeRequest"))
+            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("ApiStudioComponentStoreDomainModel.StoreDomainModel.HttpResourceMediaTypeRequest"))
             {
                 httpApi.HttpApiMediaTypeRequestd.Clear();
                 value.OrderBy(x => x.Name)
@@ -44,9 +45,9 @@
             }
         }
 
-        internal static void StoreDomainModel(this HttpApi httpApi, List<ApiStudioComponentHeaderResponse> value)
+        internal static void StoreDomainModel(this HttpApi httpApi, List<HttpResourceHeaderResponse> value)
         {
-            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("ApiStudioComponentStoreDomainModel.StoreDomainModel.ApiStudioComponentHeaderResponse"))
+            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("ApiStudioComponentStoreDomainModel.StoreDomainModel.HttpResourceHeaderResponse"))
             {
                 httpApi.HttpApiHeaderResponses.Clear();
                 value.OrderBy(x => x.Name)
@@ -56,9 +57,9 @@
             }
         }
 
-        internal static void StoreDomainModel(this HttpApi httpApi, List<ApiStudioComponentMediaTypeResponse> value)
+        internal static void StoreDomainModel(this HttpApi httpApi, List<HttpResourceMediaTypeResponse> value)
         {
-            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("ApiStudioComponentStoreDomainModel.StoreDomainModel.ApiStudioComponentMediaTypeResponse"))
+            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("ApiStudioComponentStoreDomainModel.StoreDomainModel.HttpResourceMediaTypeResponse"))
             {
                 httpApi.HttpApiMediaTypeResponsed.Clear();
                 value.OrderBy(x => x.Name)
@@ -68,9 +69,9 @@
             }
         }
 
-        internal static void StoreDomainModel(this HttpApi httpApi, List<ApiStudioComponentResponseStatusCode> value)
+        internal static void StoreDomainModel(this HttpApi httpApi, List<HttpResourceResponseStatusCode> value)
         {
-            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("ApiStudioComponentStoreDomainModel.StoreDomainModel.ApiStudioComponentResponseStatusCode"))
+            using (Transaction t = httpApi.Store.TransactionManager.BeginTransaction("ApiStudioComponentStoreDomainModel.StoreDomainModel.HttpResourceResponseStatusCode"))
             {
                 httpApi.HttpApiResponseStatusCodes.Clear();
                 value.OrderBy(x => x.HttpStatus)

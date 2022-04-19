@@ -1,5 +1,6 @@
 ﻿namespace ApiStudioIO
 {
+    using ApiStudioIO.Common.Models.Http;
     using System.Collections.Generic;
 
     internal static class HttpApiMediaTypeExtension
@@ -15,10 +16,10 @@
         {
             if (httpApi.HttpApiMediaTypeResponsed.Count == 0)
             {
-                var managedList = new List<ApiStudioComponentMediaTypeResponse>();
-                var managed = new ApiStudioComponentMediaTypeResponse
+                var managedList = new List<HttpResourceMediaTypeResponse>();
+                var managed = new HttpResourceMediaTypeResponse
                 {
-                    DiscreteType = MediaTypeAllowedDiscrete.application,
+                    DiscreteType = HttpTypeMimeAllowedDiscrete.application,
                     SubType = "json"
                 };
                 managedList.Add(managed);
@@ -27,10 +28,10 @@
 
             if (httpApi.HttpApiMediaTypeRequestd.Count == 0)
             {
-                var managedList = new List<ApiStudioComponentMediaTypeRequest>();
-                var managed = new ApiStudioComponentMediaTypeRequest
+                var managedList = new List<HttpResourceMediaTypeRequest>();
+                var managed = new HttpResourceMediaTypeRequest
                 {
-                    DiscreteType = MediaTypeAllowedDiscrete.application,
+                    DiscreteType = HttpTypeMimeAllowedDiscrete.application,
                     SubType = "json"
                 };
                 managedList.Add(managed);

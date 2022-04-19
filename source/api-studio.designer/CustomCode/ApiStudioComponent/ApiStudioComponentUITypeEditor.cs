@@ -1,18 +1,17 @@
-﻿using Microsoft.VisualStudio.Modeling.Diagrams;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Windows.Forms.Design;
-using DslModeling = Microsoft.VisualStudio.Modeling;
-
-namespace ApiStudioIO
+﻿namespace ApiStudioIO
 {
     using System;
+    using Microsoft.VisualStudio.Modeling.Diagrams;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Diagnostics;
+    using System.Windows.Forms.Design;
+    using DslModeling = Microsoft.VisualStudio.Modeling;
 
     public class ApiStudioComponentUITypeEditor<TDomainEntity, TPropertyEntity>
         : System.ComponentModel.Design.CollectionEditor
             where TDomainEntity : DslModeling::ModelElement
-            where TPropertyEntity : IApiStudioComponent
+            where TPropertyEntity : IHttpResource
     {
         private TDomainEntity _domainEntity;
 
