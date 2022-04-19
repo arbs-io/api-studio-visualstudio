@@ -148,7 +148,7 @@
             var managedList = new List<HttpResourceParameter>();
             HttpApiParameters.OrderBy(x => x.FromType).ThenBy(x => x.Identifier)
                 .ToList()
-                .ForEach(domainModel => managedList.Add(domainModel.ToHttpResource()));
+                .ForEach(domainModel => managedList.Add(domainModel.ToHttpResourceParameter()));
             return managedList;
         }
 
@@ -157,7 +157,7 @@
             var managedList = new List<HttpResourceHeaderRequest>();
             HttpApiHeaderRequests.OrderBy(x => x.Name)
                 .ToList()
-                .ForEach(domainModel => managedList.Add(domainModel.ToHttpResource()));
+                .ForEach(domainModel => managedList.Add(domainModel.ToHttpResourceHeaderRequest()));
             return managedList;
         }
 
@@ -166,7 +166,7 @@
             var managedList = new List<HttpResourceMediaTypeRequest>();
             HttpApiMediaTypeRequestd.OrderBy(x => x.DisplayName)
                 .ToList()
-                .ForEach(domainModel => managedList.Add(domainModel.ToHttpResourceRequest()));
+                .ForEach(domainModel => managedList.Add(domainModel.ToHttpResourceMediaTypeRequest()));
             return managedList;
         }
 
@@ -175,7 +175,7 @@
             var managedList = new List<HttpResourceHeaderResponse>();
             HttpApiHeaderResponses.OrderBy(x => x.Name)
                 .ToList()
-                .ForEach(domainModel => managedList.Add(domainModel.ToHttpResource()));
+                .ForEach(domainModel => managedList.Add(domainModel.ToHttpResourceHeaderResponse()));
             return managedList;
         }
 
@@ -184,7 +184,7 @@
             var managedList = new List<HttpResourceMediaTypeResponse>();
             HttpApiMediaTypeResponsed.OrderBy(x => x.DisplayName)
                 .ToList()
-                .ForEach(domainModel => managedList.Add(domainModel.ToHttpResourceResponse()));
+                .ForEach(domainModel => managedList.Add(domainModel.ToHttpResourceMediaTypeResponse()));
             return managedList;
         }
 
@@ -193,7 +193,7 @@
             var managedList = new List<HttpResourceResponseStatusCode>();
             HttpApiResponseStatusCodes.OrderBy(x => x.HttpStatus)
                 .ToList()
-                .ForEach(domainModel => managedList.Add(domainModel.ToHttpResource()));
+                .ForEach(domainModel => managedList.Add(domainModel.ToHttpResourceResponseStatusCode()));
             return managedList;
         }
 
