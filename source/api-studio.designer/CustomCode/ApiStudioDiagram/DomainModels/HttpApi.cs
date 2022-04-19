@@ -147,7 +147,7 @@
             var managedList = new List<ApiStudioComponentParameter>();
             HttpApiParameters.OrderBy(x => x.FromType).ThenBy(x => x.Identifier)
                 .ToList()
-                .ForEach(domainModel => managedList.Add(domainModel));
+                .ForEach(domainModel => managedList.Add(domainModel.Convert()));
             return managedList;
         }
 
@@ -156,7 +156,7 @@
             var managedList = new List<ApiStudioComponentHeaderRequest>();
             HttpApiHeaderRequests.OrderBy(x => x.Name)
                 .ToList()
-                .ForEach(domainModel => managedList.Add(domainModel));
+                .ForEach(domainModel => managedList.Add(domainModel.Convert()));
             return managedList;
         }
 
@@ -165,7 +165,7 @@
             var managedList = new List<ApiStudioComponentMediaTypeRequest>();
             HttpApiMediaTypeRequestd.OrderBy(x => x.DisplayName)
                 .ToList()
-                .ForEach(domainModel => managedList.Add(domainModel));
+                .ForEach(domainModel => managedList.Add(domainModel.ConvertRequest()));
             return managedList;
         }
 
@@ -174,7 +174,7 @@
             var managedList = new List<ApiStudioComponentHeaderResponse>();
             HttpApiHeaderResponses.OrderBy(x => x.Name)
                 .ToList()
-                .ForEach(domainModel => managedList.Add(domainModel));
+                .ForEach(domainModel => managedList.Add(domainModel.Convert()));
             return managedList;
         }
 
@@ -183,7 +183,7 @@
             var managedList = new List<ApiStudioComponentMediaTypeResponse>();
             HttpApiMediaTypeResponsed.OrderBy(x => x.DisplayName)
                 .ToList()
-                .ForEach(domainModel => managedList.Add(domainModel));
+                .ForEach(domainModel => managedList.Add(domainModel.ConvertResponse()));
             return managedList;
         }
 
@@ -192,7 +192,7 @@
             var managedList = new List<ApiStudioComponentResponseStatusCode>();
             HttpApiResponseStatusCodes.OrderBy(x => x.HttpStatus)
                 .ToList()
-                .ForEach(domainModel => managedList.Add(domainModel));
+                .ForEach(domainModel => managedList.Add(domainModel.Convert()));
             return managedList;
         }
 
