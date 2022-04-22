@@ -25,7 +25,8 @@
 
         protected virtual string GetHttpVerbValue()
         {
-            switch (this)
+            HttpApi httpApi = this;
+            switch (httpApi)
             {
                 case HttpApiGet _:
                     return "Get";
@@ -124,7 +125,8 @@
             }
             else
             {
-                switch (this)
+                HttpApi httpApi = this;
+                switch (httpApi)
                 {
                     case HttpApiGet _:
                         return "Read";
