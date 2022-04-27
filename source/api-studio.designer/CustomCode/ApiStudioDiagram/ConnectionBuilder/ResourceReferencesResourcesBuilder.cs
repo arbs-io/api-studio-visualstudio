@@ -1,8 +1,8 @@
-﻿using DslModeling = Microsoft.VisualStudio.Modeling;
-
-namespace ApiStudioIO
+﻿namespace ApiStudioIO
 {
-    public static partial class ResourceReferencesApisBuilder
+    using DslModeling = Microsoft.VisualStudio.Modeling;
+
+    public static partial class ResourceReferencesResourcesBuilder
     {
         #region Accept Connection Methods
 
@@ -35,7 +35,7 @@ namespace ApiStudioIO
             {
                 case null:
                     return false;
-                case Api _:
+                case Resource _:
                     return true;
                 default:
                     return false;
@@ -53,34 +53,11 @@ namespace ApiStudioIO
             _ = source ?? throw new System.ArgumentNullException(nameof(source));
             _ = target ?? throw new System.ArgumentNullException(nameof(target));
 
-            //Here we check if the HTTP Verb is allow for a given "Resource". 
-            //Example: Collection can GET (Find) and POST (Create)
-            bool allowResourceAndHttpApi;
-            switch (target)
-            {
-                case HttpApiGet _ when source is ResourceCollection || source is ResourceInstance || source is ResourceAttribute:
-                case HttpApiPut _ when source is ResourceInstance || source is ResourceAttribute:
-                case HttpApiPost _ when source is ResourceCollection || source is ResourceAction:
-                case HttpApiDelete _ when source is ResourceInstance:
-                case HttpApiPatch _ when source is ResourceInstance || source is ResourceAttribute:
-                case HttpApiTrace _:
-                case HttpApiHead _:
-                case HttpApiOptions _:
-                    allowResourceAndHttpApi = true;
-                    break;
-                default:
-                    allowResourceAndHttpApi = false;
-                    break;
-            }
-
-            if (!allowResourceAndHttpApi)
-                return false;
-
             // If the source wasn't accepted then there's no point checking targets.
             // If there is no target then the source controls the accept.
-            if (CanAcceptSource(source) && CanAcceptTarget(target) && source is Resource sourceResource && target is Api targetApi)
+            if (CanAcceptSource(source) && CanAcceptTarget(target) && source is Resource sourceResource && target is Resource targetResource)
             {
-                if (ResourceReferencesApis.GetLinks(sourceResource, targetApi).Count == 0)
+                if (ResourceReferencesResources.GetLinks(sourceResource, targetResource).Count == 0)
                 {
                     return true;
                 }
@@ -103,14 +80,14 @@ namespace ApiStudioIO
             _ = source ?? throw new System.ArgumentNullException(nameof(source));
             _ = target ?? throw new System.ArgumentNullException(nameof(target));
 
-            if (CanAcceptSourceAndTarget(source, target) && source is Resource sourceAccepted && target is Api targetAccepted)
+            if (CanAcceptSourceAndTarget(source, target) && source is Resource sourceAccepted && target is Resource targetAccepted)
             {
-                DslModeling::ElementLink result = new ResourceReferencesApis(sourceAccepted, targetAccepted);
+                DslModeling::ElementLink result = new ResourceReferencesResources(sourceAccepted, targetAccepted);
                 if (DslModeling::DomainClassInfo.HasNameProperty(result))
                 {
                     DslModeling::DomainClassInfo.SetUniqueName(result);
                 }
-                CreateDefaultHttpApiOnConnect(targetAccepted);  //ApiStudio Add Defaults
+                CreateDefaultResourceOnConnect(targetAccepted);  //ApiStudio Add Defaults
 
                 return result;
             }
@@ -122,14 +99,14 @@ namespace ApiStudioIO
 
         #region Create Defaults
 
-        private static void CreateDefaultHttpApiOnConnect(Api targetAccepted)
+        private static void CreateDefaultResourceOnConnect(Resource targetAccepted)
         {
-            (targetAccepted as HttpApi)?
-                .WithDefaultProperties()
-                .WithDefaultHeaders()
-                .WithDefaultParameters()
-                .WithDefaultMediaTypes()
-                .WithDefaultResponses();
+            //(targetAccepted as Resource)?
+            //    .WithDefaultProperties()
+            //    .WithDefaultHeaders()
+            //    .WithDefaultParameters()
+            //    .WithDefaultMediaTypes()
+            //    .WithDefaultResponses();
         }
 
         #endregion Create Defaults

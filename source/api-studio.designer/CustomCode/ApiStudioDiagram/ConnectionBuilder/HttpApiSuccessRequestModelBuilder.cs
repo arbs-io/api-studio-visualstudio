@@ -54,33 +54,18 @@ namespace ApiStudioIO
         /// <param name="candidateSource">The model element to test as a source</param>
         /// <param name="candidateTarget">The model element to test as a target</param>
         /// <returns>Whether the elements can be used as the source and target of a connection</returns>
-        public static bool CanAcceptSourceAndTarget(DslModeling::ModelElement candidateSource, DslModeling::ModelElement candidateTarget)
+        public static bool CanAcceptSourceAndTarget(DslModeling::ModelElement source, DslModeling::ModelElement target)
         {
-            // Accepts null, null; source, null; source, target but NOT null, target
-            if (candidateSource == null)
-            {
-                return candidateTarget != null ? throw new System.ArgumentNullException(nameof(candidateSource)) : false;
-            }
-            bool acceptSource = CanAcceptSource(candidateSource) & CanAcceptTarget(candidateTarget);
+            _ = source ?? throw new System.ArgumentNullException(nameof(source));
+            _ = target ?? throw new System.ArgumentNullException(nameof(target));
+
             // If the source wasn't accepted then there's no point checking targets.
             // If there is no target then the source controls the accept.
-            if (!acceptSource || candidateTarget == null)
+            if (CanAcceptSource(source) && CanAcceptTarget(target) && source is DataModel sourceDataModel && target is HttpApi targetHttpApi)
             {
-                return acceptSource;
-            }
-            else // Check combinations
-            {
-                if (candidateSource is DataModel sourceDataModel)
+                if (HttpApiSuccessRequestModel.GetLinks(sourceDataModel, targetHttpApi).Count == 0)
                 {
-                    if (candidateTarget is HttpApi targetHttpApi)
-                    {
-                        if (HttpApiSuccessRequestModel.GetLinks(sourceDataModel, targetHttpApi).Count > 0)
-                        {
-                            return false;
-                        }
-
-                        return true;
-                    }
+                    return true;
                 }
             }
             return false;
@@ -98,29 +83,20 @@ namespace ApiStudioIO
         /// <returns>A link representing the created connection</returns>
         public static DslModeling::ElementLink Connect(DslModeling::ModelElement source, DslModeling::ModelElement target)
         {
-            if (source == null)
-            {
-                throw new System.ArgumentNullException(nameof(source));
-            }
-            if (target == null)
-            {
-                throw new System.ArgumentNullException(nameof(target));
-            }
+            _ = source ?? throw new System.ArgumentNullException(nameof(source));
+            _ = target ?? throw new System.ArgumentNullException(nameof(target));
 
-            if (CanAcceptSourceAndTarget(source, target) && source is DataModel sourceAccepted)
+            if (CanAcceptSourceAndTarget(source, target) && source is DataModel sourceAccepted && target is HttpApi targetAccepted)
             {
-                if (target is HttpApi targetAccepted)
+                DslModeling::ElementLink result = new HttpApiSuccessRequestModel(sourceAccepted, targetAccepted);
+                if (DslModeling::DomainClassInfo.HasNameProperty(result))
                 {
-                    DslModeling::ElementLink result = new HttpApiSuccessRequestModel(sourceAccepted, targetAccepted);
-                    if (DslModeling::DomainClassInfo.HasNameProperty(result))
-                    {
-                        DslModeling::DomainClassInfo.SetUniqueName(result);
-                    }
-
-                    CreateDefaultHttpApiOnConnect(targetAccepted);  //ApiStudio Add Defaults
-
-                    return result;
+                    DslModeling::DomainClassInfo.SetUniqueName(result);
                 }
+
+                CreateDefaultHttpApiOnConnect(targetAccepted);  //ApiStudio Add Defaults
+
+                return result;
             }
             System.Diagnostics.Debug.Fail("Having agreed that the connection can be accepted we should never fail to make one.");
             throw new System.InvalidOperationException();
