@@ -1,4 +1,4 @@
-﻿namespace ApiStudioIO
+﻿namespace ApiStudioIO.HttpApiDefaults
 {
     using ApiStudioIO.Common.Models.Http;
     using ApiStudioIO.VsOptions.ConfigurationV1;

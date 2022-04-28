@@ -1,4 +1,4 @@
-﻿namespace ApiStudioIO
+﻿namespace ApiStudioIO.HttpApiDefaults
 {
     using System.Linq;
 

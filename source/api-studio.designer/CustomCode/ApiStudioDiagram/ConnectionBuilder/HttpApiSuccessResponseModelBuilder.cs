@@ -87,8 +87,7 @@ namespace ApiStudioIO
                 {
                     DslModeling::DomainClassInfo.SetUniqueName(result);
                 }
-
-                CreateDefaultHttpApiOnConnect(sourceAccepted);  //ApiStudio Add Defaults
+                sourceAccepted.SetDefaults();   // Set Api Studio Defaults
 
                 return result;
             }
@@ -97,16 +96,5 @@ namespace ApiStudioIO
         }
 
         #endregion Connection Methods
-
-        #region Create Defaults
-
-        private static void CreateDefaultHttpApiOnConnect(HttpApi targetAccepted) => targetAccepted
-                .WithDefaultProperties()
-                .WithDefaultHeaders()
-                .WithDefaultParameters()
-                .WithDefaultMediaTypes()
-                .WithDefaultResponses();
-
-        #endregion Create Defaults
     }
 }

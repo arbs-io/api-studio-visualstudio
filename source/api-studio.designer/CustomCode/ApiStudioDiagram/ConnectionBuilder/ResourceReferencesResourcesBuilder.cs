@@ -1,5 +1,7 @@
 ﻿namespace ApiStudioIO
 {
+    using System.Linq;
+    using System.Threading.Tasks;
     using DslModeling = Microsoft.VisualStudio.Modeling;
 
     public static partial class ResourceReferencesResourcesBuilder
@@ -87,7 +89,7 @@
                 {
                     DslModeling::DomainClassInfo.SetUniqueName(result);
                 }
-                CreateDefaultResourceOnConnect(targetAccepted);  //ApiStudio Add Defaults
+                SetResourceDefaults(targetAccepted);   // Set Api Studio Defaults
 
                 return result;
             }
@@ -99,16 +101,17 @@
 
         #region Create Defaults
 
-        private static void CreateDefaultResourceOnConnect(Resource targetAccepted)
+        private static void SetResourceDefaults(Resource resource)
         {
-            //(targetAccepted as Resource)?
-            //    .WithDefaultProperties()
-            //    .WithDefaultHeaders()
-            //    .WithDefaultParameters()
-            //    .WithDefaultMediaTypes()
-            //    .WithDefaultResponses();
-        }
+            resource.Apis
+                .ToList()
+                .ForEach(x => (x as HttpApi)?.SetDefaults());
 
+            foreach (var childResource in resource.Resources)
+            {
+                SetResourceDefaults(childResource);
+            }
+        }
         #endregion Create Defaults
     }
 }
