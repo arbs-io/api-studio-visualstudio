@@ -6,5 +6,8 @@
     {
         [JsonProperty("DefaultResponseCodes")]
         public DefaultResponseCodes DefaultResponseCodes { get; set; } = new DefaultResponseCodes();
+
+        [JsonProperty("DefaultSecurity")]
+        public DefaultSecurity DefaultSecurity { get; set; } = new DefaultSecurity();
     }
 }

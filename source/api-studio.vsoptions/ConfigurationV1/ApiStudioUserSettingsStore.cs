@@ -63,6 +63,7 @@
         public void ResetDefaults()
         {
             Data.DefaultResponseCodes.LoadDefaults();
+            Data.DefaultSecurity.LoadDefaults();
         }
         #endregion Visual Studio Interop
 

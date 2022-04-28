@@ -6,7 +6,7 @@
     using System.Windows.Forms;
     using System.Windows.Forms.Design;
 
-    class UITypeEditorDropDown : UITypeEditor
+    class SecurityScopeUITypeEditor : UITypeEditor
     {
         private IWindowsFormsEditorService _editorService;
 

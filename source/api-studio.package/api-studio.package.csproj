@@ -134,8 +134,7 @@
     <Compile Include="VsOptions\HttpResponseCodes\HttpResponseCodesDialogPage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="VsOptions\HttpSecurity\UITypeEditorDropDown.cs" />
-    <Compile Include="VsOptions\HttpSecurity\SecuritySchemeTypes.cs" />
+    <Compile Include="VsOptions\HttpSecurity\SecurityScopeUITypeEditor.cs" />
     <Compile Include="VsOptions\HttpSecurity\SecurityDialogPage.cs">
       <SubType>Component</SubType>
     </Compile>
