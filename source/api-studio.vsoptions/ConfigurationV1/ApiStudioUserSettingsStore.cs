@@ -42,6 +42,7 @@
             if (!userSettingsStore.PropertyExists(COLLECTION_NAME, PROPERTY_NAME))
             {
                 ResetDefaults();
+                VsOptionStoreSave();
                 return;
             }
 
@@ -77,12 +78,13 @@
 
         public void ResetDefaults()
         {
+            Data = new ApiStudioOptions();
             Data.DefaultResponseCodes.LoadDefaults();
             Data.DefaultSecurity.LoadDefaults();
             Data.DefaultHeaders.LoadDefaults();
         }
         #endregion Visual Studio Interop
 
-        public ApiStudioOptions Data { get; private set; } = new ApiStudioOptions();
+        public ApiStudioOptions Data { get; set; }
     }
 }

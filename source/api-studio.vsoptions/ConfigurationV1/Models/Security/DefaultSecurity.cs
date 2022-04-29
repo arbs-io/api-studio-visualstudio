@@ -11,6 +11,12 @@
         [JsonProperty("scope_pattern")]
         public string SecurityScopePattern { get; set; }
 
+
+        public DefaultSecurity()
+        {
+            LoadDefaults();
+        }
+
         public void LoadDefaults()
         {
             SecurityScheme = "OpenIdConnect";

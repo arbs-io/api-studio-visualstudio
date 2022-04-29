@@ -242,6 +242,10 @@
       <Project>{648a6bfa-5379-402b-921a-d3db09a27e7e}</Project>
       <Name>api-studio.code-generation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\api-studio.common\api-studio.common.csproj">
+      <Project>{46D39996-178F-4FDA-9D04-45BBCE25F0F6}</Project>
+      <Name>api-studio.common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\api-studio.designer\api-studio.designer.csproj">
       <Project>{53311d37-53db-4ecb-9879-65e02d94af91}</Project>
       <Name>api-studio.designer</Name>

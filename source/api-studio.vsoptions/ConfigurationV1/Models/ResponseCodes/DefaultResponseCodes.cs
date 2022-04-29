@@ -6,7 +6,7 @@
     public sealed class DefaultResponseCodes
     {
         [JsonProperty("standard")]
-        public List<int> StandardResponseCodes { get; set; } = new List<int>() { 400, 401, 403, 404, 415, 422, 500 };
+        public HashSet<int> StandardResponseCodes { get; set; } = new HashSet<int>() { 400, 401, 403, 404, 415, 422, 500 };
 
         [JsonProperty("success_get")]
         public int SuccessGet { get; set; } = 200;
@@ -38,7 +38,7 @@
         }
         public void LoadDefaults()
         {
-            StandardResponseCodes = new List<int>() { 400, 401, 403, 404, 415, 422, 500 };
+            StandardResponseCodes = new HashSet<int>() { 400, 401, 403, 404, 415, 422, 500 };
             SuccessGet = 200;
             SuccessPut = 202;
             SuccessPost = 201;

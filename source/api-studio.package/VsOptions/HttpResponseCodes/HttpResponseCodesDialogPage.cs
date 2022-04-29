@@ -1,12 +1,12 @@
-﻿using ApiStudioIO.VsOptions.ConfigurationV1;
-using Microsoft.VisualStudio.Shell;
-using System;
-using System.ComponentModel;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
-
-namespace ApiStudioIO.VsOptions.HttpResponseCodes
+﻿namespace ApiStudioIO.VsOptions.HttpResponseCodes
 {
+    using ApiStudioIO.VsOptions.ConfigurationV1;
+    using Microsoft.VisualStudio.Shell;
+    using System;
+    using System.ComponentModel;
+    using System.Runtime.InteropServices;
+    using System.Windows.Forms;
+
     [Guid("d69fefa9-3add-4219-af38-2d9f01a8c314")]
     public class HttpResponseCodesDialogPage : DialogPage
     {

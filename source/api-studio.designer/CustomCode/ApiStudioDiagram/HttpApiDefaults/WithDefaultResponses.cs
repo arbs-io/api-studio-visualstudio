@@ -77,10 +77,10 @@
             if (HasDocumentResourceInPath(httpApi) && standardResponseCodes.Contains(404))
                 apiResponses.Add(ConvertResponseStatusCode(404));  //[Not found]
 
-            standardResponseCodes.RemoveAll(t => t == 404 || t == 422);  //Remove technical response codes
             foreach (var responseCode in standardResponseCodes)
             {
-                apiResponses.Add(ConvertResponseStatusCode(responseCode));
+                if(responseCode != 404 || responseCode != 422)  //Remove technical response codes (handled by above logic)
+                    apiResponses.Add(ConvertResponseStatusCode(responseCode));
             }
 
             ApiStudioComponentTransactionManager.Save(httpApi, apiResponses);

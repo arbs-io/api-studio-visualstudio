@@ -1,16 +1,57 @@
-﻿using ApiStudioIO.VsOptions.ConfigurationV1;
-using Microsoft.VisualStudio.Shell;
-using System;
-using System.ComponentModel;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
-
-namespace ApiStudioIO.VsOptions.HttpHeaders
+﻿namespace ApiStudioIO.VsOptions.HttpHeaders
 {
+    using ApiStudioIO.Common.Models.Http;
+    using ApiStudioIO.VsOptions.ConfigurationV1;
+    using Microsoft.VisualStudio.Shell;
+    using System;
+    using System.ComponentModel;
+    using System.Runtime.InteropServices;
+    using System.Windows.Forms;
+
     [Guid("cad156f0-dfca-431f-8828-bdb84d992ad8")]
     public class HttpHeadersDialogPage : DialogPage
     {
         private HttpHeadersControl control;
+
+        internal void AddResponseHeader(string Name, string Description, bool IsRequired, bool AllowEmptyValue)
+        {
+            var header = new HttpResourceHeaderResponse
+            {
+                Name = Name,
+                Description = Description,
+                IsRequired = IsRequired,
+                AllowEmptyValue = AllowEmptyValue
+            };
+            if (ApiStudioUserSettingsStore.Instance.Data.DefaultHeaders.Response.ContainsKey(Name))
+                ApiStudioUserSettingsStore.Instance.Data.DefaultHeaders.Response.Remove(Name);
+
+            ApiStudioUserSettingsStore.Instance.Data.DefaultHeaders.Response.Add(Name, header);
+        }
+        internal void RemoveResponseHeader(string Name)
+        {
+            if (ApiStudioUserSettingsStore.Instance.Data.DefaultHeaders.Response.ContainsKey(Name))
+                ApiStudioUserSettingsStore.Instance.Data.DefaultHeaders.Response.Remove(Name);
+        }
+
+        internal void AddRequestHeader(string Name, string Description, bool IsRequired, bool AllowEmptyValue)
+        {
+            var header = new HttpResourceHeaderRequest
+            {
+                Name = Name,
+                Description = Description,
+                IsRequired = IsRequired,
+                AllowEmptyValue = AllowEmptyValue
+            };
+            if (ApiStudioUserSettingsStore.Instance.Data.DefaultHeaders.Request.ContainsKey(Name))
+                ApiStudioUserSettingsStore.Instance.Data.DefaultHeaders.Request.Remove(Name);
+
+            ApiStudioUserSettingsStore.Instance.Data.DefaultHeaders.Request.Add(Name, header);
+        }
+        internal void RemoveRequestHeader(string Name)
+        {
+            if (ApiStudioUserSettingsStore.Instance.Data.DefaultHeaders.Request.ContainsKey(Name))
+                ApiStudioUserSettingsStore.Instance.Data.DefaultHeaders.Request.Remove(Name);
+        }
 
         public override void SaveSettingsToStorage()
         {
