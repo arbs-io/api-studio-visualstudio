@@ -9,5 +9,8 @@
 
         [JsonProperty("security")]
         public DefaultSecurity DefaultSecurity { get; set; } = new DefaultSecurity();
+
+        [JsonProperty("headers")]
+        public DefaultHeaders DefaultHeaders { get; set; } = new DefaultHeaders();
     }
 }

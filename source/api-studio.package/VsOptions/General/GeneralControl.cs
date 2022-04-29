@@ -32,14 +32,17 @@ namespace ApiStudioIO.VsOptions.General
 
         private void ButtonInput_Click(object sender, EventArgs e)
         {
-            var openFileDialog = new OpenFileDialog
+            var dlg = new OpenFileDialog
             {
                 Filter = "api studio (*.api-studio)|*.api-studio",
                 Multiselect = false
             };
-            openFileDialog.ShowDialog();
-            var filename = openFileDialog.FileName;
-            _ = MessageBox.Show(filename);
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                var filename = dlg.FileName;
+                var apiStudioJson = File.ReadAllText(filename);
+                ApiStudioUserSettingsStore.Instance.ImportVsOption(apiStudioJson);
+            }
         }
 
         private void ButtonExport_Click(object sender, EventArgs e)
@@ -50,12 +53,12 @@ namespace ApiStudioIO.VsOptions.General
                 DefaultExt = "api-studio",
                 AddExtension = true,
             };
-            dlg.ShowDialog();
-            var filename = dlg.FileName;
-            _ = MessageBox.Show(filename);
-
-            var json = ApiStudioUserSettingsStore.Instance.SerializeJson();
-            File.WriteAllText(filename, json);
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                var filename = dlg.FileName;
+                var apiStudioJson = ApiStudioUserSettingsStore.Instance.ExportVsOption();
+                File.WriteAllText(filename, apiStudioJson);
+            }            
         }
 
         private void ButtonReset_Click(object sender, EventArgs e)

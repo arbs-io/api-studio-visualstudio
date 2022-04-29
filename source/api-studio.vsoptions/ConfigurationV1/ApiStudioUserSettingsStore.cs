@@ -8,6 +8,9 @@
 
     public sealed class ApiStudioUserSettingsStore
     {
+        private readonly string COLLECTION_NAME = "api-studio";
+        private readonly string PROPERTY_NAME = "configuration-v1";
+
         #region Singleton
         //This should be readonly but we want to load from visual studion
         private static readonly ApiStudioUserSettingsStore instance = new ApiStudioUserSettingsStore();
@@ -36,13 +39,13 @@
             var settingsManager = new ShellSettingsManager(ServiceProvider.GlobalProvider);
             var userSettingsStore = settingsManager.GetWritableSettingsStore(SettingsScope.UserSettings);
 
-            if (!userSettingsStore.PropertyExists(ConfigurationV1Consts.CollectionName, ConfigurationV1Consts.PropertyName))
+            if (!userSettingsStore.PropertyExists(COLLECTION_NAME, PROPERTY_NAME))
             {
                 ResetDefaults();
                 return;
             }
 
-            var stored = userSettingsStore.GetString(ConfigurationV1Consts.CollectionName, ConfigurationV1Consts.PropertyName);
+            var stored = userSettingsStore.GetString(COLLECTION_NAME, PROPERTY_NAME);
             Data = JsonConvert.DeserializeObject<ApiStudioOptions>(stored);
         }
 
@@ -52,24 +55,31 @@
             var settingsManager = new ShellSettingsManager(ServiceProvider.GlobalProvider);
             var userSettingsStore = settingsManager.GetWritableSettingsStore(SettingsScope.UserSettings);
 
-            if (!userSettingsStore.CollectionExists(ConfigurationV1Consts.CollectionName))
-                userSettingsStore.CreateCollection(ConfigurationV1Consts.CollectionName);
+            if (!userSettingsStore.CollectionExists(COLLECTION_NAME))
+                userSettingsStore.CreateCollection(COLLECTION_NAME);
 
             var store = JsonConvert.SerializeObject(Data, Formatting.Indented);
 
-            userSettingsStore.SetString(ConfigurationV1Consts.CollectionName, ConfigurationV1Consts.PropertyName, store);
+            userSettingsStore.SetString(COLLECTION_NAME, PROPERTY_NAME, store);
         }
 
 
-        public string SerializeJson()
+        public string ExportVsOption()
         {
             return JsonConvert.SerializeObject(Data, Formatting.Indented);
+        }
+
+        public void ImportVsOption(string json)
+        {
+            Data = JsonConvert.DeserializeObject<ApiStudioOptions>(json);
+            VsOptionStoreSave();
         }
 
         public void ResetDefaults()
         {
             Data.DefaultResponseCodes.LoadDefaults();
             Data.DefaultSecurity.LoadDefaults();
+            Data.DefaultHeaders.LoadDefaults();
         }
         #endregion Visual Studio Interop
 
