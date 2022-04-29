@@ -4,10 +4,10 @@
 
     public sealed class ApiStudioOptions
     {
-        [JsonProperty("DefaultResponseCodes")]
+        [JsonProperty("response_codes")]
         public DefaultResponseCodes DefaultResponseCodes { get; set; } = new DefaultResponseCodes();
 
-        [JsonProperty("DefaultSecurity")]
+        [JsonProperty("security")]
         public DefaultSecurity DefaultSecurity { get; set; } = new DefaultSecurity();
     }
 }

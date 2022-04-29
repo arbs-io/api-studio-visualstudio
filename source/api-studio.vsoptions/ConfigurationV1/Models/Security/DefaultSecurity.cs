@@ -5,15 +5,15 @@
 
     public sealed class DefaultSecurity
     {
-        [JsonProperty("SecurityScheme")]
-        public SecuritySchemes SecurityScheme { get; set; }
+        [JsonProperty("scheme")]
+        public string SecurityScheme { get; set; }
 
-        [JsonProperty("SecurityScopePattern")]
+        [JsonProperty("scope_pattern")]
         public string SecurityScopePattern { get; set; }
 
         public void LoadDefaults()
         {
-            SecurityScheme = SecuritySchemes.None;
+            SecurityScheme = "OpenIdConnect";
             SecurityScopePattern = "{Resource}::{Action}";
         }
     }

@@ -31,14 +31,14 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             base.SaveSettingsToStorage();
-            ApiStudioUserSettingsStore.Instance.Save();
+            ApiStudioUserSettingsStore.Instance.VsOptionStoreSave();
         }
 
         public override void LoadSettingsFromStorage()
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             base.LoadSettingsFromStorage();
-            ApiStudioUserSettingsStore.Instance.Load();
+            ApiStudioUserSettingsStore.Instance.VsOptionStoreLoad();
         }
 
         protected override void OnActivate(CancelEventArgs e)

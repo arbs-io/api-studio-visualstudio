@@ -15,20 +15,21 @@
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             base.SaveSettingsToStorage();
-            ApiStudioUserSettingsStore.Instance.Save();
+            ApiStudioUserSettingsStore.Instance.VsOptionStoreSave();
         }
 
         public override void LoadSettingsFromStorage()
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             base.LoadSettingsFromStorage();
-            ApiStudioUserSettingsStore.Instance.Load();
+            ApiStudioUserSettingsStore.Instance.VsOptionStoreLoad();
         }
 
         [Category("Roles")]
         [DisplayName("Security Scheme")]
         [Description("Defines a security scheme that can be used by the operations. Supported schemes are HTTP authentication, an API key (either as a header or as a query parameter), OAuth2's common flows (implicit, password, application and access code) as defined in RFC6749, and OpenID Connect Discovery.")]
-        public SecuritySchemes SecurityScheme
+        [Editor(typeof(SecuritySchemesUITypeEditor), typeof(UITypeEditor))]
+        public string SecurityScheme
         {
             get => ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.SecurityScheme;
             set => ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.SecurityScheme = value;

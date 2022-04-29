@@ -30,7 +30,7 @@
         #region Visual Studio Interop
 
 
-        public void Load()
+        public void VsOptionStoreLoad()
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             var settingsManager = new ShellSettingsManager(ServiceProvider.GlobalProvider);
@@ -46,7 +46,7 @@
             Data = JsonConvert.DeserializeObject<ApiStudioOptions>(stored);
         }
 
-        public void Save()
+        public void VsOptionStoreSave()
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             var settingsManager = new ShellSettingsManager(ServiceProvider.GlobalProvider);
@@ -58,6 +58,12 @@
             var store = JsonConvert.SerializeObject(Data, Formatting.Indented);
 
             userSettingsStore.SetString(ConfigurationV1Consts.CollectionName, ConfigurationV1Consts.PropertyName, store);
+        }
+
+
+        public string SerializeJson()
+        {
+            return JsonConvert.SerializeObject(Data, Formatting.Indented);
         }
 
         public void ResetDefaults()

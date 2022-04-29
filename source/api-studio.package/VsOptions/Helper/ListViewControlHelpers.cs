@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace ApiStudioIO.VsOptions.HttpResponseCodes
+namespace ApiStudioIO.VsOptions.Helper
 {
-    internal static class HttpResponseCodesControlHelpers
+    internal static class ListViewControlHelpers
     {
         internal static void AutoResizeColumns(ListView lv)
         {
