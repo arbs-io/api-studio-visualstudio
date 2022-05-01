@@ -12,10 +12,10 @@
         public string SecurityScopePattern { get; set; }
 
 
-        public DefaultSecurity()
-        {
-            LoadDefaults();
-        }
+        //public DefaultSecurity()
+        //{
+        //    LoadDefaults();
+        //}
 
         public void LoadDefaults()
         {
