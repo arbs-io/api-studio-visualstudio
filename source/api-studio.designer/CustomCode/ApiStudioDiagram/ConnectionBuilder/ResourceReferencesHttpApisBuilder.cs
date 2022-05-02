@@ -48,18 +48,21 @@ namespace ApiStudioIO
         /// <param name="candidateSource">The model element to test as a source</param>
         /// <param name="candidateTarget">The model element to test as a target</param>
         /// <returns>Whether the elements can be used as the source and target of a connection</returns>
-        public static bool CanAcceptSourceAndTarget(DslModeling::ModelElement candidateSource, DslModeling::ModelElement candidateTarget)
+        public static bool CanAcceptSourceAndTarget(DslModeling::ModelElement source, DslModeling::ModelElement target)
         {
+            _ = source ?? throw new System.ArgumentNullException(nameof(source));
+            _ = target ?? throw new System.ArgumentNullException(nameof(target));
+
             //Here we check if the HTTP Verb is allow for a given "Resource". 
             //Example: Collection can GET (Find) and POST (Create)
             bool allowResourceAndHttpApi;
-            switch (candidateTarget)
+            switch (target)
             {
-                case HttpApiGet _ when candidateSource is ResourceCollection || candidateSource is ResourceInstance || candidateSource is ResourceAttribute:
-                case HttpApiPut _ when candidateSource is ResourceInstance || candidateSource is ResourceAttribute:
-                case HttpApiPost _ when candidateSource is ResourceCollection || candidateSource is ResourceAction:
-                case HttpApiDelete _ when candidateSource is ResourceInstance:
-                case HttpApiPatch _ when candidateSource is ResourceInstance || candidateSource is ResourceAttribute:
+                case HttpApiGet _ when source is ResourceCollection || source is ResourceInstance || source is ResourceAttribute:
+                case HttpApiPut _ when source is ResourceInstance || source is ResourceAttribute:
+                case HttpApiPost _ when source is ResourceCollection || source is ResourceAction:
+                case HttpApiDelete _ when source is ResourceInstance:
+                case HttpApiPatch _ when source is ResourceInstance || source is ResourceAttribute:
                 case HttpApiTrace _:
                 case HttpApiHead _:
                 case HttpApiOptions _:
@@ -73,28 +76,12 @@ namespace ApiStudioIO
             if (!allowResourceAndHttpApi)
                 return false;
 
-
-            // Accepts null, null; source, null; source, target but NOT null, target
-            if (candidateSource == null)
-            {
-                return candidateTarget != null ? throw new System.ArgumentNullException(nameof(candidateSource)) : false;
-            }
-            bool acceptSource = CanAcceptSource(candidateSource) && CanAcceptTarget(candidateTarget);
             // If the source wasn't accepted then there's no point checking targets.
             // If there is no target then the source controls the accept.
-            if (!acceptSource || candidateTarget == null)
+            if (CanAcceptSource(source) && CanAcceptTarget(target) && source is Resource sourceResource && target is Api targetApi)
             {
-                return acceptSource;
-            }
-            else // Check combinations
-            {
-                if (candidateSource is Resource sourceResource && candidateTarget is Api targetApi)
+                if (ResourceReferencesApis.GetLinks(sourceResource, targetApi).Count == 0)
                 {
-                    if (ResourceReferencesApis.GetLinks(sourceResource, targetApi).Count > 0)
-                    {
-                        return false;
-                    }
-
                     return true;
                 }
             }
@@ -113,14 +100,8 @@ namespace ApiStudioIO
         /// <returns>A link representing the created connection</returns>
         public static DslModeling::ElementLink Connect(DslModeling::ModelElement source, DslModeling::ModelElement target)
         {
-            if (source == null)
-            {
-                throw new System.ArgumentNullException(nameof(source));
-            }
-            if (target == null)
-            {
-                throw new System.ArgumentNullException(nameof(target));
-            }
+            _ = source ?? throw new System.ArgumentNullException(nameof(source));
+            _ = target ?? throw new System.ArgumentNullException(nameof(target));
 
             if (CanAcceptSourceAndTarget(source, target) && source is Resource sourceAccepted && target is Api targetAccepted)
             {
@@ -129,7 +110,7 @@ namespace ApiStudioIO
                 {
                     DslModeling::DomainClassInfo.SetUniqueName(result);
                 }
-                CreateDefaultHttpApiOnConnect(targetAccepted);  //ApiStudio Add Defaults
+                targetAccepted.SetDefaults();   // Set Api Studio Defaults
 
                 return result;
             }
@@ -138,16 +119,5 @@ namespace ApiStudioIO
         }
 
         #endregion Connection Methods
-
-        #region Create Defaults
-
-        private static void CreateDefaultHttpApiOnConnect(Api targetAccepted) => (targetAccepted as HttpApi)?
-                .WithDefaultProperties()
-                .WithDefaultHeaders()
-                .WithDefaultParameters()
-                .WithDefaultMediaTypes()
-                .WithDefaultResponses();
-
-        #endregion Create Defaults
     }
 }

@@ -36,6 +36,8 @@
             this.lsvResponseCodesInformation = new System.Windows.Forms.ListView();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabPageSuccess = new System.Windows.Forms.TabPage();
+            this.SuccessPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.tabPageRedirection = new System.Windows.Forms.TabPage();
             this.lsvResponseCodesRedirection = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -48,14 +50,12 @@
             this.lsvResponseCodesServerError = new System.Windows.Forms.ListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tabPageSuccess = new System.Windows.Forms.TabPage();
-            this.SuccessPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.tabResponseCodes.SuspendLayout();
             this.tabPageInformation.SuspendLayout();
+            this.tabPageSuccess.SuspendLayout();
             this.tabPageRedirection.SuspendLayout();
             this.tabPageClientError.SuspendLayout();
             this.tabPageServerError.SuspendLayout();
-            this.tabPageSuccess.SuspendLayout();
             this.SuspendLayout();
             // 
             // ControlImages
@@ -118,6 +118,24 @@
             // 
             this.columnHeader8.Text = "Description";
             this.columnHeader8.Width = 268;
+            // 
+            // tabPageSuccess
+            // 
+            this.tabPageSuccess.Controls.Add(this.SuccessPropertyGrid);
+            this.tabPageSuccess.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSuccess.Name = "tabPageSuccess";
+            this.tabPageSuccess.Size = new System.Drawing.Size(363, 234);
+            this.tabPageSuccess.TabIndex = 4;
+            this.tabPageSuccess.Text = "Success";
+            this.tabPageSuccess.UseVisualStyleBackColor = true;
+            // 
+            // SuccessPropertyGrid
+            // 
+            this.SuccessPropertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SuccessPropertyGrid.Location = new System.Drawing.Point(0, 0);
+            this.SuccessPropertyGrid.Name = "SuccessPropertyGrid";
+            this.SuccessPropertyGrid.Size = new System.Drawing.Size(363, 234);
+            this.SuccessPropertyGrid.TabIndex = 0;
             // 
             // tabPageRedirection
             // 
@@ -237,37 +255,19 @@
             this.columnHeader6.Text = "Description";
             this.columnHeader6.Width = 268;
             // 
-            // tabPageSuccess
-            // 
-            this.tabPageSuccess.Controls.Add(this.SuccessPropertyGrid);
-            this.tabPageSuccess.Location = new System.Drawing.Point(4, 22);
-            this.tabPageSuccess.Name = "tabPageSuccess";
-            this.tabPageSuccess.Size = new System.Drawing.Size(363, 234);
-            this.tabPageSuccess.TabIndex = 4;
-            this.tabPageSuccess.Text = "Success";
-            this.tabPageSuccess.UseVisualStyleBackColor = true;
-            // 
-            // SuccessPropertyGrid
-            // 
-            this.SuccessPropertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SuccessPropertyGrid.Location = new System.Drawing.Point(0, 0);
-            this.SuccessPropertyGrid.Name = "SuccessPropertyGrid";
-            this.SuccessPropertyGrid.Size = new System.Drawing.Size(363, 234);
-            this.SuccessPropertyGrid.TabIndex = 0;
-            // 
-            // ResponseCodesGeneralControl
+            // HttpResponseCodesControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabResponseCodes);
-            this.Name = "ResponseCodesGeneralControl";
+            this.Name = "HttpResponseCodesControl";
             this.Size = new System.Drawing.Size(371, 260);
             this.tabResponseCodes.ResumeLayout(false);
             this.tabPageInformation.ResumeLayout(false);
+            this.tabPageSuccess.ResumeLayout(false);
             this.tabPageRedirection.ResumeLayout(false);
             this.tabPageClientError.ResumeLayout(false);
             this.tabPageServerError.ResumeLayout(false);
-            this.tabPageSuccess.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -21,15 +21,9 @@
 
         public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
-
-            if (provider == null)
-            {
-                throw new ArgumentNullException(nameof(provider));
-            }
+            _ = context ?? throw new ArgumentNullException(nameof(context));
+            _ = provider ?? throw new ArgumentNullException(nameof(provider));
+            _ = value ?? throw new ArgumentNullException(nameof(value));
 
             Debug.Assert(provider.GetService(typeof(IWindowsFormsEditorService)) is IWindowsFormsEditorService, "Couldn't get a reference to the editor service");
 
@@ -47,10 +41,10 @@
             return base.EditValue(context, provider, value);
         }
 
-        protected override object SetItems(object editValue, object[] managed)
+        protected override object SetItems(object editValue, object[] value)
         {
             var propertyEntities = new List<TPropertyEntity>();
-            foreach (var apiStudioObject in managed)
+            foreach (var apiStudioObject in value)
             {
                 if (apiStudioObject is TPropertyEntity entity)
                 {
@@ -59,7 +53,7 @@
             }
             ApiStudioComponentTransactionManager.Save(_domainEntity, propertyEntities);
 
-            return base.SetItems(editValue, managed);
+            return base.SetItems(editValue, value);
         }
     }
 }

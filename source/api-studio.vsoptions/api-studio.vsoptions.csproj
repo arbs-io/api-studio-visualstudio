@@ -19,4 +19,8 @@
     <PackageReference Include="Microsoft.VisualStudio.Validation" Version="17.0.43" />
     <PackageReference Include="Newtonsoft.Json" Version="13.*" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\api-studio.common\api-studio.common.csproj" />
+  </ItemGroup>
 </Project>

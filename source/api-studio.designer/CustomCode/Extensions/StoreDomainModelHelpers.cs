@@ -15,7 +15,7 @@
                 httpApi.HttpApiParameters.Clear();
                 value.OrderBy(x => x.FromType).ThenBy(x => x.Identifier)
                     .ToList()
-                    .ForEach(domainModel => httpApi.HttpApiParameters.Add(domainModel.ToDomainModel(httpApi.Store)));
+                    .ForEach(domainModel => httpApi.HttpApiParameters.Add(domainModel.ToHttpApiParameter(httpApi.Store)));
 
                 t.Commit();
             }
@@ -28,7 +28,7 @@
                 httpApi.HttpApiHeaderRequests.Clear();
                 value.OrderBy(x => x.Name)
                     .ToList()
-                    .ForEach(domainModel => httpApi.HttpApiHeaderRequests.Add(domainModel.ToDomainModel(httpApi.Store)));
+                    .ForEach(domainModel => httpApi.HttpApiHeaderRequests.Add(domainModel.ToHttpApiHeaderRequest(httpApi.Store)));
                 t.Commit();
             }
         }
@@ -40,7 +40,7 @@
                 httpApi.HttpApiMediaTypeRequestd.Clear();
                 value.OrderBy(x => x.Name)
                     .ToList()
-                    .ForEach(domainModel => httpApi.HttpApiMediaTypeRequestd.Add(domainModel.ToDomainModel(httpApi.Store)));
+                    .ForEach(domainModel => httpApi.HttpApiMediaTypeRequestd.Add(domainModel.ToHttpApiMediaTypeRequest(httpApi.Store)));
                 t.Commit();
             }
         }
@@ -52,7 +52,7 @@
                 httpApi.HttpApiHeaderResponses.Clear();
                 value.OrderBy(x => x.Name)
                     .ToList()
-                    .ForEach(domainModel => httpApi.HttpApiHeaderResponses.Add(domainModel.ToDomainModel(httpApi.Store)));
+                    .ForEach(domainModel => httpApi.HttpApiHeaderResponses.Add(domainModel.ToHttpApiHeaderResponse(httpApi.Store)));
                 t.Commit();
             }
         }
@@ -64,7 +64,7 @@
                 httpApi.HttpApiMediaTypeResponsed.Clear();
                 value.OrderBy(x => x.Name)
                     .ToList()
-                    .ForEach(domainModel => httpApi.HttpApiMediaTypeResponsed.Add(domainModel.ToDomainModel(httpApi.Store)));
+                    .ForEach(domainModel => httpApi.HttpApiMediaTypeResponsed.Add(domainModel.ToHttpApiMediaTypeResponse(httpApi.Store)));
                 t.Commit();
             }
         }
@@ -76,7 +76,7 @@
                 httpApi.HttpApiResponseStatusCodes.Clear();
                 value.OrderBy(x => x.HttpStatus)
                     .ToList()
-                    .ForEach(domainModel => httpApi.HttpApiResponseStatusCodes.Add(domainModel.ToDomainModel(httpApi.Store)));
+                    .ForEach(domainModel => httpApi.HttpApiResponseStatusCodes.Add(domainModel.ToHttpApiResponseStatusCode(httpApi.Store)));
                 t.Commit();
             }
         }

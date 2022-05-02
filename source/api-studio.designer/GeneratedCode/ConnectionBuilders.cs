@@ -13,135 +13,11 @@ using DslDiagrams = global::Microsoft.VisualStudio.Modeling.Diagrams;
 namespace ApiStudioIO
 {
 	/// <summary>
-	/// ConnectionBuilder class to provide logic for constructing connections between elements.
+	/// Empty ConnectionBuilder class as a placeholder for custom code.
 	/// </summary>
 	public static partial class ResourceReferencesResourcesBuilder
 	{
-		#region Accept Connection Methods
-		/// <summary>
-		/// Test whether a given model element is acceptable to this ConnectionBuilder as the source of a connection.
-		/// </summary>
-		/// <param name="candidate">The model element to test.</param>
-		/// <returns>Whether the element can be used as the source of a connection.</returns>
-		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
-		public static bool CanAcceptSource(DslModeling::ModelElement candidate)
-		{
-			if (candidate == null) return false;
-			else if (candidate is global::ApiStudioIO.Resource)
-			{ 
-				return true;
-			}
-			else
-				return false;
-		}
-
-		/// <summary>
-		/// Test whether a given model element is acceptable to this ConnectionBuilder as the target of a connection.
-		/// </summary>
-		/// <param name="candidate">The model element to test.</param>
-		/// <returns>Whether the element can be used as the target of a connection.</returns>
-		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
-		public static bool CanAcceptTarget(DslModeling::ModelElement candidate)
-		{
-			if (candidate == null) return false;
-			else if (candidate is global::ApiStudioIO.Resource)
-			{ 
-				return true;
-			}
-			else
-				return false;
-		}
-		
-		/// <summary>
-		/// Test whether a given pair of model elements are acceptable to this ConnectionBuilder as the source and target of a connection
-		/// </summary>
-		/// <param name="candidateSource">The model element to test as a source</param>
-		/// <param name="candidateTarget">The model element to test as a target</param>
-		/// <returns>Whether the elements can be used as the source and target of a connection</returns>
-		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
-		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
-		public static bool CanAcceptSourceAndTarget(DslModeling::ModelElement candidateSource, DslModeling::ModelElement candidateTarget)
-		{
-			// Accepts null, null; source, null; source, target but NOT null, target
-			if (candidateSource == null)
-			{
-				if (candidateTarget != null)
-				{
-					throw new global::System.ArgumentNullException("candidateSource");
-				}
-				else // Both null
-				{
-					return false;
-				}
-			}
-			bool acceptSource = CanAcceptSource(candidateSource);
-			// If the source wasn't accepted then there's no point checking targets.
-			// If there is no target then the source controls the accept.
-			if (!acceptSource || candidateTarget == null)
-			{
-				return acceptSource;
-			}
-			else // Check combinations
-			{
-				if (candidateSource is global::ApiStudioIO.Resource)
-				{
-					if (candidateTarget is global::ApiStudioIO.Resource)
-					{
-						global::ApiStudioIO.Resource sourceResource = (global::ApiStudioIO.Resource)candidateSource;
-						global::ApiStudioIO.Resource targetResource = (global::ApiStudioIO.Resource)candidateTarget;
-						if(targetResource == null || sourceResource == null || global::ApiStudioIO.ResourceReferencesResources.GetLinks(sourceResource, targetResource).Count > 0) return false;
-						return true;
-					}
-				}
-				
-			}
-			return false;
-		}
-		#endregion
-
-		#region Connection Methods
-		/// <summary>
-		/// Make a connection between the given pair of source and target elements
-		/// </summary>
-		/// <param name="source">The model element to use as the source of the connection</param>
-		/// <param name="target">The model element to use as the target of the connection</param>
-		/// <returns>A link representing the created connection</returns>
-		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
-		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
-		public static DslModeling::ElementLink Connect(DslModeling::ModelElement source, DslModeling::ModelElement target)
-		{
-			if (source == null)
-			{
-				throw new global::System.ArgumentNullException("source");
-			}
-			if (target == null)
-			{
-				throw new global::System.ArgumentNullException("target");
-			}
-			
-			if (CanAcceptSourceAndTarget(source, target))
-			{
-				if (source is global::ApiStudioIO.Resource)
-				{
-					if (target is global::ApiStudioIO.Resource)
-					{
-						global::ApiStudioIO.Resource sourceAccepted = (global::ApiStudioIO.Resource)source;
-						global::ApiStudioIO.Resource targetAccepted = (global::ApiStudioIO.Resource)target;
-						DslModeling::ElementLink result = new global::ApiStudioIO.ResourceReferencesResources(sourceAccepted, targetAccepted);
-						if (DslModeling::DomainClassInfo.HasNameProperty(result))
-						{
-							DslModeling::DomainClassInfo.SetUniqueName(result);
-						}
-						return result;
-					}
-				}
-				
-			}
-			global::System.Diagnostics.Debug.Fail("Having agreed that the connection can be accepted we should never fail to make one.");
-			throw new global::System.InvalidOperationException();
-		}
-		#endregion
- 	}
+	}
 	/// <summary>
 	/// Empty ConnectionBuilder class as a placeholder for custom code.
 	/// </summary>
@@ -321,10 +197,20 @@ namespace ApiStudioIO
 				{				
 					if(targetShapeElement == null)
 					{
+						// You will need to implement a method with the following signature:
+						// public static bool CanAcceptSource(DslModeling::ModelElement sourceElement)
+						// {
+						// }
+						// in a partial class of ResourceReferencesResourcesBuilder.
 						return ResourceReferencesResourcesBuilder.CanAcceptSource(sourceElement);
 					}
 					else
 					{				
+						// You will need to implement a method with the following signature:
+						// public static bool CanAcceptSourceAndTarget(DslModeling::ModelElement sourceElement, DslModeling::ModelElement targetElement)
+						// {
+						// }
+						// in a partial class of ResourceReferencesResourcesBuilder.
 						return ResourceReferencesResourcesBuilder.CanAcceptSourceAndTarget(sourceElement, targetElement);
 					}
 				}
@@ -364,6 +250,11 @@ namespace ApiStudioIO
 				if(sourceElement == null) sourceElement = sourceShapeElement;
 				DslModeling::ModelElement targetElement = targetShapeElement.ModelElement;
 				if(targetElement == null) targetElement = targetShapeElement;
+				// You will need to implement a method with the following signature:
+				// public static void Connect(DslModeling::ModelElement sourceElement, DslModeling::ModelElement targetElement)
+				// {
+				// }
+				// in a partial class of ResourceReferencesResourcesBuilder.
 				ResourceReferencesResourcesBuilder.Connect(sourceElement, targetElement);
 			}
 		}

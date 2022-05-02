@@ -1,5 +1,6 @@
 ﻿using ApiStudioIO.VsOptions.ConfigurationV1;
 using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace ApiStudioIO.VsOptions.General
@@ -29,28 +30,38 @@ namespace ApiStudioIO.VsOptions.General
             generalDialogPage.Description = Description.Text;
         }
 
-        private void BtnInput_Click(object sender, EventArgs e)
+        private void ButtonInput_Click(object sender, EventArgs e)
         {
-            var openFileDialog = new OpenFileDialog
+            var dlg = new OpenFileDialog
             {
-                Filter = "api studio (*.api-studio)|All files (*.*)|*.*",
+                Filter = "api studio (*.api-studio)|*.api-studio",
                 Multiselect = false
             };
-            openFileDialog.ShowDialog();
-            var filename = openFileDialog.FileName;
-            _ = MessageBox.Show(filename);
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                var filename = dlg.FileName;
+                var apiStudioJson = File.ReadAllText(filename);
+                ApiStudioUserSettingsStore.Instance.ImportVsOption(apiStudioJson);
+            }
         }
 
-        private void BtnExport_Click(object sender, EventArgs e)
+        private void ButtonExport_Click(object sender, EventArgs e)
         {
-            var saveFileDialog = new SaveFileDialog();
-            saveFileDialog.ShowDialog();
-            var filename = saveFileDialog.FileName;
-            _ = MessageBox.Show(filename);
-
+            var dlg = new SaveFileDialog
+            {
+                Filter = "api studio (*.api-studio)|*.api-studio",
+                DefaultExt = "api-studio",
+                AddExtension = true,
+            };
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                var filename = dlg.FileName;
+                var apiStudioJson = ApiStudioUserSettingsStore.Instance.ExportVsOption();
+                File.WriteAllText(filename, apiStudioJson);
+            }            
         }
 
-        private void BtnReset_Click(object sender, EventArgs e)
+        private void ButtonReset_Click(object sender, EventArgs e)
         {
             ApiStudioUserSettingsStore.Instance.ResetDefaults();
         }

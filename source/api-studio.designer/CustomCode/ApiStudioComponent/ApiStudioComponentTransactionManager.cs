@@ -10,15 +10,9 @@
         internal static void Save<TDomainEntity, TPropertyEntity>(TDomainEntity domainEntity, List<TPropertyEntity> propertyEntityList)
             where TDomainEntity : DslModeling::ModelElement
         {
-            if (domainEntity == null)
-            {
-                throw new ArgumentNullException(nameof(domainEntity));
-            }
+            _ = domainEntity ?? throw new ArgumentNullException(nameof(domainEntity));
+            _ = propertyEntityList ?? throw new ArgumentNullException(nameof(propertyEntityList));
 
-            if (propertyEntityList == null)
-            {
-                throw new ArgumentNullException(nameof(propertyEntityList));
-            }
             //arb review just use override...
             if (domainEntity is HttpApi httpApi)
             {

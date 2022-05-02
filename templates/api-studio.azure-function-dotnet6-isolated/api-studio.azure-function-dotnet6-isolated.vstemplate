@@ -1,12 +1,12 @@
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
   <TemplateData>
-    <Name>ApiStudio Azure Functions</Name>
+    <Name>Azure Functions (ApiStudio)</Name>
     <Description>A project template for creating Azure Functions using ApiStudio designer using .NET.</Description>
     <ProjectType>CSharp</ProjectType>
     <ProjectSubType>ApiStudio</ProjectSubType>
     <SortOrder>5000</SortOrder>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>ApiStudioAzFunc</DefaultName>
+    <DefaultName>FunctionApp</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     <LocationField>Enabled</LocationField>
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>

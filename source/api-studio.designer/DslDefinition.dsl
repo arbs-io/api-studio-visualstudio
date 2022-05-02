@@ -1444,7 +1444,7 @@
     </CustomNodeSettings>
   </ExplorerBehavior>
   <ConnectionBuilders>
-    <ConnectionBuilder Name="ResourceReferencesResourcesBuilder">
+    <ConnectionBuilder Name="ResourceReferencesResourcesBuilder" IsCustom="true">
       <LinkConnectDirective>
         <DomainRelationshipMoniker Name="ResourceReferencesResources" />
         <SourceDirectives>

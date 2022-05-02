@@ -1,9 +1,10 @@
-﻿using ApiStudioIO.Utility.Extensions;
-using System;
-using System.Windows.Forms;
-
-namespace ApiStudioIO.VsOptions.HttpResponseCodes
+﻿namespace ApiStudioIO.VsOptions.HttpResponseCodes
 {
+    using ApiStudioIO.VsOptions.Helper;
+    using ApiStudioIO.Utility.Extensions;
+    using System;
+    using System.Windows.Forms;
+
     public partial class HttpResponseCodesControl : UserControl
     {
         internal HttpResponseCodesDialogPage DlgPage { get; set; }
@@ -56,10 +57,10 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
                     lsvResponseCodesServerError.Items.Add(lvItem);
             }
 
-            HttpResponseCodesControlHelpers.AutoResizeColumns(lsvResponseCodesInformation);
-            HttpResponseCodesControlHelpers.AutoResizeColumns(lsvResponseCodesRedirection);
-            HttpResponseCodesControlHelpers.AutoResizeColumns(lsvResponseCodesClientError);
-            HttpResponseCodesControlHelpers.AutoResizeColumns(lsvResponseCodesServerError);
+            ListViewControlHelpers.AutoResizeColumns(lsvResponseCodesInformation);
+            ListViewControlHelpers.AutoResizeColumns(lsvResponseCodesRedirection);
+            ListViewControlHelpers.AutoResizeColumns(lsvResponseCodesClientError);
+            ListViewControlHelpers.AutoResizeColumns(lsvResponseCodesServerError);
 
             lsvResponseCodesInformation.EndUpdate();
             lsvResponseCodesRedirection.EndUpdate();
