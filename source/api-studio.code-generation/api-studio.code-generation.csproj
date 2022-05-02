@@ -26,14 +26,14 @@
     <ProjectReference Include="..\api-studio.utility\api-studio.utility.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="AzureFunction\v1\Templates\Resource.Designer.cs">
+    <Compile Update="Templates\AzureFunction\v1\Templates\Resource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="AzureFunction\v1\Templates\Resource.resx">
+    <EmbeddedResource Update="Templates\AzureFunction\v1\Templates\Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>

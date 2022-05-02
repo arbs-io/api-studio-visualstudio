@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ApiStudioIO.CodeGeneration.AzureFunction.v1.Templates {
+namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Templates {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace ApiStudioIO.CodeGeneration.AzureFunction.v1.Templates {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ApiStudioIO.CodeGeneration.AzureFunction.v1.Templates.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Templates.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

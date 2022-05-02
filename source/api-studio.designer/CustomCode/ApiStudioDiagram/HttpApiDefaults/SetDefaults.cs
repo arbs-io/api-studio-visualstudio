@@ -12,11 +12,11 @@
         internal static void SetDefaults(this HttpApi httpApi)
         {
             httpApi
-                .WithDefaultProperties()
+                .WithDefaultResponses()
                 .WithDefaultHeaders()
+                .WithDefaultProperties()
                 .WithDefaultParameters()
-                .WithDefaultMediaTypes()
-                .WithDefaultResponses();
+                .WithDefaultMediaTypes();
         }
     }
 }

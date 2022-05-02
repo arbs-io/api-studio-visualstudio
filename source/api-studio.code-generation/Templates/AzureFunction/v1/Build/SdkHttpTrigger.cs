@@ -1,12 +1,12 @@
-﻿using ApiStudioIO.CodeGeneration.VisualStudio;
-using ApiStudioIO.Utility.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-
-namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
+﻿namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1
 {
+    using ApiStudioIO.CodeGeneration.VisualStudio;
+    using ApiStudioIO.Utility.Extensions;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net;
+
     internal static class SdkHttpTrigger
     {
         internal static List<SourceCodeEntity> Build(ApiStudio apiStudio, string modelName)

@@ -1,7 +1,7 @@
 ﻿namespace ApiStudioIO.CodeGeneration
 {
-    using ApiStudioIO.CodeGeneration.AzureFunction.v1;
     using ApiStudioIO.CodeGeneration.Models;
+    using ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1;
     using ApiStudioIO.CodeGeneration.VisualStudio;
     using EnvDTE;
     using Newtonsoft.Json;

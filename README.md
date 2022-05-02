@@ -24,14 +24,14 @@ ApiSecurity
 ## References 
 
 ###
-https://docs.microsoft.com/en-us/visualstudio/extensibility/creating-an-options-page?view=vs-2022
-https://social.msdn.microsoft.com/Forums/security/en-US/516ce577-9e50-4a74-8c5e-4b4ea4f9f86c/store-array-in-options-using-dialogpage?forum=vsx
+- https://docs.microsoft.com/en-us/visualstudio/extensibility/creating-an-options-page?view=vs-2022
+- https://social.msdn.microsoft.com/Forums/security/en-US/516ce577-9e50-4a74-8c5e-4b4ea4f9f86c/store-array-in-options-using-dialogpage?forum=vsx
 
 ### Visual Studio vsix
-https://www.vsixcookbook.com/
+- https://www.vsixcookbook.com/
 
 ### Microsoft.Azure.WebJobs.Extensions.OpenApi.Core
-https://github.com/Azure/azure-functions-openapi-extension/blob/main/docs/openapi-core.md
+- https://github.com/Azure/azure-functions-openapi-extension/blob/main/docs/openapi-core.md
 
 ### Visual Studio Updates (visual-studio-2022)
 Finally vs2022 removes the million+ dependancies:
@@ -41,7 +41,8 @@ Finally vs2022 removes the million+ dependancies:
 ## Notes
 ### Request payload semantics:
 https://www.rfc-editor.org/rfc/rfc7231#section-4.3.5
-    "request might cause some existing implementations to reject the request"
+  
+"request might cause some existing implementations to reject the request"
   - Swagger Editor:	GET DELETE
   - Api Gateway:      GET HEAD OPTIONS (But validates with HEAD OPTIONS)
   - RFC:              GET HEAD DELETE CONNECT 

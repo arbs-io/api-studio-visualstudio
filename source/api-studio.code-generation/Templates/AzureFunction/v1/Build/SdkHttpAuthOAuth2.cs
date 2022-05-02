@@ -1,8 +1,8 @@
-﻿using ApiStudioIO.CodeGeneration.VisualStudio;
-using System.Collections.Generic;
-
-namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
+﻿namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1
 {
+    using ApiStudioIO.CodeGeneration.VisualStudio;
+    using System.Collections.Generic;
+
     internal static class SdkHttpAuthOAuth2
     {
         internal static List<SourceCodeEntity> Build(ApiStudio apiStudio, string modelName)

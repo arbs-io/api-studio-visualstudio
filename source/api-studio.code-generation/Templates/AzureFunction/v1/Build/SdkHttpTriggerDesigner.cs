@@ -1,4 +1,4 @@
-﻿namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
+﻿namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1
 {
     using ApiStudioIO.CodeGeneration.VisualStudio;
     using ApiStudioIO.Utility.Extensions;

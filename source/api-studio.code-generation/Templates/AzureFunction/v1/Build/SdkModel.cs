@@ -1,10 +1,10 @@
-﻿using ApiStudioIO.CodeGeneration.VisualStudio;
-using ApiStudioIO.Utility.Extensions;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace ApiStudioIO.CodeGeneration.AzureFunction.v1
+﻿namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1
 {
+    using ApiStudioIO.CodeGeneration.VisualStudio;
+    using ApiStudioIO.Utility.Extensions;
+    using System.Collections.Generic;
+    using System.Linq;
+
     internal static class SdkModel
     {
         internal static List<SourceCodeEntity> Build(ApiStudio apiStudio, string modelName)
