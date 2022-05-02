@@ -155,6 +155,40 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Templates {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to public class {{TOKEN_OAS_HTTP_OPENAPI_HEADER_CLASS_NAME}} : IOpenApiCustomResponseHeader //ResponseHeaderOnInformation
+        ///{
+        ///    public Dictionary&lt;string, OpenApiHeader&gt; Headers { get; set; } =
+        ///        new Dictionary&lt;string, OpenApiHeader&gt;()
+        ///        {
+        ///{{TOKEN_OAS_HTTP_OPENAPI_HEADER_ITEMS}}
+        ///        };
+        ///}.
+        /// </summary>
+        internal static string HttpTriggerDesignerResponseHeaderClass {
+            get {
+                return ResourceManager.GetString("HttpTriggerDesignerResponseHeaderClass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to             {
+        ///                &quot;{{TOKEN_OAS_HTTP_OPENAPI_HEADER_NAME}}&quot;,
+        ///                new OpenApiHeader()
+        ///                {
+        ///                    Description = &quot;{{TOKEN_OAS_HTTP_OPENAPI_HEADER_DESCRIPTION}}&quot;,
+        ///                    Schema = new OpenApiSchema() { Type = &quot;string&quot; },
+        ///                    AllowEmptyValue = {{TOKEN_OAS_HTTP_OPENAPI_HEADER_ALLOWEMPTY}},
+        ///                    Required = {{TOKEN_OAS_HTTP_OPENAPI_HEADER_REQUIRED}},
+        ///                }
+        ///            },.
+        /// </summary>
+        internal static string HttpTriggerDesignerResponseHeaderItem {
+            get {
+                return ResourceManager.GetString("HttpTriggerDesignerResponseHeaderItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to #nullable enable
         ///namespace {{TOKEN_OAS_NAMESPACE}}
         ///{

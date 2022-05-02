@@ -1,0 +1,10 @@
+﻿                    {
+                        "{{TOKEN_OAS_HTTP_OPENAPI_HEADER_NAME}}",
+                        new OpenApiHeader()
+                        {
+                            Description = "{{TOKEN_OAS_HTTP_OPENAPI_HEADER_DESCRIPTION}}",
+                            Schema = new OpenApiSchema() { Type = "string" },
+                            AllowEmptyValue = {{TOKEN_OAS_HTTP_OPENAPI_HEADER_ALLOWEMPTY}},
+                            Required = {{TOKEN_OAS_HTTP_OPENAPI_HEADER_REQUIRED}},
+                        }
+                    },

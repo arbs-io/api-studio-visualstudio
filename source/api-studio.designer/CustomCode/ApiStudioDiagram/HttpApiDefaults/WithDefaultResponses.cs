@@ -79,7 +79,7 @@
 
             foreach (var responseCode in standardResponseCodes)
             {
-                if(responseCode != 404 || responseCode != 422)  //Remove technical response codes (handled by above logic)
+                if(responseCode != 404 && responseCode != 422)  //Remove technical response codes (handled by above logic)
                     apiResponses.Add(ConvertResponseStatusCode(responseCode));
             }
 

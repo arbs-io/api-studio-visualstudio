@@ -130,6 +130,12 @@
   <data name="HttpTriggerDesigner" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>httptriggerdesigner.cstemplate;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="HttpTriggerDesignerResponseHeaderClass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>httptriggerdesignerresponseheaderclass.cstemplate;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="HttpTriggerDesignerResponseHeaderItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>httptriggerdesignerresponseheaderitem.cstemplate;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="Model" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>model.cstemplate;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
