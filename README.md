@@ -46,3 +46,8 @@ https://www.rfc-editor.org/rfc/rfc7231#section-4.3.5
   - Swagger Editor:	GET DELETE
   - Api Gateway:      GET HEAD OPTIONS (But validates with HEAD OPTIONS)
   - RFC:              GET HEAD DELETE CONNECT 
+
+TODO:
+ [ ] Data Model Namespace
+ [ ] Security Schema (set default type from vs-options)
+
