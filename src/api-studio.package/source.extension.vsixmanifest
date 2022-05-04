@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+	<Identity Id="4a6ef9c8-3428-4bd6-9b17-c57b4285bbd8" Version="2022.5.4.1397" Language="en-US" Publisher="api-studio.io" />
+    <DisplayName>Azure Function (ApiStudio)</DisplayName>
+    <Description>Azure Function (ApiStudio) design component for visual studio</Description>
+    <MoreInfo>https://api.api-studio.io</MoreInfo>
+    <Icon>Resources\ApiStudio.ico</Icon>
+    <PreviewImage>Resources\ApiStudio.ico</PreviewImage>
+    <Tags> Azure Function, ApiStudio, Cloud Architecture </Tags>
+  </Metadata>
+  <Installation InstalledByMsi="false">
+    <InstallationTarget Version="[16.7,17.0)" Id="Microsoft.VisualStudio.Community" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.6,)" />
+  </Dependencies>
+  <Prerequisites>
+	<Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[16.0,17.0)" DisplayName="Visual Studio core editor" />
+	<Prerequisite Id="Microsoft.NetCore.Component.SDK" Version="[16.0,17.0)" DisplayName=".NET Core SDK" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%|" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="api-studio.designer" Path="|api-studio.designer|" />
+    <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="Project" d:ProjectName="%CurrentProject%" d:TargetPath="|%CurrentProject%;TemplateProjectOutputGroup|" Path="ItemTemplates" d:VsixSubPath="ItemTemplates" />
+	<Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="ApiStudioIO.pkgdef" />
+
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\azure-function-dotnet6-isolated.zip" />
+  </Assets>
+</PackageManifest>

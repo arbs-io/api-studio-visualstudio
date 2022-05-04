@@ -49,5 +49,3 @@ https://www.rfc-editor.org/rfc/rfc7231#section-4.3.5
 
 TODO:
  [ ] Data Model Namespace
- [ ] Security Schema (set default type from vs-options)
-

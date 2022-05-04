@@ -160,12 +160,12 @@ console.log(foo(5));
 [4]: https://octodex.github.com/images/saritocat.png ""The Stormtroopocat""
 [5]: https://octodex.github.com/images/daftpunktocat-thomas.gif ""The Dojocat""
 ",
-            TermsOfService = new Uri(@"http://api.api-studio.io/"),
+            TermsOfService = new Uri(@"https://api.api-studio.io/"),
             Contact = new OpenApiContact()
             {
-                Name = @"http://api.api-studio.io/",
-                Email = @"http://api.api-studio.io/",
-                Url = new Uri(@"http://api.api-studio.io/"),
+                Name = @"https://api.api-studio.io/",
+                Email = @"https://api.api-studio.io/",
+                Url = new Uri(@"https://api.api-studio.io/"),
             },
             License = new OpenApiLicense()
             {
