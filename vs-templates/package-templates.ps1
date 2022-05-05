@@ -1,4 +1,4 @@
-$template_path = "..\source\api-studio.package\ProjectTemplates\azure-function-dotnet6-isolated.zip"
+$template_path = "..\src\api-studio.package\ProjectTemplates\azure-function-dotnet6-isolated.zip"
 
 
 Get-ChildItem .\ -include "bin","obj",".vs","*.user"  -Recurse -Force | `

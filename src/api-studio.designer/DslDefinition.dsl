@@ -81,6 +81,16 @@
             <DomainEnumerationMoniker Name="SecuritySchemeTypes" />
           </Type>
         </DomainProperty>
+        <DomainProperty Id="12dcb186-2e7c-4309-9427-20da89f475d7" Description="The data model namespace provides the ability to use custom assembly with data models for the APIs. If supplied the models will not be code generated but the namespace will be applied to every API." Name="NamespaceDataModels" DisplayName="Data Models" Category="Namespaces">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="8d535413-9b11-4850-8cba-a9387f709745" Description="The solution namespace is used by the code generation to provide developers control of the root namespace produced within code generation." Name="NamespaceSolution" DisplayName="Solution" Category="Namespaces">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
       </Properties>
       <ElementMergeDirectives>
         <ElementMergeDirective>
@@ -1010,6 +1020,12 @@
           </XmlPropertyData>
           <XmlPropertyData XmlName="securitySchemeType">
             <DomainPropertyMoniker Name="ApiStudio/SecuritySchemeType" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="namespaceDataModels">
+            <DomainPropertyMoniker Name="ApiStudio/NamespaceDataModels" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="namespaceSolution">
+            <DomainPropertyMoniker Name="ApiStudio/NamespaceSolution" />
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>

@@ -375,6 +375,40 @@ namespace ApiStudioIO
 					}
 				}
 			}
+			// NamespaceDataModels
+			if (!serializationContext.Result.Failed)
+			{
+				string attribNamespaceDataModels = ApiStudioIOSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "namespaceDataModels");
+				if (attribNamespaceDataModels != null)
+				{
+					global::System.String valueOfNamespaceDataModels;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribNamespaceDataModels, out valueOfNamespaceDataModels))
+					{
+						instanceOfApiStudio.NamespaceDataModels = valueOfNamespaceDataModels;
+					}
+					else
+					{	// Invalid property value, ignored.
+						ApiStudioIOSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "namespaceDataModels", typeof(global::System.String), attribNamespaceDataModels);
+					}
+				}
+			}
+			// NamespaceSolution
+			if (!serializationContext.Result.Failed)
+			{
+				string attribNamespaceSolution = ApiStudioIOSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "namespaceSolution");
+				if (attribNamespaceSolution != null)
+				{
+					global::System.String valueOfNamespaceSolution;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribNamespaceSolution, out valueOfNamespaceSolution))
+					{
+						instanceOfApiStudio.NamespaceSolution = valueOfNamespaceSolution;
+					}
+					else
+					{	// Invalid property value, ignored.
+						ApiStudioIOSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "namespaceSolution", typeof(global::System.String), attribNamespaceSolution);
+					}
+				}
+			}
 		}
 	
 		/// <summary>
@@ -1163,6 +1197,28 @@ namespace ApiStudioIO
 					{	// No need to write the value out if it's the same as default value.
 						ApiStudioIOSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "securitySchemeType", serializedPropValue);
 					}
+				}
+			}
+			// NamespaceDataModels
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.String propValue = instanceOfApiStudio.NamespaceDataModels;
+				if (!serializationContext.Result.Failed)
+				{
+					if (!string.IsNullOrEmpty(propValue))
+						ApiStudioIOSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "namespaceDataModels", propValue);
+	
+				}
+			}
+			// NamespaceSolution
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.String propValue = instanceOfApiStudio.NamespaceSolution;
+				if (!serializationContext.Result.Failed)
+				{
+					if (!string.IsNullOrEmpty(propValue))
+						ApiStudioIOSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "namespaceSolution", propValue);
+	
 				}
 			}
 		}

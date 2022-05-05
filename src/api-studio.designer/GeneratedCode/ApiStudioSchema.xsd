@@ -146,6 +146,18 @@
             <xsd:documentation>APIs use authorization to ensure that client requests access data securely. This can involve authenticating the sender of a request and verifying that they have permission to access or manipulate the relevant data. If you&apos;re building an API, you can choose from a variety of auth models.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <!-- Property: NamespaceDataModels -->
+        <xsd:attribute name="namespaceDataModels" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>The data model namespace provides the ability to use custom assembly with data models for the APIs. If supplied the models will not be code generated but the namespace will be applied to every API.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: NamespaceSolution -->
+        <xsd:attribute name="namespaceSolution" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>The solution namespace is used by the code generation to provide developers control of the root namespace produced within code generation.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1740,3 +1752,4 @@
   </xsd:simpleType>
   
 </xsd:schema>
+

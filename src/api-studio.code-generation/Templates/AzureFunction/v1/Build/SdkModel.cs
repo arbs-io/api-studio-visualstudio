@@ -2,6 +2,7 @@
 {
     using ApiStudioIO.CodeGeneration.VisualStudio;
     using ApiStudioIO.Utility.Extensions;
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -10,20 +11,25 @@
         internal static List<SourceCodeEntity> Build(ApiStudio apiStudio, string modelName)
         {
             var sourceList = new List<SourceCodeEntity>();
-            var apiResource = apiStudio?.Resourced
-                .SelectMany(resource => resource.HttpApis,
-                            (resource, httpApi) => new { resource, httpApi })
-                .ToList();
 
-            apiResource
-                .SelectMany(x => x.httpApi.DataModels)
-                .ToList()
-                .ForEach(x => sourceList.Add(GenerateModels(modelName, x.Name)));
+            // If the developer has provided a data model namespace we terminate the code generation
+            if (String.IsNullOrEmpty(apiStudio.NamespaceDataModels))
+            {
+                var apiResource = apiStudio?.Resourced
+                    .SelectMany(resource => resource.HttpApis,
+                                (resource, httpApi) => new { resource, httpApi })
+                    .ToList();
 
-            apiResource
-                .SelectMany(x => x.httpApi.SourceDataModel)
-                .ToList()
-                .ForEach(x => sourceList.Add(GenerateModels(modelName, x.Name)));
+                apiResource
+                    .SelectMany(x => x.httpApi.DataModels)
+                    .ToList()
+                    .ForEach(x => sourceList.Add(GenerateModels(modelName, x.Name)));
+
+                apiResource
+                    .SelectMany(x => x.httpApi.SourceDataModel)
+                    .ToList()
+                    .ForEach(x => sourceList.Add(GenerateModels(modelName, x.Name)));
+            }            
 
             return sourceList;
         }

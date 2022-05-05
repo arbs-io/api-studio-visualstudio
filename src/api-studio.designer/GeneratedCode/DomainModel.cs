@@ -157,6 +157,8 @@ namespace ApiStudioIO
 				new DomainMemberInfo(typeof(ApiStudio), "InitialResourceIsRoot", ApiStudio.InitialResourceIsRootDomainPropertyId, typeof(ApiStudio.InitialResourceIsRootPropertyHandler)),
 				new DomainMemberInfo(typeof(ApiStudio), "SecurityApiKey", ApiStudio.SecurityApiKeyDomainPropertyId, typeof(ApiStudio.SecurityApiKeyPropertyHandler)),
 				new DomainMemberInfo(typeof(ApiStudio), "SecuritySchemeType", ApiStudio.SecuritySchemeTypeDomainPropertyId, typeof(ApiStudio.SecuritySchemeTypePropertyHandler)),
+				new DomainMemberInfo(typeof(ApiStudio), "NamespaceDataModels", ApiStudio.NamespaceDataModelsDomainPropertyId, typeof(ApiStudio.NamespaceDataModelsPropertyHandler)),
+				new DomainMemberInfo(typeof(ApiStudio), "NamespaceSolution", ApiStudio.NamespaceSolutionDomainPropertyId, typeof(ApiStudio.NamespaceSolutionPropertyHandler)),
 				new DomainMemberInfo(typeof(Resource), "Name", Resource.NameDomainPropertyId, typeof(Resource.NamePropertyHandler)),
 				new DomainMemberInfo(typeof(Resource), "HttpApiUri", Resource.HttpApiUriDomainPropertyId, typeof(Resource.HttpApiUriPropertyHandler)),
 				new DomainMemberInfo(typeof(ResourceInstance), "InstanceIdentity", ResourceInstance.InstanceIdentityDomainPropertyId, typeof(ResourceInstance.InstanceIdentityPropertyHandler)),

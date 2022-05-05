@@ -13,6 +13,7 @@
     using Microsoft.OpenApi.Models;
 
     using Models;
+    {{TOKEN_OAS_NAMESPACE_DATAMODEL}}
 
     public partial class {{TOKEN_OAS_CLASS_NAME}}
     {

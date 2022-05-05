@@ -301,6 +301,30 @@
     <value>Security</value>
     <comment>Category for DomainProperty &apos;SecuritySchemeType&apos; on DomainClass &apos;ApiStudio&apos;</comment>
   </data>
+  <data name="ApiStudioIO.ApiStudio/NamespaceDataModels.Description" xml:space="preserve">
+    <value>The data model namespace provides the ability to use custom assembly with data models for the APIs. If supplied the models will not be code generated but the namespace will be applied to every API.</value>
+    <comment>Description for DomainProperty &apos;NamespaceDataModels&apos; on DomainClass &apos;ApiStudio&apos;</comment>
+  </data>
+  <data name="ApiStudioIO.ApiStudio/NamespaceDataModels.DisplayName" xml:space="preserve">
+    <value>Data Models</value>
+    <comment>DisplayName for DomainProperty &apos;NamespaceDataModels&apos; on DomainClass &apos;ApiStudio&apos;</comment>
+  </data>
+  <data name="ApiStudioIO.ApiStudio/NamespaceDataModels.Category" xml:space="preserve">
+    <value>Namespaces</value>
+    <comment>Category for DomainProperty &apos;NamespaceDataModels&apos; on DomainClass &apos;ApiStudio&apos;</comment>
+  </data>
+  <data name="ApiStudioIO.ApiStudio/NamespaceSolution.Description" xml:space="preserve">
+    <value>The solution namespace is used by the code generation to provide developers control of the root namespace produced within code generation.</value>
+    <comment>Description for DomainProperty &apos;NamespaceSolution&apos; on DomainClass &apos;ApiStudio&apos;</comment>
+  </data>
+  <data name="ApiStudioIO.ApiStudio/NamespaceSolution.DisplayName" xml:space="preserve">
+    <value>Solution</value>
+    <comment>DisplayName for DomainProperty &apos;NamespaceSolution&apos; on DomainClass &apos;ApiStudio&apos;</comment>
+  </data>
+  <data name="ApiStudioIO.ApiStudio/NamespaceSolution.Category" xml:space="preserve">
+    <value>Namespaces</value>
+    <comment>Category for DomainProperty &apos;NamespaceSolution&apos; on DomainClass &apos;ApiStudio&apos;</comment>
+  </data>
   <data name="ApiStudioIO.Resource.Description" xml:space="preserve">
     <value>Elements embedded in the model. Appear as boxes on the diagram.</value>
     <comment>Description for DomainClass &apos;Resource&apos;</comment>
@@ -2271,3 +2295,5 @@ A DomainClass can be serialized as a moniker only if
     <comment>Toolbox item image</comment>
   </data>
 </root>
+
+

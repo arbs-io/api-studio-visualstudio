@@ -1118,7 +1118,9 @@ namespace ApiStudioIO
 		
 		/// <summary>
 		/// Gets or sets the value of SecurityApiKey domain property.
-		/// Api Keys are header values which should be validated by the Api Gateway or Backend service. Typically used within API Products to determine the subscription level of the consumer. For example [ProductName]-Api-Key.
+		/// Api Keys are header values which should be validated by the Api Gateway or
+		/// Backend service. Typically used within API Products to determine the
+		/// subscription level of the consumer. For example [ProductName]-Api-Key.
 		/// </summary>
 		[DslDesign::DisplayNameResource("ApiStudioIO.ApiStudio/SecurityApiKey.DisplayName", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("ApiStudioIO.ApiStudio/SecurityApiKey.Category", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
@@ -1279,6 +1281,185 @@ namespace ApiStudioIO
 				{
 					ValueChanging(element, oldValue, newValue);
 					element.securitySchemeTypePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region NamespaceDataModels domain property code
+		
+		/// <summary>
+		/// NamespaceDataModels domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid NamespaceDataModelsDomainPropertyId = new global::System.Guid(0x12dcb186, 0x2e7c, 0x4309, 0x94, 0x27, 0x20, 0xda, 0x89, 0xf4, 0x75, 0xd7);
+		
+		/// <summary>
+		/// Storage for NamespaceDataModels
+		/// </summary>
+		private global::System.String namespaceDataModelsPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of NamespaceDataModels domain property.
+		/// The data model namespace provides the ability to use custom assembly with data
+		/// models for the APIs. If supplied the models will not be code generated but the
+		/// namespace will be applied to every API.
+		/// </summary>
+		[DslDesign::DisplayNameResource("ApiStudioIO.ApiStudio/NamespaceDataModels.DisplayName", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("ApiStudioIO.ApiStudio/NamespaceDataModels.Category", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("ApiStudioIO.ApiStudio/NamespaceDataModels.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("12dcb186-2e7c-4309-9427-20da89f475d7")]
+		public global::System.String NamespaceDataModels
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return namespaceDataModelsPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				NamespaceDataModelsPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the ApiStudio.NamespaceDataModels domain property.
+		/// </summary>
+		internal sealed partial class NamespaceDataModelsPropertyHandler : DslModeling::DomainPropertyValueHandler<ApiStudio, global::System.String>
+		{
+			private NamespaceDataModelsPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the ApiStudio.NamespaceDataModels domain property value handler.
+			/// </summary>
+			public static readonly NamespaceDataModelsPropertyHandler Instance = new NamespaceDataModelsPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the ApiStudio.NamespaceDataModels domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return NamespaceDataModelsDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(ApiStudio element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.namespaceDataModelsPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(ApiStudio element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.namespaceDataModelsPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region NamespaceSolution domain property code
+		
+		/// <summary>
+		/// NamespaceSolution domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid NamespaceSolutionDomainPropertyId = new global::System.Guid(0x8d535413, 0x9b11, 0x4850, 0x8c, 0xba, 0xa9, 0x38, 0x7f, 0x70, 0x97, 0x45);
+		
+		/// <summary>
+		/// Storage for NamespaceSolution
+		/// </summary>
+		private global::System.String namespaceSolutionPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of NamespaceSolution domain property.
+		/// The solution namespace is used by the code generation to provide developers
+		/// control of the root namespace produced within code generation.
+		/// </summary>
+		[DslDesign::DisplayNameResource("ApiStudioIO.ApiStudio/NamespaceSolution.DisplayName", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("ApiStudioIO.ApiStudio/NamespaceSolution.Category", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("ApiStudioIO.ApiStudio/NamespaceSolution.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("8d535413-9b11-4850-8cba-a9387f709745")]
+		public global::System.String NamespaceSolution
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return namespaceSolutionPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				NamespaceSolutionPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the ApiStudio.NamespaceSolution domain property.
+		/// </summary>
+		internal sealed partial class NamespaceSolutionPropertyHandler : DslModeling::DomainPropertyValueHandler<ApiStudio, global::System.String>
+		{
+			private NamespaceSolutionPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the ApiStudio.NamespaceSolution domain property value handler.
+			/// </summary>
+			public static readonly NamespaceSolutionPropertyHandler Instance = new NamespaceSolutionPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the ApiStudio.NamespaceSolution domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return NamespaceSolutionDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(ApiStudio element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.namespaceSolutionPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(ApiStudio element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.namespaceSolutionPropertyStorage = newValue;
 					ValueChanged(element, oldValue, newValue);
 				}
 			}

@@ -15,16 +15,18 @@
         internal static List<SourceCodeEntity> Build(ApiStudio apiStudio, string modelName)
         {
             var sourceList = new List<SourceCodeEntity>();
+
+            var namespaceDataModel = apiStudio.NamespaceDataModels;
             apiStudio?.Resourced
                 .SelectMany(resource => resource.HttpApis,
                             (resource, httpApi) => new { resource, httpApi })
                 .ToList()
-                .ForEach(x => sourceList.Add(GenerateHttpTrigger(modelName, x.resource, x.httpApi)));
+                .ForEach(x => sourceList.Add(GenerateHttpTrigger(modelName, x.resource, x.httpApi, namespaceDataModel)));
 
             return sourceList;
         }
 
-        private static SourceCodeEntity GenerateHttpTrigger(string modelName, Resource resource, HttpApi httpApi)
+        private static SourceCodeEntity GenerateHttpTrigger(string modelName, Resource resource, HttpApi httpApi, string namespaceDataModel)
         {
             if (string.IsNullOrWhiteSpace(modelName))
             {
@@ -38,10 +40,15 @@
             attributes.AddRange(BuildHttpTriggerParameters(httpApi));
             attributes.AddRange(BuildHttpTriggerResponseStatusCodes(httpApi));
             string openapiAttributes = string.Join(Environment.NewLine, attributes);
+            
+            // If the developer has provided a data model namespace we should add the ref
+            if (!String.IsNullOrEmpty(namespaceDataModel))
+                namespaceDataModel = "";
 
             var httpTriggerDesignerSourceCode = Templates.Resource.HttpTriggerDesigner
                 .Replace("{{TOKEN_OAS_NAMESPACE}}", modelName)
                 .Replace("{{TOKEN_OAS_MODEL}}", modelName)
+                .Replace("{{TOKEN_OAS_NAMESPACE_DATAMODEL}}", namespaceDataModel)
                 .Replace("{{TOKEN_OAS_CLASS_NAME}}", $"Http{httpApi.DisplayName.ToAlphaNumeric()}")
                 .Replace("{{TOKEN_OAS_FUNCTION_NAME}}", httpApi.DisplayName.ToAlphaNumeric())
                 .Replace("{{TOKEN_OAS_FUNCTION_DESCRIPTION}}", httpApi.Description)
