@@ -47,5 +47,11 @@ https://www.rfc-editor.org/rfc/rfc7231#section-4.3.5
   - Api Gateway:      GET HEAD OPTIONS (But validates with HEAD OPTIONS)
   - RFC:              GET HEAD DELETE CONNECT 
 
+### Code Signing:
+Microsoft 
+ - https://docs.microsoft.com/en-us/windows-hardware/drivers/dashboard/get-a-code-signing-certificate
+ - https://github.com/sigstore/cosign/releases
+ - https://www.linkedin.com/pulse/code-signing-visual-studio-jason-brower
+
 TODO:
  [ ] Data Model Namespace

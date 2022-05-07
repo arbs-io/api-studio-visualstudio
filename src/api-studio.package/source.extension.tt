@@ -30,15 +30,19 @@
     <PreviewImage>Resources\ApiStudio.ico</PreviewImage>
     <Tags> Azure Function, ApiStudio, Cloud Architecture </Tags>
   </Metadata>
-  <Installation InstalledByMsi="false">
-    <InstallationTarget Version="[16.7,17.0)" Id="Microsoft.VisualStudio.Community" />
+  <Installation>
+      <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
+          <ProductArchitecture>amd64</ProductArchitecture>
+      </InstallationTarget>
+      <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.0,18.0)">
+          <ProductArchitecture>amd64</ProductArchitecture>
+      </InstallationTarget>
   </Installation>
   <Dependencies>
-    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.6,)" />
+    <Dependency Id="Microsoft.VisualStudio.MPF.17.0" DisplayName="Visual Studio MPF 17.0" d:Source="Installed" Version="[17.0,18.0)" />
   </Dependencies>
   <Prerequisites>
-	<Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[16.0,17.0)" DisplayName="Visual Studio core editor" />
-	<Prerequisite Id="Microsoft.NetCore.Component.SDK" Version="[16.0,17.0)" DisplayName=".NET Core SDK" />
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
   </Prerequisites>
   <Assets>
     <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
@@ -46,7 +50,6 @@
     <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="<#= dslProjectName #>" Path="|<#= dslProjectName #>|" />
     <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="Project" d:ProjectName="%CurrentProject%" d:TargetPath="|%CurrentProject%;TemplateProjectOutputGroup|" Path="ItemTemplates" d:VsixSubPath="ItemTemplates" />
 	<Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="ApiStudioIO.pkgdef" />
-
     <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\azure-function-dotnet6-isolated.zip" />
   </Assets>
 </PackageManifest>

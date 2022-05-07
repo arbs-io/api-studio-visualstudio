@@ -1,0 +1,1 @@
+.\vsixsigntool.exe sign /f api-studio.io.open.pfx /sha1 06f53b9a57071c08c7a979c82a8435802ca40790 /fd sha256 /t http://sha256timestamp.ws.symantec.com/sha256/timestamp "..\..\src\api-studio.package\bin\Debug\api-studio.package.vsix"
