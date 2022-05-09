@@ -11,9 +11,11 @@
             if (apiStudio.SecuritySchemeType == SecuritySchemeTypes.OAuth2 ||
                 apiStudio.SecuritySchemeType == SecuritySchemeTypes.OpenIdConnect)
             {
+                var namespaceHelper = new NamespaceHelper(apiStudio, modelName);
                 var sourceCode = Templates.Resource.HttpAuthOAuth2
-                    .Replace("{{TOKEN_OAS_NAMESPACE}}", modelName);
-                sourceList.Add(new SourceCodeEntity($"{modelName}.OAuth2.cs", sourceCode, false));
+                    .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
+                    .Replace("{{TOKEN_OAS_CLASS_NAME}}", modelName);
+                sourceList.Add(new SourceCodeEntity($"{namespaceHelper.Solution}.OAuth2.cs", sourceCode, false));
             }
             return sourceList;
         }

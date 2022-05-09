@@ -23,10 +23,12 @@
                 .ForEach(x => scopeList.Add(GenerateScopes(x)));
                 string scopes = string.Join($"{Environment.NewLine}", scopeList);
 
+                var namespaceHelper = new NamespaceHelper(apiStudio, modelName);
                 var sourceCode = Templates.Resource.HttpAuthOAuth2Scopes
-                    .Replace("{{TOKEN_OAS_NAMESPACE}}", modelName)
+                    .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
+                    .Replace("{{TOKEN_OAS_CLASS_NAME}}", modelName)
                     .Replace("{{TOKEN_OAS_SCOPES}}", scopes);
-                sourceList.Add(new SourceCodeEntity($"{modelName}.OAuth2.Scopes.cs", sourceCode, true, $"{modelName}.OAuth2.cs"));
+                sourceList.Add(new SourceCodeEntity($"{namespaceHelper.Solution}.OAuth2.Scopes.cs", sourceCode, true, $"{namespaceHelper.Solution}.OAuth2.cs"));
             }
             return sourceList;
         }

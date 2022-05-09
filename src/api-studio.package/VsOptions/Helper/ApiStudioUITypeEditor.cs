@@ -1,5 +1,6 @@
 ﻿namespace ApiStudioIO.VsOptions.Helper
 {
+    using Microsoft;
     using System;
     using System.ComponentModel;
     using System.Drawing.Design;
@@ -25,10 +26,13 @@
         public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
         {
             _editorService = (IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService));
+            Assumes.Present(_editorService);
 
             // use a list box
-            ListBox lb = new ListBox();
-            lb.SelectionMode = SelectionMode.One;
+            ListBox lb = new ListBox
+            {
+                SelectionMode = SelectionMode.One
+            };
             lb.SelectedValueChanged += OnListBoxSelectedValueChanged;
 
             lb.DisplayMember = "Name";

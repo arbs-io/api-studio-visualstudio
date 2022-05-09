@@ -12,16 +12,17 @@
         internal static List<SourceCodeEntity> Build(ApiStudio apiStudio, string modelName)
         {
             var sourceList = new List<SourceCodeEntity>();
+            var namespaceHelper = new NamespaceHelper(apiStudio, modelName);
             apiStudio?.Resourced
                 .SelectMany(resource => resource.HttpApis,
                             (resource, httpApi) => new { resource, httpApi })
                 .ToList()
-                .ForEach(x => sourceList.Add(GenerateHttpTrigger(modelName, x.resource, x.httpApi)));
+                .ForEach(x => sourceList.Add(GenerateHttpTrigger(modelName, x.resource, x.httpApi, namespaceHelper)));
 
             return sourceList;
         }
 
-        private static SourceCodeEntity GenerateHttpTrigger(string modelName, Resource resource, HttpApi httpApi)
+        private static SourceCodeEntity GenerateHttpTrigger(string modelName, Resource resource, HttpApi httpApi, NamespaceHelper namespaceHelper)
         {
             if (string.IsNullOrWhiteSpace(modelName))
             {
@@ -31,7 +32,7 @@
             _ = httpApi ?? throw new ArgumentNullException(nameof(httpApi));
 
             var httpTriggerSourceCode = Templates.Resource.HttpTrigger
-                .Replace("{{TOKEN_OAS_NAMESPACE}}", modelName)
+                .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                 .Replace("{{TOKEN_OAS_MODEL}}", modelName)
                 .Replace("{{TOKEN_OAS_CLASS_NAME}}", $"Http{httpApi.DisplayName.ToAlphaNumeric()}")
                 .Replace("{{TOKEN_OAS_FUNCTION_NAME}}", httpApi.DisplayName.ToAlphaNumeric())
@@ -39,7 +40,7 @@
                 .Replace("{{TOKEN_OAS_HTTP_VERB}}", httpApi.HttpVerb.ToUpper())
                 .Replace("{{TOKEN_OAS_HTTP_URI}}", resource.HttpApiUri)
                 .Replace("{{TOKEN_OAS_HTTP_STATUS_CODE}}", BuildHttpTriggerResponseStatusCodes(httpApi));
-            return new SourceCodeEntity($"{modelName}-{httpApi.DisplayName}.HttpTrigger.cs", httpTriggerSourceCode, false);
+            return new SourceCodeEntity($"{namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger.cs", httpTriggerSourceCode, false);
         }
 
         private static string BuildHttpTriggerResponseStatusCodes(HttpApi httpApi)

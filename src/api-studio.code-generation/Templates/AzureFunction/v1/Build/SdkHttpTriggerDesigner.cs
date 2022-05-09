@@ -16,17 +16,17 @@
         {
             var sourceList = new List<SourceCodeEntity>();
 
-            var namespaceDataModel = apiStudio.NamespaceDataModels;
+            var namespaceHelper = new NamespaceHelper(apiStudio, modelName);
             apiStudio?.Resourced
                 .SelectMany(resource => resource.HttpApis,
                             (resource, httpApi) => new { resource, httpApi })
                 .ToList()
-                .ForEach(x => sourceList.Add(GenerateHttpTrigger(modelName, x.resource, x.httpApi, namespaceDataModel)));
+                .ForEach(x => sourceList.Add(GenerateHttpTrigger(modelName, x.resource, x.httpApi, namespaceHelper)));
 
             return sourceList;
         }
 
-        private static SourceCodeEntity GenerateHttpTrigger(string modelName, Resource resource, HttpApi httpApi, string namespaceDataModel)
+        private static SourceCodeEntity GenerateHttpTrigger(string modelName, Resource resource, HttpApi httpApi, NamespaceHelper namespaceHelper)
         {
             if (string.IsNullOrWhiteSpace(modelName))
             {
@@ -41,14 +41,10 @@
             attributes.AddRange(BuildHttpTriggerResponseStatusCodes(httpApi));
             string openapiAttributes = string.Join(Environment.NewLine, attributes);
             
-            // If the developer has provided a data model namespace we should add the ref
-            if (!String.IsNullOrEmpty(namespaceDataModel))
-                namespaceDataModel = "";
-
             var httpTriggerDesignerSourceCode = Templates.Resource.HttpTriggerDesigner
-                .Replace("{{TOKEN_OAS_NAMESPACE}}", modelName)
+                .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                 .Replace("{{TOKEN_OAS_MODEL}}", modelName)
-                .Replace("{{TOKEN_OAS_NAMESPACE_DATAMODEL}}", namespaceDataModel)
+                .Replace("{{TOKEN_OAS_NAMESPACE_DATAMODEL}}", namespaceHelper.DataModel)
                 .Replace("{{TOKEN_OAS_CLASS_NAME}}", $"Http{httpApi.DisplayName.ToAlphaNumeric()}")
                 .Replace("{{TOKEN_OAS_FUNCTION_NAME}}", httpApi.DisplayName.ToAlphaNumeric())
                 .Replace("{{TOKEN_OAS_FUNCTION_DESCRIPTION}}", httpApi.Description)
@@ -60,7 +56,7 @@
                 .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_REDIRECTION}}", BuildHttpTriggerResponseHeader(HttpApiHeaderResponseOnTypes.OnRedirection, "OnRedirection", httpApi))
                 .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_CLIENTERROR}}", BuildHttpTriggerResponseHeader(HttpApiHeaderResponseOnTypes.OnClientError, "OnClientError", httpApi))
                 .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_SERVERERROR}}", BuildHttpTriggerResponseHeader(HttpApiHeaderResponseOnTypes.OnServerError, "OnServerError", httpApi));
-            return new SourceCodeEntity($"{modelName}-{httpApi.DisplayName}.HttpTrigger.Designer.cs", httpTriggerDesignerSourceCode, true, $"{modelName}-{httpApi.DisplayName}.HttpTrigger.cs");
+            return new SourceCodeEntity($"{namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger.Designer.cs", httpTriggerDesignerSourceCode, true, $"{modelName}-{httpApi.DisplayName}.HttpTrigger.cs");
         }
         
         private static string BuildHttpTriggerResponseHeader(HttpApiHeaderResponseOnTypes onTypes, string className, HttpApi httpApi)
@@ -138,7 +134,7 @@
                 {
                     attributes.Add($"\t\t[OpenApiResponseWithoutBody(statusCode: {httpStatus}, Summary = \"{statusCode.Description}\", Description = \"{statusCode.Description}\", CustomHeaderType = typeof({responseHeader}))]");
                 }
-                else //if (statusCode.Type == "Client Error")
+                else
                 {
                     attributes.Add($"\t\t[OpenApiResponseWithBody(statusCode: {httpStatus}, contentType: \"application/json\", bodyType: typeof(ErrorModel), Summary = \"{statusCode.Description}\", Description = \"{statusCode.Description}\", CustomHeaderType = typeof({responseHeader}))]");
                 }

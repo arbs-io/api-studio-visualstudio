@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public partial class {{TOKEN_OAS_NAMESPACE}}OpenApiOAuthSecurityFlows
+    public partial class {{TOKEN_OAS_CLASS_NAME}}OpenApiOAuthSecurityFlows
     {
         private Dictionary<string, string> GetScopes()
         {

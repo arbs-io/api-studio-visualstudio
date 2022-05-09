@@ -4,9 +4,9 @@
     using Microsoft.OpenApi.Models;
     using System;
 
-    public partial class {{TOKEN_OAS_NAMESPACE}}OpenApiOAuthSecurityFlows : OpenApiOAuthSecurityFlows
+    public partial class {{TOKEN_OAS_CLASS_NAME}}OpenApiOAuthSecurityFlows : OpenApiOAuthSecurityFlows
     {
-        public {{TOKEN_OAS_NAMESPACE}}OpenApiOAuthSecurityFlows()
+        public {{TOKEN_OAS_CLASS_NAME}}OpenApiOAuthSecurityFlows()
         {
             Implicit = new OpenApiOAuthFlow()
             {
