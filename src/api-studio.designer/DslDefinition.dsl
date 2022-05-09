@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Dsl xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="6901cf7d-afbd-4a0a-a1bc-da1fe25f0e73" Description="Azure Function (ApiStudio) design component for visual studio" Name="ApiStudioIO" DisplayName="Azure Function (ApiStudio)" HelpKeyword="Azure Function (ApiStudio)" Namespace="ApiStudioIO" ProductName="Azure Function (ApiStudio)" PackageGuid="4a6ef9c8-3428-4bd6-9b17-c57b4285bbd8" PackageNamespace="ApiStudioIO" xmlns="http://schemas.microsoft.com/VisualStudio/2005/DslTools/DslDefinitionModel">
+<Dsl xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="6901cf7d-afbd-4a0a-a1bc-da1fe25f0e73" Description="ApiStudio (Visual Studio) design component for visual studio" Name="ApiStudioIO" DisplayName="ApiStudio (Visual Studio)" HelpKeyword="ApiStudio (Visual Studio)" Namespace="ApiStudioIO" ProductName="ApiStudio (Visual Studio)" PackageGuid="4a6ef9c8-3428-4bd6-9b17-c57b4285bbd8" PackageNamespace="ApiStudioIO" xmlns="http://schemas.microsoft.com/VisualStudio/2005/DslTools/DslDefinitionModel">
   <Classes>
     <DomainClass Id="8aba1eb0-dc24-44f9-8751-d236150d7e4e" Description="Enterprise Application Diagram for component interface definition" Name="ApiStudio" DisplayName="Api Studio" Namespace="ApiStudioIO" HasCustomConstructor="true">
       <Properties>
@@ -56,7 +56,7 @@
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="160e9f7e-0d9a-47ae-af2c-f042a1d67f68" Description="The name of the solution provider e.g. team, shared mail, etc.." Name="ContactName" DisplayName="Contact Name" DefaultValue="Azure Function (ApiStudio)" Category="Specification">
+        <DomainProperty Id="160e9f7e-0d9a-47ae-af2c-f042a1d67f68" Description="The name of the solution provider e.g. team, shared mail, etc.." Name="ContactName" DisplayName="Contact Name" DefaultValue="ApiStudio (Visual Studio)" Category="Specification">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -1537,7 +1537,7 @@
       </LinkConnectDirective>
     </ConnectionBuilder>
   </ConnectionBuilders>
-  <Diagram Id="5bdfe02c-2d97-48a7-afd9-8a9acd6ab2c0" Description="Description for ApiStudioIO.ApiStudioDiagram" Name="ApiStudioDiagram" DisplayName="Azure Function (ApiStudio) Diagram" Namespace="ApiStudioIO">
+  <Diagram Id="5bdfe02c-2d97-48a7-afd9-8a9acd6ab2c0" Description="Description for ApiStudioIO.ApiStudioDiagram" Name="ApiStudioDiagram" DisplayName="ApiStudio (Visual Studio) Diagram" Namespace="ApiStudioIO">
     <Class>
       <DomainClassMoniker Name="ApiStudio" />
     </Class>

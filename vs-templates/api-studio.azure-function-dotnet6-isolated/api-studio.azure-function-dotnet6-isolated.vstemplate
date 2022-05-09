@@ -1,7 +1,7 @@
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
   <TemplateData>
     <Name>Azure Functions (ApiStudio)</Name>
-    <Description>A project template for creating Azure Functions using ApiStudio designer using .NET.</Description>
+    <Description>A template to create an Azure Function project with ApiStudio designer</Description>
     <ProjectType>CSharp</ProjectType>
     <ProjectSubType>ApiStudio</ProjectSubType>
     <SortOrder>5000</SortOrder>

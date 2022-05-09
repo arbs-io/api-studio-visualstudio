@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="101" xml:space="preserve">
-    <value>Azure Function (ApiStudio)</value>
+    <value>ApiStudio (Visual Studio)</value>
   </data>
   <data name="102" xml:space="preserve">
     <value>Adds a new ApiStudio diagram for Azure Function projects. See https://api-studio.io/ for more information</value>
   </data>
   <data name="103" xml:space="preserve">
-    <value>Azure Function (ApiStudio)</value>
+    <value>ApiStudio (Visual Studio)</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="104" type="System.Resources.ResXFileRef, System.Windows.Forms">

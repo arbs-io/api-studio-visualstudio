@@ -1145,7 +1145,7 @@ namespace ApiStudioIO
 				global::System.String propValue = instanceOfApiStudio.ContactName;
 				if (!serializationContext.Result.Failed)
 				{
-					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "Azure Function (ApiStudio)") != 0))
+					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "ApiStudio (Visual Studio)") != 0))
 					{	// No need to write the value out if it's the same as default value.
 						ApiStudioIOSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "contactName", propValue);
 					}

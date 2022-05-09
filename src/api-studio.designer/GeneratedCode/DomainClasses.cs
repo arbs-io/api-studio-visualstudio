@@ -846,7 +846,7 @@ namespace ApiStudioIO
 		/// <summary>
 		/// Storage for ContactName
 		/// </summary>
-		private global::System.String contactNamePropertyStorage = "Azure Function (ApiStudio)";
+		private global::System.String contactNamePropertyStorage = "ApiStudio (Visual Studio)";
 		
 		/// <summary>
 		/// Gets or sets the value of ContactName domain property.
@@ -855,7 +855,7 @@ namespace ApiStudioIO
 		[DslDesign::DisplayNameResource("ApiStudioIO.ApiStudio/ContactName.DisplayName", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("ApiStudioIO.ApiStudio/ContactName.Category", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("ApiStudioIO.ApiStudio/ContactName.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
-		[global::System.ComponentModel.DefaultValue("Azure Function (ApiStudio)")]
+		[global::System.ComponentModel.DefaultValue("ApiStudio (Visual Studio)")]
 		[DslModeling::DomainObjectId("160e9f7e-0d9a-47ae-af2c-f042a1d67f68")]
 		public global::System.String ContactName
 		{

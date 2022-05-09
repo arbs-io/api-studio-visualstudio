@@ -118,11 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ApiStudioIO.ApiStudioIODomainModel.Description" xml:space="preserve">
-    <value>Azure Function (ApiStudio) design component for visual studio</value>
+    <value>ApiStudio (Visual Studio) design component for visual studio</value>
     <comment>Description for DslLibrary &apos;ApiStudioIO&apos;</comment>
   </data>
   <data name="ApiStudioIO.ApiStudioIODomainModel.DisplayName" xml:space="preserve">
-    <value>Azure Function (ApiStudio)</value>
+    <value>ApiStudio (Visual Studio)</value>
     <comment>DisplayName for DslLibrary &apos;ApiStudioIO&apos;</comment>
   </data>
   <data name="ApiStudioIO.ApiStudio.Description" xml:space="preserve">
@@ -1794,7 +1794,7 @@
     <comment>Text decorator default text</comment>
   </data>
   <data name="FormatList" xml:space="preserve">
-    <value>Azure Function (ApiStudio) (*.ApiStudio)|*.ApiStudio</value>
+    <value>ApiStudio (Visual Studio) (*.ApiStudio)|*.ApiStudio</value>
     <comment>A list of file format specifiers for the Save dialog box</comment>
   </data>
   <data name="ModelExplorerTitle" xml:space="preserve">
@@ -1806,7 +1806,7 @@
     <comment>Description for DomainClass &apos;ApiStudioDiagram&apos;</comment>
   </data>
   <data name="ApiStudioIO.ApiStudioDiagram.DisplayName" xml:space="preserve">
-    <value>Azure Function (ApiStudio) Diagram</value>
+    <value>ApiStudio (Visual Studio) Diagram</value>
     <comment>DisplayName for DomainClass &apos;ApiStudioDiagram&apos;</comment>
   </data>
   <data name="ApiStudio - ResourcesToolboxTab" xml:space="preserve">
@@ -2295,5 +2295,3 @@ A DomainClass can be serialized as a moniker only if
     <comment>Toolbox item image</comment>
   </data>
 </root>
-
-

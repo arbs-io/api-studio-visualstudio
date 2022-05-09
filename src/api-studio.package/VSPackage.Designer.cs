@@ -61,7 +61,7 @@ namespace ApiStudioIO {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Azure Function (ApiStudio).
+        ///   Looks up a localized string similar to ApiStudio (Visual Studio).
         /// </summary>
         internal static string _101 {
             get {
@@ -79,7 +79,7 @@ namespace ApiStudioIO {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Azure Function (ApiStudio).
+        ///   Looks up a localized string similar to ApiStudio (Visual Studio).
         /// </summary>
         internal static string _103 {
             get {

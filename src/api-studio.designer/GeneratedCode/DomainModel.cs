@@ -14,7 +14,7 @@ namespace ApiStudioIO
 {
 	/// <summary>
 	/// DomainModel ApiStudioIODomainModel
-	/// Azure Function (ApiStudio) design component for visual studio
+	/// ApiStudio (Visual Studio) design component for visual studio
 	/// </summary>
 	[DslDesign::DisplayNameResource("ApiStudioIO.ApiStudioIODomainModel.DisplayName", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 	[DslDesign::DescriptionResource("ApiStudioIO.ApiStudioIODomainModel.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]

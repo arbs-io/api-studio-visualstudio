@@ -16,7 +16,7 @@
     public class ApiStudioCodeGeneration : BaseCodeGeneratorWithSite
     {
         public const string Name = nameof(ApiStudioCodeGeneration);
-        public const string Description = "Azure Function (ApiStudio) generation tool for .ApiStudio files";
+        public const string Description = "ApiStudio (Visual Studio) generation tool for .ApiStudio files";
 
         public override string GetDefaultExtension()
         {

@@ -84,7 +84,7 @@ namespace ApiStudioIO
 			global::System.ComponentModel.Design.IHelpService helpService = this.HelpService;
 			if(helpService != null)
 			{
-				helpService.AddContextAttribute(string.Empty, "Azure Function (ApiStudio)", global::System.ComponentModel.Design.HelpKeywordType.F1Keyword);
+				helpService.AddContextAttribute(string.Empty, "ApiStudio (Visual Studio)", global::System.ComponentModel.Design.HelpKeywordType.F1Keyword);
 			}
 		}
 		

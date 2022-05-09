@@ -15,7 +15,7 @@
       <Parent guid="guidCmdSet" id="menuidContext" />
       <CommandFlag>AlwaysCreate</CommandFlag>
       <Strings>
-        <CanonicalName>Azure Function (ApiStudio) Designer Context Menu</CanonicalName>
+        <CanonicalName>ApiStudio (Visual Studio) Designer Context Menu</CanonicalName>
         <ButtonText>ApiStudioIO Context</ButtonText>
       </Strings>
     </Menu>
@@ -23,7 +23,7 @@
       <Parent guid="guidCmdSet" id="menuidExplorer" />
       <CommandFlag>AlwaysCreate</CommandFlag>
       <Strings>
-        <CanonicalName>Azure Function (ApiStudio) Explorer Context Menu</CanonicalName>
+        <CanonicalName>ApiStudio (Visual Studio) Explorer Context Menu</CanonicalName>
         <ButtonText>ApiStudio Explorer</ButtonText>
       </Strings>
     </Menu>
