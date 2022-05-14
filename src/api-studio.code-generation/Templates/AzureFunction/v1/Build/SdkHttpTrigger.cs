@@ -31,6 +31,9 @@
             _ = resource ?? throw new ArgumentNullException(nameof(resource));
             _ = httpApi ?? throw new ArgumentNullException(nameof(httpApi));
 
+            var responseMediaType = httpApi.HttpApiMediaTypeResponsed
+                .FirstOrDefault()?.DisplayName ?? "application/json";
+
             var httpTriggerSourceCode = Templates.Resource.HttpTrigger
                 .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                 .Replace("{{TOKEN_OAS_MODEL}}", modelName)
@@ -38,6 +41,7 @@
                 .Replace("{{TOKEN_OAS_FUNCTION_NAME}}", httpApi.DisplayName.ToAlphaNumeric())
                 .Replace("{{TOKEN_OAS_FUNCTION_DESCRIPTION}}", httpApi.Description)
                 .Replace("{{TOKEN_OAS_HTTP_VERB}}", httpApi.HttpVerb.ToUpper())
+                .Replace("{{TOKEN_OAS_HTTP_RESPONSE_MIME}}", responseMediaType.ToLower())                
                 .Replace("{{TOKEN_OAS_HTTP_URI}}", resource.HttpApiUri)
                 .Replace("{{TOKEN_OAS_HTTP_STATUS_CODE}}", BuildHttpTriggerResponseStatusCodes(httpApi));
             return new SourceCodeEntity($"{namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger.cs", httpTriggerSourceCode, false);
