@@ -339,4 +339,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup />
+  <Target Name="CopyFiles" AfterTargets="AfterBuild">
+    <Copy SourceFiles="$(OutDir)\api-studio.package.vsix" DestinationFiles="..\..\dist\api-studio.package.vsix" />
+  </Target>
 </Project>
