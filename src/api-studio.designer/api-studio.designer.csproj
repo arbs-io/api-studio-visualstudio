@@ -1,0 +1,245 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ApiStudioIO</RootNamespace>
+    <AssemblyOriginatorKeyFile>..\api-studio-key.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <SignAssembly>true</SignAssembly>
+    <GacTargetOutput>false</GacTargetOutput>
+    <StartupObject>
+    </StartupObject>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+	  <Copyright>api-studio.io</Copyright>
+	  <Version>$([System.DateTime]::UtcNow.ToString("yyyy.MM.dd.0"))</Version>
+	  <SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("HHmmssfff"))</SourceRevisionId>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RegisterOutputPackage>true</RegisterOutputPackage>
+    <RegisterWithCodebase>true</RegisterWithCodebase>
+    <GacTargetOutput>false</GacTargetOutput>
+    <TransformOnBuild>true</TransformOnBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Update="System.Core">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Design" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.Diagrams" Version="17.0.31902.203" />
+    <PackageReference Include="Microsoft.VisualStudio.TextTemplating.Modeling" Version="17.0.31902.203" />
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
+    <ProjectReference Include="..\api-studio.common\api-studio.common.csproj" />
+    <ProjectReference Include="..\api-studio.utility\api-studio.utility.csproj" />
+    <ProjectReference Include="..\api-studio.vsoptions\api-studio.vsoptions.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\api-studio-key.snk">
+      <Link>api-studio-key.snk</Link>
+    </None>
+    <None Update="GeneratedCode\ApiStudioSchema.xsd">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ApiStudioSchema.tt</DependentUpon>
+    </None>
+    <None Update="GeneratedCode\SerializationHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SerializationHelper.cs</LastGenOutput>
+    </None>
+    <Compile Update="GeneratedCode\ConnectionBuilders.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConnectionBuilders.tt</DependentUpon>
+    </Compile>
+    <Compile Update="GeneratedCode\Connectors.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Connectors.tt</DependentUpon>
+    </Compile>
+    <Compile Update="GeneratedCode\Diagram.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Diagram.tt</DependentUpon>
+    </Compile>
+    <Compile Update="GeneratedCode\DirectiveProcessor.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DirectiveProcessor.tt</DependentUpon>
+    </Compile>
+    <Compile Update="GeneratedCode\DomainClasses.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DomainClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Update="GeneratedCode\DomainRelationships.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DomainRelationships.tt</DependentUpon>
+    </Compile>
+    <Compile Update="GeneratedCode\HelpKeywordHelper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HelpKeywordHelper.tt</DependentUpon>
+    </Compile>
+    <Compile Update="GeneratedCode\MultiplicityValidation.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MultiplicityValidation.tt</DependentUpon>
+    </Compile>
+    <Compile Update="GeneratedCode\PropertiesGrid.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PropertiesGrid.tt</DependentUpon>
+    </Compile>
+    <Compile Update="GeneratedCode\SerializationHelper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SerializationHelper.tt</DependentUpon>
+    </Compile>
+    <Compile Update="GeneratedCode\DomainModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DomainModel.tt</DependentUpon>
+    </Compile>
+    <Compile Update="GeneratedCode\Serializer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Serializer.tt</DependentUpon>
+    </Compile>
+    <Compile Update="GeneratedCode\Shapes.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Shapes.tt</DependentUpon>
+    </Compile>
+    <Compile Update="GeneratedCode\ToolboxHelper.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ToolboxHelper.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\ApiStudio.AzFunction.ico" />
+    <Content Include="Resources\ApiStudio.AzFunction.png" />
+    <Content Include="Resources\ApiStudioIODiagram.ico" />
+    <Content Include="Resources\ApiStudioIODiagram.png" />
+    <Content Include="Resources\BackgroundImage.png" />
+    <Content Include="Resources\ConnectorToolApiRequest.bmp" />
+    <Content Include="Resources\ConnectorToolApiRequest.cur" />
+    <Content Include="Resources\ConnectorToolApiResponse.bmp" />
+    <Content Include="Resources\ConnectorToolApiResponse.cur" />
+    <Content Include="Resources\ConnectorToolResourceAssociation.bmp" />
+    <Content Include="Resources\ConnectorToolResourceAssociation.cur" />
+    <Content Include="Resources\ConnectorToolResourceLinkApi.bmp" />
+    <Content Include="Resources\ConnectorToolResourceLinkApi.cur" />
+    <Content Include="Resources\DataModel.bmp" />
+    <Content Include="Resources\HttpApiDelete.bmp" />
+    <Content Include="Resources\HttpApiGet.bmp" />
+    <Content Include="Resources\HttpApiHasHeaderRequest.bmp" />
+    <Content Include="Resources\HttpApiHasHeaderResponse.bmp" />
+    <Content Include="Resources\HttpApiHead.bmp" />
+    <Content Include="Resources\HttpApiOptions.bmp" />
+    <Content Include="Resources\HttpApiParameter.bmp" />
+    <Content Include="Resources\HttpApiPatch.bmp" />
+    <Content Include="Resources\HttpApiPost.bmp" />
+    <Content Include="Resources\HttpApiPut.bmp" />
+    <Content Include="Resources\HttpApiMediaTypeRequest.bmp" />
+    <Content Include="Resources\HttpApiMediaTypeResponse.bmp" />
+    <Content Include="Resources\HttpApiResponseStatusCode.bmp" />
+    <Content Include="Resources\HttpApiTrace.bmp" />
+    <Content Include="Resources\PropertyIcon.bmp" />
+    <Content Include="Resources\ResourceAction.bmp" />
+    <Content Include="Resources\ResourceAttribute.bmp" />
+    <Content Include="Resources\ResourceCollection.bmp" />
+    <Content Include="Resources\ResourceInstance.bmp" />
+    <Content Include="Resources\ResourceInstance.bmp" />
+    <None Update="DslDefinition.dsl.diagram">
+      <DependentUpon>DslDefinition.dsl</DependentUpon>
+    </None>
+    <None Update="GeneratedCode\ConnectionBuilders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ConnectionBuilders.cs</LastGenOutput>
+    </None>
+    <None Update="GeneratedCode\Diagram.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Diagram.cs</LastGenOutput>
+    </None>
+    <None Update="GeneratedCode\DirectiveProcessor.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DirectiveProcessor.cs</LastGenOutput>
+    </None>
+    <None Update="GeneratedCode\DomainRelationships.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DomainRelationships.cs</LastGenOutput>
+    </None>
+    <None Update="GeneratedCode\Connectors.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Connectors.cs</LastGenOutput>
+    </None>
+    <None Update="GeneratedCode\DomainClasses.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DomainClasses.cs</LastGenOutput>
+    </None>
+    <None Update="GeneratedCode\DomainModelResx.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DomainModelResx.resx</LastGenOutput>
+    </None>
+    <None Update="GeneratedCode\HelpKeywordHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HelpKeywordHelper.cs</LastGenOutput>
+    </None>
+    <None Update="GeneratedCode\MultiplicityValidation.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MultiplicityValidation.cs</LastGenOutput>
+    </None>
+    <None Update="GeneratedCode\PropertiesGrid.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PropertiesGrid.cs</LastGenOutput>
+    </None>
+    <None Update="GeneratedCode\ApiStudioSchema.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ApiStudioSchema.xsd</LastGenOutput>
+    </None>
+    <None Update="GeneratedCode\DomainModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DomainModel.cs</LastGenOutput>
+    </None>
+    <Content Include="GeneratedCode\ApiStudioSchema.xsd">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApiStudioSchema.tt</DependentUpon>
+      <SubType>
+      </SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Update="GeneratedCode\Serializer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Serializer.cs</LastGenOutput>
+    </None>
+    <None Update="GeneratedCode\Shapes.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Shapes.cs</LastGenOutput>
+    </None>
+    <None Update="GeneratedCode\ToolboxHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ToolboxHelper.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4df5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="GeneratedCode\DomainModelResx.resx">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DomainModelResx.tt</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <!-- Implicit bottom import -->
+  <!-- <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" /> -->
+  <!-- Import any other build targets AFTER the Sdk.targets -->
+</Project>

@@ -1,0 +1,31 @@
+﻿using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
+using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
+using Microsoft.OpenApi.Models;
+using System;
+
+namespace Configurations
+{
+    public class OpenApiConfigurationOptions : DefaultOpenApiConfigurationOptions
+    {
+        public override OpenApiInfo Info { get; set; } = new OpenApiInfo()
+        {
+            Version = @"{{TOKEN_OAS_VERSION}}",
+            Title = @"{{TOKEN_OAS_TITLE}}",
+            Description = @"{{TOKEN_OAS_DESCRIPTION}}",
+            TermsOfService = new Uri(@"{{TOKEN_OAS_CONTACT_URL}}"),
+            Contact = new OpenApiContact()
+            {
+                Name = @"{{TOKEN_OAS_CONTACT_URL}}",
+                Email = @"{{TOKEN_OAS_CONTACT_URL}}",
+                Url = new Uri(@"{{TOKEN_OAS_CONTACT_URL}}"),
+            },
+            License = new OpenApiLicense()
+            {
+                Name = "MIT",
+                Url = new Uri("https://api-studio.io/licenses/MIT"),
+            }
+        };
+
+        public override OpenApiVersionType OpenApiVersion { get; set; } = OpenApiVersionType.V3;
+    }
+}
