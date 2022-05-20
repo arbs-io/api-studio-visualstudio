@@ -1,0 +1,27 @@
+﻿namespace {{TOKEN_OAS_NAMESPACE}}
+{
+    using System.Net;
+    using System.Threading.Tasks;
+    using Microsoft.Azure.Functions.Worker;
+    using Microsoft.Azure.Functions.Worker.Http;
+    using Microsoft.Extensions.Logging;
+
+    public partial class {{TOKEN_OAS_CLASS_NAME}}
+    {
+        private readonly ILogger _logger;
+        public {{TOKEN_OAS_CLASS_NAME}}(ILoggerFactory loggerFactory)
+        {
+            _logger = loggerFactory.CreateLogger<{{TOKEN_OAS_CLASS_NAME}}>();
+        }
+
+        public async Task<HttpResponseData> RunAsync(HttpRequestData httpRequestData)
+        {
+            HttpResponseData response = httpRequestData.CreateResponse({{TOKEN_OAS_HTTP_STATUS_CODE}});
+            response.Headers.Add("Content-Type", "{{TOKEN_OAS_HTTP_RESPONSE_MIME}}; charset=utf-8");
+
+            await response.WriteStringAsync($"Welcome to Azure Functions!").ConfigureAwait(false);
+
+            return await Task.FromResult(response).ConfigureAwait(false);
+        }
+    }
+}

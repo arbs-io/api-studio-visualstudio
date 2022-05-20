@@ -264,3 +264,6 @@ __pycache__/
 *.pyc
 
 source/api-studio.code-generation/AzureFunction/v0
+
+# Api Studio - Distribution Files
+[Dd]ist/
