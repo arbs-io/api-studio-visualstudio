@@ -1,57 +1,57 @@
-# api-studio-visualstudio
-Visual studio plug-in to create clean RESTful APIs. The plug-in provides a quick and easy ways to scaffold HTTP end-points following RFC and best practice.
+# ApiStudio Extension for Visual Studio
 
-## Supported Projects
+## About
 
-The initially supported project are:
-### Azure Function
+The ApiStudio Extension for Visual Studio provides ApiStudio integration in Visual Studio 2022 and newer.
+Most of the extension UI lives in the Team Explorer pane, which is available from the View menu.
 
-Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running.
+Official builds of this extension are available at the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ApiStudio.ApiStudioExtensionforVisualStudio).
 
-## Designer
+## Documentation
+Visit the [documentation](https://ApiStudio.com/ApiStudio/VisualStudio/tree/master/docs) for details on how to use the features in the ApiStudio Extension for Visual Studio.
 
-A REST API is an application programming interface that conforms to specific architectural constraints, like stateless communication and cacheable data. It is not a protocol or standard. While REST APIs can be accessed through a number of communication protocols, most commonly, they are called over HTTPS,  the designer helps to create clean REST API endpoints.
+## Build requirements
 
-## Security
+* Visual Studio 2022
+  * `.NET desktop development` workload
+  * `.NET Core cross platform development` workload
+  * `Visual Studio extension development` workload
 
-SecuritySchemeType
-ApiSecurity
-- ApiKey
-- Http (Basic || Bearer+Format) 
-- OAuth2
-- OpenIdConnect
+The built VSIX will work with Visual Studio 2015 or newer
 
-## References 
+## Build
 
-###
-- https://docs.microsoft.com/en-us/visualstudio/extensibility/creating-an-options-page?view=vs-2022
-- https://social.msdn.microsoft.com/Forums/security/en-US/516ce577-9e50-4a74-8c5e-4b4ea4f9f86c/store-array-in-options-using-dialogpage?forum=vsx
+Clone the repository and its submodules.
 
-### Visual Studio vsix
-- https://www.vsixcookbook.com/
+Execute `build.cmd`
 
-### Microsoft.Azure.WebJobs.Extensions.OpenApi.Core
-- https://github.com/Azure/azure-functions-openapi-extension/blob/main/docs/openapi-core.md
+## Visual Studio Build
 
-### Visual Studio Updates (visual-studio-2022)
-Finally vs2022 removes the million+ dependancies:
-- https://docs.microsoft.com/en-us/visualstudio/extensibility/migration/migrated-assemblies?view=vs-2022
+Build `api-studio.sln` using Visual Studio 2019.
 
+## Troubleshooting
 
-## Notes
-### Request payload semantics:
-https://www.rfc-editor.org/rfc/rfc7231#section-4.3.5
-  
-"request might cause some existing implementations to reject the request"
-  - Swagger Editor:	GET DELETE
-  - Api Gateway:      GET HEAD OPTIONS (But validates with HEAD OPTIONS)
-  - RFC:              GET HEAD DELETE CONNECT 
+If you have issues building with failures similar to:
 
-### Code Signing:
-Microsoft 
- - https://docs.microsoft.com/en-us/windows-hardware/drivers/dashboard/get-a-code-signing-certificate
- - https://github.com/sigstore/cosign/releases
- - https://www.linkedin.com/pulse/code-signing-visual-studio-jason-brower
+> "The type or namespace name does not exist..."
+or
 
-TODO:
- [ ] Data Model Namespace
+> "Unable to find project... Check that the project reference is valid and that the project file exists."*
+Close Visual Studio and run the following command to update submodules and clean your environment.
+
+```txt
+clean.cmd
+```
+
+## More information
+- TBC
+
+## Contributing
+
+details on how to participate.
+
+## Copyright
+
+Copyright 2021 - 2022 ApiStudio, Inc.
+
+Licensed under the [MIT License](.\src\LICENSE.md)

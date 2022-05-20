@@ -1,1 +1,2 @@
-.\vsixsigntool.exe sign /f api-studio.io.open.pfx /sha1 06f53b9a57071c08c7a979c82a8435802ca40790 /fd sha256 /t http://sha256timestamp.ws.symantec.com/sha256/timestamp "..\..\src\api-studio.package\bin\Debug\api-studio.package.vsix"
+dotnet tool install -g OpenVsixSignTool
+OpenVsixSignTool sign --sha1 1b2c3f93680cb70e928e7e2292aa9a1741d0df98 --timestamp http://timestamp.digicert.com -ta sha256 -fd sha256 "..\..\dist\api-studio.package.vsix"

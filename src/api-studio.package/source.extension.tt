@@ -22,10 +22,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-	<Identity Id="<#= this.Dsl.PackageGuid #>" Version="<#= DateTime.Now.Year #>.<#= DateTime.Now.Month #>.<#= DateTime.Now.Day #>.<#= System.Convert.ToInt32(TimeSpan.FromTicks(DateTime.Now.Ticks - DateTime.Today.Ticks).TotalMinutes) #>" Language="<#= language #>" Publisher="api-studio.io" />
+	<Identity Id="<#= this.Dsl.PackageGuid #>" Version="<#= DateTime.Now.Year #>.<#= DateTime.Now.Month #>.<#= DateTime.Now.Day #>.<#= System.Convert.ToInt32(TimeSpan.FromTicks(DateTime.Now.Ticks - DateTime.Today.Ticks).TotalMinutes) #>" Language="<#= language #>" Publisher="Andrew Butson" />
     <DisplayName><#= this.Dsl.DisplayName #></DisplayName>
     <Description><#= this.Dsl.Description #></Description>
     <MoreInfo>https://api.api-studio.io</MoreInfo>
+    <License>LICENSE.txt</License>
     <Icon>Resources\ApiStudio.ico</Icon>
     <PreviewImage>Resources\ApiStudio.ico</PreviewImage>
     <Tags> Azure Function, ApiStudio, Cloud Architecture </Tags>
