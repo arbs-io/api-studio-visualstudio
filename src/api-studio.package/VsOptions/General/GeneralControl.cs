@@ -1,5 +1,6 @@
 ﻿using ApiStudioIO.VsOptions.ConfigurationV1;
 using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -16,20 +17,23 @@ namespace ApiStudioIO.VsOptions.General
 
         public void Initialize()
         {
-            VersionValue.Text = generalDialogPage.Version;
-            Description.Text = generalDialogPage.Description;
+            SetInformationText();
         }
 
-        private void VersionValue_TextChanged(object sender, EventArgs e)
+        private void SetInformationText()
         {
-            generalDialogPage.Version = VersionValue.Text;
+            SetInformationText("Easy to use", "A well-designed API will be easy to work with.Its resources and associated operations can quickly be memorized by developers who work with it constantly.\r\n\r\n");
+            SetInformationText("Hard to misuse", "Implementing and integrating with an API with good design will be straightforward, and writing incorrect code will be less likely.It has informative feedback and doesn’t enforce strict guidelines on the API’s end consumer.\r\n\r\n");
+            SetInformationText("Complete and concise", "A comprehensive API will allow developers to make fully - fledged applications against your exposed data.Completeness happens over time usually, and most API designers and developers incrementally build on top of existing APIs.");
         }
-
-        private void Description_TextChanged(object sender, EventArgs e)
+        private void SetInformationText(string header, string message)
         {
-            generalDialogPage.Description = Description.Text;
+            var length = richTextInformation.Text.Length;
+            richTextInformation.AppendText($"{header}: {message}");
+            richTextInformation.Select(length, header.Length);
+            richTextInformation.SelectionFont = new Font(richTextInformation.Font, FontStyle.Bold);
         }
-
+        
         private void ButtonInput_Click(object sender, EventArgs e)
         {
             var dlg = new OpenFileDialog
