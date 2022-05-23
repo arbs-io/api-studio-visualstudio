@@ -22,9 +22,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-	<Identity Id="<#= this.Dsl.PackageGuid #>" Version="<#= DateTime.Now.Year #>.<#= DateTime.Now.Month #>.<#= DateTime.Now.Day #>.<#= System.Convert.ToInt32(TimeSpan.FromTicks(DateTime.Now.Ticks - DateTime.Today.Ticks).TotalMinutes) #>" Language="<#= language #>" Publisher="Andrew Butson" />
+    <Identity Id="<#= this.Dsl.PackageGuid #>" Version="<#= DateTime.Now.Year #>.<#= DateTime.Now.Month #>.<#= DateTime.Now.Day #>.<#= System.Convert.ToInt32(TimeSpan.FromTicks(DateTime.Now.Ticks - DateTime.Today.Ticks).TotalMinutes) #>" Language="<#= language #>" Publisher="Andrew Butson" />
     <DisplayName>ApiStudio Extension for Visual Studio</DisplayName>
     <Description xml:space="preserve">A Visual Studio Extension that brings Api Studio designer to developers and architects. Current contains designer and project for (Azure Functions)</Description>
+    <PackageId>ApiStudio.VisualStudio</PackageId>
     <MoreInfo>https://api-studio.io</MoreInfo>
     <License>Resources\LICENSE.txt</License>
     <Icon>Resources\logo_128x128.png</Icon>
