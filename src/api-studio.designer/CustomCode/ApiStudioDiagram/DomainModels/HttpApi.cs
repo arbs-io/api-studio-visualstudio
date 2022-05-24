@@ -2,6 +2,7 @@
 {
     using ApiStudioIO.Common.Models.Http;
     using ApiStudioIO.Utility.Extensions;
+    using ApiStudioIO.VsOptions.ConfigurationV1;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -74,13 +75,14 @@
         public virtual string GetAuthorisationRoleValue()
         {
             var resourceContainer = ApiStudio;
+            var securityScopePattern = ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.SecurityScopePattern;
 
-            var vendor = resourceContainer.Vendor.ToAlphaNumeric(true);
-            var product = resourceContainer.Product.ToAlphaNumeric(true);
-            var apiName = resourceContainer.ApiName.ToAlphaNumeric(true);
-            var resourceName = GetAuthorisationRoleResourceName().ToAlphaNumeric(true);
-            var actionName = GetAuthorisationRoleActionName().ToAlphaNumeric(true);
-            return $@"{vendor}.{product}.{apiName}.{resourceName}.{actionName}";
+            return securityScopePattern
+                .Replace("{Provider}", resourceContainer.Vendor.ToAlphaNumeric(true))
+                .Replace("{Product}", resourceContainer.Product.ToAlphaNumeric(true))
+                .Replace("{ApiName}", resourceContainer.ApiName.ToAlphaNumeric(true))
+                .Replace("{Resource}", GetAuthorisationRoleResourceName().ToAlphaNumeric(true))
+                .Replace("{Action}", GetAuthorisationRoleActionName().ToAlphaNumeric(true));
         }
 
         private string GetAuthorisationRoleResourceName()
