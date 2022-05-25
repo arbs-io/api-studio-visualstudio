@@ -157,7 +157,7 @@
             foreach (var header in httpApi.RequestHeaders)
             {
                 var attribute = $"\t\t[OpenApiParameter(";
-                attribute += $"name: \"{header.Name.ToAlphaNumeric()}\", ";
+                attribute += $"name: \"{header.Name}\", ";
                 attribute += $"In = ParameterLocation.Header, ";
                 attribute += $"Required = {header.IsRequired.ToString().ToLower()}, ";
                 attribute += $"Type = typeof(string), ";

@@ -4,11 +4,11 @@
 
 -----------------------------------
 
-This Api Studio Extension enhances Visual Studio 2022 by making designing and building RESTful solutions easy. 
+This Api Studio Extension enhances Visual Studio 2022 by making designing and building RESTful solutions easy.
 
-Api Studio Designer in Visual Studio provides a rapid development solution for creating resources and HTTP verbs. Api Studio Designer lets you bridge the role of architect and developer, providing quick prototyping solutions and creating well-documented APIs which adhere to industry best practices. In addition, regardless of company or project size, Api Studio provides templating to guarantee your organisation's consistent look and feel. Prototype solution promoting clean resource-based APIs. Using Api Studio Designer and DSL, architects and developers ensure a standard and consistent model is used. The extension provides a designer, toolbox and explorer to create and manage Api Studio assets.
+Api Studio Designer in Visual Studio provides a rapid development solution for creating resource-based APIs. Api Studio Designer lets you bridge the role of architect and developer, providing quick prototyping solutions and creating well-documented APIs which adhere to industry best practices. In addition, regardless of company or project size, Api Studio provides templating to guarantee your organisation's consistent look and feel. Prototype solution promoting clean resource-based APIs. Architects and developers can use Api Studio Designer and DSL to ensure a consistent standard across solutions. The extension provides a designer, toolbox and explorer to create and manage Api Studio assets.
 
-An API-first approach means that your APIs are treated as "first-class citizens for any given development project." Api Studio provide architects and developers a solution to quickly design and collaborate, providing the blueprint for solution implementation. The extension will enable teams to mock endpoints proofing API usability before investing in development.
+An API-first approach means that your APIs are treated as "first-class citizens for any development project." Api Studio provides architects and developers with a solution to quickly design and collaborate, providing the blueprint for solution implementation. In addition, the extension will enable teams to quickly mock solution endpoints, proofing usability before investing in development.
 
 ## **Features**
 

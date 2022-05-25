@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="4a6ef9c8-3428-4bd6-9b17-c57b4285bbd8" Version="2022.5.25.31" Language="en-US" Publisher="Andrew Butson" />
+    <Identity Id="4a6ef9c8-3428-4bd6-9b17-c57b4285bbd8" Version="2022.5.25.888" Language="en-US" Publisher="Andrew Butson" />
     <DisplayName>ApiStudio Extension for Visual Studio</DisplayName>
     <Description xml:space="preserve">A Visual Studio Extension that brings Api Studio designer to developers and architects. Current contains designer and project for (Azure Functions)</Description>
     <PackageId>ApiStudio.VisualStudio</PackageId>
