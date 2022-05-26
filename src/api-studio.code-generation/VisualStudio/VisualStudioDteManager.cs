@@ -7,7 +7,8 @@ namespace ApiStudioIO.CodeGeneration.VisualStudio
     {
         internal static void AddNestedFile(DTE dte, string sourceFile, string dependentUponFile)
         {
-            ProjectItem sourceProjectItem = dte.Solution.FindProjectItem(sourceFile) ?? throw new ArgumentNullException(nameof(sourceProjectItem));
+            ProjectItem sourceProjectItem = dte.Solution.FindProjectItem(sourceFile)
+                                            ?? throw new ArgumentNullException(nameof(sourceProjectItem));
 
             var dependentUponProjectItem = sourceProjectItem.ProjectItems.AddFromFile(dependentUponFile);
 
@@ -17,7 +18,8 @@ namespace ApiStudioIO.CodeGeneration.VisualStudio
 
         internal static void DeleteFile(DTE dte, string projectFile)
         {
-            ProjectItem projectItem = dte.Solution.FindProjectItem(projectFile) ?? throw new ArgumentNullException(nameof(projectItem));
+            ProjectItem projectItem = dte.Solution.FindProjectItem(projectFile)
+                                      ?? throw new ArgumentNullException(nameof(projectItem));
             projectItem.Delete();
         }
 
@@ -47,19 +49,6 @@ namespace ApiStudioIO.CodeGeneration.VisualStudio
                     {
                         return true;
                     }
-                }
-            }
-
-            return false;
-        }
-
-        private static bool IsKind(this Project project, params string[] kindGuids)
-        {
-            foreach (var guid in kindGuids)
-            {
-                if (project.Kind.Equals(guid, StringComparison.OrdinalIgnoreCase))
-                {
-                    return true;
                 }
             }
 

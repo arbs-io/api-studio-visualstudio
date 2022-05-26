@@ -83,8 +83,6 @@
         }
         #endregion Visual Studio Interop
 
-        //public ApiStudioOptions Data { get; set; }
-
         private ApiStudioOptions _data;
         public ApiStudioOptions Data
         {

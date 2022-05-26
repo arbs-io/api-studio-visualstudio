@@ -32,10 +32,6 @@
         [JsonProperty("success_options")]
         public int SuccessOptions { get; set; } = 204;
 
-        //public DefaultResponseCodes()
-        //{
-        //    LoadDefaults();
-        //}
         public void LoadDefaults()
         {
             StandardResponseCodes = new HashSet<int>() { 400, 401, 403, 404, 415, 422, 500 };
