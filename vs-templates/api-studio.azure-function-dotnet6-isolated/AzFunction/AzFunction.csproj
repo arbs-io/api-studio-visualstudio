@@ -13,14 +13,14 @@
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.OpenApi" Version="1.2.0" />
   </ItemGroup>
 	<ItemGroup>
-		<Compile Remove="Designer\*.cs" />
-    <Compile Include="Designer\*.OpenApiConfigurationOptions.cs" Link="Configurations\%(Filename)%(Extension)" />
-    <Compile Include="Designer\*.HttpTrigger.cs" Link="Triggers\Http\%(Filename)%(Extension)" />
-    <Compile Include="Designer\*.HttpTrigger.Designer.cs" Link="Triggers\Http\%(Filename)%(Extension)" />
-    <Compile Include="Designer\*.Model.cs" Link="Models\%(Filename)%(Extension)" />
-    <Compile Include="Designer\*.OAuth2.cs" Link="Security\OAuth2\%(Filename)%(Extension)" />
-    <Compile Include="Designer\*.OAuth2.Scopes.cs" Link="Security\OAuth2\%(Filename)%(Extension)" />
-    <Compile Include="Designer\*.OpenIdConnect.cs" Link="Security\OpenIdConnect\%(Filename)%(Extension)" />
+		<Compile Remove="ApiStudio\*.cs" />
+    <Compile Include="ApiStudio\*.OpenApiConfigurationOptions.cs" Link="Configurations\%(Filename)%(Extension)" />
+    <Compile Include="ApiStudio\*.HttpTrigger.cs" Link="Triggers\Http\%(Filename)%(Extension)" />
+    <Compile Include="ApiStudio\*.HttpTrigger.Designer.cs" Link="Triggers\Http\%(Filename)%(Extension)" />
+    <Compile Include="ApiStudio\*.Model.cs" Link="Models\%(Filename)%(Extension)" />
+    <Compile Include="ApiStudio\*.OAuth2.cs" Link="Security\OAuth2\%(Filename)%(Extension)" />
+    <Compile Include="ApiStudio\*.OAuth2.Scopes.cs" Link="Security\OAuth2\%(Filename)%(Extension)" />
+    <Compile Include="ApiStudio\*.OpenIdConnect.cs" Link="Security\OpenIdConnect\%(Filename)%(Extension)" />
 	</ItemGroup>
   <ItemGroup>
     <None Update="host.json">
@@ -30,7 +30,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CopyToPublishDirectory>Never</CopyToPublishDirectory>
     </None>
-    <None Update="Designer\Default.ApiStudio">
+    <None Update="ApiStudio\Default.ApiStudio">
       <Generator>ApiStudioCodeGeneration</Generator>
     </None>
   </ItemGroup>

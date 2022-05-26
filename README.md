@@ -1,57 +1,64 @@
-# ApiStudio Extension for Visual Studio
+# Api Studio
 
-## About
+**Download** this extension from the [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=arbs_io.ApiStudio)
 
-The ApiStudio Extension for Visual Studio provides ApiStudio integration in Visual Studio 2022 and newer.
-Most of the extension UI lives in the Team Explorer pane, which is available from the View menu.
+-----------------------------------
 
-Official builds of this extension are available at the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ApiStudio.ApiStudioExtensionforVisualStudio).
+This Api Studio Extension enhances Visual Studio 2022 by making designing and building RESTful solutions easy.
 
-## Documentation
-Visit the [documentation](https://ApiStudio.com/ApiStudio/VisualStudio/tree/master/docs) for details on how to use the features in the ApiStudio Extension for Visual Studio.
+Api Studio Designer in Visual Studio provides a rapid development solution for creating resource-based APIs. Api Studio Designer lets you bridge the role of architect and developer, providing quick prototyping solutions and creating well-documented APIs which adhere to industry best practices. In addition, regardless of company or project size, Api Studio provides templating to guarantee your organisation's consistent look and feel. Prototype solution promoting clean resource-based APIs. Architects and developers can use Api Studio Designer and DSL to ensure a consistent standard across solutions. The extension provides a designer, toolbox and explorer to create and manage Api Studio assets.
 
-## Build requirements
+An API-first approach means that your APIs are treated as "first-class citizens for any development project." Api Studio provides architects and developers with a solution to quickly design and collaborate, providing the blueprint for solution implementation. In addition, the extension will enable teams to quickly mock solution endpoints, proofing usability before investing in development.
 
-* Visual Studio 2022
-  * `.NET desktop development` workload
-  * `.NET Core cross platform development` workload
-  * `Visual Studio extension development` workload
+## **Features**
 
-The built VSIX will work with Visual Studio 2015 or newer
+The extension provides the following features.
 
-## Build
+### **Visual Studio Designer**
 
-Clone the repository and its submodules.
+![Api Studio Visual Studio Overview](art/api-studio-visualstudio-overview-highlighted.png)
 
-Execute `build.cmd`
+- <span style="color:#267F00;">**Designer**</span>: The Visual Studio Api Studio Designer is dedicated to editing Api Studio DSL artefacts used by code generated directly in the Visual Studio environment. To open a .ApiStudio file, the designer opens in the central docking area within visual studio. If there is no such file, you may create it using the Add --> New Item --> ApiStudio.
 
-## Visual Studio Build
+- <span style="color:#B200FF;">**Toolbox**</span>: The Toolbox window displays controls that you can add to Visual Studio projects. Choose View > Toolbox from the menu bar or press Ctrl+Alt+X to open Toolbox. You can drag and drop different controls onto the surface of the Api Studio designer and resize and position the controls. Toolbox appears in conjunction with Api Studio designer views. Toolbox displays only those controls that the current designer can use. You can search within Toolbox to further filter the items that appear.
 
-Build `api-studio.sln` using Visual Studio 2019.
+- <span style="color:#0094FF;">**Api Studio Explorer**</span>: You can use the Explorer tool window to create & manage your solutions and projects and to view & interact with your code.
 
-## Troubleshooting
+- <span style="color:#FFD800;">**Property**</span>: The Visual Studio Properties window is a property browser for Api Studio components. The Properties window list metadata at design time for the currently selected object in any other window in the integrated development environment (IDE).
 
-If you have issues building with failures similar to:
+### **Visual Studio Project**
 
-> "The type or namespace name does not exist..."
-or
+Api Studio provides a visual studio project containing all assets to get started. The template offers a complete but lightweight solution.
 
-> "Unable to find project... Check that the project reference is valid and that the project file exists."*
-Close Visual Studio and run the following command to update submodules and clean your environment.
+#### Azure Function (dotnet6 - C#)
 
-```txt
-clean.cmd
-```
+![Api Studio Visual Studio Overview](art/api-studio-visualstudio-project.png)
 
-## More information
-- TBC
+#### **Template Standards**
 
-## Contributing
+Api Studio provides templated standards for header, response codes and security models. Allowing enterprise standards to be shared between development teams. The options are available within visual studios options Tools --> Options --> ApiStudio. The options panel provide Import/Export functionality.
 
-details on how to participate.
+## Getting Started
+Creating a new project is simple. Visual Studio "Create Project", search "Api Studio" in the project list.
+
+![Visual Studio Create Api Studio Project](art/api-studio-project-template.png)
+
+## What's next
+
+This extension currently supports RESTful-based APIs, but extensions to allow support for gRpc, WebHooks and WebSocket interfaces soon.
+
+## How can I help?
+If you enjoy using the extension, please give it a rating on the [Visual Studio Marketplace][marketplace].
+
+Should you encounter bugs or if you have feature requests, head on over to the [GitHub repo][repo] to open an issue if one doesn't already exist.
+Pull requests are also very welcome since I can't always get around to fixing all bugs myself. 
+
+This is a personal passion project, so my time is limited.
+
+Another way to help out is to [sponsor me on GitHub](https://github.com/sponsors/arbs-io).
 
 ## Copyright
 
-Copyright 2021 - 2022 ApiStudio, Inc.
+Copyright 2021 - 2022 Api Studio, Inc.
 
-Licensed under the [MIT License](.\src\LICENSE.md)
+Licensed under the MIT License

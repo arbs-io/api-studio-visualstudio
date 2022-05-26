@@ -22,13 +22,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-	<Identity Id="<#= this.Dsl.PackageGuid #>" Version="<#= DateTime.Now.Year #>.<#= DateTime.Now.Month #>.<#= DateTime.Now.Day #>.<#= System.Convert.ToInt32(TimeSpan.FromTicks(DateTime.Now.Ticks - DateTime.Today.Ticks).TotalMinutes) #>" Language="<#= language #>" Publisher="Andrew Butson" />
-    <DisplayName><#= this.Dsl.DisplayName #></DisplayName>
-    <Description><#= this.Dsl.Description #></Description>
-    <MoreInfo>https://api.api-studio.io</MoreInfo>
-    <License>LICENSE.txt</License>
-    <Icon>Resources\ApiStudio.ico</Icon>
-    <PreviewImage>Resources\ApiStudio.ico</PreviewImage>
+    <Identity Id="<#= this.Dsl.PackageGuid #>" Version="<#= DateTime.Now.Year #>.<#= DateTime.Now.Month #>.<#= DateTime.Now.Day #>.<#= System.Convert.ToInt32(TimeSpan.FromTicks(DateTime.Now.Ticks - DateTime.Today.Ticks).TotalMinutes) #>" Language="<#= language #>" Publisher="Andrew Butson" />
+    <DisplayName>Api Studio Extension for Visual Studio</DisplayName>
+    <Description xml:space="preserve">Api Studio Extension enhances Visual Studio 2022 by making designing and building RESTful solutions. Architects and developers can use Api Studio Designer and DSL to ensure a consistent standard across solutions.</Description>
+    <PackageId>ApiStudio.VisualStudio</PackageId>
+    <MoreInfo>https://api-studio.io</MoreInfo>
+    <License>Resources\LICENSE.txt</License>
+    <Icon>Resources\logo_128x128.png</Icon>
+    <PreviewImage>Resources\preview_200x200.png</PreviewImage>
     <Tags> Azure Function, ApiStudio, Cloud Architecture </Tags>
   </Metadata>
   <Installation>

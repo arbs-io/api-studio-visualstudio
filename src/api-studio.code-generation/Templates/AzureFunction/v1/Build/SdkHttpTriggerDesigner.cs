@@ -92,15 +92,24 @@
                 attributes.Add($"\t\t[OpenApiSecurity(\"ApiKey\", SecuritySchemeType.ApiKey, Name = \"{securityApiKey}\", In = OpenApiSecurityLocationType.Header)]");
             }
 
-            if (httpApi.ApiStudio.SecuritySchemeType == SecuritySchemeTypes.OAuth2)
+            switch (httpApi.ApiStudio.SecuritySchemeType)
             {
-                attributes.Add($"\t\t[OpenApiSecurity(\"ApiStudioOAuth2\", SecuritySchemeType.OAuth2, Flows = typeof({modelName}OpenApiOAuthSecurityFlows))]");
+                case SecuritySchemeTypes.OAuth2:
+                    attributes.Add($"\t\t[OpenApiSecurity(\"ApiStudioOAuth2\", SecuritySchemeType.OAuth2, Flows = typeof({modelName}OpenApiOAuthSecurityFlows))]");
+                    break;
+                case SecuritySchemeTypes.OpenIdConnect:
+                    var openIdConnectUrl = ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.OpenIdConnectUrl;
+                    attributes.Add($"\t\t[OpenApiSecurity(\"ApiStudioOpenIdConnect\", SecuritySchemeType.OpenIdConnect, OpenIdConnectUrl = \"{openIdConnectUrl}\", OpenIdConnectScopes = \"{httpApi.AuthorisationRole}\")]");
+                    break;
+                case SecuritySchemeTypes.Basic:
+                    attributes.Add($"\t\t[OpenApiSecurity(\"basic_auth\", SecuritySchemeType.Http, Scheme = OpenApiSecuritySchemeType.Basic)]");
+                    break;
+                case SecuritySchemeTypes.None:                
+                    break;
+                default:
+                    break;
             }
-            else if (httpApi.ApiStudio.SecuritySchemeType == SecuritySchemeTypes.OpenIdConnect)
-            {
-                var openIdConnectUrl = ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.OpenIdConnectUrl;
-                attributes.Add($"\t\t[OpenApiSecurity(\"ApiStudioOpenIdConnect\", SecuritySchemeType.OpenIdConnect, OpenIdConnectUrl = \"{openIdConnectUrl}\", OpenIdConnectScopes = \"{httpApi.AuthorisationRole}\")]");
-            }
+
             return attributes;
         }
 
@@ -148,7 +157,7 @@
             foreach (var header in httpApi.RequestHeaders)
             {
                 var attribute = $"\t\t[OpenApiParameter(";
-                attribute += $"name: \"{header.Name.ToAlphaNumeric()}\", ";
+                attribute += $"name: \"{header.Name}\", ";
                 attribute += $"In = ParameterLocation.Header, ";
                 attribute += $"Required = {header.IsRequired.ToString().ToLower()}, ";
                 attribute += $"Type = typeof(string), ";

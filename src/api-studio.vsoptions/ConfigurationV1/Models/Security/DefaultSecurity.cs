@@ -1,7 +1,6 @@
 ﻿namespace ApiStudioIO.VsOptions.ConfigurationV1.Models
 {
     using Newtonsoft.Json;
-    using System.ComponentModel;
 
     public sealed class DefaultSecurity
     {
@@ -14,15 +13,9 @@
         [JsonProperty("openid_connect_url")]
         public string OpenIdConnectUrl { get; set; }
 
-
-        //public DefaultSecurity()
-        //{
-        //    LoadDefaults();
-        //}
-
         public void LoadDefaults()
         {
-            SecurityScheme = "OpenIdConnect";
+            SecurityScheme = "None";
             SecurityScopePattern = "{Resource}::{Action}";
             OpenIdConnectUrl = "http://api-studio.io/.well-known/openid-configuration";
         }

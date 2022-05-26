@@ -21,7 +21,7 @@
         [OpenApiOperation(operationId: "{{TOKEN_OAS_FUNCTION_NAME}}", tags: new[] { "{{TOKEN_OAS_MODEL}}" }, Summary = "{{TOKEN_OAS_FUNCTION_NAME}}", Description = "{{TOKEN_OAS_FUNCTION_DESCRIPTION}}", Visibility = OpenApiVisibilityType.Important)]
 {{TOKEN_OAS_HTTP_OPENAPI_ATTRIBUTE}}
         public async Task<HttpResponseData> {{TOKEN_OAS_FUNCTION_NAME}}(
-            [HttpTrigger(AuthorizationLevel.Function, "{{TOKEN_OAS_HTTP_VERB}}", 
+            [HttpTrigger(AuthorizationLevel.Anonymous, "{{TOKEN_OAS_HTTP_VERB}}", 
             Route = "{{TOKEN_OAS_HTTP_URI}}")] HttpRequestData httpRequestData)
         {
             return await RunAsync(httpRequestData);

@@ -12,11 +12,6 @@
         [JsonProperty("response")]
         public Dictionary<string, HttpResourceHeaderResponse> Response { get; set; } = new Dictionary<string, HttpResourceHeaderResponse>();
 
-        //public DefaultHeaders()
-        //{
-        //    LoadDefaults();
-        //}
-
         public void LoadDefaults()
         {
             LoadResponseDefaults();

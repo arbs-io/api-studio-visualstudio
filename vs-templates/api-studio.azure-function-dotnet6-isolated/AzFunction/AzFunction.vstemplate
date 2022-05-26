@@ -20,7 +20,7 @@
       <Folder Name="Models" TargetFolderName="Models">
         <ProjectItem ReplaceParameters="true" TargetFileName="ErrorModel.cs">ErrorModel.cs</ProjectItem>
       </Folder>
-      <Folder Name="Designer" TargetFolderName="Designer">
+      <Folder Name="ApiStudio" TargetFolderName="ApiStudio">
         <ProjectItem ReplaceParameters="true" TargetFileName="Default.ApiStudio">Default.ApiStudio</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="Default.ApiStudio.diagram">Default.ApiStudio.diagram</ProjectItem>
       </Folder>

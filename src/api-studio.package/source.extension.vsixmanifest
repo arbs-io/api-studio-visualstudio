@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-	<Identity Id="4a6ef9c8-3428-4bd6-9b17-c57b4285bbd8" Version="2022.5.20.1422" Language="en-US" Publisher="Andrew Butson" />
-    <DisplayName>ApiStudio (Visual Studio)</DisplayName>
-    <Description>ApiStudio (Visual Studio) design component for visual studio</Description>
-    <MoreInfo>https://api.api-studio.io</MoreInfo>
-    <License>LICENSE.txt</License>
-    <Icon>Resources\ApiStudio.ico</Icon>
-    <PreviewImage>Resources\ApiStudio.ico</PreviewImage>
+    <Identity Id="4a6ef9c8-3428-4bd6-9b17-c57b4285bbd8" Version="2022.5.26.540" Language="en-US" Publisher="Andrew Butson" />
+    <DisplayName>Api Studio Extension for Visual Studio</DisplayName>
+    <Description xml:space="preserve">Api Studio Extension enhances Visual Studio 2022 by making designing and building RESTful solutions. Architects and developers can use Api Studio Designer and DSL to ensure a consistent standard across solutions.</Description>
+    <PackageId>ApiStudio.VisualStudio</PackageId>
+    <MoreInfo>https://api-studio.io</MoreInfo>
+    <License>Resources\LICENSE.txt</License>
+    <Icon>Resources\logo_128x128.png</Icon>
+    <PreviewImage>Resources\preview_200x200.png</PreviewImage>
     <Tags> Azure Function, ApiStudio, Cloud Architecture </Tags>
   </Metadata>
   <Installation>
