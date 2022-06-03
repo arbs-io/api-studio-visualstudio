@@ -1,22 +1,19 @@
-# Api Studio
+## **What is Api Studio?**
+Api Studio is a productivity extension for Microsoft Visual Studio. The extension bridges the role of architect and developer, providing rapid prototyping and promoting industry best practices. Regardless of organisation or project size, Api Studio provides templating to guarantee a consistent look and feel.
 
-**Download** this extension from the [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=arbs_io.ApiStudio)
+## **Visual Studio Extension**
 
------------------------------------
+Api Studio Extension enhances Visual Studio 2022 by providing a designer, toolbox, explorer and code generation engine to create and manage Api Studio assets. Promoting An API-first approach means that your APIs are treated as "first-class citizens for any development project." Api Studio provides architects and developers with a solution to quickly design and collaborate, providing the blueprint for solution implementation. In addition, the extension will enable teams to quickly mock solution endpoints, proofing usability before investing in development.
 
-This Api Studio Extension enhances Visual Studio 2022 by making designing and building RESTful solutions easy.
+## **How does Api Studio work?**
 
-Api Studio Designer in Visual Studio provides a rapid development solution for creating resource-based APIs. Api Studio Designer lets you bridge the role of architect and developer, providing quick prototyping solutions and creating well-documented APIs which adhere to industry best practices. In addition, regardless of company or project size, Api Studio provides templating to guarantee your organisation's consistent look and feel. Prototype solution promoting clean resource-based APIs. Architects and developers can use Api Studio Designer and DSL to ensure a consistent standard across solutions. The extension provides a designer, toolbox and explorer to create and manage Api Studio assets.
+Api Studio uses a proprietary domain-specific language (DSL), unique visualisation designer and code generation engine to provide an exceptional experience for building modern resource-based solutions.
 
-An API-first approach means that your APIs are treated as "first-class citizens for any development project." Api Studio provides architects and developers with a solution to quickly design and collaborate, providing the blueprint for solution implementation. In addition, the extension will enable teams to quickly mock solution endpoints, proofing usability before investing in development.
+**Download** [Api Studio Extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=AndrewButson.ApiStudio) from visual studio marketplace
 
 ## **Features**
 
 The extension provides the following features.
-
-### **Visual Studio Designer**
-
-![Api Studio Visual Studio Overview](art/api-studio-visualstudio-overview-highlighted.png)
 
 - <span style="color:#267F00;">**Designer**</span>: The Visual Studio Api Studio Designer is dedicated to editing Api Studio DSL artefacts used by code generated directly in the Visual Studio environment. To open a .ApiStudio file, the designer opens in the central docking area within visual studio. If there is no such file, you may create it using the Add --> New Item --> ApiStudio.
 
@@ -25,6 +22,8 @@ The extension provides the following features.
 - <span style="color:#0094FF;">**Api Studio Explorer**</span>: You can use the Explorer tool window to create & manage your solutions and projects and to view & interact with your code.
 
 - <span style="color:#FFD800;">**Property**</span>: The Visual Studio Properties window is a property browser for Api Studio components. The Properties window list metadata at design time for the currently selected object in any other window in the integrated development environment (IDE).
+
+![Api Studio Visual Studio Overview](art/api-studio-visualstudio-overview-highlighted.png)
 
 ### **Visual Studio Project**
 
@@ -38,16 +37,16 @@ Api Studio provides a visual studio project containing all assets to get started
 
 Api Studio provides templated standards for header, response codes and security models. Allowing enterprise standards to be shared between development teams. The options are available within visual studios options Tools --> Options --> ApiStudio. The options panel provide Import/Export functionality.
 
-## Getting Started
+## **Getting Started**
 Creating a new project is simple. Visual Studio "Create Project", search "Api Studio" in the project list.
 
 ![Visual Studio Create Api Studio Project](art/api-studio-project-template.png)
 
-## What's next
+## **What's next**
 
 This extension currently supports RESTful-based APIs, but extensions to allow support for gRpc, WebHooks and WebSocket interfaces soon.
 
-## How can I help?
+## **How can I help?**
 If you enjoy using the extension, please give it a rating on the [Visual Studio Marketplace][marketplace].
 
 Should you encounter bugs or if you have feature requests, head on over to the [GitHub repo][repo] to open an issue if one doesn't already exist.
@@ -57,7 +56,7 @@ This is a personal passion project, so my time is limited.
 
 Another way to help out is to [sponsor me on GitHub](https://github.com/sponsors/arbs-io).
 
-## Copyright
+## **Copyright**
 
 Copyright 2021 - 2022 Api Studio, Inc.
 
