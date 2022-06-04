@@ -44,12 +44,12 @@ Creating a new project is simple. Visual Studio "Create Project", search "Api St
 
 ## **What's next**
 
-This extension currently supports RESTful-based APIs, but extensions to allow support for gRpc, WebHooks and WebSocket interfaces soon.
+This extension currently supports RESTful-based APIs. However, we're working on adding support for TypeScript and Python including new protocols including gRpc, WebHooks and WebSocket interfaces.
 
 ## **How can I help?**
-If you enjoy using the extension, please give it a rating on the [Visual Studio Marketplace][marketplace].
+If you enjoy using the extension, please give it a rating on the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AndrewButson.ApiStudio).
 
-Should you encounter bugs or if you have feature requests, head on over to the [GitHub repo][repo] to open an issue if one doesn't already exist.
+Should you encounter bugs or if you have feature requests, head on over to the [GitHub repo](https://github.com/arbs-io/api-studio-visualstudio) to open an issue if one doesn't already exist.
 Pull requests are also very welcome since I can't always get around to fixing all bugs myself. 
 
 This is a personal passion project, so my time is limited.
