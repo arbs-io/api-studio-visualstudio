@@ -37,6 +37,16 @@
                 {
                     Identifier = Guid.NewGuid();
                     SecuritySchemeType = GetDefaultSecuritySchemeType();
+
+                    var specification = ApiStudioUserSettingsStore.Instance.Data.DefaultSpecification;
+                    Vendor = specification.VendorName;
+                    Product = specification.ProductName;
+                    ApiName = specification.ApiName;
+                    ContactName = specification.ContactName;
+                    ContactUrl = specification.ContactUrl;
+                    Description = specification.Description;
+                    Audience = GetDefaultAudienceType();
+
                     t.Commit();
                 }
             }
@@ -56,6 +66,20 @@
                     return SecuritySchemeTypes.OpenIdConnect;
                 default:
                     return SecuritySchemeTypes.None;
+            }
+        }
+        private HttpApiAudienceTypes GetDefaultAudienceType()
+        {
+            switch (ApiStudioUserSettingsStore.Instance.Data.DefaultSpecification.Audience)
+            {
+                case "Private":
+                    return HttpApiAudienceTypes.Private;
+                case "Partner":
+                    return HttpApiAudienceTypes.Partner;
+                case "Public":
+                    return HttpApiAudienceTypes.Public;
+                default:
+                    return HttpApiAudienceTypes.Public;
             }
         }
 

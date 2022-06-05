@@ -22,9 +22,9 @@ namespace ApiStudioIO.VsOptions.General
 
         private void SetInformationText()
         {
-            SetInformationText("Easy to use", "A well-designed API will be easy to work with.Its resources and associated operations can quickly be memorized by developers who work with it constantly.\r\n\r\n");
-            SetInformationText("Hard to misuse", "Implementing and integrating with an API with good design will be straightforward, and writing incorrect code will be less likely.It has informative feedback and doesn’t enforce strict guidelines on the API’s end consumer.\r\n\r\n");
-            SetInformationText("Complete and concise", "A comprehensive API will allow developers to make fully - fledged applications against your exposed data.Completeness happens over time usually, and most API designers and developers incrementally build on top of existing APIs.");
+            SetInformationText("Easy to use: ", "A well-designed API will be easy to work with.Its resources and associated operations can quickly be memorized by developers who work with it constantly.\r\n\r\n");
+            SetInformationText("Hard to misuse: ", "Implementing and integrating with an API with good design will be straightforward, and writing incorrect code will be less likely.It has informative feedback and doesn’t enforce strict guidelines on the API’s end consumer.\r\n\r\n");
+            SetInformationText("Complete and concise: ", "A comprehensive API will allow developers to make fully - fledged applications against your exposed data.Completeness happens over time usually, and most API designers and developers incrementally build on top of existing APIs.");
         }
         private void SetInformationText(string header, string message)
         {
