@@ -95,14 +95,17 @@
             switch (httpApi.ApiStudio.SecuritySchemeType)
             {
                 case SecuritySchemeTypes.OAuth2:
-                    attributes.Add($"\t\t[OpenApiSecurity(\"ApiStudioOAuth2\", SecuritySchemeType.OAuth2, Flows = typeof({modelName}OpenApiOAuthSecurityFlows))]");
+                    var oauth2SchemeName = ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.OAuth2SchemeName;
+                    attributes.Add($"\t\t[OpenApiSecurity(\"{oauth2SchemeName}\", SecuritySchemeType.OAuth2, Flows = typeof({modelName}OpenApiOAuthSecurityFlows))]");
                     break;
                 case SecuritySchemeTypes.OpenIdConnect:
                     var openIdConnectUrl = ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.OpenIdConnectUrl;
-                    attributes.Add($"\t\t[OpenApiSecurity(\"ApiStudioOpenIdConnect\", SecuritySchemeType.OpenIdConnect, OpenIdConnectUrl = \"{openIdConnectUrl}\", OpenIdConnectScopes = \"{httpApi.AuthorisationRole}\")]");
+                    var openIdConnectSchemeName = ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.OpenIdConnectSchemeName;
+                    attributes.Add($"\t\t[OpenApiSecurity(\"{openIdConnectSchemeName}\", SecuritySchemeType.OpenIdConnect, OpenIdConnectUrl = \"{openIdConnectUrl}\", OpenIdConnectScopes = \"{httpApi.AuthorisationRole}\")]");
                     break;
                 case SecuritySchemeTypes.Basic:
-                    attributes.Add($"\t\t[OpenApiSecurity(\"basic_auth\", SecuritySchemeType.Http, Scheme = OpenApiSecuritySchemeType.Basic)]");
+                    var basicSchemeName = ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.BasicSchemeName;
+                    attributes.Add($"\t\t[OpenApiSecurity(\"{basicSchemeName}\", SecuritySchemeType.Http, Scheme = OpenApiSecuritySchemeType.Basic)]");
                     break;
                 case SecuritySchemeTypes.None:                
                     break;

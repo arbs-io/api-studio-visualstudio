@@ -53,5 +53,36 @@
             get => ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.OpenIdConnectUrl;
             set => ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.OpenIdConnectUrl = value;
         }
+
+        //Scheme Name
+        [Category("Scheme Name")]
+        [DisplayName("OAuth2")]
+        [Description("The name of the OAuth2 schema within specification. This MUST be provided when the SchemeType is set to SecuritySchemeType.OAuth2")]
+        public string OAuth2SchemeName
+        {
+            get => ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.OAuth2SchemeName;
+            set => ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.OAuth2SchemeName = value;
+        }
+
+        [Category("Scheme Name")]
+        [DisplayName("OpenId Connect")]
+        [Description("The name of the OpenId Connect schema within specification. This MUST be provided when the SchemeType is set to SecuritySchemeType.OpenIdConnect")]
+        public string OpenIdConnectSchemeName
+        {
+            get => ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.OpenIdConnectSchemeName;
+            set => ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.OpenIdConnectSchemeName = value;
+        }
+
+        [Category("Scheme Name")]
+        [DisplayName("Basic")]
+        [Description("The name of the Basic schema within specification. This MUST be provided when the SchemeType is set to SecuritySchemeType.Basic")]
+        public string BasicSchemeName
+        {
+            get => ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.BasicSchemeName;
+            set => ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.BasicSchemeName = value;
+        }
+
+
+
     }
 }

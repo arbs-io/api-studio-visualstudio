@@ -10,6 +10,9 @@
         [JsonProperty("security")]
         public DefaultSecurity DefaultSecurity { get; set; } = new DefaultSecurity();
 
+        [JsonProperty("specification")]
+        public DefaultSpecification DefaultSpecification { get; set; } = new DefaultSpecification();
+
         [JsonProperty("headers")]
         public DefaultHeaders DefaultHeaders { get; set; } = new DefaultHeaders();
 
@@ -17,6 +20,7 @@
         {
             DefaultResponseCodes.LoadDefaults();
             DefaultSecurity.LoadDefaults();
+            DefaultSpecification.LoadDefaults();
             DefaultHeaders.LoadDefaults();
         }
     }
