@@ -1,31 +1,46 @@
-﻿namespace ApiStudioIO.VsOptions.ConfigurationV1
-{
-    using Models;
-    using Microsoft.VisualStudio.Settings;
-    using Microsoft.VisualStudio.Shell;
-    using Microsoft.VisualStudio.Shell.Settings;
-    using Newtonsoft.Json;
+﻿using ApiStudioIO.VsOptions.ConfigurationV1.Models;
+using Microsoft.VisualStudio.Settings;
+using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.Shell.Settings;
+using Newtonsoft.Json;
 
+namespace ApiStudioIO.VsOptions.ConfigurationV1
+{
     public sealed class ApiStudioUserSettingsStore
     {
         private readonly string COLLECTION_NAME = "api-studio";
         private readonly string PROPERTY_NAME = "configuration-v1";
 
+        private ApiStudioOptions _data;
+
+        public ApiStudioOptions Data
+        {
+            get
+            {
+                if (_data == null)
+                    VsOptionStoreLoad();
+                return _data;
+            }
+            set => _data = value;
+        }
+
         #region Singleton
+
         //This should be readonly but we want to load from visual studio
 
         static ApiStudioUserSettingsStore()
         {
         }
+
         private ApiStudioUserSettingsStore()
         {
         }
+
         public static ApiStudioUserSettingsStore Instance { get; } = new ApiStudioUserSettingsStore();
 
         #endregion Singleton
 
         #region Visual Studio Interop
-
 
         public void VsOptionStoreLoad()
         {
@@ -75,19 +90,7 @@
             Data.LoadDefaults();
             VsOptionStoreSave();
         }
+
         #endregion Visual Studio Interop
-
-        private ApiStudioOptions _data;
-        public ApiStudioOptions Data
-        {
-            get 
-            {
-                if (_data == null)
-                    VsOptionStoreLoad();
-                return _data; 
-            }
-            set => _data = value;
-        }
-
     }
 }

@@ -17,6 +17,7 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
                     .Replace("{{TOKEN_OAS_CLASS_NAME}}", modelName);
                 sourceList.Add(new SourceCodeEntity($"{namespaceHelper.Solution}.OAuth2.cs", sourceCode, false));
             }
+
             return sourceList;
         }
     }

@@ -1,5 +1,5 @@
-﻿using EnvDTE;
-using System;
+﻿using System;
+using EnvDTE;
 
 namespace ApiStudioIO.CodeGeneration.VisualStudio
 {
@@ -26,31 +26,20 @@ namespace ApiStudioIO.CodeGeneration.VisualStudio
         private static void SetDependentUpon(ProjectItem dependentUponProjectItem, string sourceProjectItemName)
         {
             if (dependentUponProjectItem.ContainsProperty("DependentUpon"))
-            {
                 dependentUponProjectItem.Properties.Item("DependentUpon").Value = sourceProjectItemName;
-            }
         }
 
         private static void SetBuildAction(ProjectItem item)
         {
-            if (item.ContainsProperty("BuildAction"))
-            {
-                item.Properties.Item("BuildAction").Value = 0;  //Set to "None"
-            }
+            if (item.ContainsProperty("BuildAction")) item.Properties.Item("BuildAction").Value = 0; //Set to "None"
         }
 
         private static bool ContainsProperty(this ProjectItem projectItem, string propertyName)
         {
             if (projectItem.Properties != null)
-            {
                 foreach (Property item in projectItem.Properties)
-                {
                     if (item != null && item.Name == propertyName)
-                    {
                         return true;
-                    }
-                }
-            }
 
             return false;
         }

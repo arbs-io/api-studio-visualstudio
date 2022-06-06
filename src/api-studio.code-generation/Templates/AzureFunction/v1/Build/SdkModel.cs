@@ -1,10 +1,12 @@
-﻿namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using ApiStudioIO.CodeGeneration.VisualStudio;
+using ApiStudioIO.Utility.Extensions;
+
+namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using VisualStudio;
-    using ApiStudioIO.Utility.Extensions;
-    using static System.String;
+    using static String;
 
     internal static class SdkModel
     {
@@ -15,11 +17,10 @@
             // If the developer has provided a data model namespace we terminate the code generation
             if (IsNullOrEmpty(apiStudio.NamespaceDataModels))
             {
-
                 var namespaceHelper = new NamespaceHelper(apiStudio, modelName);
                 var apiResource = apiStudio.Resourced
                     .SelectMany(resource => resource.HttpApis,
-                                (resource, httpApi) => new { resource, httpApi })
+                        (resource, httpApi) => new { resource, httpApi })
                     .ToList();
 
                 apiResource
@@ -31,7 +32,7 @@
                     .SelectMany(x => x.httpApi.SourceDataModel)
                     .ToList()
                     .ForEach(x => sourceList.Add(GenerateModels(namespaceHelper, x.Name)));
-            }            
+            }
 
             return sourceList;
         }

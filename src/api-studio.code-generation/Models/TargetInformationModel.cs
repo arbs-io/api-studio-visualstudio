@@ -1,17 +1,13 @@
-﻿namespace ApiStudioIO.CodeGeneration.Models
-{
-    using Newtonsoft.Json;
-    using System;
+﻿using Newtonsoft.Json;
 
+namespace ApiStudioIO.CodeGeneration.Models
+{
     internal class TargetInformationModel
     {
-        [JsonProperty("language")]
-        public String Language { get; set; }
+        [JsonProperty("language")] public string Language { get; set; }
 
-        [JsonProperty("host")]
-        public String Host { get; set; }
+        [JsonProperty("host")] public string Host { get; set; }
 
-        [JsonProperty("framework")]
-        public String Framework { get; set; }
+        [JsonProperty("framework")] public string Framework { get; set; }
     }
 }

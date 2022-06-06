@@ -15,23 +15,26 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
             {
                 var scopeList = new List<string>();
                 apiStudio.Resourced
-                .SelectMany(resource => resource.HttpApis,
-                            (resource, httpApi) => new { resource, httpApi })
-                .GroupBy(x => x.httpApi.AuthorisationRole)
-                .Select(x => x.Key)
-                .ToList()
-                .ForEach(x => scopeList.Add(GenerateScopes(x)));
-                string scopes = string.Join($"{Environment.NewLine}", scopeList);
+                    .SelectMany(resource => resource.HttpApis,
+                        (resource, httpApi) => new { resource, httpApi })
+                    .GroupBy(x => x.httpApi.AuthorisationRole)
+                    .Select(x => x.Key)
+                    .ToList()
+                    .ForEach(x => scopeList.Add(GenerateScopes(x)));
+                var scopes = string.Join($"{Environment.NewLine}", scopeList);
 
                 var namespaceHelper = new NamespaceHelper(apiStudio, modelName);
                 var sourceCode = Templates.Resource.HttpAuthOAuth2Scopes
                     .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                     .Replace("{{TOKEN_OAS_CLASS_NAME}}", modelName)
                     .Replace("{{TOKEN_OAS_SCOPES}}", scopes);
-                sourceList.Add(new SourceCodeEntity($"{namespaceHelper.Solution}.OAuth2.Scopes.cs", sourceCode, true, $"{namespaceHelper.Solution}.OAuth2.cs"));
+                sourceList.Add(new SourceCodeEntity($"{namespaceHelper.Solution}.OAuth2.Scopes.cs", sourceCode, true,
+                    $"{namespaceHelper.Solution}.OAuth2.cs"));
             }
+
             return sourceList;
         }
+
         private static string GenerateScopes(string authorisationRole)
         {
             return $"\t\t\tscopes.Add(\"{authorisationRole}\", \"{authorisationRole}\");";

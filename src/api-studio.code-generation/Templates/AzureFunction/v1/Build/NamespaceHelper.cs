@@ -1,5 +1,4 @@
-﻿using System;
-using ApiStudioIO.Utility.Extensions;
+﻿using ApiStudioIO.Utility.Extensions;
 
 namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
 {
@@ -7,6 +6,7 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
     {
         private readonly ApiStudio _apiStudio;
         private readonly string _modelName;
+
         internal NamespaceHelper(ApiStudio apiStudio, string modelName)
         {
             _apiStudio = apiStudio;
@@ -17,10 +17,9 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
         {
             get
             {
-                if (!String.IsNullOrEmpty(_apiStudio.NamespaceSolution))
+                if (!string.IsNullOrEmpty(_apiStudio.NamespaceSolution))
                     return $"{_apiStudio.NamespaceSolution}.{_modelName}";
-                else
-                    return $"{_modelName}".ToAlphaNumeric(true);
+                return $"{_modelName}".ToAlphaNumeric(true);
             }
         }
 
@@ -29,10 +28,9 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
             get
             {
                 // If the developer has provided a data model namespace we should add the ref
-                if (!String.IsNullOrEmpty(_apiStudio.NamespaceDataModels))
+                if (!string.IsNullOrEmpty(_apiStudio.NamespaceDataModels))
                     return $"using {_apiStudio.NamespaceDataModels};";
-                else
-                    return "";
+                return "";
             }
         }
     }

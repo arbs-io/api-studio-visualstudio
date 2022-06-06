@@ -1,7 +1,8 @@
-﻿namespace ApiStudioIO.CodeGeneration.VisualStudio
-{
-    using System.Text;
+﻿using System.Security.Cryptography;
+using System.Text;
 
+namespace ApiStudioIO.CodeGeneration.VisualStudio
+{
     public class SourceCodeEntity
     {
         public SourceCodeEntity(string filename, string codeBase, bool alwaysOverwrite)
@@ -10,6 +11,7 @@
             CodeBase = codeBase;
             AlwaysOverwrite = alwaysOverwrite;
         }
+
         public SourceCodeEntity(string filename, string codeBase, bool alwaysOverwrite, string nestedFilename)
         {
             Filename = filename;
@@ -27,16 +29,13 @@
 
         private static string CreateMd5(string input)
         {
-            using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
+            using (var md5 = MD5.Create())
             {
-                byte[] inputBytes = Encoding.ASCII.GetBytes(input);
-                byte[] hashBytes = md5.ComputeHash(inputBytes);
+                var inputBytes = Encoding.ASCII.GetBytes(input);
+                var hashBytes = md5.ComputeHash(inputBytes);
 
-                StringBuilder sb = new StringBuilder();
-                foreach (var t in hashBytes)
-                {
-                    sb.Append(t.ToString("X2"));
-                }
+                var sb = new StringBuilder();
+                foreach (var t in hashBytes) sb.Append(t.ToString("X2"));
                 return sb.ToString();
             }
         }

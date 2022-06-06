@@ -1,15 +1,12 @@
-﻿namespace ApiStudioIO.CodeGeneration.Models
-{
-    using Newtonsoft.Json;
-    using System;
+﻿using System;
+using Newtonsoft.Json;
 
+namespace ApiStudioIO.CodeGeneration.Models
+{
     internal class SdkInformationModel
     {
-        [JsonProperty("timestamp")]
-        public DateTime UtcTimestamp { get; set; }
+        [JsonProperty("timestamp")] public DateTime UtcTimestamp { get; set; }
 
-        [JsonProperty("version")]
-        public String Version { get; set; }
-
+        [JsonProperty("version")] public string Version { get; set; }
     }
 }

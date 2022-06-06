@@ -1,8 +1,8 @@
-﻿namespace ApiStudioIO.Common.Models.Http
-{
-    using System.ComponentModel;
-    using Newtonsoft.Json;
+﻿using System.ComponentModel;
+using Newtonsoft.Json;
 
+namespace ApiStudioIO.Common.Models.Http
+{
     public class HttpResourceHeaderResponse : HttpResourceHeaderBase
     {
         [Category("Scope")]

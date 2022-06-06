@@ -1,21 +1,17 @@
-﻿namespace ApiStudioIO.Utility.Extensions
-{
-    using System;
-    using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 
+namespace ApiStudioIO.Utility.Extensions
+{
     public static class StringCaseExtension
     {
-
         public static string ToPascalCase(this string str, bool alphaNumericOnly = true)
         {
-            if (alphaNumericOnly)
-            {
-                str = ConvertToAlphaNumeric(str);
-            }
+            if (alphaNumericOnly) str = ConvertToAlphaNumeric(str);
 
-            string[] parts = str.Split(new char[] { },
+            var parts = str.Split(new char[] { },
                 StringSplitOptions.RemoveEmptyEntries);
-            var joinResult = String.Join(String.Empty, parts);
+            var joinResult = string.Join(string.Empty, parts);
             return joinResult.Substring(0, 1).ToUpper() + str.Substring(1);
         }
 
@@ -25,12 +21,9 @@
             return str.Substring(0, 1).ToLower() + str.Substring(1);
         }
 
-        public static string ToSnakeCase(this String str, bool alphaNumericOnly = true, bool convertToLower = true)
+        public static string ToSnakeCase(this string str, bool alphaNumericOnly = true, bool convertToLower = true)
         {
-            if (alphaNumericOnly)
-            {
-                str = ConvertToAlphaNumeric(str);
-            }
+            if (alphaNumericOnly) str = ConvertToAlphaNumeric(str);
 
             str = Regex.Replace(
                 Regex.Replace(
@@ -38,29 +31,21 @@
                     , @"([\p{Ll}\d])([\p{Lu}])", "$1_$2")
                 , @"[-\s]", "_");
 
-            if (convertToLower)
-            {
-                return str.ToLower();
-            }
+            if (convertToLower) return str.ToLower();
 
             return str;
         }
 
-        public static string ToSpinalCase(this String str, bool alphaNumericOnly = true, bool convertToLower = true)
+        public static string ToSpinalCase(this string str, bool alphaNumericOnly = true, bool convertToLower = true)
         {
             return str.ToSnakeCase(alphaNumericOnly, convertToLower).Replace("_", "-");
         }
 
-        public static string ToAlphaNumeric(this String str, bool removeWhitespace = false)
+        public static string ToAlphaNumeric(this string str, bool removeWhitespace = false)
         {
             if (removeWhitespace)
-            {
                 return ConvertToAlphaNumeric(str).Replace(" ", "");
-            }
-            else
-            {
-                return ConvertToAlphaNumeric(str);
-            }
+            return ConvertToAlphaNumeric(str);
         }
 
         private static string ConvertToAlphaNumeric(string str)

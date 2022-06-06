@@ -5,5 +5,5 @@
         Body = 0,
         Query = 1,
         Path = 2
-    };
+    }
 }

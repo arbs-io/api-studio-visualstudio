@@ -12,5 +12,5 @@
         video = 7,
         message = 8,
         multipart = 9
-    };
+    }
 }

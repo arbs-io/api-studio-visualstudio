@@ -20,11 +20,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System.ComponentModel;
+using Newtonsoft.Json;
+
 namespace ApiStudioIO.Common.Models.Http
 {
-    using Newtonsoft.Json;
-    using System.ComponentModel;
-
     public abstract class HttpResourceHeaderBase : IHttpResource
     {
         [Category("Definition")]

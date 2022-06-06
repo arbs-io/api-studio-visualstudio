@@ -15,19 +15,21 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
             var namespaceHelper = new NamespaceHelper(apiStudio, modelName);
             apiStudio?.Resourced
                 .SelectMany(resource => resource.HttpApis,
-                            (resource, httpApi) => new { resource, httpApi })
+                    (resource, httpApi) => new { resource, httpApi })
                 .ToList()
                 .ForEach(x => sourceList.Add(GenerateHttpTrigger(modelName, x.resource, x.httpApi, namespaceHelper)));
 
             return sourceList;
         }
 
-        private static SourceCodeEntity GenerateHttpTrigger(string modelName, Resource resource, HttpApi httpApi, NamespaceHelper namespaceHelper)
+        private static SourceCodeEntity GenerateHttpTrigger(string modelName, Resource resource, HttpApi httpApi,
+            NamespaceHelper namespaceHelper)
         {
             if (string.IsNullOrWhiteSpace(modelName))
-            {
-                throw new ArgumentException(string.Format(Templates.Resource.SdkHttpTrigger_GenerateHttpTrigger___0___cannot_be_null_or_whitespace_, nameof(modelName)), nameof(modelName));
-            }
+                throw new ArgumentException(
+                    string.Format(
+                        Templates.Resource.SdkHttpTrigger_GenerateHttpTrigger___0___cannot_be_null_or_whitespace_,
+                        nameof(modelName)), nameof(modelName));
             _ = resource ?? throw new ArgumentNullException(nameof(resource));
             _ = httpApi ?? throw new ArgumentNullException(nameof(httpApi));
 
@@ -41,10 +43,11 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
                 .Replace("{{TOKEN_OAS_FUNCTION_NAME}}", httpApi.DisplayName.ToAlphaNumeric())
                 .Replace("{{TOKEN_OAS_FUNCTION_DESCRIPTION}}", httpApi.Description)
                 .Replace("{{TOKEN_OAS_HTTP_VERB}}", httpApi.HttpVerb.ToUpper())
-                .Replace("{{TOKEN_OAS_HTTP_RESPONSE_MIME}}", responseMediaType.ToLower())                
+                .Replace("{{TOKEN_OAS_HTTP_RESPONSE_MIME}}", responseMediaType.ToLower())
                 .Replace("{{TOKEN_OAS_HTTP_URI}}", resource.HttpApiUri)
                 .Replace("{{TOKEN_OAS_HTTP_STATUS_CODE}}", BuildHttpTriggerResponseStatusCodes(httpApi));
-            return new SourceCodeEntity($"{namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger.cs", httpTriggerSourceCode, false);
+            return new SourceCodeEntity($"{namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger.cs",
+                httpTriggerSourceCode, false);
         }
 
         private static string BuildHttpTriggerResponseStatusCodes(HttpApi httpApi)
@@ -54,8 +57,7 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
             var httpStatus = Enum.GetName(typeof(HttpStatusCode), statusCode.HttpStatus);
             if (httpStatus != null)
                 return $"HttpStatusCode.{httpStatus}";
-            else
-                return $"(HttpStatusCode){statusCode.HttpStatus}";
+            return $"(HttpStatusCode){statusCode.HttpStatus}";
         }
     }
 }
