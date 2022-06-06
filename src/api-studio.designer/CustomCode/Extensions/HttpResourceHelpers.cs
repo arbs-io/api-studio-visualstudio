@@ -1,9 +1,31 @@
-﻿namespace ApiStudioIO
-{
-    using ApiStudioIO.Common.Models.Http;
-    using System;
-    using System.ComponentModel;
+﻿// The MIT License (MIT)
+//
+// Copyright (c) 2022 Andrew Butson
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
+using System;
+using System.ComponentModel;
+using ApiStudioIO.Common.Models.Http;
+
+namespace ApiStudioIO
+{
     internal static class HttpResourceHelpers
     {
         internal static HttpResourceHeaderRequest ToHttpResourceHeaderRequest(this HttpApiHeaderRequest domain)
@@ -35,7 +57,7 @@
 
         internal static HttpResourceParameter ToHttpResourceParameter(this HttpApiParameter domain)
         {
-            string fromType = Enum.GetName(typeof(HttpApiParameterTypes), domain.FromType);
+            var fromType = Enum.GetName(typeof(HttpApiParameterTypes), domain.FromType);
             var apiStudioComponent = new HttpResourceParameter
             {
                 Identifier = domain.Identifier,
@@ -48,7 +70,8 @@
             return apiStudioComponent;
         }
 
-        internal static HttpResourceResponseStatusCode ToHttpResourceResponseStatusCode(this HttpApiResponseStatusCode domain)
+        internal static HttpResourceResponseStatusCode ToHttpResourceResponseStatusCode(
+            this HttpApiResponseStatusCode domain)
         {
             var apiStudioComponent = new HttpResourceResponseStatusCode
             {
@@ -60,8 +83,9 @@
 
         internal static HttpResourceMediaTypeRequest ToHttpResourceMediaTypeRequest(this HttpApiMediaType domain)
         {
-            var DiscreteType = (string.IsNullOrEmpty(domain.DiscreteType) || string.IsNullOrEmpty(domain.SubType)) ?
-                HttpTypeMimeAllowedDiscrete.application : (HttpTypeMimeAllowedDiscrete)Enum.Parse(typeof(HttpTypeMimeAllowedDiscrete), domain.DiscreteType);
+            var DiscreteType = string.IsNullOrEmpty(domain.DiscreteType) || string.IsNullOrEmpty(domain.SubType)
+                ? HttpTypeMimeAllowedDiscrete.application
+                : (HttpTypeMimeAllowedDiscrete)Enum.Parse(typeof(HttpTypeMimeAllowedDiscrete), domain.DiscreteType);
 
             var apiStudioComponent = new HttpResourceMediaTypeRequest
             {
@@ -73,8 +97,9 @@
 
         internal static HttpResourceMediaTypeResponse ToHttpResourceMediaTypeResponse(this HttpApiMediaType domain)
         {
-            var DiscreteType = (string.IsNullOrEmpty(domain.DiscreteType) || string.IsNullOrEmpty(domain.SubType)) ?
-                HttpTypeMimeAllowedDiscrete.application : (HttpTypeMimeAllowedDiscrete)Enum.Parse(typeof(HttpTypeMimeAllowedDiscrete), domain.DiscreteType);
+            var DiscreteType = string.IsNullOrEmpty(domain.DiscreteType) || string.IsNullOrEmpty(domain.SubType)
+                ? HttpTypeMimeAllowedDiscrete.application
+                : (HttpTypeMimeAllowedDiscrete)Enum.Parse(typeof(HttpTypeMimeAllowedDiscrete), domain.DiscreteType);
 
             var apiStudioComponent = new HttpResourceMediaTypeResponse
             {
@@ -85,7 +110,8 @@
         }
 
 
-        internal static HttpTypeHeaderOnResponse ToHttpTypeHeaderOnResponse(this HttpApiHeaderResponseOnTypes httpApiHeaderResponseOnTypes)
+        internal static HttpTypeHeaderOnResponse ToHttpTypeHeaderOnResponse(
+            this HttpApiHeaderResponseOnTypes httpApiHeaderResponseOnTypes)
         {
             switch (httpApiHeaderResponseOnTypes)
             {
@@ -97,11 +123,13 @@
                 case HttpApiHeaderResponseOnTypes.OnServerError: return HttpTypeHeaderOnResponse.OnServerError;
 
                 default:
-                    throw new InvalidEnumArgumentException(nameof(httpApiHeaderResponseOnTypes), (int)httpApiHeaderResponseOnTypes, typeof(HttpApiHeaderResponseOnTypes));
+                    throw new InvalidEnumArgumentException(nameof(httpApiHeaderResponseOnTypes),
+                        (int)httpApiHeaderResponseOnTypes, typeof(HttpApiHeaderResponseOnTypes));
             }
         }
 
-        internal static HttpTypeParameterLocation ToHttpTypeParameterLocation(this HttpApiParameterTypes httpApiParameterTypes)
+        internal static HttpTypeParameterLocation ToHttpTypeParameterLocation(
+            this HttpApiParameterTypes httpApiParameterTypes)
         {
             switch (httpApiParameterTypes)
             {
@@ -110,7 +138,8 @@
                 case HttpApiParameterTypes.Path: return HttpTypeParameterLocation.Path;
 
                 default:
-                    throw new InvalidEnumArgumentException(nameof(httpApiParameterTypes), (int)httpApiParameterTypes, typeof(HttpApiParameterTypes));
+                    throw new InvalidEnumArgumentException(nameof(httpApiParameterTypes), (int)httpApiParameterTypes,
+                        typeof(HttpApiParameterTypes));
             }
         }
     }

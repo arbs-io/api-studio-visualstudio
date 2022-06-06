@@ -1,73 +1,52 @@
-﻿using ApiStudioIO.VsOptions.ConfigurationV1;
+﻿// The MIT License (MIT)
+//
+// Copyright (c) 2022 Andrew Butson
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
 using System.ComponentModel;
+using ApiStudioIO.VsOptions.ConfigurationV1;
 
 namespace ApiStudioIO.VsOptions.HttpResponseCodes
 {
     public class HttpHeader
     {
-        public enum HttpDefaultGetEnum
-        {
-            OK = 200,
-        }
-        [Category("Success Response Codes")]
-        [DisplayName("GET")]
-        [Description("Defaults success response code for HTTP GET method.")]
-        [DefaultValue(HttpDefaultGetEnum.OK)]
-        [TypeConverter(typeof(EnumConverter))]
-        public HttpDefaultGetEnum HttpDefaultGet
-        {
-            get { return (HttpDefaultGetEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessGet; }
-            set { ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessGet = (int)value; }
-        }
-
-        public enum HttpDefaultPutEnum
-        {
-            OK = 200,
-            Created = 201,
-            Accepted = 202,
-            NoContent = 204
-        }
-        [Category("Success Response Codes")]
-        [DisplayName("PUT")]
-        [Description("Defaults success response code for HTTP PUT method.")]
-        [DefaultValue(HttpDefaultPutEnum.Accepted)]
-        [TypeConverter(typeof(EnumConverter))]
-        public HttpDefaultPutEnum HttpDefaultPut
-        {
-            get { return (HttpDefaultPutEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPut; }
-            set { ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPut = (int)value; }
-        }
-
-        public enum HttpDefaultPostEnum
-        {
-            Created = 201,
-        }
-        [Category("Success Response Codes")]
-        [DisplayName("POST")]
-        [Description("Defaults success response code for HTTP POST method.")]
-        [DefaultValue(HttpDefaultPostEnum.Created)]
-        [TypeConverter(typeof(EnumConverter))]
-        public HttpDefaultPostEnum HttpDefaultPost
-        {
-            get { return (HttpDefaultPostEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPost; }
-            set { ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPost = (int)value; }
-        }
-
         public enum HttpDefaultDeleteEnum
         {
             OK = 200,
             Accepted = 202,
             NoContent = 204
         }
-        [Category("Success Response Codes")]
-        [DisplayName("DELETE")]
-        [Description("Defaults success response code for HTTP DELETE method.")]
-        [DefaultValue(HttpDefaultDeleteEnum.Accepted)]
-        [TypeConverter(typeof(EnumConverter))]
-        public HttpDefaultDeleteEnum HttpDefaultDelete
+
+        public enum HttpDefaultGetEnum
         {
-            get { return (HttpDefaultDeleteEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessDelete; }
-            set { ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessDelete = (int)value; }
+            OK = 200
+        }
+
+        public enum HttpDefaultHeadEnum
+        {
+            OK = 200
+        }
+
+        public enum HttpDefaultOptionsEnum
+        {
+            NoContent = 204
         }
 
         public enum HttpDefaultPatchEnum
@@ -77,6 +56,69 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
             Accepted = 202,
             NoContent = 204
         }
+
+        public enum HttpDefaultPostEnum
+        {
+            Created = 201
+        }
+
+        public enum HttpDefaultPutEnum
+        {
+            OK = 200,
+            Created = 201,
+            Accepted = 202,
+            NoContent = 204
+        }
+
+        public enum HttpDefaultTraceEnum
+        {
+            OK = 200
+        }
+
+        [Category("Success Response Codes")]
+        [DisplayName("GET")]
+        [Description("Defaults success response code for HTTP GET method.")]
+        [DefaultValue(HttpDefaultGetEnum.OK)]
+        [TypeConverter(typeof(EnumConverter))]
+        public HttpDefaultGetEnum HttpDefaultGet
+        {
+            get => (HttpDefaultGetEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessGet;
+            set => ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessGet = (int)value;
+        }
+
+        [Category("Success Response Codes")]
+        [DisplayName("PUT")]
+        [Description("Defaults success response code for HTTP PUT method.")]
+        [DefaultValue(HttpDefaultPutEnum.Accepted)]
+        [TypeConverter(typeof(EnumConverter))]
+        public HttpDefaultPutEnum HttpDefaultPut
+        {
+            get => (HttpDefaultPutEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPut;
+            set => ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPut = (int)value;
+        }
+
+        [Category("Success Response Codes")]
+        [DisplayName("POST")]
+        [Description("Defaults success response code for HTTP POST method.")]
+        [DefaultValue(HttpDefaultPostEnum.Created)]
+        [TypeConverter(typeof(EnumConverter))]
+        public HttpDefaultPostEnum HttpDefaultPost
+        {
+            get => (HttpDefaultPostEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPost;
+            set => ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPost = (int)value;
+        }
+
+        [Category("Success Response Codes")]
+        [DisplayName("DELETE")]
+        [Description("Defaults success response code for HTTP DELETE method.")]
+        [DefaultValue(HttpDefaultDeleteEnum.Accepted)]
+        [TypeConverter(typeof(EnumConverter))]
+        public HttpDefaultDeleteEnum HttpDefaultDelete
+        {
+            get => (HttpDefaultDeleteEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessDelete;
+            set => ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessDelete = (int)value;
+        }
+
         [Category("Success Response Codes")]
         [DisplayName("PATCH")]
         [Description("Defaults success response code for HTTP PATCH method.")]
@@ -84,14 +126,10 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
         [TypeConverter(typeof(EnumConverter))]
         public HttpDefaultPatchEnum HttpDefaultPatch
         {
-            get { return (HttpDefaultPatchEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPatch; }
-            set { ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPatch = (int)value; }
+            get => (HttpDefaultPatchEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPatch;
+            set => ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPatch = (int)value;
         }
 
-        public enum HttpDefaultTraceEnum
-        {
-            OK = 200
-        }
         [Category("Success Response Codes")]
         [DisplayName("TRACE")]
         [Description("Defaults success response code for HTTP TRACE method.")]
@@ -99,14 +137,10 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
         [TypeConverter(typeof(EnumConverter))]
         public HttpDefaultTraceEnum HttpDefaultTrace
         {
-            get { return (HttpDefaultTraceEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessTrace; }
-            set { ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessTrace = (int)value; }
+            get => (HttpDefaultTraceEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessTrace;
+            set => ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessTrace = (int)value;
         }
 
-        public enum HttpDefaultHeadEnum
-        {
-            OK = 200
-        }
         [Category("Success Response Codes")]
         [DisplayName("HEAD")]
         [Description("Defaults success response code for HTTP HEAD method.")]
@@ -114,14 +148,10 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
         [TypeConverter(typeof(EnumConverter))]
         public HttpDefaultHeadEnum HttpDefaultHead
         {
-            get { return (HttpDefaultHeadEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessHead; }
-            set { ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessHead = (int)value; }
+            get => (HttpDefaultHeadEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessHead;
+            set => ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessHead = (int)value;
         }
 
-        public enum HttpDefaultOptionsEnum
-        {
-            NoContent = 204
-        }
         [Category("Success Response Codes")]
         [DisplayName("OPTIONS")]
         [Description("Defaults success response code for HTTP OPTIONS method.")]
@@ -129,8 +159,8 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
         [TypeConverter(typeof(EnumConverter))]
         public HttpDefaultOptionsEnum HttpDefaultOptions
         {
-            get { return (HttpDefaultOptionsEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessOptions; }
-            set { ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessOptions = (int)value; }
+            get => (HttpDefaultOptionsEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessOptions;
+            set => ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessOptions = (int)value;
         }
     }
 }

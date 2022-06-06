@@ -1,6 +1,6 @@
 ﻿// The MIT License (MIT)
 //
-// Copyright (c) 2021 Andrew Butson
+// Copyright (c) 2022 Andrew Butson
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,11 +20,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System.ComponentModel;
+using Newtonsoft.Json;
+
 namespace ApiStudioIO.Common.Models.Http
 {
-    using Newtonsoft.Json;
-    using System.ComponentModel;
-
     public abstract class HttpResourceHeaderBase : IHttpResource
     {
         [Category("Definition")]
