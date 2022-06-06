@@ -1,6 +1,6 @@
 ﻿namespace ApiStudioIO.VsOptions.ConfigurationV1
 {
-    using ApiStudioIO.VsOptions.ConfigurationV1.Models;
+    using Models;
     using Microsoft.VisualStudio.Settings;
     using Microsoft.VisualStudio.Shell;
     using Microsoft.VisualStudio.Shell.Settings;
@@ -12,8 +12,7 @@
         private readonly string PROPERTY_NAME = "configuration-v1";
 
         #region Singleton
-        //This should be readonly but we want to load from visual studion
-        private static readonly ApiStudioUserSettingsStore instance = new ApiStudioUserSettingsStore();
+        //This should be readonly but we want to load from visual studio
 
         static ApiStudioUserSettingsStore()
         {
@@ -21,13 +20,8 @@
         private ApiStudioUserSettingsStore()
         {
         }
-        public static ApiStudioUserSettingsStore Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
+        public static ApiStudioUserSettingsStore Instance { get; } = new ApiStudioUserSettingsStore();
+
         #endregion Singleton
 
         #region Visual Studio Interop
@@ -92,7 +86,7 @@
                     VsOptionStoreLoad();
                 return _data; 
             }
-            set { _data = value; }
+            set => _data = value;
         }
 
     }

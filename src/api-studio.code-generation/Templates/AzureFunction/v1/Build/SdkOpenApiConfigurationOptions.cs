@@ -1,8 +1,8 @@
-﻿namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1
-{
-    using ApiStudioIO.CodeGeneration.VisualStudio;
-    using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ApiStudioIO.CodeGeneration.VisualStudio;
 
+namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
+{
     internal static class SdkOpenApiConfigurationOptions
     {
         internal static List<SourceCodeEntity> Build(ApiStudio eai, string modelName)

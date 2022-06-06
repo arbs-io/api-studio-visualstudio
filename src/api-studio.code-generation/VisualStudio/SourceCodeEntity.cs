@@ -18,10 +18,10 @@
             NestedFilename = nestedFilename;
         }
 
-        public string Filename { get; private set; }
-        public string CodeBase { get; private set; }
-        public bool AlwaysOverwrite { get; private set; }
-        public string NestedFilename { get; private set; }
+        public string Filename { get; }
+        public string CodeBase { get; }
+        public bool AlwaysOverwrite { get; }
+        public string NestedFilename { get; }
 
         public string Checksum => CreateMd5(CodeBase);
 

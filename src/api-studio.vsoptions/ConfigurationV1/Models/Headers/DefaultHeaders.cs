@@ -1,8 +1,8 @@
-﻿namespace ApiStudioIO.VsOptions.ConfigurationV1.Models
+﻿namespace ApiStudioIO.VsOptions.ConfigurationV1.Models.Headers
 {
-    using ApiStudioIO.Common.Models.Http;    
-    using Newtonsoft.Json;
     using System.Collections.Generic;
+    using ApiStudioIO.Common.Models.Http;
+    using Newtonsoft.Json;
 
     public sealed class DefaultHeaders
     {

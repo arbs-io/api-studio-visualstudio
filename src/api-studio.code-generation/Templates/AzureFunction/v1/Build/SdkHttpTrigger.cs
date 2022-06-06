@@ -1,12 +1,12 @@
-﻿namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1
-{
-    using ApiStudioIO.CodeGeneration.VisualStudio;
-    using ApiStudioIO.Utility.Extensions;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Net;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using ApiStudioIO.CodeGeneration.VisualStudio;
+using ApiStudioIO.Utility.Extensions;
 
+namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
+{
     internal static class SdkHttpTrigger
     {
         internal static List<SourceCodeEntity> Build(ApiStudio apiStudio, string modelName)
@@ -26,7 +26,7 @@
         {
             if (string.IsNullOrWhiteSpace(modelName))
             {
-                throw new ArgumentException($"'{nameof(modelName)}' cannot be null or whitespace.", nameof(modelName));
+                throw new ArgumentException(string.Format(Templates.Resource.SdkHttpTrigger_GenerateHttpTrigger___0___cannot_be_null_or_whitespace_, nameof(modelName)), nameof(modelName));
             }
             _ = resource ?? throw new ArgumentNullException(nameof(resource));
             _ = httpApi ?? throw new ArgumentNullException(nameof(httpApi));
@@ -54,10 +54,8 @@
             var httpStatus = Enum.GetName(typeof(HttpStatusCode), statusCode.HttpStatus);
             if (httpStatus != null)
                 return $"HttpStatusCode.{httpStatus}";
-            else if (statusCode != null)
-                return $"(HttpStatusCode){statusCode.HttpStatus}";
             else
-                return "HttpStatusCode.OK";
+                return $"(HttpStatusCode){statusCode.HttpStatus}";
         }
     }
 }

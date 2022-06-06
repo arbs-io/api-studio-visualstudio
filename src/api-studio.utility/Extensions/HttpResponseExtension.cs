@@ -43,9 +43,7 @@
             public string RfcReference { get; set; }
         }
 
-        public static Dictionary<int, ResponseInformation> HttpResponseCodes => httpResponseCodes;
-
-        private static readonly Dictionary<int, ResponseInformation> httpResponseCodes = new Dictionary<int, ResponseInformation>
+        public static Dictionary<int, ResponseInformation> HttpResponseCodes { get; } = new Dictionary<int, ResponseInformation>
         {
             { 100, new ResponseInformation{ Description = "Continue", RfcReference = "[RFC7231, Section 6.2.1]"} },
             { 101, new ResponseInformation{ Description = "Switching Protocols", RfcReference = "[RFC7231, Section 6.2.2]"} },
@@ -121,7 +119,6 @@
             { 511, new ResponseInformation{ Description = "Network Authentication Required", RfcReference = "[RFC6585]"} },
 
         };
-
     }
 }
 

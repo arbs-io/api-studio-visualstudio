@@ -1,10 +1,10 @@
-﻿namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1
+﻿namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
 {
-    using ApiStudioIO.CodeGeneration.VisualStudio;
-    using ApiStudioIO.Utility.Extensions;
-    using System;
     using System.Collections.Generic;
     using System.Linq;
+    using ApiStudioIO.CodeGeneration.VisualStudio;
+    using ApiStudioIO.Utility.Extensions;
+    using static System.String;
 
     internal static class SdkModel
     {
@@ -13,11 +13,11 @@
             var sourceList = new List<SourceCodeEntity>();
 
             // If the developer has provided a data model namespace we terminate the code generation
-            if (String.IsNullOrEmpty(apiStudio.NamespaceDataModels))
+            if (IsNullOrEmpty(apiStudio.NamespaceDataModels))
             {
 
                 var namespaceHelper = new NamespaceHelper(apiStudio, modelName);
-                var apiResource = apiStudio?.Resourced
+                var apiResource = apiStudio.Resourced
                     .SelectMany(resource => resource.HttpApis,
                                 (resource, httpApi) => new { resource, httpApi })
                     .ToList();
@@ -36,9 +36,9 @@
             return sourceList;
         }
 
-        private static SourceCodeEntity GenerateModels(NamespaceHelper namespaceHelper, string Name)
+        private static SourceCodeEntity GenerateModels(NamespaceHelper namespaceHelper, string name)
         {
-            var payloadName = $"{Name.ToAlphaNumeric(true)}";
+            var payloadName = $"{name.ToAlphaNumeric(true)}";
             var sourceCode = Templates.Resource.Model
                 .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                 .Replace("{{TOKEN_OAS_CLASS_NAME}}", payloadName);

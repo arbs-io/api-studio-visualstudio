@@ -1,8 +1,8 @@
-﻿namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1
-{
-    using System;
-    using ApiStudioIO.Utility.Extensions;
+﻿using System;
+using ApiStudioIO.Utility.Extensions;
 
+namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
+{
     internal class NamespaceHelper
     {
         private readonly ApiStudio _apiStudio;

@@ -1,4 +1,4 @@
-﻿namespace ApiStudioIO
+﻿namespace ApiStudioIO.Common.Models.Http
 {
     public enum HttpTypeMimeAllowedDiscrete
     {

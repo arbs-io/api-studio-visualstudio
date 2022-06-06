@@ -1,5 +1,9 @@
 ﻿namespace ApiStudioIO.VsOptions.ConfigurationV1.Models
 {
+    using Specification;
+    using Headers;
+    using ResponseCodes;
+    using Security;
     using Newtonsoft.Json;
 
     public sealed class ApiStudioOptions

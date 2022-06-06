@@ -1,9 +1,11 @@
-﻿namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1
+﻿using ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build;
+
+namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1
 {
-    using ApiStudioIO.CodeGeneration.VisualStudio;
+    using VisualStudio;
     using System.Collections.Generic;
 
-    public static partial class CodeBuilder
+    public static class CodeBuilder
     {
         public static List<SourceCodeEntity> Build(ApiStudio apiStudio, string modelName)
         {

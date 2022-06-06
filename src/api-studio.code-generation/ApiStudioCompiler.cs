@@ -1,8 +1,8 @@
 ﻿namespace ApiStudioIO.CodeGeneration
 {
-    using ApiStudioIO.CodeGeneration.Models;
-    using ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1;
-    using ApiStudioIO.CodeGeneration.VisualStudio;
+    using Models;
+    using Templates.AzureFunction.v1;
+    using VisualStudio;
     using EnvDTE;
     using Newtonsoft.Json;
     using System;
@@ -67,22 +67,26 @@
         {
             if (File.Exists($"{apiStudioFilePath}.json"))
             {
-                var sourceDirectory = new FileInfo(apiStudioFilePath).Directory.FullName;
-                var ext = new List<string> { "cs" };
-                var existingFiles = Directory
-                    .EnumerateFiles(sourceDirectory, "*.*", SearchOption.AllDirectories)
-                    .Where(s => ext.Contains(Path.GetExtension(s).TrimStart('.').ToLowerInvariant()))
-                    .ToList();
+                var directoryInfo = new FileInfo(apiStudioFilePath).Directory;
+                if (directoryInfo != null)
+                {
+                    var sourceDirectory = directoryInfo.FullName;
+                    var ext = new List<string> { "cs" };
+                    var existingFiles = Directory
+                        .EnumerateFiles(sourceDirectory, "*.*", SearchOption.AllDirectories)
+                        .Where(s => ext.Contains(Path.GetExtension(s).TrimStart('.').ToLowerInvariant()))
+                        .ToList();
 
-                var sourceFiles = codeGeneration.ResourcesInfoSegment
-                    .GroupBy(s => s.Filename)
-                    .Select(grp => $"{sourceDirectory}\\{grp.First().Filename}")
-                    .ToList();
+                    var sourceFiles = codeGeneration.ResourcesInfoSegment
+                        .GroupBy(s => s.Filename)
+                        .Select(grp => $"{sourceDirectory}\\{grp.First().Filename}")
+                        .ToList();
 
-                existingFiles
-                    .Except(sourceFiles)
-                    .ToList()
-                    .ForEach(buildStep => VisualStudioDteManager.DeleteFile(dte, $"{buildStep}"));
+                    existingFiles
+                        .Except(sourceFiles)
+                        .ToList()
+                        .ForEach(buildStep => VisualStudioDteManager.DeleteFile(dte, $"{buildStep}"));
+                }
             }
         }
     }

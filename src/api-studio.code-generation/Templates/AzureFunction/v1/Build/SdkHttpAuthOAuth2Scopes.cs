@@ -1,10 +1,10 @@
-﻿namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1
-{
-    using ApiStudioIO.CodeGeneration.VisualStudio;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using ApiStudioIO.CodeGeneration.VisualStudio;
 
+namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
+{
     internal static class SdkHttpAuthOAuth2Scopes
     {
         internal static List<SourceCodeEntity> Build(ApiStudio apiStudio, string modelName)
@@ -14,7 +14,7 @@
                 apiStudio.SecuritySchemeType == SecuritySchemeTypes.OpenIdConnect)
             {
                 var scopeList = new List<string>();
-                apiStudio?.Resourced
+                apiStudio.Resourced
                 .SelectMany(resource => resource.HttpApis,
                             (resource, httpApi) => new { resource, httpApi })
                 .GroupBy(x => x.httpApi.AuthorisationRole)

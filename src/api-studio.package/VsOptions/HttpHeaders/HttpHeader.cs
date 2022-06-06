@@ -16,8 +16,8 @@ namespace ApiStudioIO.VsOptions.HttpHeaders
         [TypeConverter(typeof(EnumConverter))]
         public HttpDefaultGetEnum HttpDefaultGet
         {
-            get { return (HttpDefaultGetEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessGet; }
-            set { ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessGet = (int)value; }
+            get => (HttpDefaultGetEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessGet;
+            set => ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessGet = (int)value;
         }
 
     }

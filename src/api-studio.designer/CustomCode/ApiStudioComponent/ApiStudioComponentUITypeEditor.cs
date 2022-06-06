@@ -1,4 +1,6 @@
-﻿namespace ApiStudioIO
+﻿using ApiStudioIO.Common.Models.Http;
+
+namespace ApiStudioIO
 {
     using System;
     using Microsoft.VisualStudio.Modeling.Diagrams;

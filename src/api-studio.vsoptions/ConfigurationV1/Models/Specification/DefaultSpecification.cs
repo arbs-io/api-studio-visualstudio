@@ -1,4 +1,4 @@
-﻿namespace ApiStudioIO.VsOptions.ConfigurationV1.Models
+﻿namespace ApiStudioIO.VsOptions.ConfigurationV1.Models.Specification
 {
     using Newtonsoft.Json;
 

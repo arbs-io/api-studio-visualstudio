@@ -1,6 +1,6 @@
 ﻿namespace ApiStudioIO.Common.Models.Http
 {
-    using ApiStudioIO.Utility.Extensions;
+    using Utility.Extensions;
     using System;
     using System.ComponentModel;
 

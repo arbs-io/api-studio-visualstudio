@@ -67,14 +67,14 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Templates {
         ///    using Microsoft.OpenApi.Models;
         ///    using System;
         ///
-        ///    public partial class {{TOKEN_OAS_NAMESPACE}}OpenApiOAuthSecurityFlows : OpenApiOAuthSecurityFlows
+        ///    public partial class {{TOKEN_OAS_CLASS_NAME}}OpenApiOAuthSecurityFlows : OpenApiOAuthSecurityFlows
         ///    {
-        ///        public {{TOKEN_OAS_NAMESPACE}}OpenApiOAuthSecurityFlows()
+        ///        public {{TOKEN_OAS_CLASS_NAME}}OpenApiOAuthSecurityFlows()
         ///        {
         ///            Implicit = new OpenApiOAuthFlow()
         ///            {
         ///                AuthorizationUrl = new Uri(&quot;http://api-studio.io/oauth2/token&quot;),
-        ///          [rest of string was truncated]&quot;;.
+        ///        [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string HttpAuthOAuth2 {
             get {
@@ -87,7 +87,7 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Templates {
         ///{
         ///    using System.Collections.Generic;
         ///
-        ///    public partial class {{TOKEN_OAS_NAMESPACE}}OpenApiOAuthSecurityFlows
+        ///    public partial class {{TOKEN_OAS_CLASS_NAME}}OpenApiOAuthSecurityFlows
         ///    {
         ///        private Dictionary&lt;string, string&gt; GetScopes()
         ///        {
@@ -133,20 +133,18 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Templates {
         ///   Looks up a localized string similar to namespace {{TOKEN_OAS_NAMESPACE}}
         ///{
         ///    using System;
+        ///    using System.Collections.Generic;
         ///    using System.Net;
         ///    using System.Threading.Tasks;
         ///
         ///    using Microsoft.Azure.Functions.Worker;
         ///    using Microsoft.Azure.Functions.Worker.Http;
+        ///    using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Abstractions;
         ///    using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
         ///    using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
         ///    using Microsoft.OpenApi.Models;
         ///
-        ///    using Models;
-        ///
-        ///    public partial class {{TOKEN_OAS_CLASS_NAME}}
-        ///    {
-        ///        [Function(nameof({{TOKEN_OAS_CLASS_NA [rest of string was truncated]&quot;;.
+        ///    using Mo [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string HttpTriggerDesigner {
             get {
@@ -155,14 +153,14 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Templates {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to public class {{TOKEN_OAS_HTTP_OPENAPI_HEADER_CLASS_NAME}} : IOpenApiCustomResponseHeader //ResponseHeaderOnInformation
-        ///{
-        ///    public Dictionary&lt;string, OpenApiHeader&gt; Headers { get; set; } =
-        ///        new Dictionary&lt;string, OpenApiHeader&gt;()
+        ///   Looks up a localized string similar to         private class {{TOKEN_OAS_HTTP_OPENAPI_HEADER_CLASS_NAME}} : IOpenApiCustomResponseHeader
         ///        {
+        ///            public Dictionary&lt;string, OpenApiHeader&gt; Headers { get; set; } =
+        ///                new Dictionary&lt;string, OpenApiHeader&gt;()
+        ///                {
         ///{{TOKEN_OAS_HTTP_OPENAPI_HEADER_ITEMS}}
-        ///        };
-        ///}.
+        ///                };
+        ///        }.
         /// </summary>
         internal static string HttpTriggerDesignerResponseHeaderClass {
             get {
@@ -171,16 +169,15 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Templates {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to             {
-        ///                &quot;{{TOKEN_OAS_HTTP_OPENAPI_HEADER_NAME}}&quot;,
-        ///                new OpenApiHeader()
-        ///                {
-        ///                    Description = &quot;{{TOKEN_OAS_HTTP_OPENAPI_HEADER_DESCRIPTION}}&quot;,
-        ///                    Schema = new OpenApiSchema() { Type = &quot;string&quot; },
-        ///                    AllowEmptyValue = {{TOKEN_OAS_HTTP_OPENAPI_HEADER_ALLOWEMPTY}},
-        ///                    Required = {{TOKEN_OAS_HTTP_OPENAPI_HEADER_REQUIRED}},
-        ///                }
-        ///            },.
+        ///   Looks up a localized string similar to                     {
+        ///                        &quot;{{TOKEN_OAS_HTTP_OPENAPI_HEADER_NAME}}&quot;,
+        ///                        new OpenApiHeader()
+        ///                        {
+        ///                            Description = &quot;{{TOKEN_OAS_HTTP_OPENAPI_HEADER_DESCRIPTION}}&quot;,
+        ///                            Schema = new OpenApiSchema() { Type = &quot;string&quot; },
+        ///                            AllowEmptyValue = {{TOKEN_OAS_HTTP_OPENAPI_HEADER_ALLOWEMPTY}},
+        ///                            Required = {{TOKEN_OAS_HTTP_OPENAPI_HEADER_REQUIRED}},
+        ///   [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string HttpTriggerDesignerResponseHeaderItem {
             get {
@@ -228,6 +225,24 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Templates {
         internal static string OpenApiConfigurationOptions {
             get {
                 return ResourceManager.GetString("OpenApiConfigurationOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; cannot be null or whitespace..
+        /// </summary>
+        internal static string SdkHttpTrigger_GenerateHttpTrigger___0___cannot_be_null_or_whitespace_ {
+            get {
+                return ResourceManager.GetString("SdkHttpTrigger_GenerateHttpTrigger___0___cannot_be_null_or_whitespace_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; cannot be null or whitespace..
+        /// </summary>
+        internal static string SdkHttpTriggerDesigner_GenerateHttpTrigger___0___cannot_be_null_or_whitespace_ {
+            get {
+                return ResourceManager.GetString("SdkHttpTriggerDesigner_GenerateHttpTrigger___0___cannot_be_null_or_whitespace_", resourceCulture);
             }
         }
     }

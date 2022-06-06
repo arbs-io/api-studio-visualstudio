@@ -1,7 +1,7 @@
-﻿namespace ApiStudioIO.VsOptions.ConfigurationV1.Models
+﻿namespace ApiStudioIO.VsOptions.ConfigurationV1.Models.ResponseCodes
 {
-    using Newtonsoft.Json;
     using System.Collections.Generic;
+    using Newtonsoft.Json;
 
     public sealed class DefaultResponseCodes
     {

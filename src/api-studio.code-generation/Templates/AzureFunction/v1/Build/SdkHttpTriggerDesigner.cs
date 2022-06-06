@@ -1,15 +1,16 @@
-﻿namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1
-{
-    using ApiStudioIO.CodeGeneration.VisualStudio;
-    using ApiStudioIO.Utility.Extensions;
-    using ApiStudioIO.VsOptions.ConfigurationV1;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Linq;
-    using System.Net;
-    using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Net;
+using System.Text;
+using ApiStudioIO.CodeGeneration.VisualStudio;
+using ApiStudioIO.Common.Models.Http;
+using ApiStudioIO.Utility.Extensions;
+using ApiStudioIO.VsOptions.ConfigurationV1;
 
+namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
+{
     internal static class SdkHttpTriggerDesigner
     {
         internal static List<SourceCodeEntity> Build(ApiStudio apiStudio, string modelName)
@@ -30,7 +31,7 @@
         {
             if (string.IsNullOrWhiteSpace(modelName))
             {
-                throw new ArgumentException($"'{nameof(modelName)}' cannot be null or whitespace.", nameof(modelName));
+                throw new ArgumentException(string.Format(Templates.Resource.SdkHttpTriggerDesigner_GenerateHttpTrigger___0___cannot_be_null_or_whitespace_, nameof(modelName)), nameof(modelName));
             }
             _ = resource ?? throw new ArgumentNullException(nameof(resource));
             _ = httpApi ?? throw new ArgumentNullException(nameof(httpApi));
@@ -109,8 +110,6 @@
                     break;
                 case SecuritySchemeTypes.None:                
                     break;
-                default:
-                    break;
             }
 
             return attributes;
@@ -129,20 +128,13 @@
                 else if (statusCode.Type == "Server Error") responseHeader += "OnServerError";
                 
                 var httpStatus = Enum.GetName(typeof(HttpStatusCode), statusCode.HttpStatus);
-                if (httpStatus != null)
-                {
-                    httpStatus = $"HttpStatusCode.{httpStatus}";
-                }
-                else
-                {
-                    httpStatus = $"(HttpStatusCode){statusCode.HttpStatus}";
-                }
+                httpStatus = httpStatus != null ? $"HttpStatusCode.{httpStatus}" : $"(HttpStatusCode){statusCode.HttpStatus}";
 
-                if (statusCode.Type == "Success" && httpApi.DataModels.Count > 0)
+                if (httpApi.DataModels != null && statusCode.Type == "Success" && httpApi.DataModels.Count > 0)
                 {
                     attributes.Add($"\t\t[OpenApiResponseWithBody(statusCode: {httpStatus}, contentType: \"application/json\", bodyType: typeof({httpApi.DataModels?[0].Name}), Summary = \"{statusCode.Description}\", Description = \"{statusCode.Description}\", CustomHeaderType = typeof({responseHeader}))]");
                 }
-                else if (statusCode.Type == "Success" && httpApi.DataModels.Count == 0)
+                else if (httpApi.DataModels != null && statusCode.Type == "Success" && httpApi.DataModels.Count == 0)
                 {
                     attributes.Add($"\t\t[OpenApiResponseWithoutBody(statusCode: {httpStatus}, Summary = \"{statusCode.Description}\", Description = \"{statusCode.Description}\", CustomHeaderType = typeof({responseHeader}))]");
                 }
@@ -159,14 +151,14 @@
             var attributes = new List<string>();
             foreach (var header in httpApi.RequestHeaders)
             {
-                var attribute = $"\t\t[OpenApiParameter(";
+                var attribute = "\t\t[OpenApiParameter(";
                 attribute += $"name: \"{header.Name}\", ";
-                attribute += $"In = ParameterLocation.Header, ";
+                attribute += "In = ParameterLocation.Header, ";
                 attribute += $"Required = {header.IsRequired.ToString().ToLower()}, ";
-                attribute += $"Type = typeof(string), ";
+                attribute += "Type = typeof(string), ";
                 attribute += $"Summary = \"{header.Description}\", ";
                 attribute += $"Description = \"{header.Description}\", ";
-                attribute += $"Visibility = OpenApiVisibilityType.Important)]";
+                attribute += "Visibility = OpenApiVisibilityType.Important)]";
                 attributes.Add(attribute);
             }
 
@@ -175,8 +167,8 @@
                 var parameterType = parameter.FromType.ConvertOpenApiAttribute();
                 if (parameterType == "ParameterLocation.Body")
                 {
-                    var attribute = $"\t\t[OpenApiRequestBody(";
-                    attribute += $"contentType: \"application/json\", ";
+                    var attribute = "\t\t[OpenApiRequestBody(";
+                    attribute += "contentType: \"application/json\", ";
                     attribute += $"bodyType: typeof({parameter.DataType}), ";
                     attribute += $"Required = {parameter.IsRequired.ToString().ToLower()}, ";
                     attribute += $"Description = \"{parameter.Description}\")]";
@@ -184,14 +176,14 @@
                 }
                 else
                 {
-                    var attribute = $"\t\t[OpenApiParameter(";
+                    var attribute = "\t\t[OpenApiParameter(";
                     attribute += $"name: \"{parameter.Name.ToAlphaNumeric()}\", ";
                     attribute += $"In = {parameter.FromType.ConvertOpenApiAttribute()}, ";
                     attribute += $"Required = {parameter.IsRequired.ToString().ToLower()}, ";
                     attribute += $"Type = typeof({parameter.DataType}), ";
                     attribute += $"Summary = \"{parameter.Description}\", ";
                     attribute += $"Description = \"{parameter.Description}\", ";
-                    attribute += $"Visibility = OpenApiVisibilityType.Important)]";
+                    attribute += "Visibility = OpenApiVisibilityType.Important)]";
                     attributes.Add(attribute);
                 }
             }
