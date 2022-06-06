@@ -1,17 +1,29 @@
-﻿namespace ApiStudioIO.VsOptions.HttpHeaders
-{
-    using ApiStudioIO.Common.Models.Http;
-    using ApiStudioIO.VsOptions.ConfigurationV1;
-    using Microsoft.VisualStudio.Shell;
-    using System;
-    using System.ComponentModel;
-    using System.Runtime.InteropServices;
-    using System.Windows.Forms;
+﻿using System.ComponentModel;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using ApiStudioIO.Common.Models.Http;
+using ApiStudioIO.VsOptions.ConfigurationV1;
+using Microsoft.VisualStudio.Shell;
 
+namespace ApiStudioIO.VsOptions.HttpHeaders
+{
     [Guid("cad156f0-dfca-431f-8828-bdb84d992ad8")]
     public class HttpHeadersDialogPage : DialogPage
     {
         private HttpHeadersControl control;
+
+        protected override IWin32Window Window
+        {
+            get
+            {
+                ThreadHelper.ThrowIfNotOnUIThread();
+                control = new HttpHeadersControl
+                {
+                    DlgPage = this
+                };
+                return control;
+            }
+        }
 
         internal void AddResponseHeader(string Name, string Description, bool IsRequired, bool AllowEmptyValue)
         {
@@ -27,6 +39,7 @@
 
             ApiStudioUserSettingsStore.Instance.Data.DefaultHeaders.Response.Add(Name, header);
         }
+
         internal void RemoveResponseHeader(string Name)
         {
             if (ApiStudioUserSettingsStore.Instance.Data.DefaultHeaders.Response.ContainsKey(Name))
@@ -47,6 +60,7 @@
 
             ApiStudioUserSettingsStore.Instance.Data.DefaultHeaders.Request.Add(Name, header);
         }
+
         internal void RemoveRequestHeader(string Name)
         {
             if (ApiStudioUserSettingsStore.Instance.Data.DefaultHeaders.Request.ContainsKey(Name))
@@ -73,19 +87,6 @@
 
             if (control != null)
                 control.Initialize();
-        }
-
-        protected override IWin32Window Window
-        {
-            get
-            {
-                ThreadHelper.ThrowIfNotOnUIThread();
-                control = new HttpHeadersControl
-                {
-                    DlgPage = this
-                };
-                return control;
-            }
         }
     }
 }

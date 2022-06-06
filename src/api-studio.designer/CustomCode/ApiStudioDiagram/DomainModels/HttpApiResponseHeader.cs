@@ -1,7 +1,7 @@
-﻿namespace ApiStudioIO
-{
-    using System;
+﻿using System;
 
+namespace ApiStudioIO
+{
     public partial class HttpApiHeaderResponse
     {
         public string GetIncludeOnNameValue()

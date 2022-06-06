@@ -1,16 +1,28 @@
-﻿namespace ApiStudioIO.VsOptions.HttpResponseCodes
-{
-    using ApiStudioIO.VsOptions.ConfigurationV1;
-    using Microsoft.VisualStudio.Shell;
-    using System;
-    using System.ComponentModel;
-    using System.Runtime.InteropServices;
-    using System.Windows.Forms;
+﻿using System.ComponentModel;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using ApiStudioIO.VsOptions.ConfigurationV1;
+using Microsoft.VisualStudio.Shell;
 
+namespace ApiStudioIO.VsOptions.HttpResponseCodes
+{
     [Guid("d69fefa9-3add-4219-af38-2d9f01a8c314")]
     public class HttpResponseCodesDialogPage : DialogPage
     {
         private HttpResponseCodesControl control;
+
+        protected override IWin32Window Window
+        {
+            get
+            {
+                ThreadHelper.ThrowIfNotOnUIThread();
+                control = new HttpResponseCodesControl
+                {
+                    DlgPage = this
+                };
+                return control;
+            }
+        }
 
         internal void AddResponseCode(int ResponseCode)
         {
@@ -24,7 +36,8 @@
 
         internal bool ResponseCodeContains(int ResponseCode)
         {
-            return ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.StandardResponseCodes.Contains(ResponseCode);
+            return ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.StandardResponseCodes.Contains(
+                ResponseCode);
         }
 
         public override void SaveSettingsToStorage()
@@ -47,19 +60,6 @@
 
             if (control != null)
                 control.Initialize();
-        }
-
-        protected override IWin32Window Window
-        {
-            get
-            {
-                ThreadHelper.ThrowIfNotOnUIThread();
-                control = new HttpResponseCodesControl
-                {
-                    DlgPage = this
-                };
-                return control;
-            }
         }
     }
 }

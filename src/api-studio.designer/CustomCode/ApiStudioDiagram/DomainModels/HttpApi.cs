@@ -1,11 +1,11 @@
-﻿namespace ApiStudioIO
-{
-    using ApiStudioIO.Common.Models.Http;
-    using ApiStudioIO.Utility.Extensions;
-    using ApiStudioIO.VsOptions.ConfigurationV1;
-    using System.Collections.Generic;
-    using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using ApiStudioIO.Common.Models.Http;
+using ApiStudioIO.Utility.Extensions;
+using ApiStudioIO.VsOptions.ConfigurationV1;
 
+namespace ApiStudioIO
+{
     public partial class HttpApi
     {
         public override string GetDisplayNameValue()
@@ -16,17 +16,14 @@
         protected string GetResourceNameValue()
         {
             var resourceName = "";
-            if (Resourced.Any())
-            {
-                resourceName = Resourced.FirstOrDefault()?.Name;
-            }
+            if (Resourced.Any()) resourceName = Resourced.FirstOrDefault()?.Name;
 
             return resourceName;
         }
 
         protected virtual string GetHttpVerbValue()
         {
-            HttpApi httpApi = this;
+            var httpApi = this;
             switch (httpApi)
             {
                 case HttpApiGet _:
@@ -53,6 +50,7 @@
                 case HttpApiTrace _:
                     return "Trace";
             }
+
             return "Unknown";
         }
 
@@ -61,13 +59,8 @@
             var apiResponses = GetResponseStatusCodesValue();
             var successResponse = apiResponses.FirstOrDefault(x => x.Type.Equals("Success"));
             if (null != successResponse)
-            {
                 return successResponse.HttpStatus;
-            }
-            else
-            {
-                return 200; //Default 200 OK
-            }
+            return 200; //Default 200 OK
         }
 
         #region CalculatedProperties
@@ -90,16 +83,12 @@
             string FuncGetRootName(Resource resource)
             {
                 if (resource != null)
-                {
                     switch (resource)
                     {
                         case ResourceAttribute _:
                         case ResourceInstance _:
                             var childResource = resource.SourceResource.FirstOrDefault();
-                            if (childResource == null)
-                            {
-                                return resource.Name;
-                            }
+                            if (childResource == null) return resource.Name;
 
                             return FuncGetRootName(childResource);
 
@@ -107,7 +96,6 @@
                         case ResourceAction _:
                             return resource.Name;
                     }
-                }
 
                 return "";
             }
@@ -125,20 +113,19 @@
             {
                 return ImperativeVerb;
             }
-            else
-            {
-                HttpApi httpApi = this;
-                switch (httpApi)
-                {
-                    case HttpApiGet _:
-                        return "Read";
 
-                    case HttpApiPut _:
-                    case HttpApiPost _:
-                    case HttpApiDelete _:
-                        return "Write";
-                }
+            var httpApi = this;
+            switch (httpApi)
+            {
+                case HttpApiGet _:
+                    return "Read";
+
+                case HttpApiPut _:
+                case HttpApiPost _:
+                case HttpApiDelete _:
+                    return "Write";
             }
+
             return "Unknown";
         }
 

@@ -1,18 +1,18 @@
-﻿namespace ApiStudioIO.VsOptions.Helper
-{
-    using Microsoft;
-    using System;
-    using System.ComponentModel;
-    using System.Drawing.Design;
-    using System.Windows.Forms;
-    using System.Windows.Forms.Design;
+﻿using System;
+using System.ComponentModel;
+using System.Drawing.Design;
+using System.Windows.Forms;
+using System.Windows.Forms.Design;
+using Microsoft;
 
-    class ApiStudioUITypeEditor : UITypeEditor
+namespace ApiStudioIO.VsOptions.Helper
+{
+    internal class ApiStudioUITypeEditor : UITypeEditor
     {
+        public readonly string[] lookupValues;
         private IWindowsFormsEditorService _editorService;
 
-        public readonly string[] lookupValues;
-        public ApiStudioUITypeEditor (string[] values)
+        public ApiStudioUITypeEditor(string[] values)
         {
             lookupValues = values;
         }
@@ -29,7 +29,7 @@
             Assumes.Present(_editorService);
 
             // use a list box
-            ListBox lb = new ListBox
+            var lb = new ListBox
             {
                 SelectionMode = SelectionMode.One
             };
@@ -42,11 +42,8 @@
             foreach (var lookupValue in lookupValues)
             {
                 // we store benchmarks objects directly in the listbox
-                int index = lb.Items.Add(lookupValue);
-                if (value.Equals(lookupValue))
-                {
-                    lb.SelectedIndex = index;
-                }
+                var index = lb.Items.Add(lookupValue);
+                if (value.Equals(lookupValue)) lb.SelectedIndex = index;
             }
 
             // show this model stuff
@@ -57,7 +54,6 @@
             return lb.SelectedItem;
         }
 
-        
 
         private void OnListBoxSelectedValueChanged(object sender, EventArgs e)
         {

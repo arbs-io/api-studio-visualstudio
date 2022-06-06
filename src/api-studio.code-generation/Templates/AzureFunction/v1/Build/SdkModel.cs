@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using ApiStudioIO.CodeGeneration.VisualStudio;
+    using VisualStudio;
     using ApiStudioIO.Utility.Extensions;
     using static System.String;
 

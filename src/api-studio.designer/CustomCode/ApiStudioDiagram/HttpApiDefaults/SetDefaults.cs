@@ -1,7 +1,7 @@
-﻿namespace ApiStudioIO
-{
-    using ApiStudioIO.HttpApiDefaults;
+﻿using ApiStudioIO.HttpApiDefaults;
 
+namespace ApiStudioIO
+{
     internal static class HttpApiDefaultsExtension
     {
         internal static void SetDefaults(this Api api)

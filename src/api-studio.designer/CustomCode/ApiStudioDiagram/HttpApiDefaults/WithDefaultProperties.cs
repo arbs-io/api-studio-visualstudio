@@ -1,7 +1,7 @@
-﻿namespace ApiStudioIO.HttpApiDefaults
-{
-    using System.Linq;
+﻿using System.Linq;
 
+namespace ApiStudioIO.HttpApiDefaults
+{
     internal static class HttpApiExtension
     {
         internal static HttpApi WithDefaultProperties(this HttpApi httpApi)
@@ -20,73 +20,42 @@
             {
                 case HttpApiGet _:
                     if (source is ResourceCollection)
-                    {
                         imperativeVerb = "Find";
-                    }
                     else if (source is ResourceInstance)
-                    {
                         imperativeVerb = "Request";
-                    }
-                    else if (source is ResourceAttribute)
-                    {
-                        imperativeVerb = "Retrieve";
-                    }
+                    else if (source is ResourceAttribute) imperativeVerb = "Retrieve";
 
                     break;
 
                 case HttpApiPut _:
                     if (source is ResourceInstance)
-                    {
                         imperativeVerb = "Change";
-                    }
-                    else if (source is ResourceAttribute)
-                    {
-                        imperativeVerb = "Adjust";
-                    }
+                    else if (source is ResourceAttribute) imperativeVerb = "Adjust";
 
                     break;
 
                 case HttpApiPatch _:
                     if (source is ResourceInstance)
-                    {
                         imperativeVerb = "Change";
-                    }
-                    else if (source is ResourceAttribute)
-                    {
-                        imperativeVerb = "Adjust";
-                    }
+                    else if (source is ResourceAttribute) imperativeVerb = "Adjust";
 
                     break;
 
                 case HttpApiPost _:
                     if (source is ResourceCollection)
-                    {
                         imperativeVerb = "Create";
-                    }
                     else if (source is ResourceAction && successCode == 200)
-                    {
                         imperativeVerb = "Generate";
-                    }
                     else if (source is ResourceAction && successCode == 201)
-                    {
                         imperativeVerb = "Make";
-                    }
-                    else if (source is ResourceAction && successCode == 202)
-                    {
-                        imperativeVerb = "Prepare";
-                    }
+                    else if (source is ResourceAction && successCode == 202) imperativeVerb = "Prepare";
 
                     break;
 
                 case HttpApiDelete _:
                     if (source is ResourceInstance && successCode == 200)
-                    {
                         imperativeVerb = "Remove";
-                    }
-                    else if (source is ResourceInstance && successCode == 202)
-                    {
-                        imperativeVerb = "Deactivate";
-                    }
+                    else if (source is ResourceInstance && successCode == 202) imperativeVerb = "Deactivate";
 
                     break;
 

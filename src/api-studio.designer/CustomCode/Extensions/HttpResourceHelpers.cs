@@ -1,9 +1,9 @@
-﻿namespace ApiStudioIO
-{
-    using ApiStudioIO.Common.Models.Http;
-    using System;
-    using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
+using ApiStudioIO.Common.Models.Http;
 
+namespace ApiStudioIO
+{
     internal static class HttpResourceHelpers
     {
         internal static HttpResourceHeaderRequest ToHttpResourceHeaderRequest(this HttpApiHeaderRequest domain)
@@ -35,7 +35,7 @@
 
         internal static HttpResourceParameter ToHttpResourceParameter(this HttpApiParameter domain)
         {
-            string fromType = Enum.GetName(typeof(HttpApiParameterTypes), domain.FromType);
+            var fromType = Enum.GetName(typeof(HttpApiParameterTypes), domain.FromType);
             var apiStudioComponent = new HttpResourceParameter
             {
                 Identifier = domain.Identifier,
@@ -48,7 +48,8 @@
             return apiStudioComponent;
         }
 
-        internal static HttpResourceResponseStatusCode ToHttpResourceResponseStatusCode(this HttpApiResponseStatusCode domain)
+        internal static HttpResourceResponseStatusCode ToHttpResourceResponseStatusCode(
+            this HttpApiResponseStatusCode domain)
         {
             var apiStudioComponent = new HttpResourceResponseStatusCode
             {
@@ -60,8 +61,9 @@
 
         internal static HttpResourceMediaTypeRequest ToHttpResourceMediaTypeRequest(this HttpApiMediaType domain)
         {
-            var DiscreteType = (string.IsNullOrEmpty(domain.DiscreteType) || string.IsNullOrEmpty(domain.SubType)) ?
-                HttpTypeMimeAllowedDiscrete.application : (HttpTypeMimeAllowedDiscrete)Enum.Parse(typeof(HttpTypeMimeAllowedDiscrete), domain.DiscreteType);
+            var DiscreteType = string.IsNullOrEmpty(domain.DiscreteType) || string.IsNullOrEmpty(domain.SubType)
+                ? HttpTypeMimeAllowedDiscrete.application
+                : (HttpTypeMimeAllowedDiscrete)Enum.Parse(typeof(HttpTypeMimeAllowedDiscrete), domain.DiscreteType);
 
             var apiStudioComponent = new HttpResourceMediaTypeRequest
             {
@@ -73,8 +75,9 @@
 
         internal static HttpResourceMediaTypeResponse ToHttpResourceMediaTypeResponse(this HttpApiMediaType domain)
         {
-            var DiscreteType = (string.IsNullOrEmpty(domain.DiscreteType) || string.IsNullOrEmpty(domain.SubType)) ?
-                HttpTypeMimeAllowedDiscrete.application : (HttpTypeMimeAllowedDiscrete)Enum.Parse(typeof(HttpTypeMimeAllowedDiscrete), domain.DiscreteType);
+            var DiscreteType = string.IsNullOrEmpty(domain.DiscreteType) || string.IsNullOrEmpty(domain.SubType)
+                ? HttpTypeMimeAllowedDiscrete.application
+                : (HttpTypeMimeAllowedDiscrete)Enum.Parse(typeof(HttpTypeMimeAllowedDiscrete), domain.DiscreteType);
 
             var apiStudioComponent = new HttpResourceMediaTypeResponse
             {
@@ -85,7 +88,8 @@
         }
 
 
-        internal static HttpTypeHeaderOnResponse ToHttpTypeHeaderOnResponse(this HttpApiHeaderResponseOnTypes httpApiHeaderResponseOnTypes)
+        internal static HttpTypeHeaderOnResponse ToHttpTypeHeaderOnResponse(
+            this HttpApiHeaderResponseOnTypes httpApiHeaderResponseOnTypes)
         {
             switch (httpApiHeaderResponseOnTypes)
             {
@@ -97,11 +101,13 @@
                 case HttpApiHeaderResponseOnTypes.OnServerError: return HttpTypeHeaderOnResponse.OnServerError;
 
                 default:
-                    throw new InvalidEnumArgumentException(nameof(httpApiHeaderResponseOnTypes), (int)httpApiHeaderResponseOnTypes, typeof(HttpApiHeaderResponseOnTypes));
+                    throw new InvalidEnumArgumentException(nameof(httpApiHeaderResponseOnTypes),
+                        (int)httpApiHeaderResponseOnTypes, typeof(HttpApiHeaderResponseOnTypes));
             }
         }
 
-        internal static HttpTypeParameterLocation ToHttpTypeParameterLocation(this HttpApiParameterTypes httpApiParameterTypes)
+        internal static HttpTypeParameterLocation ToHttpTypeParameterLocation(
+            this HttpApiParameterTypes httpApiParameterTypes)
         {
             switch (httpApiParameterTypes)
             {
@@ -110,7 +116,8 @@
                 case HttpApiParameterTypes.Path: return HttpTypeParameterLocation.Path;
 
                 default:
-                    throw new InvalidEnumArgumentException(nameof(httpApiParameterTypes), (int)httpApiParameterTypes, typeof(HttpApiParameterTypes));
+                    throw new InvalidEnumArgumentException(nameof(httpApiParameterTypes), (int)httpApiParameterTypes,
+                        typeof(HttpApiParameterTypes));
             }
         }
     }

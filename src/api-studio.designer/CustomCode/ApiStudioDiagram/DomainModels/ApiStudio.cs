@@ -1,29 +1,29 @@
-﻿namespace ApiStudioIO
+﻿using System;
+using ApiStudioIO.VsOptions.ConfigurationV1;
+
+namespace ApiStudioIO
 {
-    using ApiStudioIO.VsOptions.ConfigurationV1;
-    using Microsoft.VisualStudio.Modeling;
-    using System;
-    using DslModeling = global::Microsoft.VisualStudio.Modeling;
+    using DslModeling = Microsoft.VisualStudio.Modeling;
 
     public partial class ApiStudio
     {
         /// <summary>
-        /// Constructor
+        ///     Constructor
         /// </summary>
         /// <param name="store">Store where new element is to be created.</param>
         /// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-        public ApiStudio(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+        public ApiStudio(DslModeling.Store store, params DslModeling.PropertyAssignment[] propertyAssignments)
             : this(store?.DefaultPartitionForClass(DomainClassId), propertyAssignments)
         {
             SetDefaultsProperties();
         }
 
         /// <summary>
-        /// Constructor
+        ///     Constructor
         /// </summary>
         /// <param name="partition">Partition where new element is to be created.</param>
         /// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-        public ApiStudio(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+        public ApiStudio(DslModeling.Partition partition, params DslModeling.PropertyAssignment[] propertyAssignments)
             : base(partition, propertyAssignments)
         {
             SetDefaultsProperties();
@@ -32,8 +32,7 @@
         private void SetDefaultsProperties()
         {
             if (Identifier.ToString() == "00000000-0000-0000-0000-000000000000")
-            {
-                using (Transaction t = Store.TransactionManager.BeginTransaction("ApiStudio.SetIdentifierValue"))
+                using (var t = Store.TransactionManager.BeginTransaction("ApiStudio.SetIdentifierValue"))
                 {
                     Identifier = Guid.NewGuid();
                     SecuritySchemeType = GetDefaultSecuritySchemeType();
@@ -49,7 +48,6 @@
 
                     t.Commit();
                 }
-            }
         }
 
         private SecuritySchemeTypes GetDefaultSecuritySchemeType()
@@ -68,6 +66,7 @@
                     return SecuritySchemeTypes.None;
             }
         }
+
         private HttpApiAudienceTypes GetDefaultAudienceType()
         {
             switch (ApiStudioUserSettingsStore.Instance.Data.DefaultSpecification.Audience)

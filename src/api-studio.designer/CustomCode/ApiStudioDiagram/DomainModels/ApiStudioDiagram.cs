@@ -1,7 +1,8 @@
-﻿namespace ApiStudioIO
-{
-    using Microsoft.VisualStudio.Modeling.Diagrams;
+﻿using ApiStudioIO.Properties;
+using Microsoft.VisualStudio.Modeling.Diagrams;
 
+namespace ApiStudioIO
+{
     public partial class ApiStudioDiagram
     {
         protected override void InitializeInstanceResources()
@@ -13,8 +14,8 @@
 
         private void IncludeBackgroundImage()
         {
-            ImageField imageField = new ImageField("BackgroundImage",
-                Properties.Resources.BackgroundImage)
+            var imageField = new ImageField("BackgroundImage",
+                Resources.BackgroundImage)
             {
                 DefaultFocusable = false,
                 DefaultSelectable = false,

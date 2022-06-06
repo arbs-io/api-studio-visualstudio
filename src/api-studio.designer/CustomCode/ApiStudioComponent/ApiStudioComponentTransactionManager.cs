@@ -1,21 +1,22 @@
-﻿namespace ApiStudioIO
+﻿using System;
+using System.Collections.Generic;
+using ApiStudioIO.Common.Models.Http;
+
+namespace ApiStudioIO
 {
-    using ApiStudioIO.Common.Models.Http;
-    using System;
-    using System.Collections.Generic;
     using DslModeling = Microsoft.VisualStudio.Modeling;
 
     public static class ApiStudioComponentTransactionManager
     {
-        internal static void Save<TDomainEntity, TPropertyEntity>(TDomainEntity domainEntity, List<TPropertyEntity> propertyEntityList)
-            where TDomainEntity : DslModeling::ModelElement
+        internal static void Save<TDomainEntity, TPropertyEntity>(TDomainEntity domainEntity,
+            List<TPropertyEntity> propertyEntityList)
+            where TDomainEntity : DslModeling.ModelElement
         {
             _ = domainEntity ?? throw new ArgumentNullException(nameof(domainEntity));
             _ = propertyEntityList ?? throw new ArgumentNullException(nameof(propertyEntityList));
 
             //arb review just use override...
             if (domainEntity is HttpApi httpApi)
-            {
                 switch (propertyEntityList)
                 {
                     case List<HttpResourceMediaTypeResponse> HttpApiMediaTypeResponses:
@@ -42,7 +43,6 @@
                         httpApi.StoreDomainModel(HttpApiHeaderRequest);
                         break;
                 }
-            }
         }
     }
 }

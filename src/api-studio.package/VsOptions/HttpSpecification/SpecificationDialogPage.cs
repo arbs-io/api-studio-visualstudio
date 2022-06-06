@@ -1,34 +1,19 @@
-﻿namespace ApiStudioIO.VsOptions.HttpSpecification
-{
-    using ApiStudioIO.VsOptions.ConfigurationV1;
-    using ApiStudioIO.VsOptions.ConfigurationV1.Models;
-    using Microsoft.VisualStudio.Shell;
-    using System;
-    using System.ComponentModel;
-    using System.ComponentModel.Design;
-    using System.Drawing.Design;
-    using System.Runtime.InteropServices;
+﻿using System.ComponentModel;
+using System.ComponentModel.Design;
+using System.Drawing.Design;
+using System.Runtime.InteropServices;
+using ApiStudioIO.VsOptions.ConfigurationV1;
+using Microsoft.VisualStudio.Shell;
 
+namespace ApiStudioIO.VsOptions.HttpSpecification
+{
     [Guid("66d04e60-dba3-45b2-a3da-37445efaa696")]
     public class SpecificationDialogPage : DialogPage
     {
-        public override void SaveSettingsToStorage()
-        {
-            ThreadHelper.ThrowIfNotOnUIThread();
-            base.SaveSettingsToStorage();
-            ApiStudioUserSettingsStore.Instance.VsOptionStoreSave();
-        }
-
-        public override void LoadSettingsFromStorage()
-        {
-            ThreadHelper.ThrowIfNotOnUIThread();
-            base.LoadSettingsFromStorage();
-            ApiStudioUserSettingsStore.Instance.VsOptionStoreLoad();
-        }
-
         [Category("Organisation")]
         [DisplayName("Vendor")]
-        [Description("The name of the organisation providing the API specification. This will form part of the contract title.")]
+        [Description(
+            "The name of the organisation providing the API specification. This will form part of the contract title.")]
         public string VendorName
         {
             get => ApiStudioUserSettingsStore.Instance.Data.DefaultSpecification.VendorName;
@@ -46,7 +31,8 @@
 
         [Category("Organisation")]
         [DisplayName("Api")]
-        [Description("The name of the API. Normally based on the subdomain and/or feature for the API contract. This will form part of the contract title.")]
+        [Description(
+            "The name of the API. Normally based on the subdomain and/or feature for the API contract. This will form part of the contract title.")]
         public string ApiName
         {
             get => ApiStudioUserSettingsStore.Instance.Data.DefaultSpecification.ApiName;
@@ -73,7 +59,8 @@
 
         [Category("Template")]
         [DisplayName("Audience")]
-        [Description("The audience category flags if the consumers are Private (Internal), Partner (Trusted/VPN), Public (Public Domain).")]
+        [Description(
+            "The audience category flags if the consumers are Private (Internal), Partner (Trusted/VPN), Public (Public Domain).")]
         [Editor(typeof(AudienceUITypeEditor), typeof(UITypeEditor))]
         public string Audience
         {
@@ -83,12 +70,27 @@
 
         [Category("Template")]
         [DisplayName("Description")]
-        [Description("The value is used as the description for the resource tree and will form part of the OpenAPI specification.")]
+        [Description(
+            "The value is used as the description for the resource tree and will form part of the OpenAPI specification.")]
         [Editor(typeof(MultilineStringEditor), typeof(UITypeEditor))]
         public string Description
         {
             get => ApiStudioUserSettingsStore.Instance.Data.DefaultSpecification.Description;
             set => ApiStudioUserSettingsStore.Instance.Data.DefaultSpecification.Description = value;
+        }
+
+        public override void SaveSettingsToStorage()
+        {
+            ThreadHelper.ThrowIfNotOnUIThread();
+            base.SaveSettingsToStorage();
+            ApiStudioUserSettingsStore.Instance.VsOptionStoreSave();
+        }
+
+        public override void LoadSettingsFromStorage()
+        {
+            ThreadHelper.ThrowIfNotOnUIThread();
+            base.LoadSettingsFromStorage();
+            ApiStudioUserSettingsStore.Instance.VsOptionStoreLoad();
         }
     }
 }

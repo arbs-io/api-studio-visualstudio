@@ -1,5 +1,5 @@
-﻿using ApiStudioIO.VsOptions.ConfigurationV1;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using ApiStudioIO.VsOptions.ConfigurationV1;
 
 namespace ApiStudioIO.VsOptions.HttpHeaders
 {
@@ -7,8 +7,9 @@ namespace ApiStudioIO.VsOptions.HttpHeaders
     {
         public enum HttpDefaultGetEnum
         {
-            OK = 200,
+            OK = 200
         }
+
         [Category("Success Response Codes")]
         [DisplayName("GET")]
         [Description("Defaults success response code for HTTP GET method.")]
@@ -19,6 +20,5 @@ namespace ApiStudioIO.VsOptions.HttpHeaders
             get => (HttpDefaultGetEnum)ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessGet;
             set => ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessGet = (int)value;
         }
-
     }
 }

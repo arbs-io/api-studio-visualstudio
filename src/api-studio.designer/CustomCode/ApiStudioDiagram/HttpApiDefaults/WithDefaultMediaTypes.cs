@@ -1,8 +1,8 @@
-﻿namespace ApiStudioIO.HttpApiDefaults
-{
-    using ApiStudioIO.Common.Models.Http;
-    using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ApiStudioIO.Common.Models.Http;
 
+namespace ApiStudioIO.HttpApiDefaults
+{
     internal static class HttpApiMediaTypeExtension
     {
         internal static HttpApi WithDefaultMediaTypes(this HttpApi httpApi)

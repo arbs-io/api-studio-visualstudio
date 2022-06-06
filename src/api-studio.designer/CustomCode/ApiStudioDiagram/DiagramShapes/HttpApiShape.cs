@@ -1,7 +1,6 @@
-﻿using Microsoft.VisualStudio.Modeling;
-using Microsoft.VisualStudio.Modeling.Diagrams;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Microsoft.VisualStudio.Modeling.Diagrams;
 
 namespace ApiStudioIO
 {
@@ -14,10 +13,7 @@ namespace ApiStudioIO
         {
             base.OnMouseEnter(e);
 
-            if (_shapeElementZOrder == null)
-            {
-                _shapeElementZOrder = new Dictionary<Guid, double>();
-            }
+            if (_shapeElementZOrder == null) _shapeElementZOrder = new Dictionary<Guid, double>();
 
             foreach (var item in NestedChildShapes)
             {
@@ -34,7 +30,7 @@ namespace ApiStudioIO
             _shapeElementZOrder.Add(Id, ZOrder);
             ZOrder += ZOrderToFront;
 
-            using (Transaction t = Store.TransactionManager.BeginTransaction("HttpApiShape.OnMouseEnter"))
+            using (var t = Store.TransactionManager.BeginTransaction("HttpApiShape.OnMouseEnter"))
             {
                 SetIsExpandedValue(true);
                 Expand();
@@ -46,19 +42,13 @@ namespace ApiStudioIO
         {
             base.OnMouseLeave(e);
 
-            foreach (var item in NestedChildShapes)
-            {
-                item.ZOrder = _shapeElementZOrder[item.Id];
-            }
+            foreach (var item in NestedChildShapes) item.ZOrder = _shapeElementZOrder[item.Id];
 
-            foreach (var item in RelativeChildShapes)
-            {
-                item.ZOrder = _shapeElementZOrder[item.Id];
-            }
+            foreach (var item in RelativeChildShapes) item.ZOrder = _shapeElementZOrder[item.Id];
 
             ZOrder = _shapeElementZOrder[Id];
 
-            using (Transaction t = Store.TransactionManager.BeginTransaction("HttpApiShape.OnMouseLeave"))
+            using (var t = Store.TransactionManager.BeginTransaction("HttpApiShape.OnMouseLeave"))
             {
                 SetIsExpandedValue(false);
                 Collapse();

@@ -1,17 +1,18 @@
-﻿namespace ApiStudioIO.VsOptions.HttpResponseCodes
-{
-    using ApiStudioIO.VsOptions.Helper;
-    using ApiStudioIO.Utility.Extensions;
-    using System;
-    using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
+using ApiStudioIO.Utility.Extensions;
+using ApiStudioIO.VsOptions.Helper;
 
+namespace ApiStudioIO.VsOptions.HttpResponseCodes
+{
     public partial class HttpResponseCodesControl : UserControl
     {
-        internal HttpResponseCodesDialogPage DlgPage { get; set; }
         public HttpResponseCodesControl()
         {
             InitializeComponent();
         }
+
+        internal HttpResponseCodesDialogPage DlgPage { get; set; }
 
         public void Initialize()
         {
@@ -48,7 +49,7 @@
                 if (httpResponseCode.Key < 200)
                     lsvResponseCodesInformation.Items.Add(lvItem);
                 if (httpResponseCode.Key >= 200 && httpResponseCode.Key < 300)
-                    continue;   // No success defaults
+                    continue; // No success defaults
                 if (httpResponseCode.Key >= 300 && httpResponseCode.Key < 400)
                     lsvResponseCodesRedirection.Items.Add(lvItem);
                 if (httpResponseCode.Key >= 400 && httpResponseCode.Key < 500)

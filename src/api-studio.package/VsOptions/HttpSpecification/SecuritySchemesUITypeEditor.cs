@@ -1,15 +1,15 @@
-﻿namespace ApiStudioIO.VsOptions.HttpSpecification
-{
-    using ApiStudioIO.VsOptions.Helper;
+﻿using ApiStudioIO.VsOptions.Helper;
 
-    class AudienceUITypeEditor : ApiStudioUITypeEditor
+namespace ApiStudioIO.VsOptions.HttpSpecification
+{
+    internal class AudienceUITypeEditor : ApiStudioUITypeEditor
     {
         private static readonly string[] audiencePatterns =
-            {
-                "Private",
-                "Partner",
-                "Public"
-            };
+        {
+            "Private",
+            "Partner",
+            "Public"
+        };
 
         public AudienceUITypeEditor() : base(audiencePatterns)
         {

@@ -1,7 +1,7 @@
-﻿namespace ApiStudioIO
-{
-    using ApiStudioIO.Utility.Extensions;
+﻿using ApiStudioIO.Utility.Extensions;
 
+namespace ApiStudioIO
+{
     public partial class ResourceInstance
     {
         protected override string GetHttpApiUriValue()
@@ -23,10 +23,7 @@
             }
 
             var uri = "";
-            if (SourceResource.Count > 0)
-            {
-                uri = SourceResource[0].HttpApiUri;
-            }
+            if (SourceResource.Count > 0) uri = SourceResource[0].HttpApiUri;
 
             uri += $"/{{{documentId}}}";
             return FormatUri(uri);

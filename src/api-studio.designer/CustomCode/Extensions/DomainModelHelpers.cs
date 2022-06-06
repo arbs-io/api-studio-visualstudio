@@ -1,12 +1,13 @@
-﻿namespace ApiStudioIO
-{
-    using ApiStudioIO.Common.Models.Http;
-    using Microsoft.VisualStudio.Modeling;
-    using System.ComponentModel;
+﻿using System.ComponentModel;
+using ApiStudioIO.Common.Models.Http;
+using Microsoft.VisualStudio.Modeling;
 
+namespace ApiStudioIO
+{
     internal static class DomainModelHelpers
     {
-        internal static HttpApiHeaderRequest ToHttpApiHeaderRequest(this HttpResourceHeaderRequest propertyHttpApi, Store store)
+        internal static HttpApiHeaderRequest ToHttpApiHeaderRequest(this HttpResourceHeaderRequest propertyHttpApi,
+            Store store)
         {
             return new HttpApiHeaderRequest(store)
             {
@@ -18,7 +19,8 @@
             };
         }
 
-        internal static HttpApiHeaderResponse ToHttpApiHeaderResponse(this HttpResourceHeaderResponse propertyHttpApi, Store store)
+        internal static HttpApiHeaderResponse ToHttpApiHeaderResponse(this HttpResourceHeaderResponse propertyHttpApi,
+            Store store)
         {
             return new HttpApiHeaderResponse(store)
             {
@@ -31,7 +33,8 @@
             };
         }
 
-        internal static HttpApiMediaTypeRequest ToHttpApiMediaTypeRequest(this HttpResourceMediaTypeRequest propertyHttpApi, Store store)
+        internal static HttpApiMediaTypeRequest ToHttpApiMediaTypeRequest(
+            this HttpResourceMediaTypeRequest propertyHttpApi, Store store)
         {
             return new HttpApiMediaTypeRequest(store)
             {
@@ -40,7 +43,8 @@
             };
         }
 
-        internal static HttpApiMediaTypeResponse ToHttpApiMediaTypeResponse(this HttpResourceMediaTypeResponse propertyHttpApi, Store store)
+        internal static HttpApiMediaTypeResponse ToHttpApiMediaTypeResponse(
+            this HttpResourceMediaTypeResponse propertyHttpApi, Store store)
         {
             return new HttpApiMediaTypeResponse(store)
             {
@@ -62,7 +66,8 @@
             };
         }
 
-        internal static HttpApiResponseStatusCode ToHttpApiResponseStatusCode(this HttpResourceResponseStatusCode propertyHttpApi, Store store)
+        internal static HttpApiResponseStatusCode ToHttpApiResponseStatusCode(
+            this HttpResourceResponseStatusCode propertyHttpApi, Store store)
         {
             return new HttpApiResponseStatusCode(store)
             {
@@ -71,8 +76,8 @@
         }
 
 
-
-        internal static HttpApiParameterTypes ToHttpApiParameterTypes(this HttpTypeParameterLocation httpTypeParameterLocation)
+        internal static HttpApiParameterTypes ToHttpApiParameterTypes(
+            this HttpTypeParameterLocation httpTypeParameterLocation)
         {
             switch (httpTypeParameterLocation)
             {
@@ -81,11 +86,13 @@
                 case HttpTypeParameterLocation.Path: return HttpApiParameterTypes.Path;
 
                 default:
-                    throw new InvalidEnumArgumentException(nameof(httpTypeParameterLocation), (int)httpTypeParameterLocation, typeof(HttpTypeParameterLocation));
+                    throw new InvalidEnumArgumentException(nameof(httpTypeParameterLocation),
+                        (int)httpTypeParameterLocation, typeof(HttpTypeParameterLocation));
             }
         }
 
-        internal static HttpApiHeaderResponseOnTypes ToHttpApiHeaderResponseOnTypes(this HttpTypeHeaderOnResponse httpTypeHeaderOnResponse)
+        internal static HttpApiHeaderResponseOnTypes ToHttpApiHeaderResponseOnTypes(
+            this HttpTypeHeaderOnResponse httpTypeHeaderOnResponse)
         {
             switch (httpTypeHeaderOnResponse)
             {
@@ -97,7 +104,8 @@
                 case HttpTypeHeaderOnResponse.OnServerError: return HttpApiHeaderResponseOnTypes.OnServerError;
 
                 default:
-                    throw new InvalidEnumArgumentException(nameof(httpTypeHeaderOnResponse), (int)httpTypeHeaderOnResponse, typeof(HttpTypeHeaderOnResponse));
+                    throw new InvalidEnumArgumentException(nameof(httpTypeHeaderOnResponse),
+                        (int)httpTypeHeaderOnResponse, typeof(HttpTypeHeaderOnResponse));
             }
         }
     }

@@ -1,14 +1,58 @@
-﻿using ApiStudioIO.VsOptions.ConfigurationV1;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using ApiStudioIO.VsOptions.ConfigurationV1;
 
 namespace ApiStudioIO.VsOptions.HttpResponseCodes
 {
     public class HttpHeader
     {
-        public enum HttpDefaultGetEnum
+        public enum HttpDefaultDeleteEnum
         {
             OK = 200,
+            Accepted = 202,
+            NoContent = 204
         }
+
+        public enum HttpDefaultGetEnum
+        {
+            OK = 200
+        }
+
+        public enum HttpDefaultHeadEnum
+        {
+            OK = 200
+        }
+
+        public enum HttpDefaultOptionsEnum
+        {
+            NoContent = 204
+        }
+
+        public enum HttpDefaultPatchEnum
+        {
+            OK = 200,
+            Created = 201,
+            Accepted = 202,
+            NoContent = 204
+        }
+
+        public enum HttpDefaultPostEnum
+        {
+            Created = 201
+        }
+
+        public enum HttpDefaultPutEnum
+        {
+            OK = 200,
+            Created = 201,
+            Accepted = 202,
+            NoContent = 204
+        }
+
+        public enum HttpDefaultTraceEnum
+        {
+            OK = 200
+        }
+
         [Category("Success Response Codes")]
         [DisplayName("GET")]
         [Description("Defaults success response code for HTTP GET method.")]
@@ -20,13 +64,6 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
             set => ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessGet = (int)value;
         }
 
-        public enum HttpDefaultPutEnum
-        {
-            OK = 200,
-            Created = 201,
-            Accepted = 202,
-            NoContent = 204
-        }
         [Category("Success Response Codes")]
         [DisplayName("PUT")]
         [Description("Defaults success response code for HTTP PUT method.")]
@@ -38,10 +75,6 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
             set => ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPut = (int)value;
         }
 
-        public enum HttpDefaultPostEnum
-        {
-            Created = 201,
-        }
         [Category("Success Response Codes")]
         [DisplayName("POST")]
         [Description("Defaults success response code for HTTP POST method.")]
@@ -53,12 +86,6 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
             set => ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPost = (int)value;
         }
 
-        public enum HttpDefaultDeleteEnum
-        {
-            OK = 200,
-            Accepted = 202,
-            NoContent = 204
-        }
         [Category("Success Response Codes")]
         [DisplayName("DELETE")]
         [Description("Defaults success response code for HTTP DELETE method.")]
@@ -70,13 +97,6 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
             set => ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessDelete = (int)value;
         }
 
-        public enum HttpDefaultPatchEnum
-        {
-            OK = 200,
-            Created = 201,
-            Accepted = 202,
-            NoContent = 204
-        }
         [Category("Success Response Codes")]
         [DisplayName("PATCH")]
         [Description("Defaults success response code for HTTP PATCH method.")]
@@ -88,10 +108,6 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
             set => ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessPatch = (int)value;
         }
 
-        public enum HttpDefaultTraceEnum
-        {
-            OK = 200
-        }
         [Category("Success Response Codes")]
         [DisplayName("TRACE")]
         [Description("Defaults success response code for HTTP TRACE method.")]
@@ -103,10 +119,6 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
             set => ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessTrace = (int)value;
         }
 
-        public enum HttpDefaultHeadEnum
-        {
-            OK = 200
-        }
         [Category("Success Response Codes")]
         [DisplayName("HEAD")]
         [Description("Defaults success response code for HTTP HEAD method.")]
@@ -118,10 +130,6 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
             set => ApiStudioUserSettingsStore.Instance.Data.DefaultResponseCodes.SuccessHead = (int)value;
         }
 
-        public enum HttpDefaultOptionsEnum
-        {
-            NoContent = 204
-        }
         [Category("Success Response Codes")]
         [DisplayName("OPTIONS")]
         [Description("Defaults success response code for HTTP OPTIONS method.")]

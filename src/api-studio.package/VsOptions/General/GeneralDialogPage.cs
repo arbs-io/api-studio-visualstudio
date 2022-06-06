@@ -1,6 +1,6 @@
-﻿using Microsoft.VisualStudio.Shell;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using Microsoft.VisualStudio.Shell;
 
 namespace ApiStudioIO.VsOptions.General
 {
@@ -20,6 +20,4 @@ namespace ApiStudioIO.VsOptions.General
             }
         }
     }
-
-
 }
