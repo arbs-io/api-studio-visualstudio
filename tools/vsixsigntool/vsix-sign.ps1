@@ -35,6 +35,7 @@ OpenVsixSignTool sign --sha1 1b2c3f93680cb70e928e7e2292aa9a1741d0df98 --timestam
 $vsixHash = [PSCustomObject]@{}
 
 Add-NoteProperty -InputObject $vsixHash -Property "signing.vsix" -Value "api-studio.package.vsix"
+Add-NoteProperty -InputObject $vsixHash -Property "signing.version" -Value "manual-verification"
 Add-NoteProperty -InputObject $vsixHash -Property "signing.timestamp" -Value (Get-Date -Format o | ForEach-Object { $_ -replace ":", "." })
 Add-NoteProperty -InputObject $vsixHash -Property "hash.sha1" -Value (Get-FileHash $vsix -Algorithm SHA1).Hash
 Add-NoteProperty -InputObject $vsixHash -Property "hash.sha256" -Value (Get-FileHash $vsix -Algorithm SHA256).Hash

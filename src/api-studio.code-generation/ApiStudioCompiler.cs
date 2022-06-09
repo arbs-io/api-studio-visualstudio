@@ -91,10 +91,12 @@ namespace ApiStudioIO.CodeGeneration
                 var directoryInfo = new FileInfo(apiStudioFilePath).Directory;
                 if (directoryInfo != null)
                 {
+                    // Only check for existing ApiStudio related file for the current model.
+                    var modelName = Path.GetFileNameWithoutExtension(apiStudioFilePath);
                     var sourceDirectory = directoryInfo.FullName;
                     var ext = new List<string> { "cs" };
                     var existingFiles = Directory
-                        .EnumerateFiles(sourceDirectory, "*.*", SearchOption.AllDirectories)
+                        .EnumerateFiles(sourceDirectory, $"{modelName}*.*", SearchOption.AllDirectories)
                         .Where(s => ext.Contains(Path.GetExtension(s).TrimStart('.').ToLowerInvariant()))
                         .ToList();
 
