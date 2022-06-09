@@ -40,7 +40,7 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
                 .Replace("{{TOKEN_OAS_CONTACT_NAME}}", eai?.ContactName);
 
             sourceList.Add(
-                new SourceCodeEntity($"{modelName}.OpenApiConfigurationOptions.cs", output, true));
+                new SourceCodeEntity("ApiStudio.OpenApiConfigurationOptions.cs", output, true));
 
             return sourceList;
         }
