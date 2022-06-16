@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using ApiStudioIO.CodeGeneration.Extensions;
 using ApiStudioIO.CodeGeneration.Models;
 using ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1;
@@ -20,26 +21,20 @@ namespace ApiStudioIO.CodeGeneration
         {
             var apiStudio = ApiStudioExtensions.LoadDiagram(apiStudioFilePath);
 
+            var file = new FileInfo(apiStudioFilePath);
+            var modelName = file.Name.Replace(".ApiStudio", "");
+            var sourceCodeEntities = CodeBuilder.Build(apiStudio, modelName);
+
             var codeGeneration = new CodeGenerationModel
             {
                 SdkInformationSegment = new SdkInformationModel
                 {
                     UtcTimestamp = DateTime.UtcNow,
-                    Version = "1.0.0"
+                    Version = Assembly.GetExecutingAssembly().GetName().Version.ToString()
                 },
-                TargetInformationSegment = new TargetInformationModel
-                {
-                    Host = "AzureFunction",
-                    Language = "csharp",
-                    Framework = "net6.0"
-                }
+                BuildTarget = GetBuildTarget(file)
             };
-
-            var file = new FileInfo(apiStudioFilePath);
-            var modelName = file.Name.Replace(".ApiStudio", "");
-
-            var sourceCodeEntities = CodeBuilder.Build(apiStudio, modelName);
-
+            
             foreach (var sourceCodeEntity in sourceCodeEntities)
             {
                 codeGeneration.ResourcesInfoSegment.Add(new ResourcesInformationModel
@@ -63,6 +58,29 @@ namespace ApiStudioIO.CodeGeneration
             RemoveMissingItems(dte, apiStudioFilePath, codeGeneration);
 
             return JsonConvert.SerializeObject(codeGeneration, Formatting.Indented);
+        }
+
+
+        private static BuildTargetModel GetBuildTarget(FileInfo fileInfo)
+        {
+            var buildTargetFile = $"{fileInfo.Directory}\\build_target.json";
+            if (File.Exists(buildTargetFile))
+            {
+                var buildTarget = File.ReadAllText(buildTargetFile);
+                return JsonConvert.DeserializeObject<BuildTargetModel>(buildTarget);
+            }
+            else  // If "build_target.json" doesn't exist then default to AzFunc (original project template, without config)
+            {
+                var buildTargetModel = new BuildTargetModel
+                {
+                    AzureFunctionsVersion = "v4",
+                    Language = "csharp",
+                    TargetFramework = "net6.0"
+                };
+                var json = JsonConvert.SerializeObject(buildTargetModel, Formatting.Indented);
+                File.WriteAllText(buildTargetFile, json);
+                return buildTargetModel;
+            }
         }
 
         private static void RemoveMissingItems(DTE dte, string apiStudioFilePath, CodeGenerationModel codeGeneration)

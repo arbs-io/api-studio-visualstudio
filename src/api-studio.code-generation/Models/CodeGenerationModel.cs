@@ -10,7 +10,7 @@ namespace ApiStudioIO.CodeGeneration.Models
     {
         [JsonProperty("sdk")] public SdkInformationModel SdkInformationSegment { get; set; }
 
-        [JsonProperty("target")] public TargetInformationModel TargetInformationSegment { get; set; }
+        [JsonProperty("build_target")] public BuildTargetModel BuildTarget { get; set; }
 
         [JsonProperty("resources")]
         public List<ResourcesInformationModel> ResourcesInfoSegment { get; set; } =

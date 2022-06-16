@@ -10,13 +10,27 @@ namespace ApiStudioIO.CodeGeneration.VisualStudio
     {
         internal static void AddNestedFile(DTE dte, string sourceFile, string dependentUponFile)
         {
-            ProjectItem sourceProjectItem = dte.Solution.FindProjectItem(sourceFile)
+            //TODO: nested object is not found for nesting designer class... Plus Generic debug DTE output for analytics
+            try
+            {
+                ProjectItem sourceProjectItem = dte.Solution.FindProjectItem(sourceFile)
                                             ?? throw new ArgumentNullException(nameof(sourceProjectItem));
 
-            var dependentUponProjectItem = sourceProjectItem.ProjectItems.AddFromFile(dependentUponFile);
+                var dependentUponProjectItem = sourceProjectItem.ProjectItems.AddFromFile(dependentUponFile);
 
-            SetDependentUpon(dependentUponProjectItem, sourceProjectItem.Name);
-            SetBuildAction(dependentUponProjectItem);
+                SetDependentUpon(dependentUponProjectItem, sourceProjectItem.Name);
+                SetBuildAction(dependentUponProjectItem);
+            }
+            catch (Exception e)
+            {
+                Window window = dte.Windows.Item(Constants.vsWindowKindOutput);
+                OutputWindow outputWindow = (OutputWindow)window.Object;
+                OutputWindowPane owp;
+                owp = outputWindow.OutputWindowPanes.Add("Api Studio Log");
+                owp.OutputString(e.ToString());
+                outputWindow.OutputWindowPanes.Add(e.ToString());
+                //throw;
+            }            
         }
 
         internal static void DeleteFile(DTE dte, string projectFile)
