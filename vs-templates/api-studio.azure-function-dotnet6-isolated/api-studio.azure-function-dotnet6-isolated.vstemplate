@@ -3,7 +3,7 @@
     <Name>Azure Functions (Api Studio)</Name>
     <Description>A template to create an Azure Function project with ApiStudio designer</Description>
     <ProjectType>CSharp</ProjectType>
-    <ProjectSubType>ApiStudio</ProjectSubType>
+    <ProjectSubType>Api Studio</ProjectSubType>
     <SortOrder>5000</SortOrder>
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>FunctionApp</DefaultName>
@@ -14,7 +14,7 @@
     <Icon>api-studio.azure-function-dotnet6-isolated.ico</Icon>
     <PreviewImage>api-studio.azure-function-dotnet6-isolated.ico</PreviewImage>
     <LanguageTag>C#</LanguageTag>
-    <ProjectTypeTag>ApiStudio</ProjectTypeTag>
+    <ProjectTypeTag>Api Studio</ProjectTypeTag>
     <ProjectTypeTag>Azure</ProjectTypeTag>
     <ProjectTypeTag>Cloud</ProjectTypeTag>
   </TemplateData>

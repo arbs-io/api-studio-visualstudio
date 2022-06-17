@@ -3,6 +3,8 @@
 
 using System;
 using EnvDTE;
+using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.Shell.Interop;
 
 namespace ApiStudioIO.CodeGeneration.VisualStudio
 {
@@ -10,7 +12,8 @@ namespace ApiStudioIO.CodeGeneration.VisualStudio
     {
         internal static void AddNestedFile(DTE dte, string sourceFile, string dependentUponFile)
         {
-            //TODO: nested object is not found for nesting designer class... Plus Generic debug DTE output for analytics
+            // nested object is not found for nesting designer class, already nested...
+            // Plus Generic debug DTE output for analytics
             try
             {
                 ProjectItem sourceProjectItem = dte.Solution.FindProjectItem(sourceFile)
@@ -23,13 +26,7 @@ namespace ApiStudioIO.CodeGeneration.VisualStudio
             }
             catch (Exception e)
             {
-                Window window = dte.Windows.Item(Constants.vsWindowKindOutput);
-                OutputWindow outputWindow = (OutputWindow)window.Object;
-                OutputWindowPane owp;
-                owp = outputWindow.OutputWindowPanes.Add("Api Studio Log");
-                owp.OutputString(e.ToString());
-                outputWindow.OutputWindowPanes.Add(e.ToString());
-                //throw;
+                VisualStudioDebug.PrintVsOutput(dte,$"AddNestedFile: {e.ToString()}");
             }            
         }
 
