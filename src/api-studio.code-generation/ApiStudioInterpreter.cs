@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 
 namespace ApiStudioIO.CodeGeneration
 {
-    public static class ApiStudioCompiler
+    public static class ApiStudioInterpreter 
     {
         public static string Run(DTE dte, string apiStudioFilePath)
         {
