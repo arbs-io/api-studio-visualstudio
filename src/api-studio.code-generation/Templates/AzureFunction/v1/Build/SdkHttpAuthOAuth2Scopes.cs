@@ -33,6 +33,8 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
                     .Replace("{{TOKEN_OAS_SCOPES}}", scopes);
                 sourceList.Add(new SourceCodeEntity($"{namespaceHelper.Solution}.OAuth2.Scopes.cs", sourceCode, true,
                     $"{namespaceHelper.Solution}.OAuth2.cs"));
+
+                VisualStudioDebug.Instance.PrintVsOutput($"[SdkHttpAuthOAuth2Scopes]: OAuth2/OpenIdConnect");
             }
 
             return sourceList;

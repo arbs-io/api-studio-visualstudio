@@ -72,6 +72,9 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
                 .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_SERVERERROR}}",
                     BuildHttpTriggerResponseHeader(HttpApiHeaderResponseOnTypes.OnServerError, "OnServerError",
                         httpApi));
+
+            VisualStudioDebug.Instance.PrintVsOutput($"[SdkHttpTriggerDesigner]: {namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger.Designer");
+
             return new SourceCodeEntity($"{namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger.Designer.cs",
                 httpTriggerDesignerSourceCode, true, $"{modelName}-{httpApi.DisplayName}.HttpTrigger.cs");
         }

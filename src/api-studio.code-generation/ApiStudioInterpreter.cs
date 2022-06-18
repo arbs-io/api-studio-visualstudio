@@ -19,6 +19,8 @@ namespace ApiStudioIO.CodeGeneration
     {
         public static string Run(DTE dte, string apiStudioFilePath)
         {
+            VisualStudioDebug.SetDevelopmentToolsEnvironment(dte);  // Setup vs-debug output
+
             var apiStudio = ApiStudioExtensions.LoadDiagram(apiStudioFilePath);
 
             var file = new FileInfo(apiStudioFilePath);
