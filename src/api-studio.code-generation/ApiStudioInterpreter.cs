@@ -1,29 +1,11 @@
-﻿// The MIT License (MIT)
-//
-// Copyright (c) 2022 Andrew Butson
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+﻿// Copyright (c) Andrew Butson.
+// Licensed under the MIT License.
 
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using ApiStudioIO.CodeGeneration.Extensions;
 using ApiStudioIO.CodeGeneration.Models;
 using ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1;
@@ -33,32 +15,28 @@ using Newtonsoft.Json;
 
 namespace ApiStudioIO.CodeGeneration
 {
-    public static class ApiStudioCompiler
+    public static class ApiStudioInterpreter 
     {
         public static string Run(DTE dte, string apiStudioFilePath)
         {
+            VisualStudioDebug.SetDevelopmentToolsEnvironment(dte);  // Setup vs-debug output
+
             var apiStudio = ApiStudioExtensions.LoadDiagram(apiStudioFilePath);
+
+            var file = new FileInfo(apiStudioFilePath);
+            var modelName = file.Name.Replace(".ApiStudio", "");
+            var sourceCodeEntities = CodeBuilder.Build(apiStudio, modelName);
 
             var codeGeneration = new CodeGenerationModel
             {
                 SdkInformationSegment = new SdkInformationModel
                 {
                     UtcTimestamp = DateTime.UtcNow,
-                    Version = "1.0.0"
+                    Version = Assembly.GetExecutingAssembly().GetName().Version.ToString()
                 },
-                TargetInformationSegment = new TargetInformationModel
-                {
-                    Host = "AzureFunction",
-                    Language = "csharp",
-                    Framework = "net6.0"
-                }
+                BuildTarget = GetBuildTarget(file)
             };
-
-            var file = new FileInfo(apiStudioFilePath);
-            var modelName = file.Name.Replace(".ApiStudio", "");
-
-            var sourceCodeEntities = CodeBuilder.Build(apiStudio, modelName);
-
+            
             foreach (var sourceCodeEntity in sourceCodeEntities)
             {
                 codeGeneration.ResourcesInfoSegment.Add(new ResourcesInformationModel
@@ -82,6 +60,29 @@ namespace ApiStudioIO.CodeGeneration
             RemoveMissingItems(dte, apiStudioFilePath, codeGeneration);
 
             return JsonConvert.SerializeObject(codeGeneration, Formatting.Indented);
+        }
+
+
+        private static BuildTargetModel GetBuildTarget(FileInfo fileInfo)
+        {
+            var buildTargetFile = $"{fileInfo.Directory}\\build_target.json";
+            if (File.Exists(buildTargetFile))
+            {
+                var buildTarget = File.ReadAllText(buildTargetFile);
+                return JsonConvert.DeserializeObject<BuildTargetModel>(buildTarget);
+            }
+            else  // If "build_target.json" doesn't exist then default to AzFunc (original project template, without config)
+            {
+                var buildTargetModel = new BuildTargetModel
+                {
+                    AzureFunctionsVersion = "v4",
+                    Language = "csharp",
+                    TargetFramework = "net6.0"
+                };
+                var json = JsonConvert.SerializeObject(buildTargetModel, Formatting.Indented);
+                File.WriteAllText(buildTargetFile, json);
+                return buildTargetModel;
+            }
         }
 
         private static void RemoveMissingItems(DTE dte, string apiStudioFilePath, CodeGenerationModel codeGeneration)

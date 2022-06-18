@@ -23,6 +23,11 @@
       <Folder Name="ApiStudio" TargetFolderName="ApiStudio">
         <ProjectItem ReplaceParameters="true" TargetFileName="Default.ApiStudio">Default.ApiStudio</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="Default.ApiStudio.diagram">Default.ApiStudio.diagram</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="build_target.json">build_target.json</ProjectItem>
+      </Folder>
+      <Folder Name="Triggers" TargetFolderName="Triggers">
+        <Folder Name="Http" TargetFolderName="Triggers">
+        </Folder>
       </Folder>
       <ProjectItem ReplaceParameters="true" TargetFileName="host.json">host.json</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="local.settings.json">local.settings.json</ProjectItem>

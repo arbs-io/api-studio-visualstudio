@@ -1,27 +1,11 @@
-﻿// The MIT License (MIT)
-//
-// Copyright (c) 2022 Andrew Butson
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+﻿// Copyright (c) Andrew Butson.
+// Licensed under the MIT License.
 
 using System;
+using System.IO;
 using EnvDTE;
+using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.Shell.Interop;
 
 namespace ApiStudioIO.CodeGeneration.VisualStudio
 {
@@ -29,26 +13,55 @@ namespace ApiStudioIO.CodeGeneration.VisualStudio
     {
         internal static void AddNestedFile(DTE dte, string sourceFile, string dependentUponFile)
         {
-            ProjectItem sourceProjectItem = dte.Solution.FindProjectItem(sourceFile)
-                                            ?? throw new ArgumentNullException(nameof(sourceProjectItem));
+            var sourceFileInfo = new FileInfo(sourceFile);
+            var dependentUponFileInfo = new FileInfo(dependentUponFile);
+            // nested object is not found for nesting designer class, already nested...
+            // Plus Generic debug DTE output for analytics
+            try
+            {
+                ProjectItem sourceProjectItem = dte.Solution.FindProjectItem(sourceFile)
+                                                ?? throw new ArgumentNullException(nameof(sourceProjectItem));
+                var dependentUponProjectItem = sourceProjectItem.ProjectItems.AddFromFile(dependentUponFile);
+                VisualStudioDebug.Instance.PrintVsOutput($"[VisualStudioDteManager::AddNestedFile] {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
 
-            var dependentUponProjectItem = sourceProjectItem.ProjectItems.AddFromFile(dependentUponFile);
-
-            SetDependentUpon(dependentUponProjectItem, sourceProjectItem.Name);
-            SetBuildAction(dependentUponProjectItem);
+                SetDependentUpon(dte, dependentUponProjectItem, sourceProjectItem.Name);
+                SetBuildAction(dependentUponProjectItem);
+            }
+            catch (ArgumentNullException)
+            {
+                VisualStudioDebug.Instance.PrintVsOutput($"[VisualStudioDteManager::AddNestedFile] skip {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
+            }
+            catch (Exception e)
+            {
+                VisualStudioDebug.Instance.PrintVsOutput($"[VisualStudioDteManager::AddNestedFile] error {sourceFileInfo.Name} {e.Message}");
+            }            
         }
 
-        internal static void DeleteFile(DTE dte, string projectFile)
+        internal static void DeleteFile(DTE dte, string sourceFile)
         {
-            ProjectItem projectItem = dte.Solution.FindProjectItem(projectFile)
-                                      ?? throw new ArgumentNullException(nameof(projectItem));
-            projectItem.Delete();
+            var sourceFileInfo = new FileInfo(sourceFile);
+            try
+            {
+                ProjectItem projectItem = dte.Solution.FindProjectItem(sourceFile)
+                                          ?? throw new ArgumentNullException(nameof(projectItem));
+                projectItem.Delete();
+                VisualStudioDebug.Instance.PrintVsOutput($"[VisualStudioDteManager::DeleteFile] {sourceFileInfo.Name}");
+            }
+            catch (ArgumentNullException)
+            {
+                VisualStudioDebug.Instance.PrintVsOutput($"[VisualStudioDteManager::DeleteFile] skip {sourceFileInfo.Name}");
+            }
+            catch (Exception e)
+            {
+                VisualStudioDebug.Instance.PrintVsOutput($"[VisualStudioDteManager::DeleteFile] error {e.Message}");
+            }
         }
 
-        private static void SetDependentUpon(ProjectItem dependentUponProjectItem, string sourceProjectItemName)
+        private static void SetDependentUpon(DTE dte, ProjectItem dependentUponProjectItem, string sourceProjectItemName)
         {
             if (dependentUponProjectItem.ContainsProperty("DependentUpon"))
                 dependentUponProjectItem.Properties.Item("DependentUpon").Value = sourceProjectItemName;
+            VisualStudioDebug.Instance.PrintVsOutput($"[VisualStudioDteManager::SetDependentUpon] {sourceProjectItemName}");
         }
 
         private static void SetBuildAction(ProjectItem item)
