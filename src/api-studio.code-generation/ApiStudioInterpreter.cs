@@ -11,16 +11,15 @@ using ApiStudioIO.CodeGeneration.Models;
 using ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1;
 using ApiStudioIO.CodeGeneration.VisualStudio;
 using EnvDTE;
+using Microsoft.VisualStudio.Shell;
 using Newtonsoft.Json;
 
 namespace ApiStudioIO.CodeGeneration
 {
     public static class ApiStudioInterpreter 
     {
-        public static string Run(DTE dte, string apiStudioFilePath)
+        public static string Run(string apiStudioFilePath)
         {
-            VisualStudioDebug.SetDevelopmentToolsEnvironment(dte);  // Setup vs-debug output
-
             var apiStudio = ApiStudioExtensions.LoadDiagram(apiStudioFilePath);
 
             var file = new FileInfo(apiStudioFilePath);
@@ -50,14 +49,14 @@ namespace ApiStudioIO.CodeGeneration
                 if (sourceCodeEntity.AlwaysOverwrite || !File.Exists(sourceCodeEntityFile))
                     File.WriteAllText(sourceCodeEntityFile, sourceCodeEntity.CodeBase);
 
-                VisualStudioDteManager.AddNestedFile(dte, apiStudioFilePath, sourceCodeEntityFile);
+                VisualStudioProjectItem.AddNestedFile(apiStudioFilePath, sourceCodeEntityFile);
 
                 if (!string.IsNullOrEmpty(sourceCodeEntity.NestedFilename))
-                    VisualStudioDteManager.AddNestedFile(dte, sourceCodeEntityFile,
+                    VisualStudioProjectItem.AddNestedFile(sourceCodeEntityFile,
                         $"{file.Directory}\\{sourceCodeEntity.NestedFilename}");
             }
 
-            RemoveMissingItems(dte, apiStudioFilePath, codeGeneration);
+            RemoveMissingItems(apiStudioFilePath, codeGeneration);
 
             return JsonConvert.SerializeObject(codeGeneration, Formatting.Indented);
         }
@@ -85,8 +84,12 @@ namespace ApiStudioIO.CodeGeneration
             }
         }
 
-        private static void RemoveMissingItems(DTE dte, string apiStudioFilePath, CodeGenerationModel codeGeneration)
+        private static void RemoveMissingItems(string apiStudioFilePath, CodeGenerationModel codeGeneration)
         {
+            ThreadHelper.ThrowIfNotOnUIThread();
+            var dte = Package.GetGlobalService(typeof(DTE)) as DTE ??
+                      throw new ArgumentNullException("Package.GetGlobalService", nameof(DTE));
+
             if (File.Exists($"{apiStudioFilePath}.json"))
             {
                 var directoryInfo = new FileInfo(apiStudioFilePath).Directory;
@@ -109,7 +112,7 @@ namespace ApiStudioIO.CodeGeneration
                     existingFiles
                         .Except(sourceFiles)
                         .ToList()
-                        .ForEach(buildStep => VisualStudioDteManager.DeleteFile(dte, $"{buildStep}"));
+                        .ForEach(buildStep => VisualStudioProjectItem.DeleteFile($"{buildStep}"));
                 }
             }
         }

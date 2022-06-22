@@ -5,14 +5,17 @@ using System;
 using System.IO;
 using EnvDTE;
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
 
 namespace ApiStudioIO.CodeGeneration.VisualStudio
 {
-    internal static class VisualStudioDteManager
+    internal static class VisualStudioProjectItem
     {
-        internal static void AddNestedFile(DTE dte, string sourceFile, string dependentUponFile)
+        internal static void AddNestedFile(string sourceFile, string dependentUponFile)
         {
+            ThreadHelper.ThrowIfNotOnUIThread();
+            var dte = Package.GetGlobalService(typeof(DTE)) as DTE ??
+                      throw new ArgumentNullException("Package.GetGlobalService", nameof(DTE));
+
             var sourceFileInfo = new FileInfo(sourceFile);
             var dependentUponFileInfo = new FileInfo(dependentUponFile);
             // nested object is not found for nesting designer class, already nested...
@@ -22,46 +25,54 @@ namespace ApiStudioIO.CodeGeneration.VisualStudio
                 ProjectItem sourceProjectItem = dte.Solution.FindProjectItem(sourceFile)
                                                 ?? throw new ArgumentNullException(nameof(sourceProjectItem));
                 var dependentUponProjectItem = sourceProjectItem.ProjectItems.AddFromFile(dependentUponFile);
-                VisualStudioDebug.Instance.PrintVsOutput($"[VisualStudioDteManager::AddNestedFile] {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
+                VisualStudioDebug.Print($"[VisualStudioDteManager::AddNestedFile] {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
 
-                SetDependentUpon(dte, dependentUponProjectItem, sourceProjectItem.Name);
+                SetDependentUpon(dependentUponProjectItem, sourceProjectItem.Name);
                 SetBuildAction(dependentUponProjectItem);
             }
             catch (ArgumentNullException)
             {
-                VisualStudioDebug.Instance.PrintVsOutput($"[VisualStudioDteManager::AddNestedFile] skip {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
+                VisualStudioDebug.Print($"[VisualStudioDteManager::AddNestedFile] skip {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
             }
             catch (Exception e)
             {
-                VisualStudioDebug.Instance.PrintVsOutput($"[VisualStudioDteManager::AddNestedFile] error {sourceFileInfo.Name} {e.Message}");
+                VisualStudioDebug.Print($"[VisualStudioDteManager::AddNestedFile] error {sourceFileInfo.Name} {e.Message}");
             }            
         }
 
-        internal static void DeleteFile(DTE dte, string sourceFile)
+        internal static void DeleteFile(string sourceFile)
         {
+            ThreadHelper.ThrowIfNotOnUIThread();
+            var dte = Package.GetGlobalService(typeof(DTE)) as DTE ??
+                      throw new ArgumentNullException("Package.GetGlobalService", nameof(DTE));
+
             var sourceFileInfo = new FileInfo(sourceFile);
             try
             {
                 ProjectItem projectItem = dte.Solution.FindProjectItem(sourceFile)
                                           ?? throw new ArgumentNullException(nameof(projectItem));
                 projectItem.Delete();
-                VisualStudioDebug.Instance.PrintVsOutput($"[VisualStudioDteManager::DeleteFile] {sourceFileInfo.Name}");
+                VisualStudioDebug.Print($"[VisualStudioDteManager::DeleteFile] {sourceFileInfo.Name}");
             }
             catch (ArgumentNullException)
             {
-                VisualStudioDebug.Instance.PrintVsOutput($"[VisualStudioDteManager::DeleteFile] skip {sourceFileInfo.Name}");
+                VisualStudioDebug.Print($"[VisualStudioDteManager::DeleteFile] skip {sourceFileInfo.Name}");
             }
             catch (Exception e)
             {
-                VisualStudioDebug.Instance.PrintVsOutput($"[VisualStudioDteManager::DeleteFile] error {e.Message}");
+                VisualStudioDebug.Print($"[VisualStudioDteManager::DeleteFile] error {e.Message}");
             }
         }
 
-        private static void SetDependentUpon(DTE dte, ProjectItem dependentUponProjectItem, string sourceProjectItemName)
+        private static void SetDependentUpon(ProjectItem dependentUponProjectItem, string sourceProjectItemName)
         {
+            ThreadHelper.ThrowIfNotOnUIThread();
+            var dte = Package.GetGlobalService(typeof(DTE)) as DTE ??
+                      throw new ArgumentNullException("Package.GetGlobalService", nameof(DTE));
+
             if (dependentUponProjectItem.ContainsProperty("DependentUpon"))
                 dependentUponProjectItem.Properties.Item("DependentUpon").Value = sourceProjectItemName;
-            VisualStudioDebug.Instance.PrintVsOutput($"[VisualStudioDteManager::SetDependentUpon] {sourceProjectItemName}");
+            VisualStudioDebug.Print($"[VisualStudioDteManager::SetDependentUpon] {sourceProjectItemName}");
         }
 
         private static void SetBuildAction(ProjectItem item)

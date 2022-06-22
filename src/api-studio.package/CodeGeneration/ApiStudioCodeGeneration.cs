@@ -30,7 +30,7 @@ namespace ApiStudioIO
         {
             _ = inputFileName ?? throw new System.ArgumentException($"'{nameof(inputFileName)}' cannot be null or whitespace.", nameof(inputFileName));
 
-            var buildInfo = ApiStudioInterpreter.Run(Dte, inputFileName);
+            var buildInfo = ApiStudioInterpreter.Run(inputFileName);
             return Encoding.ASCII.GetBytes(buildInfo);
         }
     }
