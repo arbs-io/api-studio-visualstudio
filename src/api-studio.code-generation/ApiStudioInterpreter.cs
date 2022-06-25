@@ -9,9 +9,7 @@ using System.Reflection;
 using ApiStudioIO.CodeGeneration.Extensions;
 using ApiStudioIO.CodeGeneration.Models;
 using ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1;
-using ApiStudioIO.CodeGeneration.VisualStudio;
-using EnvDTE;
-using Microsoft.VisualStudio.Shell;
+using ApiStudioIO.VsDte.VisualStudio;
 using Newtonsoft.Json;
 
 namespace ApiStudioIO.CodeGeneration
@@ -64,32 +62,30 @@ namespace ApiStudioIO.CodeGeneration
 
         private static BuildTargetModel GetBuildTarget(FileInfo fileInfo)
         {
+            var buildTargetModel = new BuildTargetModel
+            {
+                AzureFunctionsVersion = "v4",
+                Language = "csharp",
+                TargetFramework = "net6.0"
+            };
+
             var buildTargetFile = $"{fileInfo.Directory}\\build_target.json";
             if (File.Exists(buildTargetFile))
             {
                 var buildTarget = File.ReadAllText(buildTargetFile);
-                return JsonConvert.DeserializeObject<BuildTargetModel>(buildTarget);
+                buildTargetModel = JsonConvert.DeserializeObject<BuildTargetModel>(buildTarget);
             }
             else  // If "build_target.json" doesn't exist then default to AzFunc (original project template, without config)
             {
-                var buildTargetModel = new BuildTargetModel
-                {
-                    AzureFunctionsVersion = "v4",
-                    Language = "csharp",
-                    TargetFramework = "net6.0"
-                };
                 var json = JsonConvert.SerializeObject(buildTargetModel, Formatting.Indented);
                 File.WriteAllText(buildTargetFile, json);
-                return buildTargetModel;
             }
+            VisualStudioDebug.OutputString($"[BuildTarget]: TargetFramework=={buildTargetModel?.TargetFramework} Language=={buildTargetModel?.Language} AzureFunctionsVersion=={buildTargetModel?.AzureFunctionsVersion}");
+            return buildTargetModel;
         }
 
         private static void RemoveMissingItems(string apiStudioFilePath, CodeGenerationModel codeGeneration)
         {
-            ThreadHelper.ThrowIfNotOnUIThread();
-            var dte = Package.GetGlobalService(typeof(DTE)) as DTE ??
-                      throw new ArgumentNullException("Package.GetGlobalService", nameof(DTE));
-
             if (File.Exists($"{apiStudioFilePath}.json"))
             {
                 var directoryInfo = new FileInfo(apiStudioFilePath).Directory;

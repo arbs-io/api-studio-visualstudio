@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-studio.utility", "api-s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-studio.vsoptions", "api-studio.vsoptions\api-studio.vsoptions.csproj", "{3251A8E1-EC99-45D0-AB6C-A32A0F705CB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api-studio.common", "api-studio.common\api-studio.common.csproj", "{46D39996-178F-4FDA-9D04-45BBCE25F0F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-studio.common", "api-studio.common\api-studio.common.csproj", "{46D39996-178F-4FDA-9D04-45BBCE25F0F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-studio.vsdte", "api-studio.vsdte\api-studio.vsdte.csproj", "{F14065CE-EECC-4F92-A387-268DC64DF951}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,14 @@ Global
 		{46D39996-178F-4FDA-9D04-45BBCE25F0F6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{46D39996-178F-4FDA-9D04-45BBCE25F0F6}.Release|x86.ActiveCfg = Release|Any CPU
 		{46D39996-178F-4FDA-9D04-45BBCE25F0F6}.Release|x86.Build.0 = Release|Any CPU
+		{F14065CE-EECC-4F92-A387-268DC64DF951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F14065CE-EECC-4F92-A387-268DC64DF951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F14065CE-EECC-4F92-A387-268DC64DF951}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F14065CE-EECC-4F92-A387-268DC64DF951}.Debug|x86.Build.0 = Debug|Any CPU
+		{F14065CE-EECC-4F92-A387-268DC64DF951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F14065CE-EECC-4F92-A387-268DC64DF951}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F14065CE-EECC-4F92-A387-268DC64DF951}.Release|x86.ActiveCfg = Release|Any CPU
+		{F14065CE-EECC-4F92-A387-268DC64DF951}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

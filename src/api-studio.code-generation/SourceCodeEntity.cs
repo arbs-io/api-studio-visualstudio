@@ -4,7 +4,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace ApiStudioIO.CodeGeneration.VisualStudio
+namespace ApiStudioIO.CodeGeneration
 {
     public class SourceCodeEntity
     {

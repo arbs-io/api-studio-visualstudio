@@ -7,9 +7,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Net;
 using System.Text;
-using ApiStudioIO.CodeGeneration.VisualStudio;
 using ApiStudioIO.Common.Models.Http;
 using ApiStudioIO.Utility.Extensions;
+using ApiStudioIO.VsDte.VisualStudio;
 using ApiStudioIO.VsOptions.ConfigurationV1;
 
 namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
@@ -73,7 +73,7 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
                     BuildHttpTriggerResponseHeader(HttpApiHeaderResponseOnTypes.OnServerError, "OnServerError",
                         httpApi));
 
-            VisualStudioDebug.Print($"[SdkHttpTriggerDesigner]: {namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger.Designer");
+            VisualStudioDebug.OutputString($"[SdkHttpTriggerDesigner]: {namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger.Designer");
 
             return new SourceCodeEntity($"{namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger.Designer.cs",
                 httpTriggerDesignerSourceCode, true, $"{modelName}-{httpApi.DisplayName}.HttpTrigger.cs");

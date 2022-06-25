@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 using ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build;
-using ApiStudioIO.CodeGeneration.VisualStudio;
+using ApiStudioIO.VsDte.VisualStudio;
 
 namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1
 {
@@ -13,22 +13,22 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1
         {
             var sourceList = new List<SourceCodeEntity>();
 
-            VisualStudioDebug.Print($"[CodeBuilder::Build]: SdkOpenApiConfigurationOptions");
+            VisualStudioDebug.OutputString($"[CodeBuilder::Build]: SdkOpenApiConfigurationOptions");
             sourceList.AddRange(SdkOpenApiConfigurationOptions.Build(apiStudio, modelName));
 
-            VisualStudioDebug.Print($"[CodeBuilder::Build]: SdkHttpTrigger");
+            VisualStudioDebug.OutputString($"[CodeBuilder::Build]: SdkHttpTrigger");
             sourceList.AddRange(SdkHttpTrigger.Build(apiStudio, modelName));
 
-            VisualStudioDebug.Print($"[CodeBuilder::Build]: SdkHttpTriggerDesigner");
+            VisualStudioDebug.OutputString($"[CodeBuilder::Build]: SdkHttpTriggerDesigner");
             sourceList.AddRange(SdkHttpTriggerDesigner.Build(apiStudio, modelName));
 
-            VisualStudioDebug.Print($"[CodeBuilder::Build]: SdkModel");
+            VisualStudioDebug.OutputString($"[CodeBuilder::Build]: SdkModel");
             sourceList.AddRange(SdkModel.Build(apiStudio, modelName));
 
-            VisualStudioDebug.Print($"[CodeBuilder::Build]: SdkHttpAuthOAuth2");
+            VisualStudioDebug.OutputString($"[CodeBuilder::Build]: SdkHttpAuthOAuth2");
             sourceList.AddRange(SdkHttpAuthOAuth2.Build(apiStudio, modelName));
 
-            VisualStudioDebug.Print($"[CodeBuilder::Build]: SdkHttpAuthOAuth2Scopes");
+            VisualStudioDebug.OutputString($"[CodeBuilder::Build]: SdkHttpAuthOAuth2Scopes");
             sourceList.AddRange(SdkHttpAuthOAuth2Scopes.Build(apiStudio, modelName));
 
             return sourceList;

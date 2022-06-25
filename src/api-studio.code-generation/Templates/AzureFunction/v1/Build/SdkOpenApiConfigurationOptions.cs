@@ -2,7 +2,7 @@
 // Licensed under the MIT License.
 
 using System.Collections.Generic;
-using ApiStudioIO.CodeGeneration.VisualStudio;
+using ApiStudioIO.VsDte.VisualStudio;
 
 namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
 {
@@ -23,7 +23,7 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
             sourceList.Add(
                 new SourceCodeEntity("ApiStudio.OpenApiConfigurationOptions.cs", output, true));
             
-            VisualStudioDebug.Print($"[SdkOpenApiConfigurationOptions::Build]: {eai?.Title}");
+            VisualStudioDebug.OutputString($"[SdkOpenApiConfigurationOptions::Build]: {eai?.Title}");
 
             return sourceList;
         }

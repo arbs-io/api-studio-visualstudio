@@ -6,11 +6,11 @@ using System.IO;
 using EnvDTE;
 using Microsoft.VisualStudio.Shell;
 
-namespace ApiStudioIO.CodeGeneration.VisualStudio
+namespace ApiStudioIO.VsDte.VisualStudio
 {
-    internal static class VisualStudioProjectItem
+    public static class VisualStudioProjectItem
     {
-        internal static void AddNestedFile(string sourceFile, string dependentUponFile)
+        public static void AddNestedFile(string sourceFile, string dependentUponFile)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             var dte = Package.GetGlobalService(typeof(DTE)) as DTE ??
@@ -25,22 +25,23 @@ namespace ApiStudioIO.CodeGeneration.VisualStudio
                 ProjectItem sourceProjectItem = dte.Solution.FindProjectItem(sourceFile)
                                                 ?? throw new ArgumentNullException(nameof(sourceProjectItem));
                 var dependentUponProjectItem = sourceProjectItem.ProjectItems.AddFromFile(dependentUponFile);
-                VisualStudioDebug.Print($"[VisualStudioDteManager::AddNestedFile] {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
+                VisualStudioDebug.OutputString($"[VisualStudioDteManager::AddNestedFile] {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
 
                 SetDependentUpon(dependentUponProjectItem, sourceProjectItem.Name);
                 SetBuildAction(dependentUponProjectItem);
             }
             catch (ArgumentNullException)
             {
-                VisualStudioDebug.Print($"[VisualStudioDteManager::AddNestedFile] skip {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
+                // Note SDK style projects will auto-nest using naming convention
+                //VisualStudioDebug.OutputString($"[VisualStudioDteManager::AddNestedFile] skip {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
             }
             catch (Exception e)
             {
-                VisualStudioDebug.Print($"[VisualStudioDteManager::AddNestedFile] error {sourceFileInfo.Name} {e.Message}");
+                VisualStudioDebug.OutputString($"[VisualStudioDteManager::AddNestedFile] error {sourceFileInfo.Name} {e.Message}");
             }            
         }
 
-        internal static void DeleteFile(string sourceFile)
+        public static void DeleteFile(string sourceFile)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             var dte = Package.GetGlobalService(typeof(DTE)) as DTE ??
@@ -52,19 +53,19 @@ namespace ApiStudioIO.CodeGeneration.VisualStudio
                 ProjectItem projectItem = dte.Solution.FindProjectItem(sourceFile)
                                           ?? throw new ArgumentNullException(nameof(projectItem));
                 projectItem.Delete();
-                VisualStudioDebug.Print($"[VisualStudioDteManager::DeleteFile] {sourceFileInfo.Name}");
+                VisualStudioDebug.OutputString($"[VisualStudioDteManager::DeleteFile] {sourceFileInfo.Name}");
             }
             catch (ArgumentNullException)
             {
-                VisualStudioDebug.Print($"[VisualStudioDteManager::DeleteFile] skip {sourceFileInfo.Name}");
+                VisualStudioDebug.OutputString($"[VisualStudioDteManager::DeleteFile] skip {sourceFileInfo.Name}");
             }
             catch (Exception e)
             {
-                VisualStudioDebug.Print($"[VisualStudioDteManager::DeleteFile] error {e.Message}");
+                VisualStudioDebug.OutputString($"[VisualStudioDteManager::DeleteFile] error {e.Message}");
             }
         }
 
-        private static void SetDependentUpon(ProjectItem dependentUponProjectItem, string sourceProjectItemName)
+        public static void SetDependentUpon(ProjectItem dependentUponProjectItem, string sourceProjectItemName)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             var dte = Package.GetGlobalService(typeof(DTE)) as DTE ??
@@ -72,15 +73,15 @@ namespace ApiStudioIO.CodeGeneration.VisualStudio
 
             if (dependentUponProjectItem.ContainsProperty("DependentUpon"))
                 dependentUponProjectItem.Properties.Item("DependentUpon").Value = sourceProjectItemName;
-            VisualStudioDebug.Print($"[VisualStudioDteManager::SetDependentUpon] {sourceProjectItemName}");
+            VisualStudioDebug.OutputString($"[VisualStudioDteManager::SetDependentUpon] {sourceProjectItemName}");
         }
 
-        private static void SetBuildAction(ProjectItem item)
+        public static void SetBuildAction(ProjectItem item)
         {
             if (item.ContainsProperty("BuildAction")) item.Properties.Item("BuildAction").Value = 0; //Set to "None"
         }
 
-        private static bool ContainsProperty(this ProjectItem projectItem, string propertyName)
+        public static bool ContainsProperty(this ProjectItem projectItem, string propertyName)
         {
             if (projectItem.Properties != null)
                 foreach (Property item in projectItem.Properties)
