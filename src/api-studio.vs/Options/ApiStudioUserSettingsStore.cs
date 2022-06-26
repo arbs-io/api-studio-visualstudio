@@ -1,13 +1,13 @@
 ﻿// Copyright (c) Andrew Butson.
 // Licensed under the MIT License.
 
-using ApiStudioIO.VsOptions.ConfigurationV1.Models;
+using ApiStudioIO.Vs.Options.Models;
 using Microsoft.VisualStudio.Settings;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Settings;
 using Newtonsoft.Json;
 
-namespace ApiStudioIO.VsOptions.ConfigurationV1
+namespace ApiStudioIO.Vs.Options
 {
     public sealed class ApiStudioUserSettingsStore
     {

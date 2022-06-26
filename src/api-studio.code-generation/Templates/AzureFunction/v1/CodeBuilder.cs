@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 using ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build;
-using ApiStudioIO.VsDte.VisualStudio;
+using ApiStudioIO.Vs.VisualStudio;
 
 namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1
 {

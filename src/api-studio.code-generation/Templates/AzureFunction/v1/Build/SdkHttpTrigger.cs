@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using ApiStudioIO.Utility.Extensions;
-using ApiStudioIO.VsDte.VisualStudio;
+using ApiStudioIO.Vs.VisualStudio;
 
 namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
 {

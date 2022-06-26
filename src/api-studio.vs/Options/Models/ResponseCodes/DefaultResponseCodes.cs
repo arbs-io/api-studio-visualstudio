@@ -4,7 +4,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace ApiStudioIO.VsOptions.ConfigurationV1.Models.ResponseCodes
+namespace ApiStudioIO.Vs.Options.Models.ResponseCodes
 {
     public sealed class DefaultResponseCodes
     {

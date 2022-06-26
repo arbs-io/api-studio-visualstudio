@@ -4,7 +4,7 @@
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using ApiStudioIO.VsOptions.ConfigurationV1;
+using ApiStudioIO.Vs.Options;
 using Microsoft.VisualStudio.Shell;
 
 namespace ApiStudioIO.VsOptions.HttpResponseCodes

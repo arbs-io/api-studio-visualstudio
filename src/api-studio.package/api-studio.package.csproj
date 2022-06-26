@@ -271,9 +271,9 @@
       <Project>{6eddc00d-e89e-49e3-a127-9d8e44d3d2f2}</Project>
       <Name>api-studio.utility</Name>
     </ProjectReference>
-    <ProjectReference Include="..\api-studio.vsoptions\api-studio.vsoptions.csproj">
+    <ProjectReference Include="..\api-studio.vs\api-studio.vs.csproj">
       <Project>{3251a8e1-ec99-45d0-ab6c-a32a0f705cb4}</Project>
-      <Name>api-studio.vsoptions</Name>
+      <Name>api-studio.vs</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

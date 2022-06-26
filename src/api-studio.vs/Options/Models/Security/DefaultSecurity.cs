@@ -3,7 +3,7 @@
 
 using Newtonsoft.Json;
 
-namespace ApiStudioIO.VsOptions.ConfigurationV1.Models.Security
+namespace ApiStudioIO.Vs.Options.Models.Security
 {
     public sealed class DefaultSecurity
     {

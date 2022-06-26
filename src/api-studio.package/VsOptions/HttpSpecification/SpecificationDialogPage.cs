@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Drawing.Design;
 using System.Runtime.InteropServices;
-using ApiStudioIO.VsOptions.ConfigurationV1;
+using ApiStudioIO.Vs.Options;
 using Microsoft.VisualStudio.Shell;
 
 namespace ApiStudioIO.VsOptions.HttpSpecification

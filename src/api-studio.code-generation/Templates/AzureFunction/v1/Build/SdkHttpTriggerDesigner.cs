@@ -9,8 +9,8 @@ using System.Net;
 using System.Text;
 using ApiStudioIO.Common.Models.Http;
 using ApiStudioIO.Utility.Extensions;
-using ApiStudioIO.VsDte.VisualStudio;
-using ApiStudioIO.VsOptions.ConfigurationV1;
+using ApiStudioIO.Vs.Options;
+using ApiStudioIO.Vs.VisualStudio;
 
 namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
 {

@@ -9,7 +9,7 @@ using System.Reflection;
 using ApiStudioIO.CodeGeneration.Extensions;
 using ApiStudioIO.CodeGeneration.Models;
 using ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1;
-using ApiStudioIO.VsDte.VisualStudio;
+using ApiStudioIO.Vs.VisualStudio;
 using Newtonsoft.Json;
 
 namespace ApiStudioIO.CodeGeneration

@@ -3,7 +3,7 @@
 
 using Newtonsoft.Json;
 
-namespace ApiStudioIO.VsOptions.ConfigurationV1.Models.Specification
+namespace ApiStudioIO.Vs.Options.Models.Specification
 {
     public sealed class DefaultSpecification
     {

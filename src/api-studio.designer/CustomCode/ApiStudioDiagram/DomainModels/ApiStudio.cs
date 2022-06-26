@@ -2,7 +2,7 @@
 // Licensed under the MIT License.
 
 using System;
-using ApiStudioIO.VsOptions.ConfigurationV1;
+using ApiStudioIO.Vs.Options;
 
 namespace ApiStudioIO
 {

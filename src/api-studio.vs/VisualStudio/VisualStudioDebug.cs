@@ -5,7 +5,7 @@ using System;
 using EnvDTE;
 using Microsoft.VisualStudio.Shell;
 
-namespace ApiStudioIO.VsDte.VisualStudio
+namespace ApiStudioIO.Vs.VisualStudio
 {
     public static class VisualStudioDebug
     {

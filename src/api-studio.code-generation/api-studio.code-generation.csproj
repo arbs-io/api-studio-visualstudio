@@ -24,7 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\api-studio.designer\api-studio.designer.csproj" />
     <ProjectReference Include="..\api-studio.utility\api-studio.utility.csproj" />
-    <ProjectReference Include="..\api-studio.vsdte\api-studio.vsdte.csproj" />
+    <ProjectReference Include="..\api-studio.vs\api-studio.vs.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Templates\AzureFunction\v1\Templates\Resource.Designer.cs">

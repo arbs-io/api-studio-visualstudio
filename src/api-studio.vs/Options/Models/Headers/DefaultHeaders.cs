@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using ApiStudioIO.Common.Models.Http;
 using Newtonsoft.Json;
 
-namespace ApiStudioIO.VsOptions.ConfigurationV1.Models.Headers
+namespace ApiStudioIO.Vs.Options.Models.Headers
 {
     public sealed class DefaultHeaders
     {

@@ -1,13 +1,13 @@
 ﻿// Copyright (c) Andrew Butson.
 // Licensed under the MIT License.
 
-using ApiStudioIO.VsOptions.ConfigurationV1.Models.Headers;
-using ApiStudioIO.VsOptions.ConfigurationV1.Models.ResponseCodes;
-using ApiStudioIO.VsOptions.ConfigurationV1.Models.Security;
-using ApiStudioIO.VsOptions.ConfigurationV1.Models.Specification;
+using ApiStudioIO.Vs.Options.Models.Headers;
+using ApiStudioIO.Vs.Options.Models.ResponseCodes;
+using ApiStudioIO.Vs.Options.Models.Security;
+using ApiStudioIO.Vs.Options.Models.Specification;
 using Newtonsoft.Json;
 
-namespace ApiStudioIO.VsOptions.ConfigurationV1.Models
+namespace ApiStudioIO.Vs.Options.Models
 {
     public sealed class ApiStudioOptions
     {
