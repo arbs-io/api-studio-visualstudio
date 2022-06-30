@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using ApiStudioIO.Utility.Extensions;
-using ApiStudioIO.Vs.VisualStudio;
+using ApiStudioIO.Vs.Output;
 
 namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
 {
@@ -50,7 +50,7 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
                 .Replace("{{TOKEN_OAS_HTTP_URI}}", resource.HttpApiUri)
                 .Replace("{{TOKEN_OAS_HTTP_STATUS_CODE}}", BuildHttpTriggerResponseStatusCodes(httpApi));
 
-            VisualStudioDebug.OutputString($"[SdkHttpTrigger]: {namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger");
+            Logger.Log($"[SdkHttpTrigger]: {namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger");
 
             return new SourceCodeEntity($"{namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger.cs",
                 httpTriggerSourceCode, false);

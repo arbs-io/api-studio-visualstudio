@@ -2,7 +2,7 @@
 // Licensed under the MIT License.
 
 using System.Collections.Generic;
-using ApiStudioIO.Vs.VisualStudio;
+using ApiStudioIO.Vs.Output;
 
 namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
 {
@@ -20,7 +20,7 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
                     .Replace("{{TOKEN_OAS_CLASS_NAME}}", modelName);
                 sourceList.Add(new SourceCodeEntity($"{namespaceHelper.Solution}.OAuth2.cs", sourceCode, false));
 
-                VisualStudioDebug.OutputString($"[SdkHttpAuthOAuth2]: OAuth2/OpenIdConnect");
+                Logger.Log($"[SdkHttpAuthOAuth2]: OAuth2/OpenIdConnect");
             }
 
             return sourceList;

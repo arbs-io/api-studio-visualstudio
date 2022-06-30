@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ApiStudioIO.Vs.VisualStudio;
+using ApiStudioIO.Vs.Output;
 
 namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
 {
@@ -34,7 +34,7 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
                 sourceList.Add(new SourceCodeEntity($"{namespaceHelper.Solution}.OAuth2.Scopes.cs", sourceCode, true,
                     $"{namespaceHelper.Solution}.OAuth2.cs"));
 
-                VisualStudioDebug.OutputString($"[SdkHttpAuthOAuth2Scopes]: OAuth2/OpenIdConnect");
+                Logger.Log($"[SdkHttpAuthOAuth2Scopes]: OAuth2/OpenIdConnect");
             }
 
             return sourceList;

@@ -9,7 +9,8 @@ using System.Reflection;
 using ApiStudioIO.CodeGeneration.Extensions;
 using ApiStudioIO.CodeGeneration.Models;
 using ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1;
-using ApiStudioIO.Vs.VisualStudio;
+using ApiStudioIO.Vs.Project;
+using ApiStudioIO.Vs.Output;
 using Newtonsoft.Json;
 
 namespace ApiStudioIO.CodeGeneration
@@ -47,10 +48,10 @@ namespace ApiStudioIO.CodeGeneration
                 if (sourceCodeEntity.AlwaysOverwrite || !File.Exists(sourceCodeEntityFile))
                     File.WriteAllText(sourceCodeEntityFile, sourceCodeEntity.CodeBase);
 
-                VisualStudioProjectItem.AddNestedFile(apiStudioFilePath, sourceCodeEntityFile);
+                ProjectItem.AddNestedFile(apiStudioFilePath, sourceCodeEntityFile);
 
                 if (!string.IsNullOrEmpty(sourceCodeEntity.NestedFilename))
-                    VisualStudioProjectItem.AddNestedFile(sourceCodeEntityFile,
+                    ProjectItem.AddNestedFile(sourceCodeEntityFile,
                         $"{file.Directory}\\{sourceCodeEntity.NestedFilename}");
             }
 
@@ -80,7 +81,7 @@ namespace ApiStudioIO.CodeGeneration
                 var json = JsonConvert.SerializeObject(buildTargetModel, Formatting.Indented);
                 File.WriteAllText(buildTargetFile, json);
             }
-            VisualStudioDebug.OutputString($"[BuildTarget]: TargetFramework=={buildTargetModel?.TargetFramework} Language=={buildTargetModel?.Language} AzureFunctionsVersion=={buildTargetModel?.AzureFunctionsVersion}");
+            Logger.Log($"[ApiStudioInterpreter::BuildTarget]: TargetFramework=={buildTargetModel?.TargetFramework} Language=={buildTargetModel?.Language} AzureFunctionsVersion=={buildTargetModel?.AzureFunctionsVersion}");
             return buildTargetModel;
         }
 
@@ -108,7 +109,7 @@ namespace ApiStudioIO.CodeGeneration
                     existingFiles
                         .Except(sourceFiles)
                         .ToList()
-                        .ForEach(buildStep => VisualStudioProjectItem.DeleteFile($"{buildStep}"));
+                        .ForEach(buildStep => ProjectItem.DeleteFile($"{buildStep}"));
                 }
             }
         }
