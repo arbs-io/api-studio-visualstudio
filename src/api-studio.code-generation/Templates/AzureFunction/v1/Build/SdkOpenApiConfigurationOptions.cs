@@ -22,8 +22,8 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
 
             sourceList.Add(
                 new SourceCodeEntity("ApiStudio.OpenApiConfigurationOptions.cs", output, true));
-            
-            Logger.Log($"[SdkOpenApiConfigurationOptions::Build]: {eai?.Title}");
+
+            VsOutputString.Log($"[SdkOpenApiConfigurationOptions::Build]: {eai?.Title}");
 
             return sourceList;
         }

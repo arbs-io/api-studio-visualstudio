@@ -2,42 +2,45 @@
 // Licensed under the MIT License.
 
 using System;
+using System.Globalization;
 using ApiStudioIO.Vs.Services;
 using EnvDTE;
 using Microsoft.VisualStudio.Shell;
 
 namespace ApiStudioIO.Vs.Output
 {
-    public static class TaskItem
+    public static class VsOutputString
     {
-        //private static void TestAdd()
-        //{
-        //    TaskItem.Add("Exception handler", vsTaskPriority.vsTaskPriorityMedium, "WAF", vsTaskIcon.vsTaskIconNone, "test.ApiStudio", "blah blah");
-        //}
-        public static void Add(string output, vsTaskPriority priority, string subCategory, vsTaskIcon icon, string fileName, string description)
+        public static void Log(string message)
         {
-            if (string.IsNullOrEmpty(output))
+            if (string.IsNullOrEmpty(message))
                 return;
 
             try
             {
                 if (!EnsurePane()) return;
-
-                _owp.OutputTaskItemString(output, priority, subCategory, icon, fileName, 0, description, true);
+                
+                _owp.OutputString(DateTime.Now.ToString(CultureInfo.InvariantCulture) + ": " + message + Environment.NewLine);
             }
             catch { }   // Do nothing
         }
 
+        public static void Log(Exception ex)
+        {
+            if (ex != null)
+                Log(ex.ToString());
+        }
+        
         private static OutputWindowPane _owp;
         private static bool EnsurePane()
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             if (_owp == null)   // Setup debug Output window if it doesn't exist.
-            {   
-                var w = ServiceProviderHelper.DevelopmentToolsEnvironment.Windows.Item(EnvDTE.Constants.vsWindowKindTaskList);
+            {
+                var w = ServiceProviderHelper.DevelopmentToolsEnvironment.Windows.Item(EnvDTE.Constants.vsWindowKindOutput);
                 w.Visible = true;
                 var ow = (OutputWindow)w.Object ?? throw new ArgumentNullException(nameof(OutputWindow));
-                _owp = ow.OutputWindowPanes.Add("Api Validation") ?? throw new ArgumentNullException(nameof(OutputWindowPane));
+                _owp = ow.OutputWindowPanes.Add("Api Studio") ?? throw new ArgumentNullException(nameof(OutputWindowPane));
             }
             _owp.Activate();    // regardless make the the windows active/visible
             return _owp != null;

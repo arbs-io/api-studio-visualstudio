@@ -81,7 +81,7 @@ namespace ApiStudioIO.CodeGeneration
                 var json = JsonConvert.SerializeObject(buildTargetModel, Formatting.Indented);
                 File.WriteAllText(buildTargetFile, json);
             }
-            Logger.Log($"[ApiStudioInterpreter::BuildTarget]: TargetFramework=={buildTargetModel?.TargetFramework} Language=={buildTargetModel?.Language} AzureFunctionsVersion=={buildTargetModel?.AzureFunctionsVersion}");
+            VsOutputString.Log($"[ApiStudioInterpreter::BuildTarget]: TargetFramework=={buildTargetModel?.TargetFramework} Language=={buildTargetModel?.Language} AzureFunctionsVersion=={buildTargetModel?.AzureFunctionsVersion}");
             return buildTargetModel;
         }
 

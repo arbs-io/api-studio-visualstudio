@@ -23,10 +23,10 @@ namespace ApiStudioIO.Vs.Project
             // Plus Generic debug DTE output for analytics
             try
             {
-                EnvDTE.ProjectItem sourceProjectItem = dte.Solution.FindProjectItem(sourceFile)
-                                                ?? throw new ArgumentNullException(nameof(sourceProjectItem));
+                var sourceProjectItem = dte.Solution.FindProjectItem(sourceFile)
+                                                ?? throw new ArgumentNullException(nameof(ProjectItem));
                 var dependentUponProjectItem = sourceProjectItem.ProjectItems.AddFromFile(dependentUponFile);
-                Logger.Log($"[ProjectItem::AddNestedFile] {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
+                VsOutputString.Log($"[ProjectItem::AddNestedFile] {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
 
                 SetDependentUpon(dependentUponProjectItem, sourceProjectItem.Name);
                 SetBuildAction(dependentUponProjectItem);
@@ -38,7 +38,7 @@ namespace ApiStudioIO.Vs.Project
             }
             catch (Exception e)
             {
-                Logger.Log($"[ProjectItem::AddNestedFile] error {sourceFileInfo.Name} {e.Message}");
+                VsOutputString.Log($"[ProjectItem::AddNestedFile] error {sourceFileInfo.Name} {e.Message}");
             }            
         }
 
@@ -52,17 +52,17 @@ namespace ApiStudioIO.Vs.Project
             try
             {
                 EnvDTE.ProjectItem projectItem = dte.Solution.FindProjectItem(sourceFile)
-                                          ?? throw new ArgumentNullException(nameof(projectItem));
+                                          ?? throw new ArgumentNullException(nameof(ProjectItem));
                 projectItem.Delete();
-                Logger.Log($"[ProjectItem::DeleteFile] {sourceFileInfo.Name}");
+                VsOutputString.Log($"[ProjectItem::DeleteFile] {sourceFileInfo.Name}");
             }
             catch (ArgumentNullException)
             {
-                Logger.Log($"[ProjectItem::DeleteFile] skip {sourceFileInfo.Name}");
+                VsOutputString.Log($"[ProjectItem::DeleteFile] skip {sourceFileInfo.Name}");
             }
             catch (Exception e)
             {
-                Logger.Log($"[ProjectItem::DeleteFile] error {e.Message}");
+                VsOutputString.Log($"[ProjectItem::DeleteFile] error {e.Message}");
             }
         }
 
@@ -74,7 +74,7 @@ namespace ApiStudioIO.Vs.Project
 
             if (dependentUponProjectItem.ContainsProperty("DependentUpon"))
                 dependentUponProjectItem.Properties.Item("DependentUpon").Value = sourceProjectItemName;
-            Logger.Log($"[ProjectItem::SetDependentUpon] {sourceProjectItemName}");
+            VsOutputString.Log($"[ProjectItem::SetDependentUpon] {sourceProjectItemName}");
         }
 
         public static void SetBuildAction(EnvDTE.ProjectItem item)
