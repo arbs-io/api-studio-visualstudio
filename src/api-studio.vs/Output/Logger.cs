@@ -2,10 +2,10 @@
 // Licensed under the MIT License.
 
 using System;
-using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using ApiStudioIO.Vs.Services;
 using EnvDTE;
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
 
 namespace ApiStudioIO.Vs.Output
 {
@@ -18,24 +18,32 @@ namespace ApiStudioIO.Vs.Output
 
             try
             {
-                var owp = WindowPane.Output;
-                if (owp != null)
-                {
-                    owp.OutputString(DateTime.Now.ToString() + ": " + message + Environment.NewLine);
-                }
+                if (!EnsurePane()) return;
+                
+                _owp.OutputString(DateTime.Now.ToString(CultureInfo.InvariantCulture) + ": " + message + Environment.NewLine);
             }
-            catch
-            {
-                // Do nothing
-            }
+            catch { }   // Do nothing
         }
 
         public static void Log(Exception ex)
         {
             if (ex != null)
-            {
                 Log(ex.ToString());
+        }
+        
+        private static OutputWindowPane _owp;
+        private static bool EnsurePane()
+        {
+            ThreadHelper.ThrowIfNotOnUIThread();
+            if (_owp == null)   // Setup debug Output window if it doesn't exist.
+            {
+                var w = ServiceProviderHelper.DevelopmentToolsEnvironment.Windows.Item(EnvDTE.Constants.vsWindowKindOutput);
+                w.Visible = true;
+                var ow = (OutputWindow)w.Object ?? throw new ArgumentNullException(nameof(OutputWindow));
+                _owp = ow.OutputWindowPanes.Add("Api Studio") ?? throw new ArgumentNullException(nameof(OutputWindowPane));
             }
+            _owp.Activate();    // regardless make the the windows active/visible
+            return _owp != null;
         }
     }
 }
