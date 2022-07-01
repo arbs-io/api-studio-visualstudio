@@ -9,8 +9,13 @@ using Microsoft.VisualStudio.Shell;
 
 namespace ApiStudioIO.Vs.Output
 {
-    public static class VsOutputString
+    public static class Logger
     {
+        public static void Clear()
+        {
+            if (!EnsurePane()) return;
+            _owp.Clear();
+        }
         public static void Log(string message)
         {
             if (string.IsNullOrEmpty(message))
@@ -18,9 +23,22 @@ namespace ApiStudioIO.Vs.Output
 
             try
             {
-                if (!EnsurePane()) return;
-                
+                if (!EnsurePane()) return;                
                 _owp.OutputString(DateTime.Now.ToString(CultureInfo.InvariantCulture) + ": " + message + Environment.NewLine);
+            }
+            catch { }   // Do nothing
+        }
+
+        public static void Log(string text, vsTaskPriority priority, string subCategory, vsTaskIcon icon, string fileName, int line, string description, bool force = true)
+        {
+            if (string.IsNullOrEmpty(text))
+                return;
+
+            try
+            {
+                if (!EnsurePane()) return;
+                _owp.OutputTaskItemString(DateTime.Now.ToString(CultureInfo.InvariantCulture) + ": " + text + Environment.NewLine,
+                    priority, subCategory, icon, fileName, line, description, force);
             }
             catch { }   // Do nothing
         }
@@ -28,7 +46,7 @@ namespace ApiStudioIO.Vs.Output
         public static void Log(Exception ex)
         {
             if (ex != null)
-                Log(ex.ToString());
+                Log("Exception", vsTaskPriority.vsTaskPriorityHigh, "Api Studio", vsTaskIcon.vsTaskIconCompile, "", -1, ex.ToString(), true);
         }
         
         private static OutputWindowPane _owp;

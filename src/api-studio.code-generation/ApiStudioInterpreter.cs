@@ -12,6 +12,7 @@ using ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1;
 using ApiStudioIO.Vs.Project;
 using ApiStudioIO.Vs.Output;
 using Newtonsoft.Json;
+using ApiStudioIO.CodeGeneration.Validation;
 
 namespace ApiStudioIO.CodeGeneration
 {
@@ -23,7 +24,9 @@ namespace ApiStudioIO.CodeGeneration
 
             var file = new FileInfo(apiStudioFilePath);
             var modelName = file.Name.Replace(".ApiStudio", "");
-            var sourceCodeEntities = CodeBuilder.Build(apiStudio, modelName);
+            
+            RuleSet.Run(apiStudio, modelName);
+            var sourceCodeEntities = ValidateApiStudio.Build(apiStudio, modelName);
 
             var codeGeneration = new CodeGenerationModel
             {
@@ -81,7 +84,7 @@ namespace ApiStudioIO.CodeGeneration
                 var json = JsonConvert.SerializeObject(buildTargetModel, Formatting.Indented);
                 File.WriteAllText(buildTargetFile, json);
             }
-            VsOutputString.Log($"[ApiStudioInterpreter::BuildTarget]: TargetFramework=={buildTargetModel?.TargetFramework} Language=={buildTargetModel?.Language} AzureFunctionsVersion=={buildTargetModel?.AzureFunctionsVersion}");
+            Logger.Log($"[ApiStudioInterpreter::BuildTarget]: TargetFramework=={buildTargetModel?.TargetFramework} Language=={buildTargetModel?.Language} AzureFunctionsVersion=={buildTargetModel?.AzureFunctionsVersion}");
             return buildTargetModel;
         }
 

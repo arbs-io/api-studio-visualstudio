@@ -26,7 +26,7 @@ namespace ApiStudioIO.Vs.Project
                 var sourceProjectItem = dte.Solution.FindProjectItem(sourceFile)
                                                 ?? throw new ArgumentNullException(nameof(ProjectItem));
                 var dependentUponProjectItem = sourceProjectItem.ProjectItems.AddFromFile(dependentUponFile);
-                VsOutputString.Log($"[ProjectItem::AddNestedFile] {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
+                Logger.Log($"[ProjectItem::AddNestedFile] {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
 
                 SetDependentUpon(dependentUponProjectItem, sourceProjectItem.Name);
                 SetBuildAction(dependentUponProjectItem);
@@ -38,7 +38,7 @@ namespace ApiStudioIO.Vs.Project
             }
             catch (Exception e)
             {
-                VsOutputString.Log($"[ProjectItem::AddNestedFile] error {sourceFileInfo.Name} {e.Message}");
+                Logger.Log($"[ProjectItem::AddNestedFile] error {sourceFileInfo.Name} {e.Message}");
             }            
         }
 
@@ -54,15 +54,15 @@ namespace ApiStudioIO.Vs.Project
                 EnvDTE.ProjectItem projectItem = dte.Solution.FindProjectItem(sourceFile)
                                           ?? throw new ArgumentNullException(nameof(ProjectItem));
                 projectItem.Delete();
-                VsOutputString.Log($"[ProjectItem::DeleteFile] {sourceFileInfo.Name}");
+                Logger.Log($"[ProjectItem::DeleteFile] {sourceFileInfo.Name}");
             }
             catch (ArgumentNullException)
             {
-                VsOutputString.Log($"[ProjectItem::DeleteFile] skip {sourceFileInfo.Name}");
+                Logger.Log($"[ProjectItem::DeleteFile] skip {sourceFileInfo.Name}");
             }
             catch (Exception e)
             {
-                VsOutputString.Log($"[ProjectItem::DeleteFile] error {e.Message}");
+                Logger.Log($"[ProjectItem::DeleteFile] error {e.Message}");
             }
         }
 
@@ -74,7 +74,7 @@ namespace ApiStudioIO.Vs.Project
 
             if (dependentUponProjectItem.ContainsProperty("DependentUpon"))
                 dependentUponProjectItem.Properties.Item("DependentUpon").Value = sourceProjectItemName;
-            VsOutputString.Log($"[ProjectItem::SetDependentUpon] {sourceProjectItemName}");
+            Logger.Log($"[ProjectItem::SetDependentUpon] {sourceProjectItemName}");
         }
 
         public static void SetBuildAction(EnvDTE.ProjectItem item)

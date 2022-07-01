@@ -47,7 +47,7 @@ namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
                 .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                 .Replace("{{TOKEN_OAS_CLASS_NAME}}", payloadName);
 
-            VsOutputString.Log($"[SdkModel]: {namespaceHelper.Solution}-{payloadName}.Model");
+            Logger.Log($"[SdkModel]: {namespaceHelper.Solution}-{payloadName}.Model");
 
             return new SourceCodeEntity($"{namespaceHelper.Solution}-{payloadName}.Model.cs", sourceCode, false);
         }
