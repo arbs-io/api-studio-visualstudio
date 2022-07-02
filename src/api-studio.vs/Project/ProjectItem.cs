@@ -11,19 +11,18 @@ namespace ApiStudioIO.Vs.Project
 {
     public static class ProjectItem
     {
-        public static void AddNestedFile(string sourceFile, string dependentUponFile)
+        public static void AddNestedFile(FileInfo sourceFileInfo, string dependentUponFile)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             var dte = Package.GetGlobalService(typeof(DTE)) as DTE ??
                       throw new ArgumentNullException("Package.GetGlobalService", nameof(DTE));
 
-            var sourceFileInfo = new FileInfo(sourceFile);
             var dependentUponFileInfo = new FileInfo(dependentUponFile);
             // nested object is not found for nesting designer class, already nested...
             // Plus Generic debug DTE output for analytics
             try
             {
-                var sourceProjectItem = dte.Solution.FindProjectItem(sourceFile)
+                var sourceProjectItem = dte.Solution.FindProjectItem(sourceFileInfo.FullName)
                                                 ?? throw new ArgumentNullException(nameof(ProjectItem));
                 var dependentUponProjectItem = sourceProjectItem.ProjectItems.AddFromFile(dependentUponFile);
                 Logger.Log($"[ProjectItem::AddNestedFile] {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
@@ -31,11 +30,7 @@ namespace ApiStudioIO.Vs.Project
                 SetDependentUpon(dependentUponProjectItem, sourceProjectItem.Name);
                 SetBuildAction(dependentUponProjectItem);
             }
-            catch (ArgumentNullException)
-            {
-                // Note SDK style projects will auto-nest using naming convention
-                //Logger.Log($"[ProjectItem::AddNestedFile] skip {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
-            }
+            catch (ArgumentNullException) { } // Note: Ignore SDK style projects will auto-nest using naming convention
             catch (Exception e)
             {
                 Logger.Log($"[ProjectItem::AddNestedFile] error {sourceFileInfo.Name} {e.Message}");

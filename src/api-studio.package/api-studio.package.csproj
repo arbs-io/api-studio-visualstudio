@@ -310,9 +310,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\api-studio-key.snk">
-      <Link>api-studio-key.snk</Link>
-    </None>
     <VSCTCompile Include="Commands.vsct">
       <ResourceName>1000.ctmenu</ResourceName>
       <SubType>Designer</SubType>

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using ApiStudioIO.CodeGeneration.Extensions;
+using ApiStudioIO.Build.Extensions;
 using ApiStudioIO.Vs.Project;
 using ApiStudioIO.Vs.Output;
 using Newtonsoft.Json;
@@ -14,7 +14,7 @@ using ApiStudioIO.Build.Linter.RuleSets;
 using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.Build.CSharpNet6AzFunc.v1;
 
-namespace ApiStudioIO.CodeGeneration
+namespace ApiStudioIO.Build
 {
     public static class ApiStudioInterpreter 
     {
@@ -22,12 +22,19 @@ namespace ApiStudioIO.CodeGeneration
         {
             var apiStudio = ApiStudioExtensions.LoadDiagram(apiStudioFilePath);
 
-            var file = new FileInfo(apiStudioFilePath);
-            var modelName = file.Name.Replace(".ApiStudio", "");
-            
-            RuleSet.Run(apiStudio, modelName);
-            var sourceCodeEntities = ValidateApiStudio.Build(apiStudio, modelName);
+            var apiStudioFileInfo= new FileInfo(apiStudioFilePath);
+            var modelName = apiStudioFileInfo.Name.Replace(".ApiStudio", "");
 
+            RuleSet.Run(apiStudio, modelName);
+            var sourceCodeEntities = CodeBuilder.Run(apiStudio, modelName);
+
+            CodeGenerationModel codeGeneration = CreateSourceCode(apiStudioFileInfo, sourceCodeEntities);
+
+            return JsonConvert.SerializeObject(codeGeneration, Formatting.Indented);
+        }
+
+        private static CodeGenerationModel CreateSourceCode(FileInfo apiStudioFileInfo, List<SourceCodeEntity> sourceCodeEntities)
+        {
             var codeGeneration = new CodeGenerationModel
             {
                 SdkInformationSegment = new SdkInformationModel
@@ -35,9 +42,9 @@ namespace ApiStudioIO.CodeGeneration
                     UtcTimestamp = DateTime.UtcNow,
                     Version = Assembly.GetExecutingAssembly().GetName().Version.ToString()
                 },
-                BuildTarget = GetBuildTarget(file)
+                BuildTarget = LoadBuildTarget(apiStudioFileInfo)
             };
-            
+
             foreach (var sourceCodeEntity in sourceCodeEntities)
             {
                 codeGeneration.ResourcesInfoSegment.Add(new ResourcesInformationModel
@@ -47,24 +54,22 @@ namespace ApiStudioIO.CodeGeneration
                     AlwaysOverwrite = sourceCodeEntity.AlwaysOverwrite
                 });
 
-                var sourceCodeEntityFile = $"{file.Directory}\\{sourceCodeEntity.Filename}";
-                if (sourceCodeEntity.AlwaysOverwrite || !File.Exists(sourceCodeEntityFile))
-                    File.WriteAllText(sourceCodeEntityFile, sourceCodeEntity.CodeBase);
+                var sourceCodeEntityFileInfo = new FileInfo($"{apiStudioFileInfo.Directory}\\{sourceCodeEntity.Filename}");
+                if (sourceCodeEntity.AlwaysOverwrite || !File.Exists(sourceCodeEntityFileInfo.FullName))
+                    File.WriteAllText(sourceCodeEntityFileInfo.FullName, sourceCodeEntity.CodeBase);
 
-                ProjectItem.AddNestedFile(apiStudioFilePath, sourceCodeEntityFile);
+                ProjectItem.AddNestedFile(apiStudioFileInfo, sourceCodeEntityFileInfo.FullName);
 
                 if (!string.IsNullOrEmpty(sourceCodeEntity.NestedFilename))
-                    ProjectItem.AddNestedFile(sourceCodeEntityFile,
-                        $"{file.Directory}\\{sourceCodeEntity.NestedFilename}");
+                    ProjectItem.AddNestedFile(sourceCodeEntityFileInfo,
+                        $"{apiStudioFileInfo.Directory}\\{sourceCodeEntity.NestedFilename}");
             }
 
-            RemoveMissingItems(apiStudioFilePath, codeGeneration);
-
-            return JsonConvert.SerializeObject(codeGeneration, Formatting.Indented);
+            DeleteMissingItems(apiStudioFileInfo, codeGeneration);
+            return codeGeneration;
         }
 
-
-        private static BuildTargetModel GetBuildTarget(FileInfo fileInfo)
+        private static BuildTargetModel LoadBuildTarget(FileInfo fileInfo)
         {
             var buildTargetModel = new BuildTargetModel
             {
@@ -88,15 +93,15 @@ namespace ApiStudioIO.CodeGeneration
             return buildTargetModel;
         }
 
-        private static void RemoveMissingItems(string apiStudioFilePath, CodeGenerationModel codeGeneration)
+        private static void DeleteMissingItems(FileInfo apiStudioFileInfo, CodeGenerationModel codeGeneration)
         {
-            if (File.Exists($"{apiStudioFilePath}.json"))
+            if (File.Exists($"{apiStudioFileInfo.FullName}.json"))
             {
-                var directoryInfo = new FileInfo(apiStudioFilePath).Directory;
+                var directoryInfo = apiStudioFileInfo.Directory;
                 if (directoryInfo != null)
                 {
                     // Only check for existing ApiStudio related file for the current model.
-                    var modelName = Path.GetFileNameWithoutExtension(apiStudioFilePath);
+                    var modelName = Path.GetFileNameWithoutExtension(apiStudioFileInfo.FullName);
                     var sourceDirectory = directoryInfo.FullName;
                     var ext = new List<string> { "cs" };
                     var existingFiles = Directory

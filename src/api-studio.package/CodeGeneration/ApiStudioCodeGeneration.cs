@@ -3,7 +3,7 @@
 
 namespace ApiStudioIO
 {
-    using ApiStudioIO.CodeGeneration;
+    using ApiStudioIO.Build;
     using Microsoft.VisualStudio.TextTemplating.VSHost;
     using System.Text;
 

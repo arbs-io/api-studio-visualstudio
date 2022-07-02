@@ -8,9 +8,9 @@ using ApiStudioIO.Vs.Output;
 
 namespace ApiStudioIO.Build.CSharpNet6AzFunc.v1
 {
-    public static class ValidateApiStudio
+    public static class CodeBuilder
     {
-        public static List<SourceCodeEntity> Build(ApiStudio apiStudio, string modelName)
+        public static List<SourceCodeEntity> Run(ApiStudio apiStudio, string modelName)
         {
             var sourceList = new List<SourceCodeEntity>();
 
