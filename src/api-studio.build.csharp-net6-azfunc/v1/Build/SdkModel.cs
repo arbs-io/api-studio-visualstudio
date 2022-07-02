@@ -5,9 +5,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ApiStudioIO.Utility.Extensions;
+using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.Vs.Output;
 
-namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
+namespace ApiStudioIO.Build.CSharpNet6AzFunc.v1.Build
 {
     using static String;
 

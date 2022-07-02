@@ -4,9 +4,9 @@
 using System;
 using Newtonsoft.Json;
 
-namespace ApiStudioIO.CodeGeneration.Models
+namespace ApiStudioIO.Common.Models.Build
 {
-    internal class SdkInformationModel
+    public class SdkInformationModel
     {
         [JsonProperty("timestamp")] public DateTime UtcTimestamp { get; set; }
 

@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
-    <RootNamespace>ApiStudioIO.CodeGeneration</RootNamespace>
-    <AssemblyName>api-studio.code-generation</AssemblyName>
+    <RootNamespace>ApiStudioIO.Build.CSharpNet6AzFunc</RootNamespace>
+    <AssemblyName>api-studio.build.csharp-net6-azfunc</AssemblyName>
     <AssemblyOriginatorKeyFile>..\api-studio-key.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>True</SignAssembly>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
@@ -22,19 +22,20 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.*" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\api-studio.common\api-studio.common.csproj" />
     <ProjectReference Include="..\api-studio.designer\api-studio.designer.csproj" />
     <ProjectReference Include="..\api-studio.utility\api-studio.utility.csproj" />
     <ProjectReference Include="..\api-studio.vs\api-studio.vs.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Templates\AzureFunction\v1\Templates\Resource.Designer.cs">
+    <Compile Update="v1\Templates\Resource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="Templates\AzureFunction\v1\Templates\Resource.resx">
+    <EmbeddedResource Update="v1\Templates\Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>

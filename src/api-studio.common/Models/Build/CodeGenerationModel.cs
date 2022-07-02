@@ -4,9 +4,9 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace ApiStudioIO.CodeGeneration.Models
+namespace ApiStudioIO.Common.Models.Build
 {
-    internal class CodeGenerationModel
+    public class CodeGenerationModel
     {
         [JsonProperty("sdk")] public SdkInformationModel SdkInformationSegment { get; set; }
 

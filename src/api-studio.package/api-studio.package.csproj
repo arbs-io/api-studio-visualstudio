@@ -249,9 +249,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\api-studio.code-generation\api-studio.code-generation.csproj">
+    <ProjectReference Include="..\api-studio.build\api-studio.build.csproj">
       <Project>{648a6bfa-5379-402b-921a-d3db09a27e7e}</Project>
-      <Name>api-studio.code-generation</Name>
+      <Name>api-studio.build</Name>
     </ProjectReference>
     <ProjectReference Include="..\api-studio.common\api-studio.common.csproj">
       <Project>{46D39996-178F-4FDA-9D04-45BBCE25F0F6}</Project>

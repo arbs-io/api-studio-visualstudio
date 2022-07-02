@@ -3,9 +3,9 @@
 
 using Newtonsoft.Json;
 
-namespace ApiStudioIO.CodeGeneration.Models
+namespace ApiStudioIO.Common.Models.Build
 {
-    internal class BuildTargetModel
+    public class BuildTargetModel
     {
         [JsonProperty("language")] public string Language { get; set; }
 

@@ -3,10 +3,9 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build;
 using ApiStudioIO.Vs.Output;
 
-namespace ApiStudioIO.CodeGeneration.Validation
+namespace ApiStudioIO.Build.Linter.RuleSets
 {
     public static class RuleSet
     {

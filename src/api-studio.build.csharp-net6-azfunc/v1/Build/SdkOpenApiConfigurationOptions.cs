@@ -3,8 +3,9 @@
 
 using System.Collections.Generic;
 using ApiStudioIO.Vs.Output;
+using ApiStudioIO.Common.Models.Build;
 
-namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
+namespace ApiStudioIO.Build.CSharpNet6AzFunc.v1.Build
 {
     internal static class SdkOpenApiConfigurationOptions
     {

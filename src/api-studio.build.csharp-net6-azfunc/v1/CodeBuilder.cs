@@ -2,10 +2,11 @@
 // Licensed under the MIT License.
 
 using System.Collections.Generic;
-using ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build;
+using ApiStudioIO.Build.CSharpNet6AzFunc.v1.Build;
+using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.Vs.Output;
 
-namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1
+namespace ApiStudioIO.Build.CSharpNet6AzFunc.v1
 {
     public static class ValidateApiStudio
     {

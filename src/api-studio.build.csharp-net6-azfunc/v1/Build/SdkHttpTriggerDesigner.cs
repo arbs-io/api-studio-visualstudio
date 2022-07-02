@@ -7,12 +7,13 @@ using System.ComponentModel;
 using System.Linq;
 using System.Net;
 using System.Text;
+using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.Common.Models.Http;
 using ApiStudioIO.Utility.Extensions;
 using ApiStudioIO.Vs.Options;
 using ApiStudioIO.Vs.Output;
 
-namespace ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1.Build
+namespace ApiStudioIO.Build.CSharpNet6AzFunc.v1.Build
 {
     internal static class SdkHttpTriggerDesigner
     {

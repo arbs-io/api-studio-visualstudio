@@ -7,12 +7,12 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using ApiStudioIO.CodeGeneration.Extensions;
-using ApiStudioIO.CodeGeneration.Models;
-using ApiStudioIO.CodeGeneration.Templates.AzureFunction.v1;
 using ApiStudioIO.Vs.Project;
 using ApiStudioIO.Vs.Output;
 using Newtonsoft.Json;
-using ApiStudioIO.CodeGeneration.Validation;
+using ApiStudioIO.Build.Linter.RuleSets;
+using ApiStudioIO.Common.Models.Build;
+using ApiStudioIO.Build.CSharpNet6AzFunc.v1;
 
 namespace ApiStudioIO.CodeGeneration
 {
