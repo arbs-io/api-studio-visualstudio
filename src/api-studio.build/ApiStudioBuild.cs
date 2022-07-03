@@ -9,7 +9,7 @@ using System.Reflection;
 using ApiStudioIO.Vs.Project;
 using ApiStudioIO.Vs.Output;
 using Newtonsoft.Json;
-using ApiStudioIO.Linter.RuleSets;
+using ApiStudioIO.Linter;
 using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.CodeGen.CSharpNet6AzFunc;
 

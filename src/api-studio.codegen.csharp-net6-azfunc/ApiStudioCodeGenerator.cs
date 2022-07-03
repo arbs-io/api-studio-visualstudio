@@ -54,10 +54,10 @@ namespace ApiStudioIO.CodeGen.CSharpNet6AzFunc
                 if (sourceCodeEntity.AlwaysOverwrite || !File.Exists(sourceCodeEntityFileInfo.FullName))
                     File.WriteAllText(sourceCodeEntityFileInfo.FullName, sourceCodeEntity.CodeBase);
 
-                ProjectItem.AddNestedFile(apiStudioFileInfo, sourceCodeEntityFileInfo.FullName);
+                ProjectItemHelper.AddNestedFile(apiStudioFileInfo, sourceCodeEntityFileInfo.FullName);
 
                 if (!string.IsNullOrEmpty(sourceCodeEntity.NestedFilename))
-                    ProjectItem.AddNestedFile(sourceCodeEntityFileInfo,
+                    ProjectItemHelper.AddNestedFile(sourceCodeEntityFileInfo,
                         $"{apiStudioFileInfo.Directory}\\{sourceCodeEntity.NestedFilename}");
             }
 
@@ -86,10 +86,15 @@ namespace ApiStudioIO.CodeGen.CSharpNet6AzFunc
                         .Select(grp => $"{sourceDirectory}\\{grp.First().Filename}")
                         .ToList();
 
+
+                    var abc = existingFiles
+                        .Except(sourceFiles)
+                        .ToList();
+
                     existingFiles
                         .Except(sourceFiles)
                         .ToList()
-                        .ForEach(buildStep => ProjectItem.DeleteFile($"{buildStep}"));
+                        .ForEach(buildStep => ProjectItemHelper.DeleteFile($"{buildStep}"));
                 }
             }
         }

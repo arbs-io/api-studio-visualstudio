@@ -9,7 +9,7 @@ using ApiStudioIO.Vs.Output;
 
 namespace ApiStudioIO.Vs.Project
 {
-    public static class ProjectItem
+    public static class ProjectItemHelper
     {
         public static void AddNestedFile(FileInfo sourceFileInfo, string dependentUponFile)
         {
@@ -23,7 +23,7 @@ namespace ApiStudioIO.Vs.Project
             try
             {
                 var sourceProjectItem = dte.Solution.FindProjectItem(sourceFileInfo.FullName)
-                                                ?? throw new ArgumentNullException(nameof(ProjectItem));
+                                                ?? throw new ArgumentNullException(nameof(ProjectItemHelper));
                 var dependentUponProjectItem = sourceProjectItem.ProjectItems.AddFromFile(dependentUponFile);
                 Logger.Log($"[ProjectItem::AddNestedFile] {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
 
@@ -47,7 +47,7 @@ namespace ApiStudioIO.Vs.Project
             try
             {
                 EnvDTE.ProjectItem projectItem = dte.Solution.FindProjectItem(sourceFile)
-                                          ?? throw new ArgumentNullException(nameof(ProjectItem));
+                                          ?? throw new ArgumentNullException(nameof(ProjectItemHelper));
                 projectItem.Delete();
                 Logger.Log($"[ProjectItem::DeleteFile] {sourceFileInfo.Name}");
             }

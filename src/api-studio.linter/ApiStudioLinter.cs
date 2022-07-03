@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using ApiStudioIO.Linter.Extensions;
+using ApiStudioIO.Linter.RuleSets;
 using ApiStudioIO.Vs.Output;
 
-namespace ApiStudioIO.Linter.RuleSets
+namespace ApiStudioIO.Linter
 {
     public static class ApiStudioLinter
     {
@@ -19,33 +20,8 @@ namespace ApiStudioIO.Linter.RuleSets
 
             Logger.Clear();
 
-            var hasRequests = new List<HttpApi>();
-            foreach (var dataModel in apiStudio.DataModeled)
-            {
-                hasRequests.Add(dataModel.HttpApis.FirstOrDefault());
-            }
-                
-            foreach (var api in apiStudio.Apis)
-            {
-                var apiType = api.GetType().ToString().Replace("ApiStudioIO.", "");
-
-                if (api is HttpApiGet ||
-                    api is HttpApiPut ||
-                    api is HttpApiPost ||
-                    api is HttpApiPatch)
-                {
-                    if ((api as HttpApi).DataModels.Count == 0)
-                        Logger.Log($"[Validate::RuleSet] MissingResponse: {api.DisplayName}", EnvDTE.vsTaskPriority.vsTaskPriorityMedium, "Payload", EnvDTE.vsTaskIcon.vsTaskIconComment, $"{modelName}.ApiStudio", -1, $"{apiType} {api.DisplayName} missing response");
-                }
-
-                if (api is HttpApiPut ||
-                    api is HttpApiPost ||
-                    api is HttpApiPatch)
-                {                    
-                    if (!hasRequests.Contains(api))
-                        Logger.Log($"[Validate::RuleSet] MissingRequest: {api.DisplayName}", EnvDTE.vsTaskPriority.vsTaskPriorityMedium, "Payload", EnvDTE.vsTaskIcon.vsTaskIconComment, $"{modelName}.ApiStudio", -1, $"{apiType} {api.DisplayName} missing request");
-                }
-            }
+            MissingRequest.Run(apiStudio, modelName);
+            MissingResponse.Run(apiStudio, modelName);
         }
     }
 }
