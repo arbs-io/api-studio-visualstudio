@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
-    <RootNamespace>ApiStudioIO.Build.Linter</RootNamespace>
-    <AssemblyName>api-studio.build.linter</AssemblyName>
+    <RootNamespace>ApiStudioIO.Linter</RootNamespace>
+    <AssemblyName>api-studio.linter</AssemblyName>
     <AssemblyOriginatorKeyFile>..\api-studio-key.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>True</SignAssembly>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>

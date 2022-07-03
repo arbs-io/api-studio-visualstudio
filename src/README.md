@@ -17,5 +17,5 @@ api-studio.interpreter.csharp-net6-azfunc
 
 
 api-studio.build
-api-studio.build.linter
-api-studio.build.csharp-net6-azfunc
+api-studio.linter
+api-studio.codegen.csharp-net6-azfunc

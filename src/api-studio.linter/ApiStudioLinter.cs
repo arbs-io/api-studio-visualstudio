@@ -2,15 +2,21 @@
 // Licensed under the MIT License.
 
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using ApiStudioIO.Linter.Extensions;
 using ApiStudioIO.Vs.Output;
 
-namespace ApiStudioIO.Build.Linter.RuleSets
+namespace ApiStudioIO.Linter.RuleSets
 {
-    public static class RuleSet
+    public static class ApiStudioLinter
     {
-        public static void Run(ApiStudio apiStudio, string modelName)
+        public static void Run(string apiStudioFilePath)
         {
+            var apiStudio = ApiStudioExtensions.LoadDiagram(apiStudioFilePath);
+            var apiStudioFileInfo = new FileInfo(apiStudioFilePath);
+            var modelName = apiStudioFileInfo.Name.Replace(".ApiStudio", "");
+
             Logger.Clear();
 
             var hasRequests = new List<HttpApi>();

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ApiStudioIO.Build.CSharpNet6AzFunc.v1.Templates {
+namespace ApiStudioIO.CodeGen.CSharpNet6AzFunc.v1.Templates {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace ApiStudioIO.Build.CSharpNet6AzFunc.v1.Templates {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ApiStudioIO.Build.CSharpNet6AzFunc.v1.Templates.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ApiStudioIO.CodeGen.CSharpNet6AzFunc.v1.Templates.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

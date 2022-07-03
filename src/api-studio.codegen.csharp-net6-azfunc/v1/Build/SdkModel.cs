@@ -8,7 +8,7 @@ using ApiStudioIO.Utility.Extensions;
 using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.Vs.Output;
 
-namespace ApiStudioIO.Build.CSharpNet6AzFunc.v1.Build
+namespace ApiStudioIO.CodeGen.CSharpNet6AzFunc.v1.Build
 {
     using static String;
 

@@ -15,9 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-studio.common", "api-st
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-studio.vs", "api-studio.vs\api-studio.vs.csproj", "{F14065CE-EECC-4F92-A387-268DC64DF951}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-studio.build.linter", "api-studio.build.linter\api-studio.build.linter.csproj", "{E01B5534-3AC9-4C54-BF77-4CC47A34A668}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-studio.linter", "api-studio.linter\api-studio.linter.csproj", "{E01B5534-3AC9-4C54-BF77-4CC47A34A668}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-studio.build.csharp-net6-azfunc", "api-studio.build.csharp-net6-azfunc\api-studio.build.csharp-net6-azfunc.csproj", "{DC1BE3B1-AFCF-4B85-8376-63C4580E9C25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-studio.codegen.csharp-net6-azfunc", "api-studio.codegen.csharp-net6-azfunc\api-studio.codegen.csharp-net6-azfunc.csproj", "{DC1BE3B1-AFCF-4B85-8376-63C4580E9C25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

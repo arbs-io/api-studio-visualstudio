@@ -17,8 +17,8 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.*" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\api-studio.build.csharp-net6-azfunc\api-studio.build.csharp-net6-azfunc.csproj" />
-    <ProjectReference Include="..\api-studio.build.linter\api-studio.build.linter.csproj" />
+    <ProjectReference Include="..\api-studio.codegen.csharp-net6-azfunc\api-studio.codegen.csharp-net6-azfunc.csproj" />
+    <ProjectReference Include="..\api-studio.linter\api-studio.linter.csproj" />
     <ProjectReference Include="..\api-studio.common\api-studio.common.csproj" />
     <ProjectReference Include="..\api-studio.designer\api-studio.designer.csproj" />
     <ProjectReference Include="..\api-studio.utility\api-studio.utility.csproj" />

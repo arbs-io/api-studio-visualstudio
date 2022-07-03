@@ -2,15 +2,15 @@
 // Licensed under the MIT License.
 
 using System.Collections.Generic;
-using ApiStudioIO.Build.CSharpNet6AzFunc.v1.Build;
+using ApiStudioIO.CodeGen.CSharpNet6AzFunc.v1.Build;
 using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.Vs.Output;
 
-namespace ApiStudioIO.Build.CSharpNet6AzFunc.v1
+namespace ApiStudioIO.CodeGen.CSharpNet6AzFunc.v1
 {
-    public static class CodeBuilder
+    internal static class CodeBuilder
     {
-        public static List<SourceCodeEntity> Run(ApiStudio apiStudio, string modelName)
+        internal static List<SourceCodeEntity> Run(ApiStudio apiStudio, string modelName)
         {
             var sourceList = new List<SourceCodeEntity>();
 
