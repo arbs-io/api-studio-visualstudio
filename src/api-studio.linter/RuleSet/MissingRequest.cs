@@ -2,9 +2,7 @@
 // Licensed under the MIT License.
 
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using ApiStudioIO.Linter.Extensions;
 using ApiStudioIO.Vs.Output;
 
 namespace ApiStudioIO.Linter.RuleSets

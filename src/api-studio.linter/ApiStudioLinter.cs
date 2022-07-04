@@ -1,9 +1,7 @@
 ﻿// Copyright (c) Andrew Butson.
 // Licensed under the MIT License.
 
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using ApiStudioIO.Linter.Extensions;
 using ApiStudioIO.Linter.RuleSets;
 using ApiStudioIO.Vs.Output;
