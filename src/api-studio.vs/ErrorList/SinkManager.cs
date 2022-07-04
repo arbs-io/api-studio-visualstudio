@@ -1,35 +1,54 @@
-﻿using Microsoft.VisualStudio.Shell.TableManager;
-using System.Linq;
+﻿// Copyright (c) Andrew Butson.
+// Licensed under the MIT License.
+
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Microsoft.VisualStudio.Shell.TableManager;
 
 namespace ApiStudioIO.Vs.ErrorList
 {
-    class SinkManager : IDisposable
+    /// <summary>
+    /// ITableDataSink wrapper which manages and notifies of error snapshots
+    /// </summary>
+    public class SinkManager : IDisposable
     {
+        /// <summary>
+        /// Underlying sink
+        /// </summary>
         private readonly ITableDataSink _sink;
-        private TableDataSource _errorList;
-        private List<TableEntriesSnapshot> _snapshots = new List<TableEntriesSnapshot>();
 
-        internal SinkManager(TableDataSource errorList, ITableDataSink sink)
+        /// <summary>
+        /// Dispose action
+        /// </summary>
+        private readonly Action<SinkManager> _onDispose;
+
+        /// <summary>
+        /// Snapshot collection
+        /// </summary>
+        private List<TableEntriesSnapshot> _snapshots = new List<TableEntriesSnapshot>();
+    
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="sink">Sink to be wrapped</param>
+        /// <param name="onDispose">Dispose action to be done on token disposal</param>
+        public SinkManager(ITableDataSink sink, Action<SinkManager> onDispose = null)
         {
             _sink = sink;
-            _errorList = errorList;
-
-            errorList.AddSinkManager(this);
+            _onDispose = onDispose;
         }
-
-        internal void Clear()
-        {
-            _sink.RemoveAllSnapshots();
-        }
-
-        internal void UpdateSink(IEnumerable<TableEntriesSnapshot> snapshots)
+    
+        /// <summary>
+        /// Notifies the underlying sink of the new errors
+        /// </summary>
+        /// <param name="snapshots"></param>
+        public void UpdateSink(IEnumerable<TableEntriesSnapshot> snapshots)
         {
             foreach (var snapshot in snapshots)
             {
                 var existing = _snapshots.FirstOrDefault(s => s.FilePath == snapshot.FilePath);
-
+    
                 if (existing != null)
                 {
                     _snapshots.Remove(existing);
@@ -39,29 +58,40 @@ namespace ApiStudioIO.Vs.ErrorList
                 {
                     _sink.AddSnapshot(snapshot);
                 }
-
+    
                 _snapshots.Add(snapshot);
             }
         }
-
-        internal void RemoveSnapshots(IEnumerable<string> files)
+    
+        /// <summary>
+        /// Removes all registered errors
+        /// </summary>
+        public void Clear()
         {
-            foreach (string file in files)
-            {
-                var existing = _snapshots.FirstOrDefault(s => s.FilePath == file);
+            _sink.RemoveAllSnapshots();
+            _snapshots.Clear();
+        }
 
-                if (existing != null)
+        #region IDisposable Support
+        private bool disposedValue = false; // To detect redundant calls
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
                 {
-                    _snapshots.Remove(existing);
-                    _sink.RemoveSnapshot(existing);
+                    _onDispose?.Invoke(this);
                 }
+
+                disposedValue = true;
             }
         }
-
+        
         public void Dispose()
         {
-            // Called when the person who subscribed to the data source disposes of the cookie (== this object) they were given.
-            _errorList.RemoveSinkManager(this);
+            Dispose(true);
         }
+        #endregion
     }
 }

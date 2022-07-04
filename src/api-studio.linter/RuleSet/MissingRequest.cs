@@ -3,14 +3,26 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using ApiStudioIO.Common.Models.Linting;
+using ApiStudioIO.Vs.ErrorList;
 using ApiStudioIO.Vs.Output;
 
 namespace ApiStudioIO.Linter.RuleSets
 {
     public static class MissingRequest
     {
-        public static void Run(ApiStudio apiStudio, string modelName)
+        public static class Constants
         {
+            public const int RuleId = 1002;
+            public const string RuleType = "AOF";
+            public const string Severity = "DESIGN_SMELL";
+            public const string Type = "ABUSE_OF_FUNCTIONALITY";
+        }
+
+        public static IEnumerable<ErrorListItem> Run(ApiStudio apiStudio, string modelName)
+        {
+            var errors = new List<ErrorListItem>();
+
             var hasRequests = new List<HttpApi>();
             foreach (var dataModel in apiStudio.DataModeled)
             {
@@ -25,9 +37,21 @@ namespace ApiStudioIO.Linter.RuleSets
                     api is HttpApiPatch)
                 {                    
                     if (!hasRequests.Contains(api))
-                        Logger.Log($"[RuleSet::MissingRequest] {api.DisplayName}", EnvDTE.vsTaskPriority.vsTaskPriorityMedium, "Payload", EnvDTE.vsTaskIcon.vsTaskIconComment, $"{modelName}.ApiStudio", -1, $"{apiType} {api.DisplayName} missing request");
+                    {
+                        var apiStudioIssue = new ApiStudioIssue()
+                        {
+                            Rule = $"APIS:{Constants.RuleType}.{Constants.RuleId}",
+                            Severity = $"{Constants.Severity}",
+                            Component = $"serviceKey:ApiStudio/{modelName}.ApiStudio",
+                            Line = 0,
+                            Message = $"The operation {apiType}::{api.DisplayName} missing request",
+                            Type = $"{Constants.RuleId}"
+                        };
+                        errors.Add(new ErrorListItem(new System.Uri($"https://api-studio.io/ruleset/{Constants.RuleId}"), apiStudioIssue));
+                    }
                 }
             }
+            return errors;
         }
     }
 }

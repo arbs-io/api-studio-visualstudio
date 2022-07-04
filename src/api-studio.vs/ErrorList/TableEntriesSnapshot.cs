@@ -1,114 +1,98 @@
-﻿using System;
+﻿// Copyright (c) Andrew Butson.
+// Licensed under the MIT License.
+
 using System.Collections.Generic;
-using ApiStudioIO.Common.Models.Linting;
-using ApiStudioIO.Vs.Services;
-using EnvDTE;
-using Microsoft.VisualStudio.Shell.Interop;
+using System.Linq;
 using Microsoft.VisualStudio.Shell.TableManager;
 
 namespace ApiStudioIO.Vs.ErrorList
 {
-    class TableEntriesSnapshot : TableEntriesSnapshotBase
+    public class TableEntriesSnapshot : TableEntriesSnapshotBase
     {
-        private string _projectName;
-        private readonly List<LintingError> _errors = new List<LintingError>();
-
-        internal TableEntriesSnapshot(string filePath, IEnumerable<LintingError> errors)
+        private readonly int _versionNumber = 1;
+        private readonly List<ErrorListItem> _errors;
+        public TableEntriesSnapshot(string projectName, string filePath, IEnumerable<ErrorListItem> errors)
         {
+            ProjectName = projectName;
             FilePath = filePath;
-            _errors.AddRange(errors);
+            _errors = errors.ToList();
         }
 
+        #region ITableEntriesSnapshot
+
+        public string ProjectName { get; private set; }
+    
+        public string FilePath { get; private set; }
+    
         public override int Count
         {
             get { return _errors.Count; }
         }
-
-        public string FilePath { get; }
-
-        public override int VersionNumber { get; } = 1;
-
+    
+        public override int VersionNumber
+        {
+            get { return _versionNumber; }
+        }
+    
         public override bool TryGetValue(int index, string columnName, out object content)
         {
-            content = null;
-
-            if ((index >= 0) && (index < _errors.Count))
+            if ((index < 0) || (index >= Count))
             {
-                if (columnName == StandardTableKeyNames.DocumentName)
-                {
-                    content = FilePath;
-                }
-                else if (columnName == StandardTableKeyNames.ErrorCategory)
-                {
-                    content = "ApiStudio"; //Vsix.Name;
-                }
-                else if (columnName == StandardTableKeyNames.ErrorSource)
-                {
-                    content = "ApiStudio"; //Vsix.Name;
-                }
-                else if (columnName == StandardTableKeyNames.Line)
-                {
-                    content = _errors[index].LineNumber;
-                }
-                else if (columnName == StandardTableKeyNames.Column)
-                {
-                    content = _errors[index].ColumnNumber;
-                }
-                else if (columnName == StandardTableKeyNames.Text)
-                {
-                    content = _errors[index].Message;
-                }
-                else if (columnName == StandardTableKeyNames.ErrorSeverity)
-                {
-                    content = _errors[index].IsError ? __VSERRORCATEGORY.EC_ERROR : __VSERRORCATEGORY.EC_WARNING;
-                }
-                else if (columnName == StandardTableKeyNames.Priority)
-                {
-                    content = _errors[index].IsError ? vsTaskPriority.vsTaskPriorityHigh : vsTaskPriority.vsTaskPriorityMedium;
-                }
-                else if (columnName == StandardTableKeyNames.ErrorSource)
-                {
-                    content = ErrorSource.Other;
-                }
-                else if (columnName == StandardTableKeyNames.BuildTool)
-                {
-                    content = _errors[index].Provider;
-                }
-                else if (columnName == StandardTableKeyNames.ErrorCode)
-                {
-                    content = _errors[index].ErrorCode;
-                }
-                else if (columnName == StandardTableKeyNames.ProjectName)
-                {
-                    if (string.IsNullOrEmpty(_projectName))
-                    {
-                        var item = ServiceProviderHelper.DevelopmentToolsEnvironment.Solution.FindProjectItem(_errors[index].FileName);
-
-                        if (item != null && item.Properties != null && item.ContainingProject != null)
-                            _projectName = item.ContainingProject.Name;
-                    }
-
-                    content = _projectName;
-                }
-                else if ((columnName == StandardTableKeyNames.ErrorCodeToolTip) || (columnName == StandardTableKeyNames.HelpLink))
-                {
-                    var error = _errors[index];
-                    string url;
-                    if (!string.IsNullOrEmpty(error.HelpLink))
-                    {
-                        url = error.HelpLink;
-                    }
-                    else
-                    {
-                        url = string.Format("http://www.bing.com/search?q={0} {1}", _errors[index].Provider, _errors[index].ErrorCode);
-                    }
-
-                    content = Uri.EscapeUriString(url);
-                }
+                content = null;
+                return false;
             }
-
-            return content != null;
+    
+            switch(columnName)
+            {
+            case StandardTableKeyNames.ProjectName:
+                content = ProjectName;
+                break;
+    
+            case StandardTableKeyNames.DocumentName:
+                // We return the full file path here. The UI handles displaying only the filename.
+                content = FilePath;
+                break;
+    
+            case StandardTableKeyNames.Text:
+                content = _errors[index].Message;
+                break;
+    
+            case StandardTableKeyNames.Line:
+                content = _errors[index].Line;
+                break;
+    
+            case StandardTableKeyNames.ErrorCategory:
+                content = _errors[index].ErrorCategory;
+                break;
+    
+            case StandardTableKeyNames.ErrorSeverity:
+                content = _errors[index].Severity;
+                break;
+    
+            case StandardTableKeyNames.ErrorCode:
+                content = _errors[index].ErrorCode;
+                break;
+    
+            case StandardTableKeyNames.BuildTool:
+                content = "ApiStudio";
+                break;
+    
+            case StandardTableKeyNames.HelpLink:
+                content = _errors[index].HelpLink;
+                break;
+    
+            case StandardTableKeyNames.ErrorCodeToolTip:
+                content = _errors[index].ErrorCodeToolTip;
+                break;
+    
+            default:
+                content = null;
+                return false;
+            }
+    
+            return true;
         }
+
+        #endregion
     }
 }
-

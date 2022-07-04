@@ -1,30 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// Copyright (c) Andrew Butson.
+// Licensed under the MIT License.
 
 namespace ApiStudioIO.Common.Models.Linting
 {
-    public class LintingError
+    public class ApiStudioIssue
     {
-        public LintingError(string fileName)
-        {
-            FileName = fileName;
-        }
-
-        public string Provider { get; set; } = "Api Studio";
-        public string FileName { get; set; }
+        public string Rule { get; set; }
+        public string Severity { get; set; }
+        public string Component { get; set; }
+        public int Line { get; set; }
         public string Message { get; set; }
-        public int LineNumber { get; set; }
-        public int ColumnNumber { get; set; }
-        public bool IsError { get; set; } = true;
-        public string ErrorCode { get; set; }
-        public string HelpLink { get; set; }
-
-        public override string ToString()
-        {
-            return Message;
-        }
+        public string Type { get; set; }
     }
 }

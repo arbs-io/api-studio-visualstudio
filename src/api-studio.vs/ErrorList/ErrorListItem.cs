@@ -1,0 +1,136 @@
+﻿// Copyright (c) Andrew Butson.
+// Licensed under the MIT License.
+
+using ApiStudioIO.Common.Models.Linting;
+using Microsoft.VisualStudio.Shell.Interop;
+using System;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+
+namespace ApiStudioIO.Vs.ErrorList
+{
+    public class ErrorListItem
+    {
+        public ErrorListItem()
+        {
+        }
+
+        public ErrorListItem(Uri baseUrl, ApiStudioIssue issue)
+            : this()
+        {
+            var errorCode = GetErrorCode(issue.Rule);
+
+            ProjectName = string.Empty;
+            FileName = GetFileName(issue.Component);
+
+            Line = issue.Line - 1;
+
+            Message = GetErrorMessage(issue.Message);
+            ErrorCode = errorCode;
+            ErrorCodeToolTip = GetErrorCodeToolTip(errorCode);
+            ErrorCategory = GetErrorCategory(issue.Severity, issue.Type);
+            Severity = GetErrorSeverity(issue.Severity, issue.Type);
+            HelpLink = GetHelpLink(baseUrl, issue.Rule);
+        }
+
+        public string ProjectName { get; set; }
+        public string FileName { get; set; }
+        public int Line { get; set; }
+        public string Message { get; set; }
+        public string ErrorCode { get; set; }
+        public string ErrorCodeToolTip { get; set; }
+        public string ErrorCategory { get; set; }
+        public __VSERRORCATEGORY Severity { get; set; }
+        public string HelpLink { get; set; }
+
+        #region Static helpers
+
+        private static string GetFileName(string fileName)
+        {
+            var cleanFileName = fileName.Split(':').LastOrDefault();
+            return cleanFileName.Replace(Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar);
+        }
+
+        private static string GetErrorMessage(string message)
+        {
+            if (message.Contains("APIS"))
+            {
+                var msgIndex = message.IndexOf(']') + 1;
+                return message.Substring(msgIndex).Trim();
+            }
+
+            if (message.Contains("warning"))
+            {
+                var msgIndex = message.IndexOf(':') + 1;
+                return message.Substring(msgIndex).Trim();
+            }
+
+            return message;
+        }
+
+        private static string GetErrorCategory(string severity, string type)
+        {
+            var errorCategory = string.Empty;
+            var textInfo = CultureInfo.CurrentCulture.TextInfo;
+
+            if (!severity.Contains("INFO") && !severity.Contains("DESIGN_SMELL"))
+            {
+                errorCategory += textInfo.ToTitleCase(severity.ToLower()) + ' ';
+            }
+
+            errorCategory += textInfo.ToTitleCase(type.ToLower()).Replace('_', ' ');
+
+            return errorCategory;
+        }
+
+        private static __VSERRORCATEGORY GetErrorSeverity(string severity, string type)
+        {
+            var errorSeverity = __VSERRORCATEGORY.EC_ERROR;
+
+            if (severity.Contains("INFO"))
+            {
+                errorSeverity = __VSERRORCATEGORY.EC_MESSAGE;
+            }
+            else if (severity.Contains("DESIGN_SMELL"))
+            {
+                errorSeverity = __VSERRORCATEGORY.EC_WARNING;
+            }
+            else if (type.Contains("DESIGN_SMELL"))
+            {
+                errorSeverity = __VSERRORCATEGORY.EC_WARNING;
+            }
+
+            return errorSeverity;
+        }
+
+        private static string GetErrorCode(string rule)
+        {
+            if (rule.Any(char.IsDigit))
+            {
+                var colonIndex = rule.IndexOf(':');
+                var ruleId = rule.Substring(colonIndex + 1);
+                return ruleId.Replace(".", "");
+            }
+
+            return string.Empty;
+        }
+
+        private static string GetHelpLink(Uri baseUrl, string rule)
+        {
+            var builder = new UriBuilder(baseUrl)
+            {
+                Path = "coding_rules",
+                Fragment = $"rule_key={Uri.EscapeDataString(rule)}"
+            };
+
+            return builder.ToString();
+        }
+
+        private static string GetErrorCodeToolTip(string errorCode)
+        {
+            return $"Get help for '{errorCode}'";
+        }
+        #endregion
+    }
+}

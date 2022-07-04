@@ -4,11 +4,14 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
+using ApiStudioIO.Vs.ErrorList;
 using EnvDTE;
 using EnvDTE80;
 using Microsoft.VisualStudio;
+using Microsoft.VisualStudio.ComponentModelHost;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
+using Microsoft.VisualStudio.Shell.TableManager;
 
 namespace ApiStudioIO.Vs.Services
 {
@@ -77,6 +80,18 @@ namespace ApiStudioIO.Vs.Services
 
             return service;
 #pragma warning restore IDE0018
+        }
+
+        public static void RegisterErrorsTable(ref ApiStudioLinkIssueDataSource issues)
+        {
+            var componentModel = GetGlobalService(typeof(SComponentModel)) as IComponentModel;
+            var tableManagerProvider = componentModel?.GetService<ITableManagerProvider>();
+
+            if (null != tableManagerProvider)
+            {
+                var table = tableManagerProvider.GetTableManager(StandardTables.ErrorsTable);
+                table.AddSource(issues, ApiStudioLinkIssueDataSource.Columns);
+            }
         }
     }
 }
