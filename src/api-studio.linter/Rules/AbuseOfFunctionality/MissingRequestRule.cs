@@ -5,11 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using ApiStudioIO.Common.Models.Linting;
 using ApiStudioIO.Vs.ErrorList;
-using ApiStudioIO.Vs.Output;
 
-namespace ApiStudioIO.Linter.RuleSets
+namespace ApiStudioIO.Linter.Rules.AbuseOfFunctionality
 {
-    public static class MissingRequest
+    public class MissingRequestRule : IApiStudioRule
     {
         public static class Constants
         {
@@ -19,7 +18,7 @@ namespace ApiStudioIO.Linter.RuleSets
             public const string Type = "ABUSE_OF_FUNCTIONALITY";
         }
 
-        public static IEnumerable<ErrorListItem> Run(ApiStudio apiStudio, string modelName)
+        public IEnumerable<ErrorListItem> Validate(ApiStudio apiStudio, string modelName)
         {
             var errors = new List<ErrorListItem>();
 
@@ -35,20 +34,19 @@ namespace ApiStudioIO.Linter.RuleSets
                 if (api is HttpApiPut ||
                     api is HttpApiPost ||
                     api is HttpApiPatch)
-                {                    
-                    if (!hasRequests.Contains(api))
+                {
+                    if (hasRequests.Contains(api)) continue;
+
+                    var apiStudioIssue = new ApiStudioIssue()
                     {
-                        var apiStudioIssue = new ApiStudioIssue()
-                        {
-                            Rule = $"APIS:{Constants.RuleType}.{Constants.RuleId}",
-                            Severity = $"{Constants.Severity}",
-                            Component = $"serviceKey:ApiStudio/{modelName}.ApiStudio",
-                            Line = 0,
-                            Message = $"The operation {apiType}::{api.DisplayName} missing request",
-                            Type = $"{Constants.RuleId}"
-                        };
-                        errors.Add(new ErrorListItem(new System.Uri($"https://api-studio.io/ruleset/{Constants.RuleId}"), apiStudioIssue));
-                    }
+                        Rule = $"APIS:{Constants.RuleType}.{Constants.RuleId}",
+                        Severity = $"{Constants.Severity}",
+                        Component = $"serviceKey:ApiStudio/{modelName}.ApiStudio",
+                        Line = 0,
+                        Message = $"The operation {apiType}::{api.DisplayName} missing request",
+                        Type = $"{Constants.RuleId}"
+                    };
+                    errors.Add(new ErrorListItem(new System.Uri($"https://api-studio.io/ruleset/{Constants.RuleId}"), apiStudioIssue));
                 }
             }
             return errors;

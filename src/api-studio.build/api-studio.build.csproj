@@ -13,15 +13,12 @@
     <SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("HHmmssfff"))</SourceRevisionId>
 	</PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="envdte" Version="17.0.31902.203" />
     <PackageReference Include="Newtonsoft.Json" Version="13.*" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\api-studio.codegen.csharp-net6-azfunc\api-studio.codegen.csharp-net6-azfunc.csproj" />
     <ProjectReference Include="..\api-studio.linter\api-studio.linter.csproj" />
     <ProjectReference Include="..\api-studio.common\api-studio.common.csproj" />
-    <ProjectReference Include="..\api-studio.designer\api-studio.designer.csproj" />
-    <ProjectReference Include="..\api-studio.utility\api-studio.utility.csproj" />
     <ProjectReference Include="..\api-studio.vs\api-studio.vs.csproj" />
   </ItemGroup>
 </Project>

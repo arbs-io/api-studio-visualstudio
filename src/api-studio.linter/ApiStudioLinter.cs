@@ -4,23 +4,28 @@
 using System.Collections.Generic;
 using System.IO;
 using ApiStudioIO.Linter.Extensions;
-using ApiStudioIO.Linter.RuleSets;
+using ApiStudioIO.Linter.Rules;
 using ApiStudioIO.Vs.ErrorList;
-using ApiStudioIO.Vs.Output;
-using ApiStudioIO.Vs.Services;
 
 namespace ApiStudioIO.Linter
 {
-    public static class ApiStudioLinter
+    public class ApiStudioLinter
     {
-        private static ApiStudioLinkIssueDataSource _linkIssueDataSource;
-        public static void Run(string apiStudioFilePath)
+        private static ApiStudioLinkIssueDataSource _linkIssueDataSource = new ApiStudioLinkIssueDataSource();
+        private static readonly List<IApiStudioRule> _rules = new List<IApiStudioRule>();
+
+        private static void InitiliseLinter()
         {
-            if (_linkIssueDataSource == null)
-            {
-                _linkIssueDataSource = new ApiStudioLinkIssueDataSource(); 
-                ServiceProviderHelper.RegisterErrorsTable(ref _linkIssueDataSource);
-            }
+            ErrorListProviderHelper.RegisterErrorsTable(ref _linkIssueDataSource);
+            _rules.Clear();
+            _rules.Add(new Rules.AbuseOfFunctionality.MissingRequestRule());
+            _rules.Add(new Rules.AbuseOfFunctionality.MissingResponseRule());
+
+        }
+
+        public static void RunRules(string apiStudioFilePath)
+        {
+            InitiliseLinter();
 
             var apiStudio = ApiStudioExtensions.LoadDiagram(apiStudioFilePath);
             var apiStudioFileInfo = new FileInfo(apiStudioFilePath);
@@ -28,8 +33,11 @@ namespace ApiStudioIO.Linter
 
             _linkIssueDataSource.CleanAllErrors();
             var errors = new List<ErrorListItem>();
-            errors.AddRange(MissingRequest.Run(apiStudio, modelName));
-            errors.AddRange(MissingResponse.Run(apiStudio, modelName));
+
+            foreach (var rule in _rules)
+            {
+                errors.AddRange(rule.Validate(apiStudio, modelName));
+            }
             _linkIssueDataSource.AddErrors("ApiStudio", errors);
         }
     }

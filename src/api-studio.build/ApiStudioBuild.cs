@@ -1,15 +1,10 @@
 ﻿// Copyright (c) Andrew Butson.
 // Licensed under the MIT License.
 
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using ApiStudioIO.Vs.Project;
-using ApiStudioIO.Vs.Output;
 using Newtonsoft.Json;
 using ApiStudioIO.Linter;
+using ApiStudioIO.Vs.Output;
 using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.CodeGen.CSharpNet6AzFunc;
 
@@ -22,7 +17,10 @@ namespace ApiStudioIO.Build
             var apiStudioFileInfo = new FileInfo(apiStudioFilePath);
             var buildTarget = LoadBuildTarget(apiStudioFileInfo);
 
-            ApiStudioLinter.Run(apiStudioFilePath);
+            // Register and run Api Studio Linter
+            ApiStudioLinter.RunRules(apiStudioFilePath);
+
+            // Code Generation: determined by language, framework and host targets
             var codeGenSummary = ApiStudioCodeGenerator.Run(apiStudioFilePath, buildTarget);
 
             return codeGenSummary;
