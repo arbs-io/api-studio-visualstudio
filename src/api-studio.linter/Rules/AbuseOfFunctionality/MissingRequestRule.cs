@@ -13,7 +13,7 @@ namespace ApiStudioIO.Linter.Rules.AbuseOfFunctionality
         public static class Constants
         {
             public const int RuleId = 1002;
-            public const string RuleType = "AOF";
+            public const string RuleType = "APIS";
             public const string Severity = "DESIGN_SMELL";
             public const string Type = "ABUSE_OF_FUNCTIONALITY";
         }
@@ -46,7 +46,7 @@ namespace ApiStudioIO.Linter.Rules.AbuseOfFunctionality
                         Message = $"The operation {apiType}::{api.DisplayName} missing request",
                         Type = $"{Constants.RuleId}"
                     };
-                    errors.Add(new ErrorListItem(new System.Uri($"https://api-studio.io/ruleset/{Constants.RuleId}"), apiStudioIssue));
+                    errors.Add(new ErrorListItem(new System.Uri($"https://github.com/arbs-io/api-studio-visualstudio/tree/main/doc/linter"), apiStudioIssue));
                 }
             }
             return errors;
