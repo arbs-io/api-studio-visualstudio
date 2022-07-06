@@ -6,6 +6,7 @@ using System.IO;
 using EnvDTE;
 using Microsoft.VisualStudio.Shell;
 using ApiStudioIO.Vs.Output;
+using ApiStudioIO.Vs.Services;
 
 namespace ApiStudioIO.Vs.Project
 {
@@ -14,23 +15,25 @@ namespace ApiStudioIO.Vs.Project
         public static void AddNestedFile(FileInfo sourceFileInfo, string dependentUponFile)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
-            var dte = Package.GetGlobalService(typeof(DTE)) as DTE ??
-                      throw new ArgumentNullException("Package.GetGlobalService", nameof(DTE));
-
             var dependentUponFileInfo = new FileInfo(dependentUponFile);
             // nested object is not found for nesting designer class, already nested...
             // Plus Generic debug DTE output for analytics
             try
             {
-                var sourceProjectItem = dte.Solution.FindProjectItem(sourceFileInfo.FullName)
-                                                ?? throw new ArgumentNullException(nameof(ProjectItemHelper));
-                var dependentUponProjectItem = sourceProjectItem.ProjectItems.AddFromFile(dependentUponFile);
+                var projectItem = ServiceProviderHelper.DevelopmentToolsEnvironment.Solution.FindProjectItem(sourceFileInfo.FullName)
+                    ?? throw new ArgumentNullException(nameof(ProjectItemHelper));
+
+                var dependentUponProjectItem = projectItem.ProjectItems.AddFromFile(dependentUponFile);
                 Logger.Log($"[ProjectItem::AddNestedFile] {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
 
-                SetDependentUpon(dependentUponProjectItem, sourceProjectItem.Name);
+                SetDependentUpon(dependentUponProjectItem, projectItem.Name);
                 SetBuildAction(dependentUponProjectItem);
             }
-            catch (ArgumentNullException) { } // Note: Ignore SDK style projects will auto-nest using naming convention
+            catch (ArgumentNullException) 
+            {
+                Logger.Log($"[ProjectItem::AddNestedFile] Ignored {sourceFileInfo.Name} SDK style project resource implicitly registered");
+                // Note: Ignore SDK style projects will auto-nest using naming convention
+            }
             catch (Exception e)
             {
                 Logger.Log($"[ProjectItem::AddNestedFile] error {sourceFileInfo.Name} {e.Message}");
@@ -40,24 +43,35 @@ namespace ApiStudioIO.Vs.Project
         public static void DeleteFile(string sourceFile)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
-            var dte = Package.GetGlobalService(typeof(DTE)) as DTE ??
-                      throw new ArgumentNullException("Package.GetGlobalService", nameof(DTE));
-
             var sourceFileInfo = new FileInfo(sourceFile);
             try
             {
-                EnvDTE.ProjectItem projectItem = dte.Solution.FindProjectItem(sourceFile)
-                                          ?? throw new ArgumentNullException(nameof(ProjectItemHelper));
+                var projectItem = ServiceProviderHelper.DevelopmentToolsEnvironment.Solution.FindProjectItem(sourceFileInfo.FullName)
+                    ?? throw new ArgumentNullException(nameof(ProjectItemHelper));
+
                 projectItem.Delete();
                 Logger.Log($"[ProjectItem::DeleteFile] {sourceFileInfo.Name}");
             }
             catch (ArgumentNullException)
             {
-                Logger.Log($"[ProjectItem::DeleteFile] skip {sourceFileInfo.Name}");
+                // Note: Ignore SDK style projects will auto-nest using naming convention
+                Logger.Log($"[ProjectItem::DeleteFile] Ignored {sourceFileInfo.Name} SDK style project resource implicitly registered");
             }
             catch (Exception e)
             {
                 Logger.Log($"[ProjectItem::DeleteFile] error {e.Message}");
+            }
+            finally
+            {
+                try
+                {
+                    if (sourceFileInfo.Exists)
+                    {
+                        sourceFileInfo.Delete();
+                        Logger.Log($"[ProjectItem::DeleteFile] forced delete on file {sourceFileInfo.Name}");
+                    }
+                }
+                catch (Exception) { }   // Ignore
             }
         }
 

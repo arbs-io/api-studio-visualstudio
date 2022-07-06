@@ -17,6 +17,8 @@ namespace ApiStudioIO.Build
             var apiStudioFileInfo = new FileInfo(apiStudioFilePath);
             var buildTarget = LoadBuildTarget(apiStudioFileInfo);
 
+            Logger.Clear();
+
             // Register and run Api Studio Linter
             ApiStudioLinter.RunRules(apiStudioFilePath);
 
