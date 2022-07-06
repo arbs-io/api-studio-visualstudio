@@ -36,12 +36,9 @@
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
     <ProjectReference Include="..\api-studio.common\api-studio.common.csproj" />
     <ProjectReference Include="..\api-studio.utility\api-studio.utility.csproj" />
-    <ProjectReference Include="..\api-studio.vsoptions\api-studio.vsoptions.csproj" />
+    <ProjectReference Include="..\api-studio.vs\api-studio.vs.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\api-studio-key.snk">
-      <Link>api-studio-key.snk</Link>
-    </None>
     <None Update="GeneratedCode\ApiStudioSchema.xsd">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

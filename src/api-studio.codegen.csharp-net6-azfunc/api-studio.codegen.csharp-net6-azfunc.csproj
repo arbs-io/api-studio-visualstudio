@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <RootNamespace>ApiStudioIO.CodeGen.CSharpNet6AzFunc</RootNamespace>
+    <AssemblyName>api-studio.codegen.csharp-net6-azfunc</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\api-studio-key.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>True</SignAssembly>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <AnalysisLevel>6.0</AnalysisLevel>
+	  <Copyright>api-studio.io</Copyright>
+    <Version>$([System.DateTime]::UtcNow.ToString("yyyy.MM.dd.0"))</Version>
+    <SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("HHmmssfff"))</SourceRevisionId>
+	</PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\api-studio.common\api-studio.common.csproj" />
+    <ProjectReference Include="..\api-studio.designer\api-studio.designer.csproj" />
+    <ProjectReference Include="..\api-studio.utility\api-studio.utility.csproj" />
+    <ProjectReference Include="..\api-studio.vs\api-studio.vs.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="v1\Templates\Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="v1\Templates\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

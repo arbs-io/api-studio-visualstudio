@@ -23,7 +23,7 @@ The extension provides the following features.
 
 - <span style="color:#FFD800;">**Property**</span>: The Visual Studio Properties window is a property browser for Api Studio components. The Properties window list metadata at design time for the currently selected object in any other window in the integrated development environment (IDE).
 
-![Api Studio Visual Studio Overview](art/api-studio-visualstudio-overview-highlighted.png)
+![Api Studio Visual Studio Overview](images/api-studio-visualstudio-overview-highlighted.png)
 
 ### **Visual Studio Project**
 
@@ -31,7 +31,7 @@ Api Studio provides a visual studio project containing all assets to get started
 
 #### Azure Function (dotnet6 - C#)
 
-![Api Studio Visual Studio Overview](art/api-studio-visualstudio-project.png)
+![Api Studio Visual Studio Overview](images/api-studio-visualstudio-project.png)
 
 #### **Template Standards**
 
@@ -40,7 +40,7 @@ Api Studio provides templated standards for header, response codes and security 
 ## **Getting Started**
 Creating a new project is simple. Visual Studio "Create Project", search "Api Studio" in the project list.
 
-![Visual Studio Create Api Studio Project](art/api-studio-project-template.png)
+![Visual Studio Create Api Studio Project](images/api-studio-project-template.png)
 
 ## **What's next**
 

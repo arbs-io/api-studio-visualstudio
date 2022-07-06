@@ -4,7 +4,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ApiStudioIO.Common.Models.Http;
-using ApiStudioIO.VsOptions.ConfigurationV1;
+using ApiStudioIO.Vs.Options;
 
 namespace ApiStudioIO.HttpApiDefaults
 {

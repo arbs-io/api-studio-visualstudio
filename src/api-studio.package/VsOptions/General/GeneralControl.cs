@@ -5,7 +5,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using ApiStudioIO.VsOptions.ConfigurationV1;
+using ApiStudioIO.Vs.Options;
 
 namespace ApiStudioIO.VsOptions.General
 {

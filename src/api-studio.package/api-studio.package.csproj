@@ -249,9 +249,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\api-studio.code-generation\api-studio.code-generation.csproj">
+    <ProjectReference Include="..\api-studio.build\api-studio.build.csproj">
       <Project>{648a6bfa-5379-402b-921a-d3db09a27e7e}</Project>
-      <Name>api-studio.code-generation</Name>
+      <Name>api-studio.build</Name>
     </ProjectReference>
     <ProjectReference Include="..\api-studio.common\api-studio.common.csproj">
       <Project>{46D39996-178F-4FDA-9D04-45BBCE25F0F6}</Project>
@@ -271,9 +271,9 @@
       <Project>{6eddc00d-e89e-49e3-a127-9d8e44d3d2f2}</Project>
       <Name>api-studio.utility</Name>
     </ProjectReference>
-    <ProjectReference Include="..\api-studio.vsoptions\api-studio.vsoptions.csproj">
+    <ProjectReference Include="..\api-studio.vs\api-studio.vs.csproj">
       <Project>{3251a8e1-ec99-45d0-ab6c-a32a0f705cb4}</Project>
-      <Name>api-studio.vsoptions</Name>
+      <Name>api-studio.vs</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -310,9 +310,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\api-studio-key.snk">
-      <Link>api-studio-key.snk</Link>
-    </None>
     <VSCTCompile Include="Commands.vsct">
       <ResourceName>1000.ctmenu</ResourceName>
       <SubType>Designer</SubType>

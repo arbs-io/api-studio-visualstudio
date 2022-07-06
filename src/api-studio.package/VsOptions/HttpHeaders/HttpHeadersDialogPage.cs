@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using ApiStudioIO.Common.Models.Http;
-using ApiStudioIO.VsOptions.ConfigurationV1;
+using ApiStudioIO.Vs.Options;
 using Microsoft.VisualStudio.Shell;
 
 namespace ApiStudioIO.VsOptions.HttpHeaders

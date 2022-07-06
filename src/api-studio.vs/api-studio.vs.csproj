@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <RootNamespace>ApiStudioIO.Vs</RootNamespace>
+    <AssemblyName>api-studio.vs</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\api-studio-key.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>True</SignAssembly>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <AnalysisLevel>6.0</AnalysisLevel>
+	  <Copyright>api-studio.io</Copyright>
+    <Version>$([System.DateTime]::UtcNow.ToString("yyyy.MM.dd.0"))</Version>
+    <SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("HHmmssfff"))</SourceRevisionId>
+	</PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="envdte" Version="17.0.31902.203" />
+    <PackageReference Include="Microsoft.VisualStudio.Shell.Framework" Version="17.0.31902.203" />
+    <PackageReference Include="Microsoft.VisualStudio.Shell.15.0" Version="17.0.31902.203" />
+    <PackageReference Include="Microsoft.VisualStudio.Validation" Version="17.0.43" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\api-studio.common\api-studio.common.csproj" />
+  </ItemGroup>
+</Project>

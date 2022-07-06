@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <RootNamespace>ApiStudioIO.Build</RootNamespace>
+    <AssemblyName>api-studio.build</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\api-studio-key.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>True</SignAssembly>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <AnalysisLevel>6.0</AnalysisLevel>
+	  <Copyright>api-studio.io</Copyright>
+    <Version>$([System.DateTime]::UtcNow.ToString("yyyy.MM.dd.0"))</Version>
+    <SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("HHmmssfff"))</SourceRevisionId>
+	</PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.*" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\api-studio.codegen.csharp-net6-azfunc\api-studio.codegen.csharp-net6-azfunc.csproj" />
+    <ProjectReference Include="..\api-studio.linter\api-studio.linter.csproj" />
+    <ProjectReference Include="..\api-studio.common\api-studio.common.csproj" />
+    <ProjectReference Include="..\api-studio.vs\api-studio.vs.csproj" />
+  </ItemGroup>
+</Project>
