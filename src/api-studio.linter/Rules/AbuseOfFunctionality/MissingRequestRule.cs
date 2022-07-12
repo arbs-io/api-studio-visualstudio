@@ -39,14 +39,14 @@ namespace ApiStudioIO.Linter.Rules.AbuseOfFunctionality
 
                     var apiStudioIssue = new ApiStudioIssue()
                     {
-                        Rule = $"APIS:{Constants.RuleType}.{Constants.RuleId}",
+                        Rule = $"ApiStudio:{Constants.RuleType}.{Constants.RuleId}",
                         Severity = $"{Constants.Severity}",
                         Component = $"serviceKey:ApiStudio/{modelName}.ApiStudio",
                         Line = 0,
                         Message = $"The operation {apiType}::{api.DisplayName} missing request",
                         Type = $"{Constants.RuleId}"
                     };
-                    errors.Add(new ErrorListItem(new System.Uri($"https://github.com/arbs-io/api-studio-visualstudio/tree/main/doc/linter"), apiStudioIssue));
+                    errors.Add(new ErrorListItem(new System.Uri($"https://github.com"), apiStudioIssue));
                 }
             }
             return errors;

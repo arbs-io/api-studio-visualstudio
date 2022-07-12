@@ -31,7 +31,7 @@ namespace ApiStudioIO.Vs.ErrorList
             ErrorCodeToolTip = GetErrorCodeToolTip(errorCode);
             ErrorCategory = GetErrorCategory(issue.Severity, issue.Type);
             Severity = GetErrorSeverity(issue.Severity, issue.Type);
-            HelpLink = GetHelpLink(baseUrl, issue.Rule);
+            HelpLink = GetHelpLink(baseUrl, errorCode);
         }
 
         public string ProjectName { get; set; }
@@ -49,7 +49,7 @@ namespace ApiStudioIO.Vs.ErrorList
         private static string GetFileName(string fileName)
         {
             var cleanFileName = fileName.Split(':').LastOrDefault();
-            return cleanFileName.Replace(Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar);
+            return cleanFileName?.Replace(Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar);
         }
 
         private static string GetErrorMessage(string message)
@@ -120,8 +120,9 @@ namespace ApiStudioIO.Vs.ErrorList
         {
             var builder = new UriBuilder(baseUrl)
             {
-                Path = "coding_rules",
-                Fragment = $"rule_key={Uri.EscapeDataString(rule)}"
+                // will move to api-studio.io in the future but for now just registering in github.com
+                Path = "/arbs-io/api-studio-visualstudio/tree/main/doc/linter",
+                Fragment = $"{Uri.EscapeDataString(rule.ToLower())}"
             };
 
             return builder.ToString();
