@@ -11,7 +11,7 @@ namespace ApiStudioIO.Linter.Rules.AbuseOfFunctionality
     {
         public static class Constants
         {
-            public const int RuleId = 1001;
+            public const int RuleId = 1101;
             public const string RuleType = "APIS";
             public const string Severity = "DESIGN_SMELL";
             public const string Type = "ABUSE_OF_FUNCTIONALITY";
