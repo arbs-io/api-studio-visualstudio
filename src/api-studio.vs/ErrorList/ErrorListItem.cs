@@ -74,7 +74,7 @@ namespace ApiStudioIO.Vs.ErrorList
             var errorCategory = string.Empty;
             var textInfo = CultureInfo.CurrentCulture.TextInfo;
 
-            if (!severity.Contains("INFO") && !severity.Contains("DESIGN_SMELL"))
+            if (!severity.Contains("INFO") && !severity.Contains("DESIGN_CONSIDERATION"))
             {
                 errorCategory += textInfo.ToTitleCase(severity.ToLower()) + ' ';
             }
@@ -92,11 +92,11 @@ namespace ApiStudioIO.Vs.ErrorList
             {
                 errorSeverity = __VSERRORCATEGORY.EC_MESSAGE;
             }
-            else if (severity.Contains("DESIGN_SMELL"))
+            else if (severity.Contains("DESIGN_CONSIDERATION"))
             {
                 errorSeverity = __VSERRORCATEGORY.EC_WARNING;
             }
-            else if (type.Contains("DESIGN_SMELL"))
+            else if (type.Contains("DESIGN_CONSIDERATION"))
             {
                 errorSeverity = __VSERRORCATEGORY.EC_WARNING;
             }
@@ -121,7 +121,7 @@ namespace ApiStudioIO.Vs.ErrorList
             var builder = new UriBuilder(baseUrl)
             {
                 // will move to api-studio.io in the future but for now just registering in github.com
-                Path = "/arbs-io/api-studio-visualstudio/tree/main/doc/linter",
+                Path = "/arbs-io/api-studio-visualstudio/blob/main/doc/linter-rules/",
                 Fragment = $"{Uri.EscapeDataString(rule.ToLower())}"
             };
 
