@@ -20,7 +20,10 @@ namespace ApiStudioIO.Linter
             _rules.Clear();
             _rules.Add(new Rules.AbuseOfFunctionality.MissingRequestRule());
             _rules.Add(new Rules.AbuseOfFunctionality.MissingResponseRule());
-
+            _rules.Add(new Rules.MetaInformation.InfoTitleRule());
+            _rules.Add(new Rules.MetaInformation.InfoVersion());
+            _rules.Add(new Rules.MetaInformation.InfoContactRule());
+            _rules.Add(new Rules.MetaInformation.InfoDescriptionRule());
         }
 
         public static void RunRules(string apiStudioFilePath)

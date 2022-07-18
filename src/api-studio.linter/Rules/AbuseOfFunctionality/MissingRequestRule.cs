@@ -14,7 +14,7 @@ namespace ApiStudioIO.Linter.Rules.AbuseOfFunctionality
         {
             public const int RuleId = 1102;
             public const string RuleType = "APIS";
-            public const string Severity = "DESIGN_SMELL";
+            public const string Severity = "DESIGN_CONSIDERATION";
             public const string Type = "ABUSE_OF_FUNCTIONALITY";
         }
 
@@ -27,7 +27,7 @@ namespace ApiStudioIO.Linter.Rules.AbuseOfFunctionality
             {
                 hasRequests.Add(dataModel.HttpApis.FirstOrDefault());
             }
-                
+
             foreach (var api in apiStudio.Apis)
             {
                 var apiType = api.GetType().ToString().Replace("ApiStudioIO.", "");
