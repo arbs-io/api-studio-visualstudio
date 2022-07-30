@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-studio.vs", "api-studio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-studio.linter", "api-studio.linter\api-studio.linter.csproj", "{E01B5534-3AC9-4C54-BF77-4CC47A34A668}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-studio.codegen.csharp-net6-azfunc", "api-studio.codegen.csharp-net6-azfunc\api-studio.codegen.csharp-net6-azfunc.csproj", "{DC1BE3B1-AFCF-4B85-8376-63C4580E9C25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-studio.codegen.csharp-azurefunction-dotnet6", "api-studio.codegen.csharp-azurefunction-dotnet6\api-studio.codegen.csharp-azurefunction-dotnet6.csproj", "{DC1BE3B1-AFCF-4B85-8376-63C4580E9C25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

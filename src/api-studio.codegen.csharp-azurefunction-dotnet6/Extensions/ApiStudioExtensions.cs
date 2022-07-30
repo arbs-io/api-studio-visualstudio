@@ -3,7 +3,7 @@
 
 using Microsoft.VisualStudio.Modeling;
 
-namespace ApiStudioIO.CodeGen.CSharpNet6AzFunc
+namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6
 {
     public static class ApiStudioExtensions
     {

@@ -174,7 +174,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CommandSet.tt</DependentUpon>
     </Compile>
-    <Content Include="ProjectTemplates\azure-function-dotnet6-isolated.zip">
+    <Content Include="ProjectTemplates\csharp-azurefunction-dotnet6.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>

@@ -9,9 +9,9 @@ using System.Reflection;
 using Newtonsoft.Json;
 using ApiStudioIO.Vs.Project;
 using ApiStudioIO.Common.Models.Build;
-using ApiStudioIO.CodeGen.CSharpNet6AzFunc.v1;
+using ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1;
 
-namespace ApiStudioIO.CodeGen.CSharpNet6AzFunc
+namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6
 {
     public static class ApiStudioCodeGenerator
     {

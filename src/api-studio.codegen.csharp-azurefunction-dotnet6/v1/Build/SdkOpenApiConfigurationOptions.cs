@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using ApiStudioIO.Vs.Output;
 using ApiStudioIO.Common.Models.Build;
 
-namespace ApiStudioIO.CodeGen.CSharpNet6AzFunc.v1.Build
+namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Build
 {
     internal static class SdkOpenApiConfigurationOptions
     {
