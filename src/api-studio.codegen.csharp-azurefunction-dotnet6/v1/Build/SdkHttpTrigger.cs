@@ -9,7 +9,7 @@ using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.Utility.Extensions;
 using ApiStudioIO.Vs.Output;
 
-namespace ApiStudioIO.CodeGen.CSharpNet6AzFunc.v1.Build
+namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Build
 {
     internal static class SdkHttpTrigger
     {

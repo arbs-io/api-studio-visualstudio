@@ -11,8 +11,8 @@
     <LocationField>Enabled</LocationField>
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
     <CreateInPlace>true</CreateInPlace>
-    <Icon>api-studio.azure-function-dotnet6-isolated.ico</Icon>
-    <PreviewImage>api-studio.azure-function-dotnet6-isolated.ico</PreviewImage>
+    <Icon>api-studio.codegen.csharp-azurefunction-dotnet6.ico</Icon>
+    <PreviewImage>api-studio.codegen.csharp-azurefunction-dotnet6.ico</PreviewImage>
     <LanguageTag>C#</LanguageTag>
     <ProjectTypeTag>Api Studio</ProjectTypeTag>
     <ProjectTypeTag>Azure</ProjectTypeTag>

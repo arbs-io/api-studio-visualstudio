@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 using ApiStudioIO.Linter;
 using ApiStudioIO.Vs.Output;
 using ApiStudioIO.Common.Models.Build;
-using ApiStudioIO.CodeGen.CSharpNet6AzFunc;
+using ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6;
 
 namespace ApiStudioIO.Build
 {

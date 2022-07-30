@@ -1,21 +1,20 @@
-## **Solution Structure**
-The projects which make up the solution
+# Api Studio - Visual Studio
+
+## Project Structure
+
+Summary of each projects within the solution:
+
+- **api-studio.package**: vsix package artefacts
+- **api-studio.designer**: Domain Specific Language and VS-Designer tool
+- **api-studio.linter**: Rulesets to validate standard design principles are followed
+- **api-studio.vs**: Visual Studio interopt
+- **api-studio.common**: Shared objects e.g. Models
+- **api-studio.utility**: Shared helper function e.g. Extenstion
+- **api-studio.build**: Code generation tools and interripter routing
+  - **api-studio.codegen.csharp-azurefunction-dotnet6**
+  - **api-studio.codegen.csharp-minimumapi-dotnet6**
+  - **api-studio.codegen.python-fastapi-python3x**
 
 
-api-studio.common
-api-studio.designer
-api-studio.package
-api-studio.utility
-api-studio.vs
+csharp-azurefunction-dotnet6
 
-
-api-studio.build
-
-api-studio.build
-api-studio.linter
-api-studio.interpreter.csharp-net6-azfunc
-
-
-api-studio.build
-api-studio.linter
-api-studio.codegen.csharp-net6-azfunc

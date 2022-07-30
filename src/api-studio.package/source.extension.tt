@@ -4,18 +4,18 @@
 <#
 /***************************************************************************
 	Rather than following the normal DSL practice of including most of the
-	template from a common include file, this template is deliberately inlined 
-	in the DslPackage project to make it easier to customise. 
-	
-	If you wish to edit the vsix manifest with its designer, then simply copy 
+	template from a common include file, this template is deliberately inlined
+	in the DslPackage project to make it easier to customise.
+
+	If you wish to edit the vsix manifest with its designer, then simply copy
 	the current content of the generated manifest, delete this template from
 	the project, and add back the copied source.extension.vsixmanifest. Note
 	that if you do this you will lose automatic tracking of certain properties
-	of the DSL such as the name, description and version, and will have to 
+	of the DSL such as the name, description and version, and will have to
 	edit these in your custom manifest as well should you wish to change them.
 ***************************************************************************/
 	// The name of the Dsl Project - Must be updated if the project is renamed.
-	
+
 	string dslProjectName = "api-studio.designer";
 	string language = "en-US";
 #>
@@ -49,6 +49,6 @@
     <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="<#= dslProjectName #>" Path="|<#= dslProjectName #>|" />
     <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="Project" d:ProjectName="%CurrentProject%" d:TargetPath="|%CurrentProject%;TemplateProjectOutputGroup|" Path="ItemTemplates" d:VsixSubPath="ItemTemplates" />
 	<Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="ApiStudioIO.pkgdef" />
-    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\azure-function-dotnet6-isolated.zip" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\csharp-azurefunction-dotnet6.zip" />
   </Assets>
 </PackageManifest>

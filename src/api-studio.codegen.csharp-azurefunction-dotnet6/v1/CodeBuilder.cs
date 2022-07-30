@@ -2,11 +2,11 @@
 // Licensed under the MIT License.
 
 using System.Collections.Generic;
-using ApiStudioIO.CodeGen.CSharpNet6AzFunc.v1.Build;
+using ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Build;
 using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.Vs.Output;
 
-namespace ApiStudioIO.CodeGen.CSharpNet6AzFunc.v1
+namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1
 {
     internal static class CodeBuilder
     {
