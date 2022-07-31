@@ -16,7 +16,7 @@
     <Hidden>true</Hidden>
   </TemplateData>
   <TemplateContent>
-    <Project TargetFileName="$safeprojectname$.csproj" File="AzFunction.csproj" ReplaceParameters="true">
+    <Project TargetFileName="$ext_safeprojectname$.csproj" File="AzFunction.csproj" ReplaceParameters="true">
       <Folder Name="ApiStudio" TargetFolderName="ApiStudio">
         <ProjectItem ReplaceParameters="true" TargetFileName="Default.ApiStudio">Default.ApiStudio</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="Default.ApiStudio.diagram">Default.ApiStudio.diagram</ProjectItem>

@@ -4,8 +4,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <OutputType>Exe</OutputType>
-    <AssemblyName>$safeprojectname$.WebApplication</AssemblyName>
-    <RootNamespace>$safeprojectname$.WebApplication</RootNamespace>
+    <AssemblyName>$ext_safeprojectname$.WebApplication</AssemblyName>
+    <RootNamespace>$ext_safeprojectname$.WebApplication</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

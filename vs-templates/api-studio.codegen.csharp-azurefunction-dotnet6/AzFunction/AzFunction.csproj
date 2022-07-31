@@ -3,8 +3,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
     <OutputType>Exe</OutputType>
-    <AssemblyName>$safeprojectname$.AzFunction</AssemblyName>
-    <RootNamespace>$safeprojectname$.AzFunction</RootNamespace>
+    <AssemblyName>$ext_safeprojectname$.AzFunction</AssemblyName>
+    <RootNamespace>$ext_safeprojectname$.AzFunction</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.*" />

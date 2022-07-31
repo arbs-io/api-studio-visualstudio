@@ -1,4 +1,3 @@
-namespace $safeprojectname$
 using System.Runtime.InteropServices.ComTypes;
 using Endpoints;
 
