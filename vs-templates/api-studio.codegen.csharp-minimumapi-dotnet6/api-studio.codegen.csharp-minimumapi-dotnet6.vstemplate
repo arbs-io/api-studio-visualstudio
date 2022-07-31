@@ -21,7 +21,7 @@
   <TemplateContent>
     <ProjectCollection>
       <SolutionFolder Name="$safeprojectname$">
-        <ProjectTemplateLink ProjectName="WebApplication" CopyParameters="true">
+        <ProjectTemplateLink ProjectName="$safeprojectname$" CopyParameters="true">
           WebApplication\WebApplication.vstemplate
         </ProjectTemplateLink>
       </SolutionFolder>
