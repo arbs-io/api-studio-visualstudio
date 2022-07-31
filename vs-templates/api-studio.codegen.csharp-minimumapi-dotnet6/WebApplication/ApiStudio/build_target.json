@@ -1,0 +1,6 @@
+{
+  "language": "csharp",
+  "version": "v1",
+  "target_library": "minimum_api",
+  "target_framework": "net6.0"
+}

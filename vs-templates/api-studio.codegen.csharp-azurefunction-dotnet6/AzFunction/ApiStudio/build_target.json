@@ -1,5 +1,7 @@
 {
   "language": "csharp",
   "azure_functions_version": "v4",
+  "version": "v4",
+  "target_library": "azure_function",
   "target_framework": "net6.0"
 }
