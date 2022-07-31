@@ -14,7 +14,3 @@ Summary of each projects within the solution:
   - **api-studio.codegen.csharp-azurefunction-dotnet6**
   - **api-studio.codegen.csharp-minimumapi-dotnet6**
   - **api-studio.codegen.python-fastapi-python3x**
-
-
-csharp-azurefunction-dotnet6
-

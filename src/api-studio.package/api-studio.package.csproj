@@ -178,6 +178,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <Content Include="ProjectTemplates\csharp-minimumapi-dotnet6.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="source.extension.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>source.extension.vsixmanifest</LastGenOutput>
