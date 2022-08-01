@@ -20,11 +20,9 @@
   </TemplateData>
   <TemplateContent>
     <ProjectCollection>
-      <SolutionFolder Name="$safeprojectname$">
-        <ProjectTemplateLink ProjectName="$safeprojectname$" CopyParameters="true">
-          WebApplication\WebApplication.vstemplate
-        </ProjectTemplateLink>
-      </SolutionFolder>
+      <ProjectTemplateLink ProjectName="$safeprojectname$" CopyParameters="true">
+        WebApplication\WebApplication.vstemplate
+      </ProjectTemplateLink>
     </ProjectCollection>
   </TemplateContent>
 </VSTemplate>
