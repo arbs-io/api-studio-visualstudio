@@ -9,7 +9,7 @@ namespace ApiStudioIO.Vs.ErrorList
 {
     public class TableEntriesSnapshot : TableEntriesSnapshotBase
     {
-        private readonly int _versionNumber = 1;
+        private const int VersionNumber = 1;
         private readonly List<ErrorListItem> _errors;
         public TableEntriesSnapshot(string projectName, string filePath, IEnumerable<ErrorListItem> errors)
         {
@@ -20,9 +20,9 @@ namespace ApiStudioIO.Vs.ErrorList
 
         #region ITableEntriesSnapshot
 
-        public string ProjectName { get; private set; }
+        public string ProjectName { get; }
     
-        public string FilePath { get; private set; }
+        public string FilePath { get; }
     
         public override int Count
         {

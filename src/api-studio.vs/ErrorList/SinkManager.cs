@@ -26,7 +26,7 @@ namespace ApiStudioIO.Vs.ErrorList
         /// <summary>
         /// Snapshot collection
         /// </summary>
-        private List<TableEntriesSnapshot> _snapshots = new List<TableEntriesSnapshot>();
+        private readonly List<TableEntriesSnapshot> _snapshots = new List<TableEntriesSnapshot>();
     
         /// <summary>
         /// Constructor
@@ -73,18 +73,18 @@ namespace ApiStudioIO.Vs.ErrorList
         }
 
         #region IDisposable Support
-        private bool disposedValue = false; // To detect redundant calls
+        private bool _disposedValue = false; // To detect redundant calls
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposedValue)
+            if (!_disposedValue)
             {
                 if (disposing)
                 {
                     _onDispose?.Invoke(this);
                 }
 
-                disposedValue = true;
+                _disposedValue = true;
             }
         }
         

@@ -60,13 +60,12 @@ namespace ApiStudioIO.Vs.ErrorList
                 return message.Substring(msgIndex).Trim();
             }
 
-            if (message.Contains("warning"))
+            if (!message.Contains("warning")) return message;
             {
                 var msgIndex = message.IndexOf(':') + 1;
                 return message.Substring(msgIndex).Trim();
             }
 
-            return message;
         }
 
         private static string GetErrorCategory(string severity, string type)
