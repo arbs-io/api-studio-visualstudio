@@ -51,7 +51,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Build
                 .Replace("{{TOKEN_OAS_HTTP_URI}}", resource.HttpApiUri)
                 .Replace("{{TOKEN_OAS_HTTP_STATUS_CODE}}", BuildHttpTriggerResponseStatusCodes(httpApi));
 
-            Logger.Log($"[SdkHttpTrigger]: {namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger");
+            VsLogger.Log($"[SdkHttpTrigger]: {namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger");
 
             return new SourceCodeEntity($"{namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger.cs",
                 httpTriggerSourceCode, false);

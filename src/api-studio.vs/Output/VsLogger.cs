@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.Shell;
 
 namespace ApiStudioIO.Vs.Output
 {
-    public static class Logger
+    public static class VsLogger
     {
         public static void Clear()
         {
