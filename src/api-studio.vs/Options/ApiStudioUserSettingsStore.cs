@@ -11,8 +11,8 @@ namespace ApiStudioIO.Vs.Options
 {
     public sealed class ApiStudioUserSettingsStore
     {
-        private readonly string COLLECTION_NAME = "api-studio";
-        private readonly string PROPERTY_NAME = "configuration-v1";
+        private const string CollectionName = "api-studio";
+        private const string PropertyName = "configuration-v1";
 
         private ApiStudioOptions _data;
 
@@ -51,13 +51,13 @@ namespace ApiStudioIO.Vs.Options
             var settingsManager = new ShellSettingsManager(ServiceProvider.GlobalProvider);
             var userSettingsStore = settingsManager.GetWritableSettingsStore(SettingsScope.UserSettings);
 
-            if (!userSettingsStore.PropertyExists(COLLECTION_NAME, PROPERTY_NAME))
+            if (!userSettingsStore.PropertyExists(CollectionName, PropertyName))
             {
                 ResetDefaults();
                 return;
             }
 
-            var stored = userSettingsStore.GetString(COLLECTION_NAME, PROPERTY_NAME);
+            var stored = userSettingsStore.GetString(CollectionName, PropertyName);
             Data = JsonConvert.DeserializeObject<ApiStudioOptions>(stored);
         }
 
@@ -67,12 +67,12 @@ namespace ApiStudioIO.Vs.Options
             var settingsManager = new ShellSettingsManager(ServiceProvider.GlobalProvider);
             var userSettingsStore = settingsManager.GetWritableSettingsStore(SettingsScope.UserSettings);
 
-            if (!userSettingsStore.CollectionExists(COLLECTION_NAME))
-                userSettingsStore.CreateCollection(COLLECTION_NAME);
+            if (!userSettingsStore.CollectionExists(CollectionName))
+                userSettingsStore.CreateCollection(CollectionName);
 
             var store = JsonConvert.SerializeObject(Data, Formatting.Indented);
 
-            userSettingsStore.SetString(COLLECTION_NAME, PROPERTY_NAME, store);
+            userSettingsStore.SetString(CollectionName, PropertyName, store);
         }
 
 

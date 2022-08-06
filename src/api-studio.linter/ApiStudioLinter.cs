@@ -26,13 +26,9 @@ namespace ApiStudioIO.Linter
             _rules.Add(new Rules.MetaInformation.InfoDescriptionRule());
         }
 
-        public static void RunRules(string apiStudioFilePath)
+        public static void RunRules(ApiStudio apiStudio, string modelName)
         {
             InitiliseLinter();
-
-            var apiStudio = ApiStudioExtensions.LoadDiagram(apiStudioFilePath);
-            var apiStudioFileInfo = new FileInfo(apiStudioFilePath);
-            var modelName = apiStudioFileInfo.Name.Replace(".ApiStudio", "");
 
             _linkIssueDataSource.CleanAllErrors();
             var errors = new List<ErrorListItem>();

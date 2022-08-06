@@ -7,7 +7,7 @@ using System.Linq;
 using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.Vs.Output;
 
-namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Build
+namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
 {
     internal static class SdkHttpAuthOAuth2Scopes
     {
@@ -35,7 +35,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Build
                 sourceList.Add(new SourceCodeEntity($"{namespaceHelper.Solution}.OAuth2.Scopes.cs", sourceCode, true,
                     $"{namespaceHelper.Solution}.OAuth2.cs"));
 
-                Logger.Log($"[SdkHttpAuthOAuth2Scopes]: OAuth2/OpenIdConnect");
+                VsLogger.Log($"[SdkHttpAuthOAuth2Scopes]: OAuth2/OpenIdConnect");
             }
 
             return sourceList;

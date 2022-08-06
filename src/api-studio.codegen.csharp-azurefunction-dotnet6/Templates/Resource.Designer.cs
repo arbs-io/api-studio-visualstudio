@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Templates {
+namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Templates {
     using System;
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -23,15 +23,15 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Templates {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resource {
-        
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resource() {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -39,13 +39,13 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Templates {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Templates.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Templates.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -59,7 +59,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Templates {
                 resourceCulture = value;
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to namespace {{TOKEN_OAS_NAMESPACE}}
         ///{
@@ -81,7 +81,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Templates {
                 return ResourceManager.GetString("HttpAuthOAuth2", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to namespace {{TOKEN_OAS_NAMESPACE}}
         ///{
@@ -103,7 +103,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Templates {
                 return ResourceManager.GetString("HttpAuthOAuth2Scopes", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to namespace {{TOKEN_OAS_NAMESPACE}}
         ///{
@@ -128,7 +128,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Templates {
                 return ResourceManager.GetString("HttpTrigger", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to namespace {{TOKEN_OAS_NAMESPACE}}
         ///{
@@ -151,7 +151,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Templates {
                 return ResourceManager.GetString("HttpTriggerDesigner", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to         private class {{TOKEN_OAS_HTTP_OPENAPI_HEADER_CLASS_NAME}} : IOpenApiCustomResponseHeader
         ///        {
@@ -167,7 +167,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Templates {
                 return ResourceManager.GetString("HttpTriggerDesignerResponseHeaderClass", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to                     {
         ///                        &quot;{{TOKEN_OAS_HTTP_OPENAPI_HEADER_NAME}}&quot;,
@@ -184,7 +184,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Templates {
                 return ResourceManager.GetString("HttpTriggerDesignerResponseHeaderItem", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to #nullable enable
         ///namespace {{TOKEN_OAS_NAMESPACE}}
@@ -205,7 +205,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Templates {
                 return ResourceManager.GetString("Model", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
         ///using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
@@ -227,7 +227,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Templates {
                 return ResourceManager.GetString("OpenApiConfigurationOptions", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &apos;{0}&apos; cannot be null or whitespace..
         /// </summary>
@@ -236,7 +236,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Templates {
                 return ResourceManager.GetString("SdkHttpTrigger_GenerateHttpTrigger___0___cannot_be_null_or_whitespace_", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &apos;{0}&apos; cannot be null or whitespace..
         /// </summary>

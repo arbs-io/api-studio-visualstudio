@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.Vs.Output;
 
-namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Build
+namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
 {
     internal static class SdkHttpAuthOAuth2
     {
@@ -21,7 +21,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Build
                     .Replace("{{TOKEN_OAS_CLASS_NAME}}", modelName);
                 sourceList.Add(new SourceCodeEntity($"{namespaceHelper.Solution}.OAuth2.cs", sourceCode, false));
 
-                Logger.Log($"[SdkHttpAuthOAuth2]: OAuth2/OpenIdConnect");
+                VsLogger.Log($"[SdkHttpAuthOAuth2]: OAuth2/OpenIdConnect");
             }
 
             return sourceList;

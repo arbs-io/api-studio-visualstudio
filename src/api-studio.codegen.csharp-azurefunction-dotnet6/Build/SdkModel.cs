@@ -8,7 +8,7 @@ using ApiStudioIO.Utility.Extensions;
 using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.Vs.Output;
 
-namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Build
+namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
 {
     using static String;
 
@@ -48,7 +48,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Build
                 .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                 .Replace("{{TOKEN_OAS_CLASS_NAME}}", payloadName);
 
-            Logger.Log($"[SdkModel]: {namespaceHelper.Solution}-{payloadName}.Model");
+            VsLogger.Log($"[SdkModel]: {namespaceHelper.Solution}-{payloadName}.Model");
 
             return new SourceCodeEntity($"{namespaceHelper.Solution}-{payloadName}.Model.cs", sourceCode, false);
         }

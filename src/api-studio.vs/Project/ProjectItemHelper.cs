@@ -24,19 +24,19 @@ namespace ApiStudioIO.Vs.Project
                     ?? throw new ArgumentNullException(nameof(ProjectItemHelper));
 
                 var dependentUponProjectItem = projectItem.ProjectItems.AddFromFile(dependentUponFile);
-                Logger.Log($"[ProjectItem::AddNestedFile] {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
+                VsLogger.Log($"[ProjectItem::AddNestedFile] {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
 
                 SetDependentUpon(dependentUponProjectItem, projectItem.Name);
                 SetBuildAction(dependentUponProjectItem);
             }
             catch (ArgumentNullException) 
             {
-                Logger.Log($"[ProjectItem::AddNestedFile] Ignored {sourceFileInfo.Name} SDK style project resource implicitly registered");
+                VsLogger.Log($"[ProjectItem::AddNestedFile] Ignored {sourceFileInfo.Name} SDK style project resource implicitly registered");
                 // Note: Ignore SDK style projects will auto-nest using naming convention
             }
             catch (Exception e)
             {
-                Logger.Log($"[ProjectItem::AddNestedFile] error {sourceFileInfo.Name} {e.Message}");
+                VsLogger.Log($"[ProjectItem::AddNestedFile] error {sourceFileInfo.Name} {e.Message}");
             }            
         }
 
@@ -50,16 +50,16 @@ namespace ApiStudioIO.Vs.Project
                     ?? throw new ArgumentNullException(nameof(ProjectItemHelper));
 
                 projectItem.Delete();
-                Logger.Log($"[ProjectItem::DeleteFile] {sourceFileInfo.Name}");
+                VsLogger.Log($"[ProjectItem::DeleteFile] {sourceFileInfo.Name}");
             }
             catch (ArgumentNullException)
             {
                 // Note: Ignore SDK style projects will auto-nest using naming convention
-                Logger.Log($"[ProjectItem::DeleteFile] Ignored {sourceFileInfo.Name} SDK style project resource implicitly registered");
+                VsLogger.Log($"[ProjectItem::DeleteFile] Ignored {sourceFileInfo.Name} SDK style project resource implicitly registered");
             }
             catch (Exception e)
             {
-                Logger.Log($"[ProjectItem::DeleteFile] error {e.Message}");
+                VsLogger.Log($"[ProjectItem::DeleteFile] error {e.Message}");
             }
             finally
             {
@@ -68,7 +68,7 @@ namespace ApiStudioIO.Vs.Project
                     if (sourceFileInfo.Exists)
                     {
                         sourceFileInfo.Delete();
-                        Logger.Log($"[ProjectItem::DeleteFile] forced delete on file {sourceFileInfo.Name}");
+                        VsLogger.Log($"[ProjectItem::DeleteFile] forced delete on file {sourceFileInfo.Name}");
                     }
                 }
                 catch (Exception) { }   // Ignore
@@ -83,7 +83,7 @@ namespace ApiStudioIO.Vs.Project
 
             if (dependentUponProjectItem.ContainsProperty("DependentUpon"))
                 dependentUponProjectItem.Properties.Item("DependentUpon").Value = sourceProjectItemName;
-            Logger.Log($"[ProjectItem::SetDependentUpon] {sourceProjectItemName}");
+            VsLogger.Log($"[ProjectItem::SetDependentUpon] {sourceProjectItemName}");
         }
 
         public static void SetBuildAction(EnvDTE.ProjectItem item)
