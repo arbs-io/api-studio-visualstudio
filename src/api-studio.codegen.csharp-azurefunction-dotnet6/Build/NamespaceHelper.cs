@@ -3,7 +3,7 @@
 
 using ApiStudioIO.Utility.Extensions;
 
-namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Build
+namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
 {
     internal class NamespaceHelper
     {

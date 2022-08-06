@@ -3,7 +3,7 @@ using ApiStudioIO.Common.Models.Build;
 
 namespace ApiStudioIO.Common.Interfaces
 {
-    public interface IApiStudioCodeBuilder
+    public interface IApiStudioCodeGeneratorProvider
     {
         List<SourceCodeEntity> Run();
     }

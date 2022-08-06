@@ -2,18 +2,18 @@
 // Licensed under the MIT License.
 
 using System.Collections.Generic;
-using ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Build;
+using ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build;
 using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.Vs.Output;
 using ApiStudioIO.Common.Interfaces;
 
-namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1
+namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6
 {
-    public class CSharpAzureFunctionDotNet6CodeBuilder : IApiStudioCodeBuilder
+    public class CSharpAzureFunctionDotNet6CodeGenerator : IApiStudioCodeGeneratorProvider
     {
         private readonly ApiStudio _apiStudio;
         private readonly string _modelName;
-        public CSharpAzureFunctionDotNet6CodeBuilder(ApiStudio apiStudio, string modelName)
+        public CSharpAzureFunctionDotNet6CodeGenerator(ApiStudio apiStudio, string modelName)
         {
             _apiStudio = apiStudio;
             _modelName = modelName;

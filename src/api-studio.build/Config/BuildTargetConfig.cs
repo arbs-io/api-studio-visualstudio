@@ -3,7 +3,7 @@
 
 using System;
 using System.IO;
-using ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1;
+using ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6;
 using ApiStudioIO.Common.Interfaces;
 using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.Vs.Output;
@@ -19,7 +19,7 @@ namespace ApiStudioIO.Build.Config
             ApiStudioFileInfo = new FileInfo(apiStudioFile);
             BuildTarget = LoadBuildTarget();
             ApiStudioModel = LoadApiStudioModel();
-            ApiStudioCodeBuilder = new CSharpAzureFunctionDotNet6CodeBuilder(ApiStudioModel, ApiStudioModelName);
+            ApiStudioCodeBuilder = new CSharpAzureFunctionDotNet6CodeGenerator(ApiStudioModel, ApiStudioModelName);
 
         }
 
@@ -30,7 +30,7 @@ namespace ApiStudioIO.Build.Config
         public string ApiStudioModelName => ApiStudioFileInfo.Name.Replace(".ApiStudio", "");
         public BuildTargetModel BuildTarget { get; private set; }
 
-        public IApiStudioCodeBuilder ApiStudioCodeBuilder { get; }
+        public IApiStudioCodeGeneratorProvider ApiStudioCodeBuilder { get; }
 
         private BuildTargetModel LoadBuildTarget()
         {

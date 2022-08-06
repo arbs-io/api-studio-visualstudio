@@ -13,7 +13,7 @@ using ApiStudioIO.Utility.Extensions;
 using ApiStudioIO.Vs.Options;
 using ApiStudioIO.Vs.Output;
 
-namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.v1.Build
+namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
 {
     internal static class SdkHttpTriggerDesigner
     {
