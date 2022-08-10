@@ -25,6 +25,18 @@
       <Folder Name="Models" TargetFolderName="Models">
         <ProjectItem ReplaceParameters="true" TargetFileName="ErrorModel.cs">ErrorModel.cs</ProjectItem>
       </Folder>
+      <Folder Name="Features" TargetFolderName="Features">
+        <ProjectItem ReplaceParameters="true" TargetFileName="HomeModule.cs">HomeModule.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="TodosModule.cs">TodosModule.cs</ProjectItem>
+      </Folder>
+      <Folder Name="AppExtensions" TargetFolderName="ApplicationBuilderExtensions">
+        <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationBuilderExtensions.cs">AppExtensions.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationBuilderExtensions.OpenAPI.cs">AppExtensions.OpenAPI.cs</ProjectItem>
+      </Folder>
+      <Folder Name="SCExtensions" TargetFolderName="ServiceCollectionExtensions">
+        <ProjectItem ReplaceParameters="true" TargetFileName="ServiceCollectionExtensions.Auth.cs">SCExtensions.Auth.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ServiceCollectionExtensions.OpenAPI.cs">SCExtensions.OpenAPI.cs</ProjectItem>
+      </Folder>
       <Folder Name="Endpoints" TargetFolderName="Endpoints">
         <Folder Name="Http" TargetFolderName="Http">
         </Folder>
@@ -33,6 +45,7 @@
         <ProjectItem ReplaceParameters="true" TargetFileName="launchSettings.json">launchSettings.json</ProjectItem>
       </Folder>
       <ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="GlobalUsing.cs">GlobalUsing.cs</ProjectItem>
     </Project>
   </TemplateContent>
 </VSTemplate>

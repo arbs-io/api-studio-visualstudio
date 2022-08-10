@@ -9,8 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.*" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.*" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUi" Version="6.*" />
+    <PackageReference Include="Carter" Version="6.*" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="6.*" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.*" />
   </ItemGroup>
 
 	<ItemGroup>

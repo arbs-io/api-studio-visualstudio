@@ -1,24 +1,22 @@
-using System.Runtime.InteropServices.ComTypes;
-using Endpoints;
-
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.AddSwagger();
+builder.AddAuthentication();
+builder.AddAuthorization();
+builder.Services.AddCors();
+
+builder.Services.AddCarter();
 
 var app = builder.Build();
+var environment = app.Environment;
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app
+    .UseExceptionHandling(environment)
+    .UseSwaggerEndpoints(routePrefix: string.Empty)
+    .UseAppCors();
+    //.UseAuthentication()
+    //.UseAuthorization();
 
-app.UseHttpsRedirection();
-
-_ = app.MapReviewEndpoints();
+app.MapCarter();
 
 app.Run();
