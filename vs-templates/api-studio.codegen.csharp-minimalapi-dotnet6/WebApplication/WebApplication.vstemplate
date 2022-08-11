@@ -25,9 +25,10 @@
       <Folder Name="Models" TargetFolderName="Models">
         <ProjectItem ReplaceParameters="true" TargetFileName="ErrorModel.cs">ErrorModel.cs</ProjectItem>
       </Folder>
-      <Folder Name="Features" TargetFolderName="Features">
+      <Folder Name="HttpEndpoints" TargetFolderName="HttpEndpoints">
         <ProjectItem ReplaceParameters="true" TargetFileName="HomeModule.cs">HomeModule.cs</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="TodosModule.cs">TodosModule.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="TodosModule.Designer.cs">TodosModule.Designer.cs</ProjectItem>
       </Folder>
       <Folder Name="AppExtensions" TargetFolderName="ApplicationBuilderExtensions">
         <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationBuilderExtensions.cs">AppExtensions.cs</ProjectItem>

@@ -29,7 +29,7 @@ internal static partial class ApplicationBuilderExtensions
         app.UseCors(p =>
         {
             p.AllowAnyOrigin();
-            p.WithMethods("GET");
+            p.AllowAnyMethod();
             p.AllowAnyHeader();
         });
 
