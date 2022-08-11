@@ -33,13 +33,7 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6
 
             VsLogger.Log($"[CodeBuilder::Build]: SdkModel");
             sourceList.AddRange(SdkModel.Build(_apiStudio, _modelName));
-
-            VsLogger.Log($"[CodeBuilder::Build]: SdkHttpAuthOAuth2");
-            sourceList.AddRange(SdkHttpAuthOAuth2.Build(_apiStudio, _modelName));
-
-            VsLogger.Log($"[CodeBuilder::Build]: SdkHttpAuthOAuth2Scopes");
-            sourceList.AddRange(SdkHttpAuthOAuth2Scopes.Build(_apiStudio, _modelName));
-
+            
             return sourceList;
         }
     }

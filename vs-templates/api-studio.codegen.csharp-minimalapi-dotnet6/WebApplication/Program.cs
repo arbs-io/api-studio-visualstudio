@@ -1,3 +1,5 @@
+using $ext_safeprojectname$;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddSwagger();

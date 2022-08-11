@@ -4,6 +4,7 @@
 using System;
 using System.IO;
 using ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6;
+using ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6;
 using ApiStudioIO.Common.Interfaces;
 using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.Vs.Output;
@@ -19,8 +20,20 @@ namespace ApiStudioIO.Build.Config
             ApiStudioFileInfo = new FileInfo(apiStudioFile);
             BuildTarget = LoadBuildTarget();
             ApiStudioModel = LoadApiStudioModel();
-            ApiStudioCodeBuilder = new CSharpAzureFunctionDotNet6CodeGenerator(ApiStudioModel, ApiStudioModelName);
+            switch (BuildTarget.TargetLibrary)
+            {
+                case "azure_function":
+                    ApiStudioCodeBuilder = new CSharpAzureFunctionDotNet6CodeGenerator(ApiStudioModel, ApiStudioModelName);
+                    break;
 
+                case "minimum_api":
+                    ApiStudioCodeBuilder = new CSharpMinimalApiDotNet6CodeGenerator(ApiStudioModel, ApiStudioModelName);
+                    break;
+
+                default:
+                    ApiStudioCodeBuilder = new CSharpAzureFunctionDotNet6CodeGenerator(ApiStudioModel, ApiStudioModelName);
+                    break;
+            }
         }
 
         public FileInfo ApiStudioFileInfo { get; }

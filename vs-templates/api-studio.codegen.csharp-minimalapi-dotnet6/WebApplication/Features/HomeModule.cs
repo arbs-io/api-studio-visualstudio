@@ -1,4 +1,4 @@
-namespace MinimalAPI.Features;
+namespace $ext_safeprojectname$;
 
 using System.Net.Mime;
 using Swashbuckle.AspNetCore.Annotations;

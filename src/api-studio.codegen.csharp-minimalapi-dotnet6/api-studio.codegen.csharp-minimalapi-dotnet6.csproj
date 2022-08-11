@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <RootNamespace>ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6</RootNamespace>
-    <AssemblyName>api-studio.codegen.csharp-minimumapi-dotnet6</AssemblyName>
+    <AssemblyName>api-studio.codegen.csharp-minimalapi-dotnet6</AssemblyName>
     <AssemblyOriginatorKeyFile>..\api-studio-key.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>True</SignAssembly>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>

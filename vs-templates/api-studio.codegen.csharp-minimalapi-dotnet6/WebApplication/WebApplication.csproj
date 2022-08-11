@@ -29,4 +29,10 @@
     <Compile Include="ApiStudio\*.Model.cs" Link="Models\%(Filename)%(Extension)" />
 	</ItemGroup>
 
+  <ItemGroup>
+    <None Update="ApiStudio\Default.ApiStudio">
+      <Generator>ApiStudioCodeGeneration</Generator>
+    </None>
+  </ItemGroup>
+
 </Project>
