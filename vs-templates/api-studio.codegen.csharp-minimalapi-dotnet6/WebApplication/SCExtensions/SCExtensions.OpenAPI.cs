@@ -18,13 +18,13 @@ public static partial class ServiceCollectionExtensions
         {
             c.SwaggerDoc("v1", new OpenApiInfo()
             {
-                Description = "Minimal API Demo",
-                Title = "Minimal API Demo",
+                Description = "Api Studio - Minimal API",
+                Title = "Api Studio - Minimal API",
                 Version = "v1",
                 Contact = new OpenApiContact()
                 {
-                    Name = "Oleksii Nikiforov",
-                    Url = new Uri("https://github.com/nikiforovall")
+                    Name = "Api Studio",
+                    Url = new Uri("https://api-studio.io")
                 }
             });
             c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme

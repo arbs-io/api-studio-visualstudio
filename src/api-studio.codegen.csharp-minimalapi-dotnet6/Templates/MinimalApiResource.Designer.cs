@@ -61,7 +61,7 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Templates {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to namespace {{TOKEN_OAS_NAMESPACE}}
+        ///   Looks up a localized string similar to namespace {{TOKEN_OAS_PROJECTNAME}}.{{TOKEN_OAS_NAMESPACE}}
         ///{
         ///    //using Microsoft.Extensions.Logging;
         ///
@@ -74,9 +74,7 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Templates {
         ///            //_logger = loggerFactory.CreateLogger&lt;{{TOKEN_OAS_CLASS_NAME}}&gt;();
         ///        }
         ///
-        ///        public async Task&lt;HttpResponseData&gt; RunAsync(HttpRequestData httpRequestData)
-        ///        {
-        ///          [rest of string was truncated]&quot;;.
+        ///        public async Task&lt;IResult&gt; RunAsync(Microsoft.AspNetCore.Http.HttpContext [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string HttpEndpoint {
             get {
@@ -85,13 +83,16 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Templates {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to namespace {{TOKEN_OAS_NAMESPACE}}
+        ///   Looks up a localized string similar to namespace {{TOKEN_OAS_PROJECTNAME}}.{{TOKEN_OAS_NAMESPACE}}
         ///{
         ///    public partial class {{TOKEN_OAS_CLASS_NAME}} : ICarterModule
         ///    {
         ///        public void AddRoutes(IEndpointRouteBuilder app)
         ///        {
-        ///            app.Map{{TOKEN_OAS_HTTP_VERB}}(&quot;{{TOKEN_OAS_HTTP_URI}}&quot;, RunAsync);
+        ///            app.Map{{TOKEN_OAS_HTTP_VERB}}(&quot;/{{TOKEN_OAS_HTTP_URI}}&quot;, (Microsoft.AspNetCore.Http.HttpContext c) =&gt;
+        ///            {
+        ///                return RunAsync(c);
+        ///            });
         ///        }
         ///    }
         ///}.

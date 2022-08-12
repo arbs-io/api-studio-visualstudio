@@ -26,12 +26,12 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
                 .SelectMany(resource => resource.HttpApis,
                     (resource, httpApi) => new { resource, httpApi })
                 .ToList()
-                .ForEach(x => sourceList.Add(GenerateHttpTrigger(modelName, x.resource, x.httpApi, namespaceHelper)));
+                .ForEach(x => sourceList.Add(GenerateHttpTrigger(buildTargetModel, modelName, x.resource, x.httpApi, namespaceHelper)));
 
             return sourceList;
         }
 
-        private static SourceCodeEntity GenerateHttpTrigger(string modelName, Resource resource, HttpApi httpApi,
+        private static SourceCodeEntity GenerateHttpTrigger(BuildTargetModel buildTargetModel, string modelName, Resource resource, HttpApi httpApi,
             NamespaceHelper namespaceHelper)
         {
             if (string.IsNullOrWhiteSpace(modelName))
@@ -49,6 +49,7 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
             var openapiAttributes = string.Join(Environment.NewLine, attributes);
 
             var httpTriggerDesignerSourceCode = Templates.MinimalApiResource.HttpEndpointDesigner
+                .Replace("{{TOKEN_OAS_PROJECTNAME}}", buildTargetModel.ProjectName)
                 .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                 .Replace("{{TOKEN_OAS_MODEL}}", modelName)
                 .Replace("{{TOKEN_OAS_NAMESPACE_DATAMODEL}}", namespaceHelper.DataModel)

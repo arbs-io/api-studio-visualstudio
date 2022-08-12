@@ -1,10 +1,10 @@
-﻿namespace {{TOKEN_OAS_NAMESPACE}}
+﻿namespace {{TOKEN_OAS_PROJECTNAME}}.{{TOKEN_OAS_NAMESPACE}}
 {
     public partial class {{TOKEN_OAS_CLASS_NAME}} : ICarterModule
     {
         public void AddRoutes(IEndpointRouteBuilder app)
         {
-            app.Map{{TOKEN_OAS_HTTP_VERB}}("{{TOKEN_OAS_HTTP_URI}}", RunAsync);
+            app.Map{{TOKEN_OAS_HTTP_VERB}}("/{{TOKEN_OAS_HTTP_URI}}", (Microsoft.AspNetCore.Http.HttpContext c) => RunAsync(c));
         }
     }
 }
