@@ -4,7 +4,11 @@
     {
         public void AddRoutes(IEndpointRouteBuilder app)
         {
-            app.Map{{TOKEN_OAS_HTTP_VERB}}("/{{TOKEN_OAS_HTTP_URI}}", (Microsoft.AspNetCore.Http.HttpContext c) => RunAsync(c));
+            app.Map{{TOKEN_OAS_HTTP_VERB}}("/{{TOKEN_OAS_HTTP_URI}}", async (HttpContext httpContext) =>
+            {
+                _httpContext = httpContext;
+                return RunAsync();
+            });
         }
     }
 }

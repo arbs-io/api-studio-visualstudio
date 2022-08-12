@@ -21,9 +21,6 @@
         <ProjectItem ReplaceParameters="true" TargetFileName="Default.ApiStudio">Default.ApiStudio</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="Default.ApiStudio.diagram">Default.ApiStudio.diagram</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="build_target.json">build_target.json</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="Default-Home.HttpEndpoint.cs">Default-Home.HttpEndpoint.cs</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="Default-Todo.HttpEndpoint.cs">Default-Todo.HttpEndpoint.cs</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="Default-Todo.HttpEndpoint.Designer.cs">Default-Todo.HttpEndpoint.Designer.cs</ProjectItem>
       </Folder>
       <Folder Name="Models" TargetFolderName="Models">
         <ProjectItem ReplaceParameters="true" TargetFileName="ErrorModel.cs">ErrorModel.cs</ProjectItem>

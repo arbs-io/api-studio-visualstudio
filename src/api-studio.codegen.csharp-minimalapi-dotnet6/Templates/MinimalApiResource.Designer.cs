@@ -68,13 +68,16 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Templates {
         ///    public partial class {{TOKEN_OAS_CLASS_NAME}}
         ///    {
         ///        private readonly ILogger _logger;
-        ///        //public {{TOKEN_OAS_CLASS_NAME}}(ILoggerFactory loggerFactory)
-        ///        public {{TOKEN_OAS_CLASS_NAME}}()
+        ///        private HttpContext _httpContext;
+        ///
+        ///        public {{TOKEN_OAS_CLASS_NAME}}(ILoggerFactory loggerFactory)
         ///        {
-        ///            //_logger = loggerFactory.CreateLogger&lt;{{TOKEN_OAS_CLASS_NAME}}&gt;();
+        ///            _logger = loggerFactory.CreateLogger&lt;{{TOKEN_OAS_CLASS_NAME}}&gt;();
         ///        }
         ///
-        ///        public async Task&lt;IResult&gt; RunAsync(Microsoft.AspNetCore.Http.HttpContext [rest of string was truncated]&quot;;.
+        ///        public IResult RunAsync()
+        ///        {
+        ///            var headerCount = _httpCo [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string HttpEndpoint {
             get {
@@ -89,9 +92,10 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Templates {
         ///    {
         ///        public void AddRoutes(IEndpointRouteBuilder app)
         ///        {
-        ///            app.Map{{TOKEN_OAS_HTTP_VERB}}(&quot;/{{TOKEN_OAS_HTTP_URI}}&quot;, (Microsoft.AspNetCore.Http.HttpContext c) =&gt;
+        ///            app.Map{{TOKEN_OAS_HTTP_VERB}}(&quot;/{{TOKEN_OAS_HTTP_URI}}&quot;, async (HttpContext httpContext) =&gt;
         ///            {
-        ///                return RunAsync(c);
+        ///                _httpContext = httpContext;
+        ///                return RunAsync();
         ///            });
         ///        }
         ///    }
