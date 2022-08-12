@@ -15,9 +15,9 @@ using ApiStudioIO.Vs.Output;
 
 namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
 {
-    internal static class SdkHttpTriggerDesigner
+    internal static class SdkHttpEndpointDesigner
     {
-        internal static List<SourceCodeEntity> Build(ApiStudio apiStudio, string modelName)
+        internal static List<SourceCodeEntity> Build(BuildTargetModel buildTargetModel, ApiStudio apiStudio, string modelName)
         {
             var sourceList = new List<SourceCodeEntity>();
 
@@ -37,108 +37,34 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
             if (string.IsNullOrWhiteSpace(modelName))
                 throw new ArgumentException(
                     string.Format(
-                        Templates.Resource
-                            .SdkHttpTriggerDesigner_GenerateHttpTrigger___0___cannot_be_null_or_whitespace_,
+                        Templates.MinimalApiResource
+                            .SdkHttpDesigner_GenerateHttp___0___cannot_be_null_or_whitespace_,
                         nameof(modelName)), nameof(modelName));
             _ = resource ?? throw new ArgumentNullException(nameof(resource));
             _ = httpApi ?? throw new ArgumentNullException(nameof(httpApi));
 
             var attributes = new List<string>();
-            attributes.AddRange(BuildHttpTriggerSecurity(modelName, httpApi));
             attributes.AddRange(BuildHttpTriggerParameters(httpApi));
             attributes.AddRange(BuildHttpTriggerResponseStatusCodes(httpApi));
             var openapiAttributes = string.Join(Environment.NewLine, attributes);
 
-            var httpTriggerDesignerSourceCode = Templates.Resource.HttpTriggerDesigner
+            var httpTriggerDesignerSourceCode = Templates.MinimalApiResource.HttpEndpointDesigner
                 .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                 .Replace("{{TOKEN_OAS_MODEL}}", modelName)
                 .Replace("{{TOKEN_OAS_NAMESPACE_DATAMODEL}}", namespaceHelper.DataModel)
                 .Replace("{{TOKEN_OAS_CLASS_NAME}}", $"Http{httpApi.DisplayName.ToAlphaNumeric()}")
                 .Replace("{{TOKEN_OAS_FUNCTION_NAME}}", httpApi.DisplayName.ToAlphaNumeric())
                 .Replace("{{TOKEN_OAS_FUNCTION_DESCRIPTION}}", httpApi.Description)
-                .Replace("{{TOKEN_OAS_HTTP_VERB}}", httpApi.HttpVerb.ToUpper())
+                .Replace("{{TOKEN_OAS_HTTP_VERB}}", httpApi.HttpVerb)
                 .Replace("{{TOKEN_OAS_HTTP_URI}}", resource.HttpApiUri)
-                .Replace("{{TOKEN_OAS_HTTP_OPENAPI_ATTRIBUTE}}", openapiAttributes)
-                .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_INFORMATION}}",
-                    BuildHttpTriggerResponseHeader(HttpApiHeaderResponseOnTypes.OnInformation, "OnInformation",
-                        httpApi))
-                .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_SUCCESS}}",
-                    BuildHttpTriggerResponseHeader(HttpApiHeaderResponseOnTypes.OnSuccess, "OnSuccess", httpApi))
-                .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_REDIRECTION}}",
-                    BuildHttpTriggerResponseHeader(HttpApiHeaderResponseOnTypes.OnRedirection, "OnRedirection",
-                        httpApi))
-                .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_CLIENTERROR}}",
-                    BuildHttpTriggerResponseHeader(HttpApiHeaderResponseOnTypes.OnClientError, "OnClientError",
-                        httpApi))
-                .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_SERVERERROR}}",
-                    BuildHttpTriggerResponseHeader(HttpApiHeaderResponseOnTypes.OnServerError, "OnServerError",
-                        httpApi));
+                .Replace("{{TOKEN_OAS_HTTP_OPENAPI_ATTRIBUTE}}", openapiAttributes);
 
-            VsLogger.Log($"[SdkHttpTriggerDesigner]: {namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger.Designer");
+            VsLogger.Log($"[SdkHttpEndpointDesigner]: {namespaceHelper.Solution}-{httpApi.DisplayName}.HttpEndpoint.Designer");
 
-            return new SourceCodeEntity($"{namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger.Designer.cs",
-                httpTriggerDesignerSourceCode, true, $"{modelName}-{httpApi.DisplayName}.HttpTrigger.cs");
+            return new SourceCodeEntity($"{namespaceHelper.Solution}-{httpApi.DisplayName}.HttpEndpoint.Designer.cs",
+                httpTriggerDesignerSourceCode, true, $"{modelName}-{httpApi.DisplayName}.HttpEndpoint.cs");
         }
-
-        private static string BuildHttpTriggerResponseHeader(HttpApiHeaderResponseOnTypes onTypes, string className,
-            HttpApi httpApi)
-        {
-            var responseHeaderItems = new StringBuilder("");
-
-            foreach (var responseHeader in httpApi.HttpApiHeaderResponses)
-                if (responseHeader.IncludeOn == HttpApiHeaderResponseOnTypes.OnAlways ||
-                    responseHeader.IncludeOn == onTypes)
-                {
-                    var responseHeaderItem = Templates.Resource.HttpTriggerDesignerResponseHeaderItem
-                        .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_NAME}}", responseHeader.Name)
-                        .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_DESCRIPTION}}", responseHeader.Description)
-                        .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_ALLOWEMPTY}}",
-                            responseHeader.AllowEmptyValue.ToString().ToLower())
-                        .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_REQUIRED}}",
-                            responseHeader.IsRequired.ToString().ToLower());
-                    responseHeaderItems.Append(responseHeaderItem);
-                }
-
-            var responseHeaderClass = Templates.Resource.HttpTriggerDesignerResponseHeaderClass
-                .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_CLASS_NAME}}", $"ResponseHeader{className}")
-                .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_ITEMS}}", responseHeaderItems.ToString());
-
-            return responseHeaderClass;
-        }
-
-        private static List<string> BuildHttpTriggerSecurity(string modelName, HttpApi httpApi)
-        {
-            var attributes = new List<string>();
-            var securityApiKey = httpApi.ApiStudio.SecurityApiKey;
-            if (!string.IsNullOrEmpty(securityApiKey))
-                attributes.Add(
-                    $"\t\t[OpenApiSecurity(\"ApiKey\", SecuritySchemeType.ApiKey, Name = \"{securityApiKey}\", In = OpenApiSecurityLocationType.Header)]");
-
-            switch (httpApi.ApiStudio.SecuritySchemeType)
-            {
-                case SecuritySchemeTypes.OAuth2:
-                    var oauth2SchemeName = ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.OAuth2SchemeName;
-                    attributes.Add(
-                        $"\t\t[OpenApiSecurity(\"{oauth2SchemeName}\", SecuritySchemeType.OAuth2, Flows = typeof({modelName}OpenApiOAuthSecurityFlows))]");
-                    break;
-                case SecuritySchemeTypes.OpenIdConnect:
-                    var openIdConnectUrl = ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.OpenIdConnectUrl;
-                    var openIdConnectSchemeName =
-                        ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.OpenIdConnectSchemeName;
-                    attributes.Add(
-                        $"\t\t[OpenApiSecurity(\"{openIdConnectSchemeName}\", SecuritySchemeType.OpenIdConnect, OpenIdConnectUrl = \"{openIdConnectUrl}\", OpenIdConnectScopes = \"{httpApi.AuthorisationRole}\")]");
-                    break;
-                case SecuritySchemeTypes.Basic:
-                    var basicSchemeName = ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.BasicSchemeName;
-                    attributes.Add(
-                        $"\t\t[OpenApiSecurity(\"{basicSchemeName}\", SecuritySchemeType.Http, Scheme = OpenApiSecuritySchemeType.Basic)]");
-                    break;
-                case SecuritySchemeTypes.None:
-                    break;
-            }
-
-            return attributes;
-        }
+        
 
         private static List<string> BuildHttpTriggerResponseStatusCodes(HttpApi httpApi)
         {

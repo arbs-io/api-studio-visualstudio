@@ -27,7 +27,7 @@ namespace ApiStudioIO.Build.Config
                     break;
 
                 case "minimum_api":
-                    ApiStudioCodeBuilder = new CSharpMinimalApiDotNet6CodeGenerator(ApiStudioModel, ApiStudioModelName);
+                    ApiStudioCodeBuilder = new CSharpMinimalApiDotNet6CodeGenerator(BuildTarget, ApiStudioModel, ApiStudioModelName);
                     break;
 
                 default:
@@ -61,7 +61,7 @@ namespace ApiStudioIO.Build.Config
                 if (File.Exists(buildTargetFile))
                 {
                     var buildTarget = File.ReadAllText(buildTargetFile);
-                    BuildTarget = JsonConvert.DeserializeObject<BuildTargetModel>(buildTarget);
+                    buildTargetModel = JsonConvert.DeserializeObject<BuildTargetModel>(buildTarget);
                 }
                 else  // If "build_target.json" doesn't exist then default to AzFunc (original project template, without config)
                 {

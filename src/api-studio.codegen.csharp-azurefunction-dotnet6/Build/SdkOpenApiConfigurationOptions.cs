@@ -12,7 +12,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
         internal static List<SourceCodeEntity> Build(ApiStudio eai, string modelName)
         {
             var sourceList = new List<SourceCodeEntity>();
-            var template = Templates.Resource.OpenApiConfigurationOptions;
+            var template = Templates.AzureFunctionResource.OpenApiConfigurationOptions;
 
             var output = template
                 .Replace("{{TOKEN_OAS_TITLE}}", eai?.Title)

@@ -44,7 +44,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
         private static SourceCodeEntity GenerateModels(NamespaceHelper namespaceHelper, string name)
         {
             var payloadName = $"{name.ToAlphaNumeric(true)}";
-            var sourceCode = Templates.Resource.Model
+            var sourceCode = Templates.AzureFunctionResource.Model
                 .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                 .Replace("{{TOKEN_OAS_CLASS_NAME}}", payloadName);
 

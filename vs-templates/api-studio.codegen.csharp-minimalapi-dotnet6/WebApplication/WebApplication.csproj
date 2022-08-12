@@ -23,8 +23,8 @@
 
 	<ItemGroup>
 		<Compile Remove="ApiStudio\*.cs" />
-    <Compile Include="ApiStudio\*.HttpEndpoint.cs" Link="Endpoints\Http\%(Filename)%(Extension)" />
-    <Compile Include="ApiStudio\*.HttpEndpoint.Designer.cs" Link="Endpoints\Http\%(Filename)%(Extension)" />
+    <Compile Include="ApiStudio\*.HttpEndpoint.cs" Link="HttpEndpoints\%(Filename)%(Extension)" />
+    <Compile Include="ApiStudio\*.HttpEndpoint.Designer.cs" Link="HttpEndpoints\%(Filename)%(Extension)" />
     <Compile Include="ApiStudio\*.Model.cs" Link="Models\%(Filename)%(Extension)" />
 	</ItemGroup>
 

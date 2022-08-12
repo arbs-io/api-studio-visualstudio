@@ -19,6 +19,11 @@
     <ProjectReference Include="..\api-studio.vs\api-studio.vs.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Templates\AzureFunctionResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AzureFunctionResource.resx</DependentUpon>
+    </Compile>
     <Compile Update="v1\Templates\Resource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -26,6 +31,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="Templates\AzureFunctionResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AzureFunctionResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="v1\Templates\Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>

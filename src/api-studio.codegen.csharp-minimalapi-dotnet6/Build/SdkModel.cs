@@ -14,7 +14,7 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
 
     internal static class SdkModel
     {
-        internal static List<SourceCodeEntity> Build(ApiStudio apiStudio, string modelName)
+        internal static List<SourceCodeEntity> Build(BuildTargetModel buildTargetModel, ApiStudio apiStudio, string modelName)
         {
             var sourceList = new List<SourceCodeEntity>();
 
@@ -44,7 +44,7 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
         private static SourceCodeEntity GenerateModels(NamespaceHelper namespaceHelper, string name)
         {
             var payloadName = $"{name.ToAlphaNumeric(true)}";
-            var sourceCode = Templates.Resource.Model
+            var sourceCode = Templates.MinimalApiResource.Model
                 .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                 .Replace("{{TOKEN_OAS_CLASS_NAME}}", payloadName);
 

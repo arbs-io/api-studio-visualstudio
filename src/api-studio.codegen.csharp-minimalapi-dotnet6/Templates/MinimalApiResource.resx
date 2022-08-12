@@ -118,28 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="HttpTrigger" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>httptrigger.cstemplate;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="HttpTriggerDesigner" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>httptriggerdesigner.cstemplate;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="HttpTriggerDesignerResponseHeaderClass" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>httptriggerdesignerresponseheaderclass.cstemplate;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="HttpTriggerDesignerResponseHeaderItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>httptriggerdesignerresponseheaderitem.cstemplate;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
   <data name="Model" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>model.cstemplate;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="OpenApiConfigurationOptions" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>openapiconfigurationoptions.cstemplate;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="SdkHttpTrigger_GenerateHttpTrigger___0___cannot_be_null_or_whitespace_" xml:space="preserve">
+  <data name="HttpEndpointDesigner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>httpendpointdesigner.cstemplate;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="HttpEndpoint" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>httpendpoint.cstemplate;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SdkHttpDesigner_GenerateHttp___0___cannot_be_null_or_whitespace_" xml:space="preserve">
     <value>'{0}' cannot be null or whitespace.</value>
   </data>
-  <data name="SdkHttpTriggerDesigner_GenerateHttpTrigger___0___cannot_be_null_or_whitespace_" xml:space="preserve">
+  <data name="SdkHttp_GenerateHttp___0___cannot_be_null_or_whitespace_" xml:space="preserve">
     <value>'{0}' cannot be null or whitespace.</value>
   </data>
 </root>

@@ -1,7 +1,7 @@
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
   <TemplateData>
     <Name>ASP.NET Core Web API (Api Studio)</Name>
-    <Description>A template to create an Azure Function project with ApiStudio designer</Description>
+    <Description>A project template for creating an ASP.NET Core application. This template uses Minimal Api to help accelerate the creation of .NET API projects</Description>
     <ProjectType>CSharp</ProjectType>
     <ProjectSubType>Api Studio</ProjectSubType>
     <SortOrder>5000</SortOrder>
@@ -15,8 +15,13 @@
     <PreviewImage>api-studio.codegen.csharp-minimalapi-dotnet6.ico</PreviewImage>
     <LanguageTag>C#</LanguageTag>
     <ProjectTypeTag>Api Studio</ProjectTypeTag>
-    <ProjectTypeTag>Azure</ProjectTypeTag>
+    <ProjectTypeTag>Linux</ProjectTypeTag>
+    <ProjectTypeTag>macOS</ProjectTypeTag>
+    <ProjectTypeTag>Windows</ProjectTypeTag>
     <ProjectTypeTag>Cloud</ProjectTypeTag>
+    <ProjectTypeTag>Service</ProjectTypeTag>
+    <ProjectTypeTag>Web</ProjectTypeTag>
+    <ProjectTypeTag>WebAPI</ProjectTypeTag>
   </TemplateData>
   <TemplateContent>
     <ProjectCollection>

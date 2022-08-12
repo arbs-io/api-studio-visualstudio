@@ -7,6 +7,7 @@ namespace ApiStudioIO.Common.Models.Build
 {
     public class BuildTargetModel
     {
+        [JsonProperty("project_name")] public string ProjectName { get; set; }
         [JsonProperty("language")] public string Language { get; set; }
         [JsonProperty("version")] public string Version { get; set; }
         [JsonProperty("azure_functions_version")] public string AzureFunctionsVersion { get; set; }

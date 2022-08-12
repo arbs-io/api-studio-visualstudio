@@ -1,8 +1,0 @@
-﻿        private class {{TOKEN_OAS_HTTP_OPENAPI_HEADER_CLASS_NAME}} : IOpenApiCustomResponseHeader
-        {
-            public Dictionary<string, OpenApiHeader> Headers { get; set; } =
-                new Dictionary<string, OpenApiHeader>()
-                {
-{{TOKEN_OAS_HTTP_OPENAPI_HEADER_ITEMS}}
-                };
-        }

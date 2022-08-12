@@ -37,8 +37,8 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
             if (string.IsNullOrWhiteSpace(modelName))
                 throw new ArgumentException(
                     string.Format(
-                        Templates.Resource
-                            .SdkHttpTriggerDesigner_GenerateHttpTrigger___0___cannot_be_null_or_whitespace_,
+                        Templates.AzureFunctionResource
+                            .SdkHttpDesigner_GenerateHttp___0___cannot_be_null_or_whitespace_,
                         nameof(modelName)), nameof(modelName));
             _ = resource ?? throw new ArgumentNullException(nameof(resource));
             _ = httpApi ?? throw new ArgumentNullException(nameof(httpApi));
@@ -49,7 +49,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
             attributes.AddRange(BuildHttpTriggerResponseStatusCodes(httpApi));
             var openapiAttributes = string.Join(Environment.NewLine, attributes);
 
-            var httpTriggerDesignerSourceCode = Templates.Resource.HttpTriggerDesigner
+            var httpTriggerDesignerSourceCode = Templates.AzureFunctionResource.HttpTriggerDesigner
                 .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                 .Replace("{{TOKEN_OAS_MODEL}}", modelName)
                 .Replace("{{TOKEN_OAS_NAMESPACE_DATAMODEL}}", namespaceHelper.DataModel)
@@ -89,7 +89,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
                 if (responseHeader.IncludeOn == HttpApiHeaderResponseOnTypes.OnAlways ||
                     responseHeader.IncludeOn == onTypes)
                 {
-                    var responseHeaderItem = Templates.Resource.HttpTriggerDesignerResponseHeaderItem
+                    var responseHeaderItem = Templates.AzureFunctionResource.HttpTriggerDesignerResponseHeaderItem
                         .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_NAME}}", responseHeader.Name)
                         .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_DESCRIPTION}}", responseHeader.Description)
                         .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_ALLOWEMPTY}}",
@@ -99,7 +99,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
                     responseHeaderItems.Append(responseHeaderItem);
                 }
 
-            var responseHeaderClass = Templates.Resource.HttpTriggerDesignerResponseHeaderClass
+            var responseHeaderClass = Templates.AzureFunctionResource.HttpTriggerDesignerResponseHeaderClass
                 .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_CLASS_NAME}}", $"ResponseHeader{className}")
                 .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_ITEMS}}", responseHeaderItems.ToString());
 

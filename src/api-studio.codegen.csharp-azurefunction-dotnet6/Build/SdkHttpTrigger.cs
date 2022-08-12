@@ -32,7 +32,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
             if (string.IsNullOrWhiteSpace(modelName))
                 throw new ArgumentException(
                     string.Format(
-                        Templates.Resource.SdkHttpTrigger_GenerateHttpTrigger___0___cannot_be_null_or_whitespace_,
+                        Templates.AzureFunctionResource.SdkHttp_GenerateHttp___0___cannot_be_null_or_whitespace_,
                         nameof(modelName)), nameof(modelName));
             _ = resource ?? throw new ArgumentNullException(nameof(resource));
             _ = httpApi ?? throw new ArgumentNullException(nameof(httpApi));
@@ -40,7 +40,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
             var responseMediaType = httpApi.HttpApiMediaTypeResponsed
                 .FirstOrDefault()?.DisplayName ?? "application/json";
 
-            var httpTriggerSourceCode = Templates.Resource.HttpTrigger
+            var httpTriggerSourceCode = Templates.AzureFunctionResource.HttpTrigger
                 .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                 .Replace("{{TOKEN_OAS_MODEL}}", modelName)
                 .Replace("{{TOKEN_OAS_CLASS_NAME}}", $"Http{httpApi.DisplayName.ToAlphaNumeric()}")

@@ -21,14 +21,14 @@
         <ProjectItem ReplaceParameters="true" TargetFileName="Default.ApiStudio">Default.ApiStudio</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="Default.ApiStudio.diagram">Default.ApiStudio.diagram</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="build_target.json">build_target.json</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Default-Home.HttpEndpoint.cs">Default-Home.HttpEndpoint.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Default-Todo.HttpEndpoint.cs">Default-Todo.HttpEndpoint.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Default-Todo.HttpEndpoint.Designer.cs">Default-Todo.HttpEndpoint.Designer.cs</ProjectItem>
       </Folder>
       <Folder Name="Models" TargetFolderName="Models">
         <ProjectItem ReplaceParameters="true" TargetFileName="ErrorModel.cs">ErrorModel.cs</ProjectItem>
       </Folder>
       <Folder Name="HttpEndpoints" TargetFolderName="HttpEndpoints">
-        <ProjectItem ReplaceParameters="true" TargetFileName="HomeModule.cs">HomeModule.cs</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="TodosModule.cs">TodosModule.cs</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="TodosModule.Designer.cs">TodosModule.Designer.cs</ProjectItem>
       </Folder>
       <Folder Name="AppExtensions" TargetFolderName="ApplicationBuilderExtensions">
         <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationBuilderExtensions.cs">AppExtensions.cs</ProjectItem>
