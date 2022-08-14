@@ -22,7 +22,7 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
                 .Replace("{{TOKEN_OAS_CONTACT_NAME}}", eai?.ContactName);
 
             sourceList.Add(
-                new SourceCodeEntity("ApiStudio.OpenApiConfigurationOptions.cs", output, true));
+                new SourceCodeEntity("ServiceCollectionExtensions.OpenAPI.cs", output, true));
 
             VsLogger.Log($"[SdkOpenApiConfigurationOptions::Build]: {eai?.Title}");
 

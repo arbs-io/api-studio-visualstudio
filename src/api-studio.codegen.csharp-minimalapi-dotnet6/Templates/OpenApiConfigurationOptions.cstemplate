@@ -1,31 +1,59 @@
-﻿using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
-using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
+﻿namespace Microsoft.Extensions.DependencyInjection;
+
 using Microsoft.OpenApi.Models;
-using System;
 
-namespace Configurations
+public static partial class ServiceCollectionExtensions
 {
-    public class OpenApiConfigurationOptions : DefaultOpenApiConfigurationOptions
+    public static WebApplicationBuilder AddSwagger(this WebApplicationBuilder builder)
     {
-        public override OpenApiInfo Info { get; set; } = new OpenApiInfo()
-        {
-            Version = @"{{TOKEN_OAS_VERSION}}",
-            Title = @"{{TOKEN_OAS_TITLE}}",
-            Description = @"{{TOKEN_OAS_DESCRIPTION}}",
-            TermsOfService = new Uri(@"{{TOKEN_OAS_CONTACT_URL}}"),
-            Contact = new OpenApiContact()
-            {
-                Name = @"{{TOKEN_OAS_CONTACT_URL}}",
-                Email = @"{{TOKEN_OAS_CONTACT_URL}}",
-                Url = new Uri(@"{{TOKEN_OAS_CONTACT_URL}}"),
-            },
-            License = new OpenApiLicense()
-            {
-                Name = "MIT",
-                Url = new Uri("https://api-studio.io/licenses/MIT"),
-            }
-        };
+        builder.Services.AddSwagger();
 
-        public override OpenApiVersionType OpenApiVersion { get; set; } = OpenApiVersionType.V3;
+        return builder;
+    }
+
+    public static IServiceCollection AddSwagger(this IServiceCollection services)
+    {
+        services.AddEndpointsApiExplorer();
+        services.AddSwaggerGen(c =>
+        {
+            c.SwaggerDoc(@"v1", new OpenApiInfo()
+            {
+                Description = @"{{TOKEN_OAS_DESCRIPTION}}",
+                Title = @"{{TOKEN_OAS_TITLE}}",
+                Version = @"{{TOKEN_OAS_VERSION}}",
+                Contact = new OpenApiContact()
+                {
+                    Name = @"{{TOKEN_OAS_CONTACT_NAME}}",
+                    Url = new Uri(@"{{TOKEN_OAS_CONTACT_URL}}")
+                }
+            });
+            c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+            {
+                Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                Name = "Authorization",
+                In = ParameterLocation.Header,
+                Type = SecuritySchemeType.ApiKey,
+                Scheme = "Bearer"
+            });
+            c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+            {
+                {
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "Bearer"
+                        },
+                        Scheme = "oauth2",
+                        Name = "Bearer",
+                        In = ParameterLocation.Header,
+
+                    },
+                    new List<string>()
+            }});
+        });
+
+        return services;
     }
 }

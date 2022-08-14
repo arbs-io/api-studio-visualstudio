@@ -86,8 +86,10 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Templates {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to namespace {{TOKEN_OAS_PROJECTNAME}}.{{TOKEN_OAS_NAMESPACE}}
+        ///   Looks up a localized string similar to namespace {{TOKEN_OAS_PROJECT_NAME}}.{{TOKEN_OAS_NAMESPACE}}
         ///{
+        ///    using Swashbuckle.AspNetCore.Annotations;
+        ///
         ///    public partial class {{TOKEN_OAS_CLASS_NAME}} : ICarterModule
         ///    {
         ///        public void AddRoutes(IEndpointRouteBuilder app)
@@ -96,10 +98,8 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Templates {
         ///            {
         ///                _httpContext = httpContext;
         ///                return RunAsync();
-        ///            });
-        ///        }
-        ///    }
-        ///}.
+        ///            })
+        ///                .WithTags(&quot;{{TOKEN_OA [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string HttpEndpointDesigner {
             get {
@@ -129,20 +129,25 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Templates {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
-        ///using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
-        ///using Microsoft.OpenApi.Models;
-        ///using System;
+        ///   Looks up a localized string similar to namespace Microsoft.Extensions.DependencyInjection;
         ///
-        ///namespace Configurations
+        ///using Microsoft.OpenApi.Models;
+        ///
+        ///public static partial class ServiceCollectionExtensions
         ///{
-        ///    public class OpenApiConfigurationOptions : DefaultOpenApiConfigurationOptions
+        ///    public static WebApplicationBuilder AddSwagger(this WebApplicationBuilder builder)
         ///    {
-        ///        public override OpenApiInfo Info { get; set; } = new OpenApiInfo()
+        ///        builder.Services.AddSwagger();
+        ///
+        ///        return builder;
+        ///    }
+        ///
+        ///    public static IServiceCollection AddSwagger(this IServiceCollection services)
+        ///    {
+        ///        services.AddEndpointsApiExplorer();
+        ///        services.AddSwaggerGen(c =&gt;
         ///        {
-        ///            Version = @&quot;{{TOKEN_OAS_VERSION}}&quot;,
-        ///            Title = @&quot;{{TOKEN_OAS_TITLE}}&quot;,
-        ///            Description = @&quot;{ [rest of string was truncated]&quot;;.
+        ///         [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string OpenApiConfigurationOptions {
             get {

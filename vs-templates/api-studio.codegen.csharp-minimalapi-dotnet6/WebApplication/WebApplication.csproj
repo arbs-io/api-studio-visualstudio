@@ -26,6 +26,7 @@
     <Compile Include="ApiStudio\*.HttpEndpoint.cs" Link="HttpEndpoints\%(Filename)%(Extension)" />
     <Compile Include="ApiStudio\*.HttpEndpoint.Designer.cs" Link="HttpEndpoints\%(Filename)%(Extension)" />
     <Compile Include="ApiStudio\*.Model.cs" Link="Models\%(Filename)%(Extension)" />
+    <Compile Include="ApiStudio\ServiceCollectionExtensions.OpenAPI.cs" Link="ServiceCollectionExtensions\%(Filename)%(Extension)" />
 	</ItemGroup>
 
   <ItemGroup>

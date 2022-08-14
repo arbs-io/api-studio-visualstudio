@@ -38,10 +38,6 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
             _ = resource ?? throw new ArgumentNullException(nameof(resource));
             _ = httpApi ?? throw new ArgumentNullException(nameof(httpApi));
 
-            //var attributes = new List<string>();
-            //attributes.AddRange(BuildHttpTriggerParameters(httpApi));
-            ////attributes.AddRange(BuildHttpEndpointResponseStatusCodes(httpApi));
-            //var openapiAttributes = string.Join(Environment.NewLine, attributes);
             var httpEndpointResponses = BuildHttpEndpointResponseStatusCodes(httpApi);
 
             var httpTriggerDesignerSourceCode = Templates.MinimalApiResource.HttpEndpointDesigner
@@ -87,64 +83,5 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
             }
             return attributes;
         }
-
-        //private static List<string> BuildHttpTriggerParameters(HttpApi httpApi)
-        //{
-        //    var attributes = new List<string>();
-        //    foreach (var header in httpApi.RequestHeaders)
-        //    {
-        //        var attribute = "\t\t[OpenApiParameter(";
-        //        attribute += $"name: \"{header.Name}\", ";
-        //        attribute += "In = ParameterLocation.Header, ";
-        //        attribute += $"Required = {header.IsRequired.ToString().ToLower()}, ";
-        //        attribute += "Type = typeof(string), ";
-        //        attribute += $"Summary = \"{header.Description}\", ";
-        //        attribute += $"Description = \"{header.Description}\", ";
-        //        attribute += "Visibility = OpenApiVisibilityType.Important)]";
-        //        attributes.Add(attribute);
-        //    }
-
-        //    foreach (var parameter in httpApi.RequestParameters)
-        //    {
-        //        var parameterType = parameter.FromType.ConvertOpenApiAttribute();
-        //        if (parameterType == "ParameterLocation.Body")
-        //        {
-        //            var attribute = "\t\t[OpenApiRequestBody(";
-        //            attribute += "contentType: \"application/json\", ";
-        //            attribute += $"bodyType: typeof({parameter.DataType}), ";
-        //            attribute += $"Required = {parameter.IsRequired.ToString().ToLower()}, ";
-        //            attribute += $"Description = \"{parameter.Description}\")]";
-        //            attributes.Add(attribute);
-        //        }
-        //        else
-        //        {
-        //            var attribute = "\t\t[OpenApiParameter(";
-        //            attribute += $"name: \"{parameter.Name.ToAlphaNumeric()}\", ";
-        //            attribute += $"In = {parameter.FromType.ConvertOpenApiAttribute()}, ";
-        //            attribute += $"Required = {parameter.IsRequired.ToString().ToLower()}, ";
-        //            attribute += $"Type = typeof({parameter.DataType}), ";
-        //            attribute += $"Summary = \"{parameter.Description}\", ";
-        //            attribute += $"Description = \"{parameter.Description}\", ";
-        //            attribute += "Visibility = OpenApiVisibilityType.Important)]";
-        //            attributes.Add(attribute);
-        //        }
-        //    }
-
-        //    return attributes;
-        //}
-
-        //private static string ConvertOpenApiAttribute(this HttpTypeParameterLocation httpTypeParameterLocation)
-        //{
-        //    switch (httpTypeParameterLocation)
-        //    {
-        //        case HttpTypeParameterLocation.Query: return "ParameterLocation.Query";
-        //        case HttpTypeParameterLocation.Path: return "ParameterLocation.Path";
-        //        case HttpTypeParameterLocation.Body: return "ParameterLocation.Body";
-
-        //        default:
-        //            throw new InvalidEnumArgumentException(nameof(httpTypeParameterLocation),
-        //                (int)httpTypeParameterLocation, typeof(HttpTypeParameterLocation));
-        //    }
-        //}
     }
 }
