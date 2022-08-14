@@ -17,6 +17,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\api-studio.codegen.csharp-azurefunction-dotnet6\api-studio.codegen.csharp-azurefunction-dotnet6.csproj" />
+    <ProjectReference Include="..\api-studio.codegen.csharp-minimalapi-dotnet6\api-studio.codegen.csharp-minimalapi-dotnet6.csproj" />
     <ProjectReference Include="..\api-studio.linter\api-studio.linter.csproj" />
     <ProjectReference Include="..\api-studio.common\api-studio.common.csproj" />
     <ProjectReference Include="..\api-studio.vs\api-studio.vs.csproj" />

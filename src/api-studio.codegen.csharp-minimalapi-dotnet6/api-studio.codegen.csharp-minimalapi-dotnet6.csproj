@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
-    <RootNamespace>ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6</RootNamespace>
-    <AssemblyName>api-studio.codegen.csharp-azurefunction-dotnet6</AssemblyName>
+    <RootNamespace>ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6</RootNamespace>
+    <AssemblyName>api-studio.codegen.csharp-minimalapi-dotnet6</AssemblyName>
     <AssemblyOriginatorKeyFile>..\api-studio-key.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>True</SignAssembly>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
@@ -19,10 +19,10 @@
     <ProjectReference Include="..\api-studio.vs\api-studio.vs.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Templates\AzureFunctionResource.Designer.cs">
+    <Compile Update="Templates\MinimalApiResource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>AzureFunctionResource.resx</DependentUpon>
+      <DependentUpon>MinimalApiResource.resx</DependentUpon>
     </Compile>
     <Compile Update="v1\Templates\Resource.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -31,9 +31,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="Templates\AzureFunctionResource.resx">
+    <EmbeddedResource Update="Templates\MinimalApiResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AzureFunctionResource.Designer.cs</LastGenOutput>
+      <LastGenOutput>MinimalApiResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="v1\Templates\Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>

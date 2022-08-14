@@ -12,5 +12,5 @@ Summary of each projects within the solution:
 - **api-studio.utility**: Shared helper function e.g. Extenstion
 - **api-studio.build**: Code generation tools and interripter routing
   - **api-studio.codegen.csharp-azurefunction-dotnet6**
-  - **api-studio.codegen.csharp-minimumapi-dotnet6**
+  - **api-studio.codegen.csharp-minimalapi-dotnet6**
   - **api-studio.codegen.python-fastapi-python3x**

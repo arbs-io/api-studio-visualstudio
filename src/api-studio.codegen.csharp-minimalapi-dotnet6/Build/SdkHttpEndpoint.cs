@@ -9,11 +9,11 @@ using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.Utility.Extensions;
 using ApiStudioIO.Vs.Output;
 
-namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
+namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
 {
-    internal static class SdkHttpTrigger
+    internal static class SdkHttpEndpoint
     {
-        internal static List<SourceCodeEntity> Build(ApiStudio apiStudio, string modelName)
+        internal static List<SourceCodeEntity> Build(BuildTargetModel buildTargetModel, ApiStudio apiStudio, string modelName)
         {
             var sourceList = new List<SourceCodeEntity>();
             var namespaceHelper = new NamespaceHelper(apiStudio, modelName);
@@ -21,18 +21,18 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
                 .SelectMany(resource => resource.HttpApis,
                     (resource, httpApi) => new { resource, httpApi })
                 .ToList()
-                .ForEach(x => sourceList.Add(GenerateHttpTrigger(modelName, x.resource, x.httpApi, namespaceHelper)));
+                .ForEach(x => sourceList.Add(GenerateHttpTrigger(buildTargetModel, modelName, x.resource, x.httpApi, namespaceHelper)));
 
             return sourceList;
         }
 
-        private static SourceCodeEntity GenerateHttpTrigger(string modelName, Resource resource, HttpApi httpApi,
+        private static SourceCodeEntity GenerateHttpTrigger(BuildTargetModel buildTargetModel, string modelName, Resource resource, HttpApi httpApi,
             NamespaceHelper namespaceHelper)
         {
             if (string.IsNullOrWhiteSpace(modelName))
                 throw new ArgumentException(
                     string.Format(
-                        Templates.AzureFunctionResource.SdkHttp_GenerateHttp___0___cannot_be_null_or_whitespace_,
+                        Templates.MinimalApiResource.SdkHttp_GenerateHttp___0___cannot_be_null_or_whitespace_,
                         nameof(modelName)), nameof(modelName));
             _ = resource ?? throw new ArgumentNullException(nameof(resource));
             _ = httpApi ?? throw new ArgumentNullException(nameof(httpApi));
@@ -40,7 +40,8 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
             var responseMediaType = httpApi.HttpApiMediaTypeResponsed
                 .FirstOrDefault()?.DisplayName ?? "application/json";
 
-            var httpTriggerSourceCode = Templates.AzureFunctionResource.HttpTrigger
+            var httpTriggerSourceCode = Templates.MinimalApiResource.HttpEndpoint
+                .Replace("{{TOKEN_OAS_PROJECTNAME}}", buildTargetModel.ProjectName)
                 .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                 .Replace("{{TOKEN_OAS_MODEL}}", modelName)
                 .Replace("{{TOKEN_OAS_CLASS_NAME}}", $"Http{httpApi.DisplayName.ToAlphaNumeric()}")
@@ -51,9 +52,9 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
                 .Replace("{{TOKEN_OAS_HTTP_URI}}", resource.HttpApiUri)
                 .Replace("{{TOKEN_OAS_HTTP_STATUS_CODE}}", BuildHttpTriggerResponseStatusCodes(httpApi));
 
-            VsLogger.Log($"[SdkHttpTrigger]: {namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger");
+            VsLogger.Log($"[SdkHttpEndpoint]: {namespaceHelper.Solution}-{httpApi.DisplayName}.HttpEndpoint");
 
-            return new SourceCodeEntity($"{namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger.cs",
+            return new SourceCodeEntity($"{namespaceHelper.Solution}-{httpApi.DisplayName}.HttpEndpoint.cs",
                 httpTriggerSourceCode, false);
         }
 

@@ -5,14 +5,14 @@ using System.Collections.Generic;
 using ApiStudioIO.Vs.Output;
 using ApiStudioIO.Common.Models.Build;
 
-namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
+namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
 {
     internal static class SdkOpenApiConfigurationOptions
     {
         internal static List<SourceCodeEntity> Build(ApiStudio eai, string modelName)
         {
             var sourceList = new List<SourceCodeEntity>();
-            var template = Templates.AzureFunctionResource.OpenApiConfigurationOptions;
+            var template = Templates.MinimalApiResource.OpenApiConfigurationOptions;
 
             var output = template
                 .Replace("{{TOKEN_OAS_TITLE}}", eai?.Title)
@@ -22,7 +22,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
                 .Replace("{{TOKEN_OAS_CONTACT_NAME}}", eai?.ContactName);
 
             sourceList.Add(
-                new SourceCodeEntity("ApiStudio.OpenApiConfigurationOptions.cs", output, true));
+                new SourceCodeEntity("ServiceCollectionExtensions.OpenAPI.cs", output, true));
 
             VsLogger.Log($"[SdkOpenApiConfigurationOptions::Build]: {eai?.Title}");
 

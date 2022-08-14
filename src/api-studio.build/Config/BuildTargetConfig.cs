@@ -4,6 +4,7 @@
 using System;
 using System.IO;
 using ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6;
+using ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6;
 using ApiStudioIO.Common.Interfaces;
 using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.Vs.Output;
@@ -19,8 +20,20 @@ namespace ApiStudioIO.Build.Config
             ApiStudioFileInfo = new FileInfo(apiStudioFile);
             BuildTarget = LoadBuildTarget();
             ApiStudioModel = LoadApiStudioModel();
-            ApiStudioCodeBuilder = new CSharpAzureFunctionDotNet6CodeGenerator(ApiStudioModel, ApiStudioModelName);
+            switch (BuildTarget.TargetLibrary)
+            {
+                case "azure_function":
+                    ApiStudioCodeBuilder = new CSharpAzureFunctionDotNet6CodeGenerator(ApiStudioModel, ApiStudioModelName);
+                    break;
 
+                case "minimum_api":
+                    ApiStudioCodeBuilder = new CSharpMinimalApiDotNet6CodeGenerator(BuildTarget, ApiStudioModel, ApiStudioModelName);
+                    break;
+
+                default:
+                    ApiStudioCodeBuilder = new CSharpAzureFunctionDotNet6CodeGenerator(ApiStudioModel, ApiStudioModelName);
+                    break;
+            }
         }
 
         public FileInfo ApiStudioFileInfo { get; }
@@ -48,7 +61,7 @@ namespace ApiStudioIO.Build.Config
                 if (File.Exists(buildTargetFile))
                 {
                     var buildTarget = File.ReadAllText(buildTargetFile);
-                    BuildTarget = JsonConvert.DeserializeObject<BuildTargetModel>(buildTarget);
+                    buildTargetModel = JsonConvert.DeserializeObject<BuildTargetModel>(buildTarget);
                 }
                 else  // If "build_target.json" doesn't exist then default to AzFunc (original project template, without config)
                 {

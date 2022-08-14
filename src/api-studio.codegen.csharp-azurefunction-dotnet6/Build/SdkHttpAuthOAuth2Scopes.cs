@@ -28,7 +28,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
                 var scopes = string.Join($"{Environment.NewLine}", scopeList);
 
                 var namespaceHelper = new NamespaceHelper(apiStudio, modelName);
-                var sourceCode = Templates.Resource.HttpAuthOAuth2Scopes
+                var sourceCode = Templates.AzureFunctionResource.HttpAuthOAuth2Scopes
                     .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                     .Replace("{{TOKEN_OAS_CLASS_NAME}}", modelName)
                     .Replace("{{TOKEN_OAS_SCOPES}}", scopes);

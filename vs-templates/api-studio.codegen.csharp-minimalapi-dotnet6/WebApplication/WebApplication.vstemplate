@@ -21,9 +21,19 @@
         <ProjectItem ReplaceParameters="true" TargetFileName="Default.ApiStudio">Default.ApiStudio</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="Default.ApiStudio.diagram">Default.ApiStudio.diagram</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="build_target.json">build_target.json</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ServiceCollectionExtensions.OpenAPI.cs">ServiceCollectionExtensions.OpenAPI.cs</ProjectItem>
       </Folder>
       <Folder Name="Models" TargetFolderName="Models">
         <ProjectItem ReplaceParameters="true" TargetFileName="ErrorModel.cs">ErrorModel.cs</ProjectItem>
+      </Folder>
+      <Folder Name="HttpEndpoints" TargetFolderName="HttpEndpoints">
+      </Folder>
+      <Folder Name="AppExtensions" TargetFolderName="ApplicationBuilderExtensions">
+        <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationBuilderExtensions.cs">AppExtensions.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationBuilderExtensions.OpenAPI.cs">AppExtensions.OpenAPI.cs</ProjectItem>
+      </Folder>
+      <Folder Name="SCExtensions" TargetFolderName="ServiceCollectionExtensions">
+        <ProjectItem ReplaceParameters="true" TargetFileName="ServiceCollectionExtensions.Auth.cs">SCExtensions.Auth.cs</ProjectItem>
       </Folder>
       <Folder Name="Endpoints" TargetFolderName="Endpoints">
         <Folder Name="Http" TargetFolderName="Http">
@@ -33,6 +43,7 @@
         <ProjectItem ReplaceParameters="true" TargetFileName="launchSettings.json">launchSettings.json</ProjectItem>
       </Folder>
       <ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="GlobalUsing.cs">GlobalUsing.cs</ProjectItem>
     </Project>
   </TemplateContent>
 </VSTemplate>

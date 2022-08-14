@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>$ext_safeprojectname$</AssemblyName>
+    <RootNamespace>$ext_safeprojectname$</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.*" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.*" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUi" Version="6.*" />
+    <PackageReference Include="Carter" Version="6.*" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="6.*" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.*" />
+  </ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="ApiStudio\" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Compile Remove="ApiStudio\*.cs" />
+    <Compile Include="ApiStudio\*.HttpEndpoint.cs" Link="HttpEndpoints\%(Filename)%(Extension)" />
+    <Compile Include="ApiStudio\*.HttpEndpoint.Designer.cs" Link="HttpEndpoints\%(Filename)%(Extension)" />
+    <Compile Include="ApiStudio\*.Model.cs" Link="Models\%(Filename)%(Extension)" />
+    <Compile Include="ApiStudio\ServiceCollectionExtensions.OpenAPI.cs" Link="ServiceCollectionExtensions\%(Filename)%(Extension)" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <None Update="ApiStudio\Default.ApiStudio">
+      <Generator>ApiStudioCodeGeneration</Generator>
+    </None>
+  </ItemGroup>
+
+</Project>

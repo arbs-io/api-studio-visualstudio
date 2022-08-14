@@ -8,13 +8,13 @@ using ApiStudioIO.Utility.Extensions;
 using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.Vs.Output;
 
-namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
+namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
 {
     using static String;
 
     internal static class SdkModel
     {
-        internal static List<SourceCodeEntity> Build(ApiStudio apiStudio, string modelName)
+        internal static List<SourceCodeEntity> Build(BuildTargetModel buildTargetModel, ApiStudio apiStudio, string modelName)
         {
             var sourceList = new List<SourceCodeEntity>();
 
@@ -44,7 +44,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
         private static SourceCodeEntity GenerateModels(NamespaceHelper namespaceHelper, string name)
         {
             var payloadName = $"{name.ToAlphaNumeric(true)}";
-            var sourceCode = Templates.AzureFunctionResource.Model
+            var sourceCode = Templates.MinimalApiResource.Model
                 .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                 .Replace("{{TOKEN_OAS_CLASS_NAME}}", payloadName);
 

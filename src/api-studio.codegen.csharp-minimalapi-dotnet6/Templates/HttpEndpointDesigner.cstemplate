@@ -1,0 +1,20 @@
+﻿namespace {{TOKEN_OAS_PROJECT_NAME}}.{{TOKEN_OAS_NAMESPACE}}
+{
+    using Swashbuckle.AspNetCore.Annotations;
+
+    public partial class {{TOKEN_OAS_CLASS_NAME}} : ICarterModule
+    {
+        public void AddRoutes(IEndpointRouteBuilder app)
+        {
+            app.Map{{TOKEN_OAS_HTTP_VERB}}("/{{TOKEN_OAS_HTTP_URI}}", async (HttpContext httpContext) =>
+            {
+                _httpContext = httpContext;
+                return RunAsync();
+            })
+                .WithTags("{{TOKEN_OAS_HTTP_TAG}}")
+                .WithName("{{TOKEN_OAS_HTTP_NAME}}")
+{{TOKEN_OAS_PRODUCES}}
+                .AllowAnonymous();
+        }
+    }
+}

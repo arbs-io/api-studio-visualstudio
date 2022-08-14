@@ -1,0 +1,21 @@
+﻿namespace {{TOKEN_OAS_PROJECTNAME}}.{{TOKEN_OAS_NAMESPACE}}
+{
+    //using Microsoft.Extensions.Logging;
+
+    public partial class {{TOKEN_OAS_CLASS_NAME}}
+    {
+        private readonly ILogger _logger;
+        private HttpContext _httpContext;
+
+        public {{TOKEN_OAS_CLASS_NAME}}(ILoggerFactory loggerFactory)
+        {
+            _logger = loggerFactory.CreateLogger<{{TOKEN_OAS_CLASS_NAME}}>();
+        }
+
+        public IResult RunAsync()
+        {
+            var headerCount = _httpContext.Request.Headers.Count;
+            return Results.Ok($"Request header count: {headerCount}");
+        }
+    }
+}

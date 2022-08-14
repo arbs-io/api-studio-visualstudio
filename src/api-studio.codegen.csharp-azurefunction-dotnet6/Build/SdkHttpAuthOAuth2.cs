@@ -16,7 +16,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
                 apiStudio.SecuritySchemeType == SecuritySchemeTypes.OpenIdConnect)
             {
                 var namespaceHelper = new NamespaceHelper(apiStudio, modelName);
-                var sourceCode = Templates.Resource.HttpAuthOAuth2
+                var sourceCode = Templates.AzureFunctionResource.HttpAuthOAuth2
                     .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                     .Replace("{{TOKEN_OAS_CLASS_NAME}}", modelName);
                 sourceList.Add(new SourceCodeEntity($"{namespaceHelper.Solution}.OAuth2.cs", sourceCode, false));
