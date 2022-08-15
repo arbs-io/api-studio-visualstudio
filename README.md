@@ -1,5 +1,6 @@
 ## **What is Api Studio?**
-Api Studio is a productivity extension for Microsoft Visual Studio. The extension bridges the role of architect and developer, providing rapid prototyping and promoting industry best practices. Regardless of organisation or project size, Api Studio provides templating to guarantee a consistent look and feel.
+
+Api Studio is a productivity extension for Microsoft Visual Studio. The extension bridges the role of architect and developer, providing rapid prototyping and promoting industry best practices. In addition, Api Studio provides templating to guarantee a consistent look and feel regardless of organisation or project size.
 
 ## **Visual Studio Extension**
 
@@ -7,7 +8,7 @@ Api Studio Extension enhances Visual Studio 2022 by providing a designer, toolbo
 
 ## **How does Api Studio work?**
 
-Api Studio uses a proprietary domain-specific language (DSL), unique visualisation designer and code generation engine to provide an exceptional experience for building modern resource-based solutions.
+Api Studio contains a visual studio designer, domain-specific language (DSL) and code generation engine to provide an exceptional experience for building modern resource-based solutions.
 
 **Download** [Api Studio Extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=AndrewButson.ApiStudio) from visual studio marketplace
 
@@ -23,7 +24,7 @@ The extension provides the following features.
 
 - <span style="color:#FFD800;">**Property**</span>: The Visual Studio Properties window is a property browser for Api Studio components. The Properties window list metadata at design time for the currently selected object in any other window in the integrated development environment (IDE).
 
-![Api Studio Visual Studio Overview](images/api-studio-visualstudio-overview-highlighted.png)
+![api-studio-visualstudio-overview-highlighted__1.png](images/api-studio-visualstudio-overview-highlighted.png)
 
 ### **Visual Studio Project**
 
@@ -31,26 +32,35 @@ Api Studio provides a visual studio project containing all assets to get started
 
 #### Azure Function (dotnet6 - C#)
 
-![Api Studio Visual Studio Overview](images/api-studio-visualstudio-project.png)
+![api-studio-visualstudio-project.png](images/api-studio-visualstudio-project.png)
 
 #### **Template Standards**
 
 Api Studio provides templated standards for header, response codes and security models. Allowing enterprise standards to be shared between development teams. The options are available within visual studios options Tools --> Options --> ApiStudio. The options panel provide Import/Export functionality.
 
 ## **Getting Started**
-Creating a new project is simple. Visual Studio "Create Project", search "Api Studio" in the project list.
 
-![Visual Studio Create Api Studio Project](images/api-studio-project-template.png)
+Creating a new project is simple. Visual Studio "Create Project", filter using project type "Api Studio".
+
+![api-studio-project-template-filter.png](images/api-studio-project-template-filter.png)
+
+### Available Project Templates
+
+|                                          Projects                                           | Language | Library        | Framework | Version | Status | Comments                                                                     |
+| :-----------------------------------------------------------------------------------------: | -------- | -------------- | --------- | ------- | :----: | ---------------------------------------------------------------------------- |
+| ![csharp-azurefunction-dotnet6](images/api-studio.codegen.csharp-azurefunction-dotnet6.png) | csharp   | azure_function | net6.0    | 1.0.0   |   ✅   |
+|    ![csharp-minimalapi-dotnet6](images/api-studio.codegen.csharp-minimalapi-dotnet6.png)    | csharp   | minimum_api    | net6.0    | 1.0.0   |   ✅   | net6.0 openapi specification limitations, anticipated full support in net7.0 |
 
 ## **What's next**
 
-This extension currently supports RESTful-based APIs. However, we're working on adding support for TypeScript and Python including new protocols including gRpc, WebHooks and WebSocket interfaces.
+This extension currently supports RESTful-based APIs, but extensions to allow support for gRpc, WebHooks and WebSocket interfaces soon.
 
 ## **How can I help?**
+
 If you enjoy using the extension, please give it a rating on the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AndrewButson.ApiStudio).
 
 Should you encounter bugs or if you have feature requests, head on over to the [GitHub repo](https://github.com/arbs-io/api-studio-visualstudio) to open an issue if one doesn't already exist.
-Pull requests are also very welcome since I can't always get around to fixing all bugs myself. 
+Pull requests are also very welcome since I can't always get around to fixing all bugs myself.
 
 This is a personal passion project, so my time is limited.
 
