@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="4a6ef9c8-3428-4bd6-9b17-c57b4285bbd8" Version="2022.8.16.1390" Language="en-US" Publisher="Andrew Butson" />
+    <Identity Id="4a6ef9c8-3428-4bd6-9b17-c57b4285bbd8" Version="2022.8.16.1406" Language="en-US" Publisher="Andrew Butson" />
     <DisplayName>Api Studio Extension for Visual Studio</DisplayName>
     <Description xml:space="preserve">Api Studio is a productivity extension for Microsoft Visual Studio. The extension bridges the role of architect and developer, providing rapid prototyping and promoting industry best practices.</Description>
     <PackageId>ApiStudio.VisualStudio</PackageId>
