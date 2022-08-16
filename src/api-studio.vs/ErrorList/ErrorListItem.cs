@@ -120,8 +120,7 @@ namespace ApiStudioIO.Vs.ErrorList
             var builder = new UriBuilder(baseUrl)
             {
                 // will move to api-studio.io in the future but for now just registering in github.com
-                Path = "/arbs-io/api-studio-visualstudio/blob/main/doc/linter-rules/",
-                Fragment = $"{Uri.EscapeDataString(rule.ToLower())}"
+                Path = $"/arbs-io/api-studio-visualstudio/blob/main/doc/linter-rules/{rule}.md"
             };
 
             return builder.ToString();
