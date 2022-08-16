@@ -4,11 +4,13 @@
 
     public partial class {{TOKEN_OAS_CLASS_NAME}} : ICarterModule
     {
+        {{TOKEN_OAS_HTTP_REQUEST_BODY_MEMBER}}
         public void AddRoutes(IEndpointRouteBuilder app)
         {
-            app.Map{{TOKEN_OAS_HTTP_VERB}}("/{{TOKEN_OAS_HTTP_URI}}", async (HttpContext httpContext) =>
+            app.Map{{TOKEN_OAS_HTTP_VERB}}("/{{TOKEN_OAS_HTTP_URI}}", async (HttpContext httpContext{{TOKEN_OAS_HTTP_REQUEST_BODY_PARAMETER}}) =>
             {
                 _httpContext = httpContext;
+                {{TOKEN_OAS_HTTP_REQUEST_BODY_SET_MEMBER}}
                 return RunAsync();
             })
                 .WithTags("{{TOKEN_OAS_HTTP_TAG}}")

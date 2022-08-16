@@ -41,7 +41,7 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
                 .FirstOrDefault()?.DisplayName ?? "application/json";
 
             var httpTriggerSourceCode = Templates.MinimalApiResource.HttpEndpoint
-                .Replace("{{TOKEN_OAS_PROJECTNAME}}", buildTargetModel.ProjectName)
+                .Replace("{{TOKEN_OAS_PROJECT_NAME}}", buildTargetModel.ProjectName)
                 .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                 .Replace("{{TOKEN_OAS_MODEL}}", modelName)
                 .Replace("{{TOKEN_OAS_CLASS_NAME}}", $"Http{httpApi.DisplayName.ToAlphaNumeric()}")

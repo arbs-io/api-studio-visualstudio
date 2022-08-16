@@ -26,23 +26,9 @@ The extension provides the following features.
 
 ![api-studio-visualstudio-overview-highlighted__1.png](images/api-studio-visualstudio-overview-highlighted.png)
 
-### **Visual Studio Project**
+### **Visual Studio Projects**
 
 Api Studio provides a visual studio project containing all assets to get started. The template offers a complete but lightweight solution.
-
-#### Azure Function (dotnet6 - C#)
-
-![api-studio-visualstudio-project.png](images/api-studio-visualstudio-project.png)
-
-#### **Template Standards**
-
-Api Studio provides templated standards for header, response codes and security models. Allowing enterprise standards to be shared between development teams. The options are available within visual studios options Tools --> Options --> ApiStudio. The options panel provide Import/Export functionality.
-
-## **Getting Started**
-
-Creating a new project is simple. Visual Studio "Create Project", filter using project type "Api Studio".
-
-![api-studio-project-template-filter.png](images/api-studio-project-template-filter.png)
 
 ### Available Project Templates
 
@@ -50,6 +36,24 @@ Creating a new project is simple. Visual Studio "Create Project", filter using p
 | :-----------------------------------------------------------------------------------------: | -------- | -------------- | --------- | ------- | :----: | ---------------------------------------------------------------------------- |
 | ![csharp-azurefunction-dotnet6](images/api-studio.codegen.csharp-azurefunction-dotnet6.png) | csharp   | azure_function | net6.0    | 1.0.0   |   ✅   |
 |    ![csharp-minimalapi-dotnet6](images/api-studio.codegen.csharp-minimalapi-dotnet6.png)    | csharp   | minimum_api    | net6.0    | 1.0.0   |   ✅   | net6.0 openapi specification limitations, anticipated full support in net7.0 |
+
+### Template Standards
+
+Api Studio provides templated standards for header, response codes and security models. Allowing enterprise standards to be shared between development teams. The options are available within visual studios options Tools --> Options --> ApiStudio. The options panel provide Import/Export functionality.
+
+![api-studio-visualstudio-options.png](images/api-studio-visualstudio-options.png)
+
+### Api Studio Designer
+
+The api-studio files are located in the `"\ApiStudio"` folder within the project. To open the designer double click the file, or right click and select `"Open"`
+
+![api-studio-visualstudio-project.png](images/api-studio-visualstudio-project.png)
+
+## **Getting Started**
+
+Creating a new project is simple. Visual Studio "Create Project", filter using project type "Api Studio".
+
+![api-studio-project-template-filter.png](images/api-studio-project-template-filter.png)
 
 ## **What's next**
 
