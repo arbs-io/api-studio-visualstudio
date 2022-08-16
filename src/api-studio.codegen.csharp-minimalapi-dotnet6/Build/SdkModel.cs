@@ -30,21 +30,22 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
                 apiResource
                     .SelectMany(x => x.httpApi.DataModels)
                     .ToList()
-                    .ForEach(x => sourceList.Add(GenerateModels(namespaceHelper, x.Name)));
+                    .ForEach(x => sourceList.Add(GenerateModels(buildTargetModel, namespaceHelper, x.Name)));
 
                 apiResource
                     .SelectMany(x => x.httpApi.SourceDataModel)
                     .ToList()
-                    .ForEach(x => sourceList.Add(GenerateModels(namespaceHelper, x.Name)));
+                    .ForEach(x => sourceList.Add(GenerateModels(buildTargetModel, namespaceHelper, x.Name)));
             }
 
             return sourceList;
         }
 
-        private static SourceCodeEntity GenerateModels(NamespaceHelper namespaceHelper, string name)
+        private static SourceCodeEntity GenerateModels(BuildTargetModel buildTargetModel, NamespaceHelper namespaceHelper, string name)
         {
             var payloadName = $"{name.ToAlphaNumeric(true)}";
             var sourceCode = Templates.MinimalApiResource.Model
+                .Replace("{{TOKEN_OAS_PROJECT_NAME}}", buildTargetModel.ProjectName)
                 .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                 .Replace("{{TOKEN_OAS_CLASS_NAME}}", payloadName);
 

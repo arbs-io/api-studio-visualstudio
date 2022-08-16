@@ -1,4 +1,4 @@
-﻿namespace {{TOKEN_OAS_PROJECTNAME}}.{{TOKEN_OAS_NAMESPACE}}
+﻿namespace {{TOKEN_OAS_PROJECT_NAME}}.{{TOKEN_OAS_NAMESPACE}}
 {
     //using Microsoft.Extensions.Logging;
 
