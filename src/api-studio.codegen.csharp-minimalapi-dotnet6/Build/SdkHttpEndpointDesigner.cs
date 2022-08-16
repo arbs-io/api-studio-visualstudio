@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ApiStudioIO.Common.Models.Build;
+using ApiStudioIO.Common.Models.Http;
 using ApiStudioIO.Utility.Extensions;
 using ApiStudioIO.Vs.Output;
 
@@ -39,6 +40,7 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
             _ = httpApi ?? throw new ArgumentNullException(nameof(httpApi));
 
             var httpEndpointResponses = BuildHttpEndpointResponseStatusCodes(httpApi);
+            var httpRequestParameter = BuildHttpEndpointRequestParameter(httpApi);
 
             var httpTriggerDesignerSourceCode = Templates.MinimalApiResource.HttpEndpointDesigner
                 .Replace("{{TOKEN_OAS_PROJECT_NAME}}", buildTargetModel.ProjectName)
@@ -49,6 +51,9 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
                 .Replace("{{TOKEN_OAS_HTTP_TAG}}", $"{modelName}")
                 .Replace("{{TOKEN_OAS_HTTP_NAME}}", $"{httpApi.DisplayName}")
                 .Replace("{{TOKEN_OAS_DESCRIPTION}}", httpApi.Description)
+                .Replace("{{TOKEN_OAS_HTTP_REQUEST_BODY_MEMBER}}", httpRequestParameter != null ? $"private {httpRequestParameter.DataType} _requestBody;" : "")
+                .Replace("{{TOKEN_OAS_HTTP_REQUEST_BODY_PARAMETER}}", httpRequestParameter != null ? $", {httpRequestParameter.DataType} requestBody" : "")
+                .Replace("{{TOKEN_OAS_HTTP_REQUEST_BODY_SET_MEMBER}}", httpRequestParameter != null ? $"_requestBody = requestBody;" : "")
                 .Replace("{{TOKEN_OAS_PRODUCES}}", string.Join(Environment.NewLine, httpEndpointResponses));
 
             VsLogger.Log($"[SdkHttpEndpointDesigner]: {namespaceHelper.Solution}-{httpApi.DisplayName}.HttpEndpoint.Designer");
@@ -56,7 +61,17 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
             return new SourceCodeEntity($"{namespaceHelper.Solution}-{httpApi.DisplayName}.HttpEndpoint.Designer.cs",
                 httpTriggerDesignerSourceCode, true, $"{modelName}-{httpApi.DisplayName}.HttpEndpoint.cs");
         }
-        
+
+
+        private static HttpResourceParameter BuildHttpEndpointRequestParameter(HttpApi httpApi)
+        {
+            foreach (var parameter in httpApi.RequestParameters)
+                if (parameter.FromType == HttpTypeParameterLocation.Body)
+                    return parameter;
+
+            return null;
+        }
+
 
         private static List<string> BuildHttpEndpointResponseStatusCodes(HttpApi httpApi)
         {
