@@ -1,7 +1,6 @@
 ![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/AndrewButson.ApiStudio)
 [![GitHub license](https://img.shields.io/github/license/arbs-io/api-studio-visualstudio.svg)](https://github.com/arbs-io/api-studio-visualstudio/blob/master/LICENSE.md)
 
-[![Known Vulnerabilities](https://snyk.io/test/github/arbs-io/api-studio-visualstudio/badge.svg)](https://snyk.io/test/github/arbs-io/api-studio-visualstudio)
 [![GitHub issues](https://img.shields.io/github/issues/arbs-io/api-studio-visualstudio.svg)](https://github.com/arbs-io/api-studio-visualstudio/issues)
 ![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/AndrewButson.ApiStudio)
 ![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/AndrewButson.ApiStudio)
