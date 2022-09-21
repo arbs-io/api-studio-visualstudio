@@ -1,3 +1,12 @@
+![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/AndrewButson.ApiStudio)
+[![GitHub license](https://img.shields.io/github/license/arbs-io/api-studio-visualstudio.svg)](https://github.com/arbs-io/api-studio-visualstudio/blob/master/LICENSE.md)
+
+[![Known Vulnerabilities](https://snyk.io/test/github/arbs-io/api-studio-visualstudio/badge.svg)](https://snyk.io/test/github/arbs-io/api-studio-visualstudio)
+[![GitHub issues](https://img.shields.io/github/issues/arbs-io/api-studio-visualstudio.svg)](https://github.com/arbs-io/api-studio-visualstudio/issues)
+![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/AndrewButson.ApiStudio)
+![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/AndrewButson.ApiStudio)
+![Visual Studio Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/AndrewButson.ApiStudio)
+
 ## **What is Api Studio?**
 
 Api Studio is a productivity extension for Microsoft Visual Studio. The extension bridges the role of architect and developer, providing rapid prototyping and promoting industry best practices. In addition, Api Studio provides templating to guarantee a consistent look and feel regardless of organisation or project size.
