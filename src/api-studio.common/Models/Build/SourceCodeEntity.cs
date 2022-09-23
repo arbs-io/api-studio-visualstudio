@@ -32,10 +32,10 @@ namespace ApiStudioIO.Common.Models.Build
 
         private static string CreateMd5(string input)
         {
-            using (var md5 = MD5.Create())
+            using (SHA512 shaM = new SHA512Managed())
             {
                 var inputBytes = Encoding.ASCII.GetBytes(input);
-                var hashBytes = md5.ComputeHash(inputBytes);
+                var hashBytes = shaM.ComputeHash(inputBytes);
 
                 var sb = new StringBuilder();
                 foreach (var t in hashBytes) sb.Append(t.ToString("X2"));

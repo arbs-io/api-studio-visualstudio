@@ -24,7 +24,7 @@ namespace ApiStudioIO.Vs.Options.Models.Security
         {
             SecurityScheme = "None";
             SecurityScopePattern = "{Resource}::{Action}";
-            OpenIdConnectUrl = "http://api-studio.io/.well-known/openid-configuration";
+            OpenIdConnectUrl = "https://api-studio.io/.well-known/openid-configuration";
             OAuth2SchemeName = "OAuth2";
             OpenIdConnectSchemeName = "OpenIdConnect";
             BasicSchemeName = "basic_auth";
