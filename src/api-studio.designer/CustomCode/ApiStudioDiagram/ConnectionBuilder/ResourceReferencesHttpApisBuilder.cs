@@ -89,7 +89,7 @@ namespace ApiStudioIO
             _ = source ?? throw new ArgumentNullException(nameof(source));
             _ = target ?? throw new ArgumentNullException(nameof(target));
 
-            //Here we check if the HTTP Verb is allow for a given "Resource". 
+            //Here we check if the HTTP Verb is allow for a given "Resource".
             //Example: Collection can GET (Find) and POST (Create)
             bool allowResourceAndHttpApi;
             switch (target)
@@ -115,10 +115,12 @@ namespace ApiStudioIO
 
             // If the source wasn't accepted then there's no point checking targets.
             // If there is no target then the source controls the accept.
-            if (CanAcceptSource(source) && CanAcceptTarget(target) && source is Resource sourceResource &&
-                target is Api targetApi)
-                if (ResourceReferencesApis.GetLinks(sourceResource, targetApi).Count == 0)
-                    return true;
+            if (CanAcceptSource(source)
+                && CanAcceptTarget(target)
+                && source is Resource sourceResource
+                && target is Api targetApi
+                && ResourceReferencesApis.GetLinks(sourceResource, targetApi).Count == 0)
+                return true;
             return false;
         }
 

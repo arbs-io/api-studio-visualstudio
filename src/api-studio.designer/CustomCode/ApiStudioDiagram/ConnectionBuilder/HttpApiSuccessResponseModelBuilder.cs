@@ -91,10 +91,12 @@ namespace ApiStudioIO
 
             // If the source wasn't accepted then there's no point checking targets.
             // If there is no target then the source controls the accept.
-            if (CanAcceptSource(source) && CanAcceptTarget(target) && source is HttpApi sourceHttpApi &&
-                target is DataModel targetDataModel)
-                if (HttpApiSuccessResponseModel.GetLinks(sourceHttpApi, targetDataModel).Count == 0)
-                    return true;
+            if (CanAcceptSource(source)
+                && CanAcceptTarget(target)
+                && source is HttpApi sourceHttpApi
+                && target is DataModel targetDataModel
+                && HttpApiSuccessResponseModel.GetLinks(sourceHttpApi, targetDataModel).Count == 0)
+                return true;
             return false;
         }
 

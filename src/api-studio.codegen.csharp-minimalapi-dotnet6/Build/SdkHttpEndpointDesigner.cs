@@ -87,11 +87,9 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
                 if (httpApi.DataModels != null && statusCode.Type == "Success" && httpApi.DataModels.Count > 0)
                     attributes.Add(
                         $"\t\t\t\t.Produces<{httpApi.DataModels?[0].Name}>(statusCode: {httpStatus}, contentType: {applicationJson})");
-                        //$"\t\t\t\t[OpenApiResponseWithBody(statusCode: {httpStatus}, contentType: \"application/json\", bodyType: typeof({httpApi.DataModels?[0].Name}), Summary = \"{statusCode.Description}\", Description = \"{statusCode.Description}\", CustomHeaderType = typeof({responseHeader}))]");
                 else if (httpApi.DataModels != null && statusCode.Type == "Success" && httpApi.DataModels.Count == 0)
                     attributes.Add(
                         $"\t\t\t\t.Produces(statusCode: {httpStatus}, contentType: {applicationJson})");
-                        //$"\t\t\t\t[OpenApiResponseWithoutBody(statusCode: {httpStatus}, Summary = \"{statusCode.Description}\", Description = \"{statusCode.Description}\", CustomHeaderType = typeof({responseHeader}))]");
                 else
                     attributes.Add(
                         $"\t\t\t\t.Produces<ErrorModel>(statusCode: {httpStatus}, contentType: {applicationJson})");
