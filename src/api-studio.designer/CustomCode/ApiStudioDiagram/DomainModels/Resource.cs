@@ -41,6 +41,11 @@ namespace ApiStudioIO
         {
             if (Apis.Count == 0) return false;
 
+            //foreach (var element in Apis.Where(api => ((HttpApi)api).RequestParameters.Any()))
+            //{
+            //    return true;
+            //}
+
             foreach (var api in Apis)
                 if (((HttpApi)api).RequestParameters.Any())
                     return true;

@@ -13,12 +13,6 @@ namespace ApiStudioIO
             DslModeling.DomainRoleInfo sourceRoleInfo, DslModeling.DomainRelationshipInfo domainRelationshipInfo, DslModeling.ElementLink targetRelationship)
         {
             var baseResults = base.ShouldVisitRelationship(walker, sourceElement, sourceRoleInfo, domainRelationshipInfo, targetRelationship);
-
-            //if (sourceElement is HttpApiSuccessResponseModel httpApiSuccessResponseModel)
-            //    httpApiSuccessResponseModel.HttpApi.SetDefaults();
-            //else if (sourceElement is HttpApiSuccessRequestModel httpApiSuccessRequestModel)
-            //    httpApiSuccessRequestModel.HttpApi.SetDefaults();
-
             return baseResults;
         }
 
@@ -26,12 +20,6 @@ namespace ApiStudioIO
             DslModeling.DomainRoleInfo targetDomainRole, DslModeling.ModelElement targetRolePlayer)
         {
             var baseResults = base.ShouldVisitRolePlayer(walker, sourceElement, elementLink, targetDomainRole, targetRolePlayer);
-
-            //if (sourceElement is HttpApiSuccessResponseModel httpApiSuccessResponseModel)
-            //    httpApiSuccessResponseModel.HttpApi.SetDefaults();
-            //else if (sourceElement is HttpApiSuccessRequestModel httpApiSuccessRequestModel)
-            //    httpApiSuccessRequestModel.HttpApi.SetDefaults();
-
             return baseResults;
         }
     }

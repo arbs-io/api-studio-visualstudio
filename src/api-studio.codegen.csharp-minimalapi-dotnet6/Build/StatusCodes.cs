@@ -20,16 +20,8 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
         Status413RequestEntityTooLarge = 413,
         //
         // Summary:
-        //     HTTP status code 413.
-        Status413PayloadTooLarge = 413,
-        //
-        // Summary:
         //     HTTP status code 414.
         Status414RequestUriTooLong = 414,
-        //
-        // Summary:
-        //     HTTP status code 414.
-        Status414UriTooLong = 414,
         //
         // Summary:
         //     HTTP status code 415.
@@ -38,10 +30,6 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
         // Summary:
         //     HTTP status code 416.
         Status416RequestedRangeNotSatisfiable = 416,
-        //
-        // Summary:
-        //     HTTP status code 416.
-        Status416RangeNotSatisfiable = 416,
         //
         // Summary:
         //     HTTP status code 417.
