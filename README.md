@@ -1,20 +1,13 @@
 ![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/AndrewButson.ApiStudio)
-[![GitHub license](https://img.shields.io/github/license/arbs-io/api-studio-visualstudio.svg)](https://github.com/arbs-io/api-studio-visualstudio/blob/master/LICENSE.md)
-[![GitHub issues](https://img.shields.io/github/issues/arbs-io/api-studio-visualstudio.svg)](https://github.com/arbs-io/api-studio-visualstudio/issues)
 ![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/AndrewButson.ApiStudio)
-![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/AndrewButson.ApiStudio)
 ![Visual Studio Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/AndrewButson.ApiStudio)
+[![GitHub issues](https://img.shields.io/github/issues/arbs-io/api-studio-visualstudio.svg)](https://github.com/arbs-io/api-studio-visualstudio/issues)
 
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=arbs-io_api-studio-visualstudio&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=arbs-io_api-studio-visualstudio)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=arbs-io_api-studio-visualstudio&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=arbs-io_api-studio-visualstudio)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=arbs-io_api-studio-visualstudio&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=arbs-io_api-studio-visualstudio)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=arbs-io_api-studio-visualstudio&metric=bugs)](https://sonarcloud.io/summary/new_code?id=arbs-io_api-studio-visualstudio)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=arbs-io_api-studio-visualstudio&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=arbs-io_api-studio-visualstudio)
-
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=arbs-io_api-studio-visualstudio&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=arbs-io_api-studio-visualstudio)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=arbs-io_api-studio-visualstudio&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=arbs-io_api-studio-visualstudio)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=arbs-io_api-studio-visualstudio&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=arbs-io_api-studio-visualstudio)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=arbs-io_api-studio-visualstudio&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=arbs-io_api-studio-visualstudio)
 
 ## **What is Api Studio?**
 

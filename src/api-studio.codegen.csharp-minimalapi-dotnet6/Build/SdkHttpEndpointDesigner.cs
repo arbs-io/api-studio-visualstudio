@@ -19,7 +19,7 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
 
             var namespaceHelper = new NamespaceHelper(apiStudio, modelName);
             apiStudio?.Resourced
-                .SelectMany(resource => resource.HttpApis,
+                .SelectMany(resource => resource.HttpApis(),
                     (resource, httpApi) => new { resource, httpApi })
                 .ToList()
                 .ForEach(x => sourceList.Add(GenerateHttpTrigger(buildTargetModel, modelName, x.resource, x.httpApi, namespaceHelper)));
