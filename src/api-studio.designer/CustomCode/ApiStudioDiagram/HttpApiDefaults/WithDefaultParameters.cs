@@ -35,7 +35,7 @@ namespace ApiStudioIO.HttpApiDefaults
         private static void CreateDefaults(HttpApi httpApi)
         {
             var sourceApiStudio = httpApi.ApiStudio ??
-                                  throw new ArgumentNullException(nameof(httpApi.ApiStudio));
+                                  throw new ArgumentNullException(nameof(ApiStudio));
 
             var managedList = new List<HttpResourceParameter>();
             var variableCaseType = sourceApiStudio.CodeGenerationVariableCaseType;
@@ -62,12 +62,16 @@ namespace ApiStudioIO.HttpApiDefaults
                 );
 
             foreach (var dataModel in sourceApiStudio.DataModeled)
-            foreach (var api in dataModel.HttpApis)
-                if (httpApi == api)
-                    managedList.Add(
-                        CreateManagedApiParameter(variableCaseType, dataModel.Name, dataModel.Name,
-                            dataModel.Description, true, HttpApiParameterTypes.Body, true)
-                    );
+            {
+                foreach (var api in dataModel.HttpApis)
+                {
+                    if (httpApi == api)
+                        managedList.Add(
+                            CreateManagedApiParameter(variableCaseType, dataModel.Name, dataModel.Name,
+                                dataModel.Description, true, HttpApiParameterTypes.Body, true)
+                        );
+                }
+            }
 
             //Check if collection and if UsePagination or UseSorting is set
             if (httpApi.Resourced.FirstOrDefault()?.GetType() == typeof(ResourceCollection))
