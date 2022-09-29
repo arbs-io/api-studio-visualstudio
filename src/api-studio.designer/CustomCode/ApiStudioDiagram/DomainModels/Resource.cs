@@ -10,7 +10,7 @@ namespace ApiStudioIO
     public partial class Resource
     {
         //This property is to help code gen map resource to HttpApis (via ApiStudio and Containers)
-        public List<HttpApi> HttpApis => Apis.OfType<HttpApi>().ToList();
+        public List<HttpApi> HttpApis() => Apis.OfType<HttpApi>().ToList();
 
         protected virtual string GetHttpApiUriValue()
         {

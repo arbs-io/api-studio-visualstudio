@@ -18,7 +18,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
             var sourceList = new List<SourceCodeEntity>();
             var namespaceHelper = new NamespaceHelper(apiStudio, modelName);
             apiStudio?.Resourced
-                .SelectMany(resource => resource.HttpApis,
+                .SelectMany(resource => resource.HttpApis(),
                     (resource, httpApi) => new { resource, httpApi })
                 .ToList()
                 .ForEach(x => sourceList.Add(GenerateHttpTrigger(modelName, x.resource, x.httpApi, namespaceHelper)));

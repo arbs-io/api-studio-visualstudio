@@ -19,7 +19,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
             {
                 var scopeList = new List<string>();
                 apiStudio.Resourced
-                    .SelectMany(resource => resource.HttpApis,
+                    .SelectMany(resource => resource.HttpApis(),
                         (resource, httpApi) => new { resource, httpApi })
                     .GroupBy(x => x.httpApi.AuthorisationRole)
                     .Select(x => x.Key)

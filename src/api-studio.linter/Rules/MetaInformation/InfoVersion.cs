@@ -27,7 +27,6 @@ namespace ApiStudioIO.Linter.Rules.MetaInformation
 
             string pattern = @"^([0-9]|[1-9][0-9]*)\.([0-9]|[1-9][0-9]*)\.([0-9]|[1-9][0-9]*)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?$";
             Regex rg = new Regex(pattern);
-            var abc = rg.Matches(apiStudio.Version);
             if (rg.Matches(apiStudio.Version).Count == 0)
             {
                 var apiStudioIssue = new ApiStudioIssue()

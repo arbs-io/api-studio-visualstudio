@@ -9,7 +9,7 @@ using ApiStudioIO.Vs.ErrorList;
 
 namespace ApiStudioIO.Linter
 {
-    public class ApiStudioLinter
+    public static class ApiStudioLinter
     {
         private static ApiStudioLinkIssueDataSource _linkIssueDataSource = new ApiStudioLinkIssueDataSource();
         private static readonly List<IApiStudioRule> _rules = new List<IApiStudioRule>();

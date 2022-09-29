@@ -23,7 +23,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
             {
                 var namespaceHelper = new NamespaceHelper(apiStudio, modelName);
                 var apiResource = apiStudio.Resourced
-                    .SelectMany(resource => resource.HttpApis,
+                    .SelectMany(resource => resource.HttpApis(),
                         (resource, httpApi) => new { resource, httpApi })
                     .ToList();
 
