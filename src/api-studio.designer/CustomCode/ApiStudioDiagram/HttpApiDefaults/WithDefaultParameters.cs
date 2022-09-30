@@ -35,7 +35,7 @@ namespace ApiStudioIO.HttpApiDefaults
         private static void CreateDefaults(HttpApi httpApi)
         {
             var sourceApiStudio = httpApi.ApiStudio ??
-                                  throw new ArgumentNullException(nameof(ApiStudio));
+                                  throw new ArgumentNullException(nameof(httpApi));
 
             var managedList = new List<HttpResourceParameter>();
             var variableCaseType = sourceApiStudio.CodeGenerationVariableCaseType;
