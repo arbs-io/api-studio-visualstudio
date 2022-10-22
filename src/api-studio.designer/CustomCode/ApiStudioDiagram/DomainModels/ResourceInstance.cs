@@ -32,7 +32,7 @@ namespace ApiStudioIO
             return FormatUri(uri);
         }
 
-        internal sealed partial class InstanceDataTypePropertyHandler
+        partial class InstanceDataTypePropertyHandler
         {
             protected override void OnValueChanged(ResourceInstance element, string oldValue, string newValue)
             {
@@ -40,7 +40,7 @@ namespace ApiStudioIO
                 element.SetResourceDefaults();
             }
         }
-        internal sealed partial class InstanceIdentityPropertyHandler
+        partial class InstanceIdentityPropertyHandler
         {
             protected override void OnValueChanged(ResourceInstance element, string oldValue, string newValue)
             {
