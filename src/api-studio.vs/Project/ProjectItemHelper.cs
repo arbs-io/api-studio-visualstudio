@@ -21,7 +21,7 @@ namespace ApiStudioIO.Vs.Project
             try
             {
                 var projectItem = ServiceProviderHelper.DevelopmentToolsEnvironment.Solution.FindProjectItem(sourceFileInfo.FullName)
-                    ?? throw new ArgumentNullException(nameof(ProjectItemHelper));
+                    ?? throw new ArgumentNullException("ProjectItemHelper");
 
                 var dependentUponProjectItem = projectItem.ProjectItems.AddFromFile(dependentUponFile);
                 VsLogger.Log($"[ProjectItem::AddNestedFile] {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
@@ -29,7 +29,7 @@ namespace ApiStudioIO.Vs.Project
                 SetDependentUpon(dependentUponProjectItem, projectItem.Name);
                 SetBuildAction(dependentUponProjectItem);
             }
-            catch (ArgumentNullException) 
+            catch (ArgumentNullException)
             {
                 VsLogger.Log($"[ProjectItem::AddNestedFile] Ignored {sourceFileInfo.Name} SDK style project resource implicitly registered");
                 // Note: Ignore SDK style projects will auto-nest using naming convention
@@ -37,7 +37,7 @@ namespace ApiStudioIO.Vs.Project
             catch (Exception e)
             {
                 VsLogger.Log($"[ProjectItem::AddNestedFile] error {sourceFileInfo.Name} {e.Message}");
-            }            
+            }
         }
 
         public static void DeleteFile(string sourceFile)
@@ -47,7 +47,7 @@ namespace ApiStudioIO.Vs.Project
             try
             {
                 var projectItem = ServiceProviderHelper.DevelopmentToolsEnvironment.Solution.FindProjectItem(sourceFileInfo.FullName)
-                    ?? throw new ArgumentNullException(nameof(ProjectItemHelper));
+                    ?? throw new ArgumentNullException("ProjectItemHelper");
 
                 projectItem.Delete();
                 VsLogger.Log($"[ProjectItem::DeleteFile] {sourceFileInfo.Name}");
@@ -71,15 +71,13 @@ namespace ApiStudioIO.Vs.Project
                         VsLogger.Log($"[ProjectItem::DeleteFile] forced delete on file {sourceFileInfo.Name}");
                     }
                 }
-                catch (Exception) { }   // Ignore
+                catch (Exception) { /* Ignore */ }
             }
         }
 
         public static void SetDependentUpon(EnvDTE.ProjectItem dependentUponProjectItem, string sourceProjectItemName)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
-            var dte = Package.GetGlobalService(typeof(DTE)) as DTE ??
-                      throw new ArgumentNullException("Package.GetGlobalService", nameof(DTE));
 
             if (dependentUponProjectItem.ContainsProperty("DependentUpon"))
                 dependentUponProjectItem.Properties.Item("DependentUpon").Value = sourceProjectItemName;
