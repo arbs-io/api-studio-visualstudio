@@ -23,10 +23,10 @@ namespace ApiStudioIO.Vs.Output
 
             try
             {
-                if (!EnsurePane()) return;                
+                if (!EnsurePane()) return;
                 _owp.OutputString(DateTime.Now.ToString(CultureInfo.InvariantCulture) + ": " + message + Environment.NewLine);
             }
-            catch { }   // Do nothing
+            catch (Exception) { /* Ignore */ }
         }
 
         public static void Log(string text, vsTaskPriority priority, string subCategory, vsTaskIcon icon, string fileName, int line, string description, bool force = true)
@@ -40,7 +40,7 @@ namespace ApiStudioIO.Vs.Output
                 _owp.OutputTaskItemString(DateTime.Now.ToString(CultureInfo.InvariantCulture) + ": " + text + Environment.NewLine,
                     priority, subCategory, icon, fileName, line, description, force);
             }
-            catch { }   // Do nothing
+            catch (Exception) { /* Ignore */ }
         }
 
         public static void Log(Exception ex)
@@ -48,7 +48,7 @@ namespace ApiStudioIO.Vs.Output
             if (ex != null)
                 Log("Exception", vsTaskPriority.vsTaskPriorityHigh, "Api Studio", vsTaskIcon.vsTaskIconCompile, "", -1, ex.ToString(), true);
         }
-        
+
         private static OutputWindowPane _owp;
         private static bool EnsurePane()
         {

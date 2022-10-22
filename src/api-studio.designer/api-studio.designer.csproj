@@ -23,6 +23,9 @@
     <GacTargetOutput>false</GacTargetOutput>
     <TransformOnBuild>true</TransformOnBuild>
   </PropertyGroup>
+  <PropertyGroup>
+    <NoWarn>1701;1702;CS3014</NoWarn>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Update="System.Core">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
