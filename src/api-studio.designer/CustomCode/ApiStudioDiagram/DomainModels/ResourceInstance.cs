@@ -31,5 +31,22 @@ namespace ApiStudioIO
             uri += $"/{{{documentId}}}";
             return FormatUri(uri);
         }
+
+        partial class InstanceDataTypePropertyHandler
+        {
+            protected override void OnValueChanged(ResourceInstance element, string oldValue, string newValue)
+            {
+                base.OnValueChanged(element, oldValue, newValue);
+                element.SetResourceDefaults();
+            }
+        }
+        partial class InstanceIdentityPropertyHandler
+        {
+            protected override void OnValueChanged(ResourceInstance element, string oldValue, string newValue)
+            {
+                base.OnValueChanged(element, oldValue, newValue);
+                element.SetResourceDefaults();
+            }
+        }
     }
 }

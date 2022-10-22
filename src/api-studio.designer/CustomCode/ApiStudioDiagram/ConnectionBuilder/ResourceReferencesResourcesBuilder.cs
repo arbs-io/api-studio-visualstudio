@@ -30,7 +30,8 @@ namespace ApiStudioIO
                 DslModeling.ElementLink result = new ResourceReferencesResources(sourceAccepted, targetAccepted);
                 if (DslModeling.DomainClassInfo.HasNameProperty(result))
                     DslModeling.DomainClassInfo.SetUniqueName(result);
-                SetResourceDefaults(targetAccepted); // Set Api Studio Defaults
+
+                targetAccepted.SetResourceDefaults(); // Set Api Studio Defaults
 
                 return result;
             }
@@ -40,19 +41,6 @@ namespace ApiStudioIO
         }
 
         #endregion Connection Methods
-
-        #region Create Defaults
-
-        private static void SetResourceDefaults(Resource resource)
-        {
-            resource.Apis
-                .ToList()
-                .ForEach(x => (x as HttpApi)?.SetDefaults());
-
-            foreach (var childResource in resource.Resources) SetResourceDefaults(childResource);
-        }
-
-        #endregion Create Defaults
 
         #region Accept Connection Methods
 
