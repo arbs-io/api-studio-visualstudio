@@ -202,7 +202,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
                 else
                 {
                     var attribute = "\t\t[OpenApiParameter(";
-                    attribute += $"name: \"{parameter.Name.ToAlphaNumeric()}\", ";
+                    attribute += $"name: \"{parameter.Identifier.ToAlphaNumeric()}\", ";
                     attribute += $"In = {parameter.FromType.ConvertOpenApiAttribute()}, ";
                     attribute += $"Required = {parameter.IsRequired.ToString().ToLower()}, ";
                     attribute += $"Type = typeof({parameter.DataType}), ";
