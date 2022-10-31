@@ -12,6 +12,7 @@ using ApiStudioIO.Common.Models.Http;
 using ApiStudioIO.Utility.Extensions;
 using ApiStudioIO.Vs.Options;
 using ApiStudioIO.Vs.Output;
+using ApiStudioIO.CodeGen.Utility;
 
 namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
 {

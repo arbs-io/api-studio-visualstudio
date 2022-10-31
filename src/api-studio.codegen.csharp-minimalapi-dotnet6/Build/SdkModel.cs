@@ -7,6 +7,7 @@ using System.Linq;
 using ApiStudioIO.Utility.Extensions;
 using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.Vs.Output;
+using ApiStudioIO.CodeGen.Utility;
 
 namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
 {

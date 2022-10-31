@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ApiStudioIO.Common.Models.Build;
 using ApiStudioIO.Vs.Output;
+using ApiStudioIO.CodeGen.Utility;
 
 namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
 {
