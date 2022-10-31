@@ -15,8 +15,8 @@ namespace Configurations
             TermsOfService = new Uri(@"{{TOKEN_OAS_CONTACT_URL}}"),
             Contact = new OpenApiContact()
             {
-                Name = @"{{TOKEN_OAS_CONTACT_URL}}",
-                Email = @"{{TOKEN_OAS_CONTACT_URL}}",
+                Name = @"{{TOKEN_OAS_CONTACT_NAME}}",
+                Email = @"{{TOKEN_OAS_CONTACT_NAME}}",
                 Url = new Uri(@"{{TOKEN_OAS_CONTACT_URL}}"),
             },
             License = new OpenApiLicense()
