@@ -91,6 +91,7 @@ namespace ApiStudioIO.Vs.ErrorList
         public void Dispose()
         {
             Dispose(true);
+            GC.SuppressFinalize(this);
         }
         #endregion
     }
