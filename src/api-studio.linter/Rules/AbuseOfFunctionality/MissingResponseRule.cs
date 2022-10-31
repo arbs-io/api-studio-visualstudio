@@ -11,10 +11,10 @@ namespace ApiStudioIO.Linter.Rules.AbuseOfFunctionality
     {
         public class Constants : IApiStudioRuleConstants
         {
-            public int GetRuleId() => 1101;
-            public string GetRuleType() => "APIS";
-            public string GetSeverity() => "DESIGN_CONSIDERATION";
-            public string GetIssueType() => "ABUSE_OF_FUNCTIONALITY";
+            public int RuleId => 1101;
+            public string RuleType => "APIS";
+            public string Severity => "DESIGN_CONSIDERATION";
+            public string IssueType => "ABUSE_OF_FUNCTIONALITY";
         }
 
         public IEnumerable<ErrorListItem> Validate(ApiStudio apiStudio, string modelName)

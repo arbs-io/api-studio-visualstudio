@@ -12,12 +12,12 @@ namespace ApiStudioIO.Linter.Extensions
         {
             return new ApiStudioIssue()
             {
-                Rule = $"ApiStudio:{constants.GetRuleType()}.{constants.GetRuleId()}",
-                Severity = $"{constants.GetSeverity()}",
+                Rule = $"ApiStudio:{constants.RuleType}.{constants.RuleId}",
+                Severity = $"{constants.Severity}",
                 Component = $"serviceKey:ApiStudio/{modelName}.ApiStudio",
                 Line = 0,
                 Message = message,
-                Type = $"{constants.GetRuleId()}"
+                Type = $"{constants.RuleId}"
             };
  }
     }

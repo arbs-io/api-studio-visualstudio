@@ -8,9 +8,9 @@ namespace ApiStudioIO.Linter.Rules
 {
     public interface IApiStudioRuleConstants
     {
-        int GetRuleId();
-        string GetRuleType();
-        string GetSeverity();
-        string GetIssueType();
+        int RuleId { get; }
+        string RuleType { get; }
+        string Severity { get; }
+        string IssueType { get; }
     }
 }

@@ -2,42 +2,32 @@
 // Licensed under the MIT License.
 
 using System.Collections.Generic;
-using System.Linq;
 using ApiStudioIO.Common.Models.Linting;
+using ApiStudioIO.Linter.Extensions;
 using ApiStudioIO.Vs.ErrorList;
 
 namespace ApiStudioIO.Linter.Rules.MetaInformation
 {
     public class InfoTitleRule : IApiStudioRule
     {
-        public static class Constants
+        public class Constants : IApiStudioRuleConstants
         {
-            public const int RuleId = 1001;
-            public const string RuleType = "APIS";
-            public const string Severity = "DESIGN_CONSIDERATION";
-            public const string Type = "INFORMATION";
-
+            public int RuleId => 1001;
+            public string RuleType => "APIS";
+            public string Severity => "DESIGN_CONSIDERATION";
+            public string IssueType => "INFORMATION";
             public const int InvalidSize = 0;
         }
 
         public IEnumerable<ErrorListItem> Validate(ApiStudio apiStudio, string modelName)
         {
             var errors = new List<ErrorListItem>();
-
             if (apiStudio.Title.Length <= Constants.InvalidSize)
             {
-                var apiStudioIssue = new ApiStudioIssue()
-                {
-                    Rule = $"ApiStudio:{Constants.RuleType}.{Constants.RuleId}",
-                    Severity = $"{Constants.Severity}",
-                    Component = $"serviceKey:ApiStudio/{modelName}.ApiStudio",
-                    Line = 0,
-                    Message = $"The title is missing",
-                    Type = $"{Constants.RuleId}"
-                };
+                var apiStudioIssue = ApiStudioIssueBuilder.GetApiStudioIssue(new Constants(), modelName,
+                    "The title is missing");
                 errors.Add(new ErrorListItem(new System.Uri($"https://github.com"), apiStudioIssue));
             }
-
             return errors;
         }
     }
