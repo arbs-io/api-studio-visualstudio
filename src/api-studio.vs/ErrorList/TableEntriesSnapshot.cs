@@ -24,7 +24,7 @@ namespace ApiStudioIO.Vs.ErrorList
         public override int Count => _errors.Count;
         public override int VersionNumber { get; } = 1;
 
-        public override bool TryGetValue(int index, string columnName, out object content)
+        public override bool TryGetValue(int index, string keyName, out object content)
         {
             if ((index < 0) || (index >= Count))
             {
@@ -32,7 +32,7 @@ namespace ApiStudioIO.Vs.ErrorList
                 return false;
             }
     
-            switch(columnName)
+            switch(keyName)
             {
             case StandardTableKeyNames.ProjectName:
                 content = ProjectName;

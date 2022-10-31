@@ -26,7 +26,7 @@ namespace ApiStudioIO.Vs.Output
                 if (!EnsurePane()) return;
                 _owp.OutputString(DateTime.Now.ToString(CultureInfo.InvariantCulture) + ": " + message + Environment.NewLine);
             }
-            catch (Exception) { /* Ignore */ }
+            catch (InvalidOperationException) { /* Ignore */ }
         }
 
         public static void Log(string text, vsTaskPriority priority, string subCategory, vsTaskIcon icon, string fileName, int line, string description, bool force = true)
@@ -40,7 +40,7 @@ namespace ApiStudioIO.Vs.Output
                 _owp.OutputTaskItemString(DateTime.Now.ToString(CultureInfo.InvariantCulture) + ": " + text + Environment.NewLine,
                     priority, subCategory, icon, fileName, line, description, force);
             }
-            catch (Exception) { /* Ignore */ }
+            catch (InvalidOperationException) { /* Ignore */ }
         }
 
         public static void Log(Exception ex)
@@ -57,8 +57,8 @@ namespace ApiStudioIO.Vs.Output
             {
                 var w = ServiceProviderHelper.DevelopmentToolsEnvironment.Windows.Item(EnvDTE.Constants.vsWindowKindOutput);
                 w.Visible = true;
-                var ow = (OutputWindow)w.Object ?? throw new ArgumentNullException(nameof(OutputWindow));
-                _owp = ow.OutputWindowPanes.Add("Api Studio") ?? throw new ArgumentNullException(nameof(OutputWindowPane));
+                var ow = (OutputWindow)w.Object ?? throw new InvalidOperationException(nameof(OutputWindow));
+                _owp = ow.OutputWindowPanes.Add("Api Studio") ?? throw new InvalidOperationException(nameof(OutputWindowPane));
             }
             _owp.Activate();    // regardless make the the windows active/visible
             return _owp != null;

@@ -3,14 +3,14 @@
 
 using ApiStudioIO.Utility.Extensions;
 
-namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
+namespace ApiStudioIO.CodeGen.Utility
 {
-    internal class NamespaceHelper
+    public class NamespaceHelper
     {
         private readonly ApiStudio _apiStudio;
         private readonly string _modelName;
 
-        internal NamespaceHelper(ApiStudio apiStudio, string modelName)
+        public NamespaceHelper(ApiStudio apiStudio, string modelName)
         {
             _apiStudio = apiStudio;
             _modelName = modelName;
