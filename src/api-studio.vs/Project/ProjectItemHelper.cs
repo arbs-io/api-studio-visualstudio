@@ -21,7 +21,7 @@ namespace ApiStudioIO.Vs.Project
             try
             {
                 var projectItem = ServiceProviderHelper.DevelopmentToolsEnvironment.Solution.FindProjectItem(sourceFileInfo.FullName)
-                    ?? throw new ArgumentNullException(nameof(sourceFileInfo));
+                    ?? throw new InvalidOperationException(nameof(sourceFileInfo));
 
                 var dependentUponProjectItem = projectItem.ProjectItems.AddFromFile(dependentUponFile);
                 VsLogger.Log($"[ProjectItem::AddNestedFile] {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
@@ -29,7 +29,7 @@ namespace ApiStudioIO.Vs.Project
                 SetDependentUpon(dependentUponProjectItem, projectItem.Name);
                 SetBuildAction(dependentUponProjectItem);
             }
-            catch (ArgumentNullException)
+            catch (InvalidOperationException)
             {
                 VsLogger.Log($"[ProjectItem::AddNestedFile] Ignored {sourceFileInfo.Name} SDK style project resource implicitly registered");
                 // Note: Ignore SDK style projects will auto-nest using naming convention
@@ -47,12 +47,12 @@ namespace ApiStudioIO.Vs.Project
             try
             {
                 var projectItem = ServiceProviderHelper.DevelopmentToolsEnvironment.Solution.FindProjectItem(sourceFileInfo.FullName)
-                    ?? throw new ArgumentNullException(nameof(sourceFileInfo));
+                    ?? throw new InvalidOperationException(nameof(sourceFile));
 
                 projectItem.Delete();
                 VsLogger.Log($"[ProjectItem::DeleteFile] {sourceFileInfo.Name}");
             }
-            catch (ArgumentNullException)
+            catch (InvalidOperationException)
             {
                 // Note: Ignore SDK style projects will auto-nest using naming convention
                 VsLogger.Log($"[ProjectItem::DeleteFile] Ignored {sourceFileInfo.Name} SDK style project resource implicitly registered");
