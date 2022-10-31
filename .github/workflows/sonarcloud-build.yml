@@ -7,13 +7,15 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
   build:
-    env: 
+    env:
       SolutionPath: src\api-studio.sln
     name: Build
     runs-on: windows-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2  
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
       - name: Setup MSBuild.exe
         uses: microsoft/setup-msbuild@v1.0.2
