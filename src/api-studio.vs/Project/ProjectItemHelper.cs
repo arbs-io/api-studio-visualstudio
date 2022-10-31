@@ -21,7 +21,7 @@ namespace ApiStudioIO.Vs.Project
             try
             {
                 var projectItem = ServiceProviderHelper.DevelopmentToolsEnvironment.Solution.FindProjectItem(sourceFileInfo.FullName)
-                    ?? throw new ArgumentNullException("ProjectItemHelper");
+                    ?? throw new ArgumentNullException(nameof(sourceFileInfo));
 
                 var dependentUponProjectItem = projectItem.ProjectItems.AddFromFile(dependentUponFile);
                 VsLogger.Log($"[ProjectItem::AddNestedFile] {sourceFileInfo.Name} -> {dependentUponFileInfo.Name}");
@@ -47,7 +47,7 @@ namespace ApiStudioIO.Vs.Project
             try
             {
                 var projectItem = ServiceProviderHelper.DevelopmentToolsEnvironment.Solution.FindProjectItem(sourceFileInfo.FullName)
-                    ?? throw new ArgumentNullException("ProjectItemHelper");
+                    ?? throw new ArgumentNullException(nameof(sourceFileInfo));
 
                 projectItem.Delete();
                 VsLogger.Log($"[ProjectItem::DeleteFile] {sourceFileInfo.Name}");
