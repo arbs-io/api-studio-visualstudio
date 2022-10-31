@@ -1,20 +1,20 @@
 ﻿// Copyright (c) Andrew Butson.
 // Licensed under the MIT License.
 
-using ApiStudioIO.Common.Models.Linting;
 using ApiStudioIO.Vs.ErrorList;
 using System.Collections.Generic;
+using ApiStudioIO.Linter.Extensions;
 
 namespace ApiStudioIO.Linter.Rules.AbuseOfFunctionality
 {
     public class MissingResponseRule : IApiStudioRule
     {
-        public static class Constants
+        public class Constants : IApiStudioRuleConstants
         {
-            public const int RuleId = 1101;
-            public const string RuleType = "APIS";
-            public const string Severity = "DESIGN_CONSIDERATION";
-            public const string Type = "ABUSE_OF_FUNCTIONALITY";
+            public int RuleId => 1101;
+            public string RuleType => "APIS";
+            public string Severity => "DESIGN_CONSIDERATION";
+            public string IssueType => "ABUSE_OF_FUNCTIONALITY";
         }
 
         public IEnumerable<ErrorListItem> Validate(ApiStudio apiStudio, string modelName)
@@ -31,15 +31,8 @@ namespace ApiStudioIO.Linter.Rules.AbuseOfFunctionality
                 {
                     if ((api as HttpApi).DataModels.Count != 0) continue;
 
-                    var apiStudioIssue = new ApiStudioIssue()
-                    {
-                        Rule = $"ApiStudio:{Constants.RuleType}.{Constants.RuleId}",
-                        Severity = $"{Constants.Severity}",
-                        Component = $"serviceKey:ApiStudio/{modelName}.ApiStudio",
-                        Line = 0,
-                        Message = $"The operation {apiType}::{api.DisplayName} missing response",
-                        Type = $"{Constants.RuleId}"
-                    };
+                    var apiStudioIssue = ApiStudioIssueBuilder.GetApiStudioIssue(new Constants(), modelName,
+                        $"The operation {apiType}::{api.DisplayName} missing response");
                     errors.Add(new ErrorListItem(new System.Uri($"https://github.com"), apiStudioIssue));
                 }
             }

@@ -4,18 +4,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using ApiStudioIO.Common.Models.Linting;
+using ApiStudioIO.Linter.Extensions;
 using ApiStudioIO.Vs.ErrorList;
 
 namespace ApiStudioIO.Linter.Rules.AbuseOfFunctionality
 {
     public class MissingRequestRule : IApiStudioRule
     {
-        public static class Constants
+        public class Constants : IApiStudioRuleConstants
         {
-            public const int RuleId = 1102;
-            public const string RuleType = "APIS";
-            public const string Severity = "DESIGN_CONSIDERATION";
-            public const string Type = "ABUSE_OF_FUNCTIONALITY";
+            public int RuleId => 1102;
+            public string RuleType => "APIS";
+            public string Severity => "DESIGN_CONSIDERATION";
+            public string IssueType => "ABUSE_OF_FUNCTIONALITY";
         }
 
         public IEnumerable<ErrorListItem> Validate(ApiStudio apiStudio, string modelName)
@@ -37,15 +38,8 @@ namespace ApiStudioIO.Linter.Rules.AbuseOfFunctionality
                 {
                     if (hasRequests.Contains(api)) continue;
 
-                    var apiStudioIssue = new ApiStudioIssue()
-                    {
-                        Rule = $"ApiStudio:{Constants.RuleType}.{Constants.RuleId}",
-                        Severity = $"{Constants.Severity}",
-                        Component = $"serviceKey:ApiStudio/{modelName}.ApiStudio",
-                        Line = 0,
-                        Message = $"The operation {apiType}::{api.DisplayName} missing request",
-                        Type = $"{Constants.RuleId}"
-                    };
+                    var apiStudioIssue = ApiStudioIssueBuilder.GetApiStudioIssue(new Constants(), modelName,
+                        $"The operation {apiType}::{api.DisplayName} missing request");
                     errors.Add(new ErrorListItem(new System.Uri($"https://github.com"), apiStudioIssue));
                 }
             }
