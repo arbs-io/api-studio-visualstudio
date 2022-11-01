@@ -3,8 +3,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
     <OutputType>Exe</OutputType>
-    <AssemblyName>$ext_safeprojectname$</AssemblyName>
-    <RootNamespace>$ext_safeprojectname$</RootNamespace>
+    <AssemblyName>$safeprojectname$</AssemblyName>
+    <RootNamespace>$safeprojectname$</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

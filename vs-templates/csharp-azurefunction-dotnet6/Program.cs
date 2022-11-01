@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Azure.Functions.Worker.Configuration;
 using Microsoft.Azure.Functions.Worker.Extensions.OpenApi.Extensions;
 
-namespace $ext_safeprojectname$
+namespace $safeprojectname$
 {
     public class Program
     {
