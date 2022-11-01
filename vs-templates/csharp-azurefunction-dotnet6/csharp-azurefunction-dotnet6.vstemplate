@@ -5,14 +5,14 @@
     <ProjectType>CSharp</ProjectType>
     <ProjectSubType>Api Studio</ProjectSubType>
     <SortOrder>5000</SortOrder>
-    <CreateNewFolder>true</CreateNewFolder>
+    <CreateNewFolder>false</CreateNewFolder>
     <DefaultName>FunctionApp</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     <LocationField>Enabled</LocationField>
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
     <CreateInPlace>true</CreateInPlace>
-    <Icon>api-studio.codegen.csharp-azurefunction-dotnet6.ico</Icon>
-    <PreviewImage>api-studio.codegen.csharp-azurefunction-dotnet6.ico</PreviewImage>
+    <Icon>csharp-azurefunction-dotnet6.ico</Icon>
+    <PreviewImage>csharp-azurefunction-dotnet6.ico</PreviewImage>
     <LanguageTag>C#</LanguageTag>
     <ProjectTypeTag>Api Studio</ProjectTypeTag>
     <ProjectTypeTag>Azure</ProjectTypeTag>
