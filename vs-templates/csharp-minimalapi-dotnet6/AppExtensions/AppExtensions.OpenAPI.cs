@@ -1,4 +1,4 @@
-namespace $ext_safeprojectname$;
+namespace $safeprojectname$;
 
 using System;
 using Microsoft.AspNetCore.Builder;

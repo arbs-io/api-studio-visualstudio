@@ -1,5 +1,5 @@
 #nullable enable
-namespace $ext_safeprojectname$
+namespace $safeprojectname$
 {
     internal class ErrorModel
     {
