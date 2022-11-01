@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "$ext_safeprojectname$": {
+    "$safeprojectname$": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "http://localhost:7071/api/swagger/ui"

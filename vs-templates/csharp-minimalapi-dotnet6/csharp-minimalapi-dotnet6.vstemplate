@@ -1,22 +1,30 @@
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
   <TemplateData>
-    <Name>ApiStudio.WebApplication</Name>
-    <Description>This is a hidden project template</Description>
+    <Name>ASP.NET Core Web API (Api Studio)</Name>
+    <Description>A project template for creating an ASP.NET Core application. This template uses Minimal Api to help accelerate the creation of .NET API projects</Description>
     <ProjectType>CSharp</ProjectType>
-    <ProjectSubType>
-    </ProjectSubType>
-    <SortOrder>1000</SortOrder>
+    <ProjectSubType>Api Studio</ProjectSubType>
+    <SortOrder>5000</SortOrder>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>ApiStudio.WebApplication</DefaultName>
+    <DefaultName>WebApplication</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     <LocationField>Enabled</LocationField>
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
     <CreateInPlace>true</CreateInPlace>
-    <Icon>__TemplateIcon.ico</Icon>
-    <Hidden>true</Hidden>
+    <Icon>csharp-minimalapi-dotnet6.ico</Icon>
+    <PreviewImage>csharp-minimalapi-dotnet6.ico</PreviewImage>
+    <LanguageTag>C#</LanguageTag>
+    <ProjectTypeTag>Api Studio</ProjectTypeTag>
+    <ProjectTypeTag>Linux</ProjectTypeTag>
+    <ProjectTypeTag>macOS</ProjectTypeTag>
+    <ProjectTypeTag>Windows</ProjectTypeTag>
+    <ProjectTypeTag>Cloud</ProjectTypeTag>
+    <ProjectTypeTag>Service</ProjectTypeTag>
+    <ProjectTypeTag>Web</ProjectTypeTag>
+    <ProjectTypeTag>WebAPI</ProjectTypeTag>
   </TemplateData>
   <TemplateContent>
-    <Project TargetFileName="$ext_safeprojectname$.csproj" File="WebApplication.csproj" ReplaceParameters="true">
+    <Project TargetFileName="$safeprojectname$.csproj" File="WebApplication.csproj" ReplaceParameters="true">
       <Folder Name="ApiStudio" TargetFolderName="ApiStudio">
         <ProjectItem ReplaceParameters="true" TargetFileName="Default.ApiStudio">Default.ApiStudio</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="Default.ApiStudio.diagram">Default.ApiStudio.diagram</ProjectItem>

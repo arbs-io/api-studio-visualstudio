@@ -1,22 +1,25 @@
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
   <TemplateData>
-    <Name>ApiStudio.AzFunction</Name>
-    <Description>This is a hidden project template</Description>
+    <Name>Azure Functions (Api Studio)</Name>
+    <Description>A template to create an Azure Function project with ApiStudio designer</Description>
     <ProjectType>CSharp</ProjectType>
-    <ProjectSubType>
-    </ProjectSubType>
-    <SortOrder>1000</SortOrder>
+    <ProjectSubType>Api Studio</ProjectSubType>
+    <SortOrder>5000</SortOrder>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>ApiStudio.AzFunction</DefaultName>
+    <DefaultName>FunctionApp</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     <LocationField>Enabled</LocationField>
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
     <CreateInPlace>true</CreateInPlace>
-    <Icon>__TemplateIcon.ico</Icon>
-    <Hidden>true</Hidden>
+    <Icon>csharp-azurefunction-dotnet6.ico</Icon>
+    <PreviewImage>csharp-azurefunction-dotnet6.ico</PreviewImage>
+    <LanguageTag>C#</LanguageTag>
+    <ProjectTypeTag>Api Studio</ProjectTypeTag>
+    <ProjectTypeTag>Azure</ProjectTypeTag>
+    <ProjectTypeTag>Cloud</ProjectTypeTag>
   </TemplateData>
   <TemplateContent>
-    <Project TargetFileName="$ext_safeprojectname$.csproj" File="AzFunction.csproj" ReplaceParameters="true">
+    <Project TargetFileName="$safeprojectname$.csproj" File="csharp-azurefunction-dotnet6.csproj" ReplaceParameters="true">
       <Folder Name="ApiStudio" TargetFolderName="ApiStudio">
         <ProjectItem ReplaceParameters="true" TargetFileName="Default.ApiStudio">Default.ApiStudio</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="Default.ApiStudio.diagram">Default.ApiStudio.diagram</ProjectItem>

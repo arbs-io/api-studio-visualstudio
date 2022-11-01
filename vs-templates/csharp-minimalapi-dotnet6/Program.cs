@@ -1,4 +1,4 @@
-using $ext_safeprojectname$;
+using $safeprojectname$;
 
 var builder = WebApplication.CreateBuilder(args);
 

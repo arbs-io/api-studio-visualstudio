@@ -1,5 +1,5 @@
 {
-  "project_name": "$ext_safeprojectname$",
+  "project_name": "$safeprojectname$",
   "language": "csharp",
   "azure_functions_version": "v4",
   "version": "v4",
