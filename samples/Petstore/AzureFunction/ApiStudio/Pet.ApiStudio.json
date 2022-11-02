@@ -1,0 +1,91 @@
+{
+  "sdk": {
+    "timestamp": "2022-11-02T21:33:54.8466755Z",
+    "version": "2022.11.2.0"
+  },
+  "build_target": {
+    "project_name": "AzureFunction",
+    "language": "csharp",
+    "version": "v4",
+    "azure_functions_version": "v4",
+    "target_framework": "net6.0",
+    "target_library": "azure_function"
+  },
+  "resources": [
+    {
+      "name": "ApiStudio.OpenApiConfigurationOptions.cs",
+      "checksum": "0462B5CC1B528BBA91DD99F4F2A1A42EF9BF7985B5D6E83BB86456E9C6242E55A94FBA4433FCF29C0D6CA8F3FE73963C813BB3668A9EFDEF9EFE4CA3DAF0B686",
+      "always_overwrite": true
+    },
+    {
+      "name": "Pet-FindPets.HttpTrigger.cs",
+      "checksum": "9EC4867265629CF314C1C5413A55F97A62E73872B60823102E74F9E5986AD01629153407AB27EDD35001BBEC703A099BC41A053085F5F0FAEF64DA411A8982D4",
+      "always_overwrite": false
+    },
+    {
+      "name": "Pet-CreatePets.HttpTrigger.cs",
+      "checksum": "C69B5CBE4713D28E4D67C902CBD294B43D8A1CD81D1A048FC41F81119CB10DD4DABC7A8E8D675CFEE18823BC4646E30255567B6A6594EC2BB293B66C817EBB7C",
+      "always_overwrite": false
+    },
+    {
+      "name": "Pet-RequestPet.HttpTrigger.cs",
+      "checksum": "24DB888B760AAE9878D73D818AFAA3B4DCF49EFA86CC6E38AC0BAB3C0716834BBAF1EEF8D9047FC528196A6171C2A6A2A94BD9341807E2288A506E77B628CA64",
+      "always_overwrite": false
+    },
+    {
+      "name": "Pet-ChangePet.HttpTrigger.cs",
+      "checksum": "03E3521E30F35514A42E0DE70E50C0E78E5A6F12BD69D18FCB96174EB3467F139644D54D080799D3FB151F6C3CB31EA06BB5D3ECF1B9D1E8A61249976B2D7DA2",
+      "always_overwrite": false
+    },
+    {
+      "name": "Pet-DeactivatePet.HttpTrigger.cs",
+      "checksum": "65C27D0A933A75D89BDB812D45FE09548BBAABBBDE8E9BDA07350C7963AE6B6E097B8EDA3F6C8BF0EB6B5DC337C34E97CB167C8862E7CCCBBD27C5716E6227A5",
+      "always_overwrite": false
+    },
+    {
+      "name": "Pet-PerformSearch.HttpTrigger.cs",
+      "checksum": "50A42CAEBC65340C8B155F264820F0B313BFCEEEBDEEAA7F46E1DA34E390A7DEF169B311C43262FD995F15C5D9679247D3F588D27DFA90ABEED8C011D726CAF2",
+      "always_overwrite": false
+    },
+    {
+      "name": "Pet-UploadImage.HttpTrigger.cs",
+      "checksum": "7A209CE75240502D1741C78005900C6B6C2E0EE4825771B1FAD5C74D3486C972615D609032590F6C494E8A3E2AE689A95D21A7F57C849A25EF30266180986B6F",
+      "always_overwrite": false
+    },
+    {
+      "name": "Pet-FindPets.HttpTrigger.Designer.cs",
+      "checksum": "614414A3B2EC6237AB9AF1062870CFA2E6CC55A224D1BE048A68C6A131252B1D6F677ADDB107E1AE27169244A4BC2D85453CB976B86D068282EDD8BD46103AA8",
+      "always_overwrite": true
+    },
+    {
+      "name": "Pet-CreatePets.HttpTrigger.Designer.cs",
+      "checksum": "B1E2B15507715850A7BE6EC0D63852FE6A3D7CC5C4B620261C0B760E296109DF1A1D74D46899D97AA9E11FB6BECB4A4C80873D9F635589DF86BA0D5ADE94A28A",
+      "always_overwrite": true
+    },
+    {
+      "name": "Pet-RequestPet.HttpTrigger.Designer.cs",
+      "checksum": "5BD7BF14A7BB3718EF7D80133D1CB5A0B0857F0AA24B425BD6BA9DFC021015FA7EA8E5506069C2A81F491ECDBC7713595D39881597D8E419EA3F4289308DE9A2",
+      "always_overwrite": true
+    },
+    {
+      "name": "Pet-ChangePet.HttpTrigger.Designer.cs",
+      "checksum": "71590E4CAC50700DEFAE40E31E423C0B7854D36BE02AF628A819941454F750D98B8885EB7E3B9DC6D558BBD74E7CBA733757A2CFBE6D8A5C227E0C25295E74A0",
+      "always_overwrite": true
+    },
+    {
+      "name": "Pet-DeactivatePet.HttpTrigger.Designer.cs",
+      "checksum": "3F06CB3512DE7879EA357930DDD35D4C0CAF504379A8F1B65A1B497B97111376E2FDE35AC66D13A42557319371E087520178BB668ABD8C8018F4847F7E0AFC99",
+      "always_overwrite": true
+    },
+    {
+      "name": "Pet-PerformSearch.HttpTrigger.Designer.cs",
+      "checksum": "53E69B3FF9EFD915B0E94E26DD14B16D862DAA177D44C8BD3B89FF132DA816EF18E9708AC0D673277540346F8FCE98286D8F39B556EE2BCDFD23CAFC64073FD1",
+      "always_overwrite": true
+    },
+    {
+      "name": "Pet-UploadImage.HttpTrigger.Designer.cs",
+      "checksum": "D98EE75F8D92DCBCF950415D7D7A1AA0CB40B4B232F856B90C4F2E0FB70025EF2E4B0408958D7D0D794169167EDF0C8E9FA8E2A2B94721D4874FC536DBD3D0F8",
+      "always_overwrite": true
+    }
+  ]
+}

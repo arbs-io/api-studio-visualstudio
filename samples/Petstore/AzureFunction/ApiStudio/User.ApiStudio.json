@@ -1,0 +1,91 @@
+{
+  "sdk": {
+    "timestamp": "2022-11-02T21:33:58.7389172Z",
+    "version": "2022.11.2.0"
+  },
+  "build_target": {
+    "project_name": "AzureFunction",
+    "language": "csharp",
+    "version": "v4",
+    "azure_functions_version": "v4",
+    "target_framework": "net6.0",
+    "target_library": "azure_function"
+  },
+  "resources": [
+    {
+      "name": "ApiStudio.OpenApiConfigurationOptions.cs",
+      "checksum": "0462B5CC1B528BBA91DD99F4F2A1A42EF9BF7985B5D6E83BB86456E9C6242E55A94FBA4433FCF29C0D6CA8F3FE73963C813BB3668A9EFDEF9EFE4CA3DAF0B686",
+      "always_overwrite": true
+    },
+    {
+      "name": "User-CreateUsers.HttpTrigger.cs",
+      "checksum": "312F7FEFA2C53E373C3D3034866FEC6F27D07F615D99F50390754C1BF90497C110B0F58C57D113BE00E1D1D18692285F6CC86917BFD997886ACDC8DAB6A6C8BE",
+      "always_overwrite": false
+    },
+    {
+      "name": "User-PerformLogin.HttpTrigger.cs",
+      "checksum": "D6D5F2A1BE1D1672CB0E43EB5A690A80D77B82903964E3ACDBEEB274E30D3AD6E95B8D83D80056891A653C935146315420655556734DC2D5DF21E162164C30D4",
+      "always_overwrite": false
+    },
+    {
+      "name": "User-PerformLogout.HttpTrigger.cs",
+      "checksum": "6566E199BF86DE977F6FD04AE34411DA6AEA873867E6532FB5917285FFF1668A9253D0897B3CBA5C9876E1E3943C3468C748EB95F42421E481B1F8BC2837DDA4",
+      "always_overwrite": false
+    },
+    {
+      "name": "User-RequestUser.HttpTrigger.cs",
+      "checksum": "F86A0EFB80A7D773A0F7A9E69830350DB1B8078D78EDB0E1BEDCA28BB3A69882F6224A774060CB64BBEA9976A3F54AFF4DFB8BD098593BB194954B73D18F6EE3",
+      "always_overwrite": false
+    },
+    {
+      "name": "User-ChangeUser.HttpTrigger.cs",
+      "checksum": "23C23AD4E876B564576AF83CAC7B1F6757220AC2DE4967FE4F1D8F9305ECB3EE462FDC8AA3529771B5B47BD2F0BB3D1D2A5B091A8E2EE19584FD9E57741D14B1",
+      "always_overwrite": false
+    },
+    {
+      "name": "User-DeactivateUser.HttpTrigger.cs",
+      "checksum": "5262FB6003A177898F8A112B83031E1A39A71DA06913F60AD9191122E90E7449F3977B0A38C77108AD9C235961587D8FD86E6296D21DC7C068FD043B801BA356",
+      "always_overwrite": false
+    },
+    {
+      "name": "User-UserRegister.HttpTrigger.cs",
+      "checksum": "6483BB4F127BB629E6BB61BF4C48D84DF7AE889DD645D2A2FF74AED690218595C4B0894910FE4B697ADED6C25A06A7678808D89D46D0B2037A3F43378E2EDF16",
+      "always_overwrite": false
+    },
+    {
+      "name": "User-CreateUsers.HttpTrigger.Designer.cs",
+      "checksum": "7FDB7EC0A99A3024A27DF5646AB30163B033DC8E486F300707C07E0E0203794AF689F4D250F05FFFAF89ADA3DCD79A32518A36511A1D2D62C097442D69854B40",
+      "always_overwrite": true
+    },
+    {
+      "name": "User-PerformLogin.HttpTrigger.Designer.cs",
+      "checksum": "52CCA90265EA8B6DCB53D7A71E01C2303574004B7361768CBD99B078BFF5553E82FF75710FA8CBD65787D5CF203107553BE14AF463F4D23C9D9F75E29522D2DD",
+      "always_overwrite": true
+    },
+    {
+      "name": "User-PerformLogout.HttpTrigger.Designer.cs",
+      "checksum": "34D5C74C780B74B23FA82195B2464EEC693C5252CF0A12CD58B2A85A8D2769A6A94ABAFFD4D650650BD59360699A2735E9DFEEF8C8BC67B4F31F403A0A72F9DA",
+      "always_overwrite": true
+    },
+    {
+      "name": "User-RequestUser.HttpTrigger.Designer.cs",
+      "checksum": "24EA3B07722F789A3BE3D1E444CC9A0F1ACC5B8A61C7B2BC4AD707DC1F86F29160B60277578A28DE553EAE472417BC2043E076567CA3F73CF999A816D90E841A",
+      "always_overwrite": true
+    },
+    {
+      "name": "User-ChangeUser.HttpTrigger.Designer.cs",
+      "checksum": "8B2DE438F115727228426CCB31556277D4B28D78D2681DF5EFC0A20B36DDA435381DAA63914DEC0A56BAC26422B2142E7C93699FD89347C582FAC417BA35CE53",
+      "always_overwrite": true
+    },
+    {
+      "name": "User-DeactivateUser.HttpTrigger.Designer.cs",
+      "checksum": "997B17658D67AB005F687BE804F80AEFC16DC8EE022AF57C8C5B27366BCA680A2748F718952F35A861E2234F388DF3D0F678AEA2FF0213BA62D0566E26CD0F82",
+      "always_overwrite": true
+    },
+    {
+      "name": "User-UserRegister.HttpTrigger.Designer.cs",
+      "checksum": "D172C407AB3814EE6222075854B9383883E9FB00A7541E8187A113354DE3040034E0540D6AE342914C9D56089FD289A865F38693D0FD58D04BA0EE212483F451",
+      "always_overwrite": true
+    }
+  ]
+}
