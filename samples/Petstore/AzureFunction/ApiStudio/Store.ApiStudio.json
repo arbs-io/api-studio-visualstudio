@@ -1,0 +1,61 @@
+{
+  "sdk": {
+    "timestamp": "2022-11-02T21:33:36.3003393Z",
+    "version": "2022.11.2.0"
+  },
+  "build_target": {
+    "project_name": "AzureFunction",
+    "language": "csharp",
+    "version": "v4",
+    "azure_functions_version": "v4",
+    "target_framework": "net6.0",
+    "target_library": "azure_function"
+  },
+  "resources": [
+    {
+      "name": "ApiStudio.OpenApiConfigurationOptions.cs",
+      "checksum": "0462B5CC1B528BBA91DD99F4F2A1A42EF9BF7985B5D6E83BB86456E9C6242E55A94FBA4433FCF29C0D6CA8F3FE73963C813BB3668A9EFDEF9EFE4CA3DAF0B686",
+      "always_overwrite": true
+    },
+    {
+      "name": "Store-RetrieveInventory.HttpTrigger.cs",
+      "checksum": "C49FF0DBDBF8F478B716A056862D78507A26F636642836C59E54191CEEC34F1B9AC4BCF37BAC7D933970B93003B24C663C7A511E3D786832101532749D67C3C7",
+      "always_overwrite": false
+    },
+    {
+      "name": "Store-CreateOrders.HttpTrigger.cs",
+      "checksum": "541AED63ECF5BF275F12B0D4AE68702F126B1E71F6E064A07720D88B2A17C38493E5B0B8AE3AE28AE30F6094D2C79F3BF0ED37D0133D58D3C62FDB5FDE91687A",
+      "always_overwrite": false
+    },
+    {
+      "name": "Store-RequestOrder.HttpTrigger.cs",
+      "checksum": "E4E5A676B5F45F5FE1DF3AB70E25E0079A48550D1853E81562F52BD63AC63FFB9CD70D46A3127D51C678DBDEB82241A3E23D4C00C8F9070B38EE10E818A50D0D",
+      "always_overwrite": false
+    },
+    {
+      "name": "Store-DeactivateOrder.HttpTrigger.cs",
+      "checksum": "E5D9A9B08E0C04E958F02F505CEA2213DF444ED173A784C9DE1A36F864C055BE8CC6D60D849FC26CBA77FD8DB15E44327198B6D4B686612860E0CF509093BD34",
+      "always_overwrite": false
+    },
+    {
+      "name": "Store-RetrieveInventory.HttpTrigger.Designer.cs",
+      "checksum": "BCE431B12436D9025B9F114A78DD53538F7E3E03EF6A52946FCF1C0EE7A87A14A869FE357D4DC3F2CF6C6EB02987AEF8119A24943759FFD03634AD686A7D7E26",
+      "always_overwrite": true
+    },
+    {
+      "name": "Store-CreateOrders.HttpTrigger.Designer.cs",
+      "checksum": "B996F7DCEB05CA105FF43B60A48F5290A39D98E63A7B1B8FB955C2B885B145F177D4B266943EE4A8B38018B3D6702460C8E3D91736EE9A4F0FA548C0520E5F55",
+      "always_overwrite": true
+    },
+    {
+      "name": "Store-RequestOrder.HttpTrigger.Designer.cs",
+      "checksum": "A6F834E9AF7BC5265CB3B7ADE71BD1EA8FE4C10CCCF2A32ECB0C261BD203D9694580455E2DE155D77E5B2E1C4CAD6ED4C459E3ECD304ECC3003ABFA2A4256A20",
+      "always_overwrite": true
+    },
+    {
+      "name": "Store-DeactivateOrder.HttpTrigger.Designer.cs",
+      "checksum": "803521A7D70252C08BDEFC0D368649DB62447DCBA39A67B8FB8A990BA49F9A7DEE4D9C46771663ABDD820FC161CCB32C80F80730296316FBA0A65CE3AAF62DE1",
+      "always_overwrite": true
+    }
+  ]
+}
