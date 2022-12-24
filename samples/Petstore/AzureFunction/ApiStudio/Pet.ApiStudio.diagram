@@ -54,15 +54,15 @@
     <HttpApiPostShape Id="54270330-a28a-4471-bb16-13d6b0e741b6" isExpanded="false" absoluteBounds="3.625, 1, 2, 0.3">
       <HttpApiPostMoniker Id="a168653a-c54c-4fee-8831-4266b15835f0" />
       <nestedChildShapes>
-        <elementListCompartment Id="b2075c00-ab9e-4ccc-942a-73120d53f200" absoluteBounds="3.6399999999999997, 1.31, 1.9700000000000002, 0.2216796800494194" name="RequestParameters" titleTextColor="Black" itemTextColor="DimGray" />
-        <elementListCompartment Id="95d5e904-9d4f-43aa-a660-8f1ac51f9ee5" absoluteBounds="3.6399999999999997, 1.5416796800494197, 1.9700000000000002, 1.4384765202800431" name="ResponseStatusCodes" titleTextColor="Black" itemTextColor="DimGray" />
-        <elementListCompartment Id="2b7c03cc-69a4-48de-a855-df60c2e7a173" absoluteBounds="3.6399999999999997, 2.9901562003294626, 1.9700000000000002, 0.39550780008236563" name="ResponseMediaTypes" titleTextColor="Black" itemTextColor="DimGray" />
-        <elementListCompartment Id="4cff7304-36e2-4736-840b-bad4333d3dc7" absoluteBounds="3.6399999999999997, 3.3956640004118279, 1.9700000000000002, 0.39550780008236563" name="RequestMediaTypes" titleTextColor="Black" itemTextColor="DimGray" />
-        <elementListCompartment Id="20ccc407-65a1-4f8c-abff-8aea08051b43" absoluteBounds="3.6399999999999997, 3.8011718004941932, 1.9700000000000002, 0.74316404014825821" name="ResponseHeaders" titleTextColor="Black" itemTextColor="DimGray" />
-        <elementListCompartment Id="71ab8bd4-b2d5-41ca-8fe8-1b683298565e" absoluteBounds="3.6399999999999997, 4.5543358406424517, 1.9700000000000002, 0.56933592011531187" name="RequestHeaders" titleTextColor="Black" itemTextColor="DimGray" />
+        <elementListCompartment Id="b2075c00-ab9e-4ccc-942a-73120d53f200" absoluteBounds="3.6399999999999997, 1.31, 1.9700000000000002, 0.39550780008236563" name="RequestParameters" titleTextColor="Black" itemTextColor="DimGray" />
+        <elementListCompartment Id="95d5e904-9d4f-43aa-a660-8f1ac51f9ee5" absoluteBounds="3.64, 1.7155078000823656, 1.9700000000000002, 1.4384765202800431" name="ResponseStatusCodes" titleTextColor="Black" itemTextColor="DimGray" />
+        <elementListCompartment Id="2b7c03cc-69a4-48de-a855-df60c2e7a173" absoluteBounds="3.64, 3.1639843203624087, 1.9700000000000002, 0.39550780008236563" name="ResponseMediaTypes" titleTextColor="Black" itemTextColor="DimGray" />
+        <elementListCompartment Id="4cff7304-36e2-4736-840b-bad4333d3dc7" absoluteBounds="3.64, 3.569492120444774, 1.9700000000000002, 0.39550780008236563" name="RequestMediaTypes" titleTextColor="Black" itemTextColor="DimGray" />
+        <elementListCompartment Id="20ccc407-65a1-4f8c-abff-8aea08051b43" absoluteBounds="3.64, 3.9749999205271394, 1.9700000000000002, 0.74316404014825821" name="ResponseHeaders" titleTextColor="Black" itemTextColor="DimGray" />
+        <elementListCompartment Id="71ab8bd4-b2d5-41ca-8fe8-1b683298565e" absoluteBounds="3.64, 4.7281639606753973, 1.9700000000000002, 0.56933592011531187" name="RequestHeaders" titleTextColor="Black" itemTextColor="DimGray" />
       </nestedChildShapes>
     </HttpApiPostShape>
-    <resourceToApiConnector Id="5618338b-cdee-4744-b9bc-166cc481cf66" edgePoints="[(2.5 : 0.65); (3.625 : 0.65)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <resourceToApiConnector Id="5618338b-cdee-4744-b9bc-166cc481cf66" edgePoints="[(2.5 : 0.65); (3.625 : 0.65)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <resourceReferencesApisMoniker Id="6629c6f6-1fa4-447f-8de2-e838da0334fe" />
       <relativeChildShapes />
       <nodes>
@@ -70,7 +70,7 @@
         <HttpApiGetShapeMoniker Id="7df4951c-d49f-492e-bf3f-c6f53aefcdec" />
       </nodes>
     </resourceToApiConnector>
-    <resourceToApiConnector Id="3a8af76b-1fc7-4db4-b8a8-9cfd7c200739" edgePoints="[(2.5 : 1.15); (3.625 : 1.15)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <resourceToApiConnector Id="3a8af76b-1fc7-4db4-b8a8-9cfd7c200739" edgePoints="[(2.5 : 1.15); (3.625 : 1.15)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <resourceReferencesApisMoniker Id="a47f7971-a48c-4c31-a287-5c7b836fb599" />
       <relativeChildShapes />
       <nodes>
@@ -97,26 +97,26 @@
         <HttpApiPostShapeMoniker Id="e9e4603a-0b48-4ad4-a9d7-d24982127118" />
       </nodes>
     </resourceToApiConnector>
-    <HttpApiGetShape Id="29077dd4-adb1-448c-8aad-957cc2fa838b" isExpanded="false" absoluteBounds="3.625, 3.25, 2, 0.3">
+    <HttpApiGetShape Id="29077dd4-adb1-448c-8aad-957cc2fa838b" isExpanded="false" absoluteBounds="3.625, 3.125, 2, 0.3">
       <HttpApiGetMoniker Id="cd490661-f3b7-493e-a6b2-00223e5b18c5" />
       <nestedChildShapes>
-        <elementListCompartment Id="bb04e8a1-a1bc-4f94-8bec-1a63fd3790ca" absoluteBounds="3.6399999999999997, 3.56, 1.9700000000000002, 0.39550780008236563" name="RequestParameters" titleTextColor="Black" itemTextColor="DimGray" />
-        <elementListCompartment Id="4bb3ffcc-c5ee-4db9-a846-8dfee076fd45" absoluteBounds="3.6399999999999997, 3.9655078000823654, 1.9700000000000002, 1.4384765202800431" name="ResponseStatusCodes" titleTextColor="Black" itemTextColor="DimGray" />
-        <elementListCompartment Id="38f02027-8422-4ef3-9e19-7feb409f3f98" absoluteBounds="3.6399999999999997, 5.4139843203624087, 1.9700000000000002, 0.39550780008236563" name="ResponseMediaTypes" titleTextColor="Black" itemTextColor="DimGray" />
-        <elementListCompartment Id="bbb124b5-d75c-4045-9f25-9947a24fc48c" absoluteBounds="3.6399999999999997, 5.8194921204447745, 1.9700000000000002, 0.39550780008236563" name="RequestMediaTypes" titleTextColor="Black" itemTextColor="DimGray" />
-        <elementListCompartment Id="8a7ab013-d620-4df4-ab29-006226106c12" absoluteBounds="3.6399999999999997, 6.2249999205271394, 1.9700000000000002, 0.56933592011531187" name="ResponseHeaders" titleTextColor="Black" itemTextColor="DimGray" />
-        <elementListCompartment Id="793dc592-1500-49be-a557-ec4fbea47704" absoluteBounds="3.6399999999999997, 6.8043358406424508, 1.9700000000000002, 0.56933592011531187" name="RequestHeaders" titleTextColor="Black" itemTextColor="DimGray" />
+        <elementListCompartment Id="bb04e8a1-a1bc-4f94-8bec-1a63fd3790ca" absoluteBounds="3.6399999999999997, 3.435, 1.9700000000000002, 0.39550780008236563" name="RequestParameters" titleTextColor="Black" itemTextColor="DimGray" />
+        <elementListCompartment Id="4bb3ffcc-c5ee-4db9-a846-8dfee076fd45" absoluteBounds="3.6399999999999997, 3.8405078000823654, 1.9700000000000002, 1.4384765202800431" name="ResponseStatusCodes" titleTextColor="Black" itemTextColor="DimGray" />
+        <elementListCompartment Id="38f02027-8422-4ef3-9e19-7feb409f3f98" absoluteBounds="3.6399999999999997, 5.2889843203624087, 1.9700000000000002, 0.39550780008236563" name="ResponseMediaTypes" titleTextColor="Black" itemTextColor="DimGray" />
+        <elementListCompartment Id="bbb124b5-d75c-4045-9f25-9947a24fc48c" absoluteBounds="3.6399999999999997, 5.6944921204447745, 1.9700000000000002, 0.39550780008236563" name="RequestMediaTypes" titleTextColor="Black" itemTextColor="DimGray" />
+        <elementListCompartment Id="8a7ab013-d620-4df4-ab29-006226106c12" absoluteBounds="3.6399999999999997, 6.0999999205271394, 1.9700000000000002, 0.56933592011531187" name="ResponseHeaders" titleTextColor="Black" itemTextColor="DimGray" />
+        <elementListCompartment Id="793dc592-1500-49be-a557-ec4fbea47704" absoluteBounds="3.6399999999999997, 6.6793358406424508, 1.9700000000000002, 0.56933592011531187" name="RequestHeaders" titleTextColor="Black" itemTextColor="DimGray" />
       </nestedChildShapes>
     </HttpApiGetShape>
     <HttpApiPutShape Id="326de39f-e0e3-4045-9b7f-b8b9984a5214" isExpanded="false" absoluteBounds="3.625, 3.75, 2, 0.3">
       <HttpApiPutMoniker Id="32545006-f3bb-47b9-aed6-509f48e278e1" />
       <nestedChildShapes>
-        <elementListCompartment Id="d4dfd3ef-e6d0-4aad-be7c-98d0326a139d" absoluteBounds="3.6399999999999997, 4.06, 1.9700000000000002, 0.39550780008236563" name="RequestParameters" titleTextColor="Black" itemTextColor="DimGray" />
-        <elementListCompartment Id="e65cfef4-efb5-4385-843a-dd7e8c563309" absoluteBounds="3.6399999999999997, 4.4655078000823654, 1.9700000000000002, 1.6123046403129895" name="ResponseStatusCodes" titleTextColor="Black" itemTextColor="DimGray" />
-        <elementListCompartment Id="c8d96515-719e-457a-b3ba-e3c8fc54333a" absoluteBounds="3.6399999999999997, 6.0878124403953553, 1.9700000000000002, 0.39550780008236563" name="ResponseMediaTypes" titleTextColor="Black" itemTextColor="DimGray" />
-        <elementListCompartment Id="8a9a2bf3-704e-45db-81fb-364c936cec7e" absoluteBounds="3.6399999999999997, 6.49332024047772, 1.9700000000000002, 0.39550780008236563" name="RequestMediaTypes" titleTextColor="Black" itemTextColor="DimGray" />
-        <elementListCompartment Id="4ad90f17-c1b8-405d-815e-f342da3ba73e" absoluteBounds="3.6399999999999997, 6.898828040560085, 1.9700000000000002, 0.56933592011531187" name="ResponseHeaders" titleTextColor="Black" itemTextColor="DimGray" />
-        <elementListCompartment Id="41d3f71a-efb4-490e-9418-2451ba88b700" absoluteBounds="3.6399999999999997, 7.4781639606753973, 1.9700000000000002, 0.56933592011531187" name="RequestHeaders" titleTextColor="Black" itemTextColor="DimGray" />
+        <elementListCompartment Id="d4dfd3ef-e6d0-4aad-be7c-98d0326a139d" absoluteBounds="3.6399999999999997, 4.06, 1.9700000000000002, 0.56933592011531187" name="RequestParameters" titleTextColor="Black" itemTextColor="DimGray" />
+        <elementListCompartment Id="e65cfef4-efb5-4385-843a-dd7e8c563309" absoluteBounds="3.64, 4.6393359201153119, 1.9700000000000002, 1.6123046403129895" name="ResponseStatusCodes" titleTextColor="Black" itemTextColor="DimGray" />
+        <elementListCompartment Id="c8d96515-719e-457a-b3ba-e3c8fc54333a" absoluteBounds="3.64, 6.261640560428301, 1.9700000000000002, 0.39550780008236563" name="ResponseMediaTypes" titleTextColor="Black" itemTextColor="DimGray" />
+        <elementListCompartment Id="8a9a2bf3-704e-45db-81fb-364c936cec7e" absoluteBounds="3.64, 6.6671483605106658, 1.9700000000000002, 0.39550780008236563" name="RequestMediaTypes" titleTextColor="Black" itemTextColor="DimGray" />
+        <elementListCompartment Id="4ad90f17-c1b8-405d-815e-f342da3ba73e" absoluteBounds="3.64, 7.0726561605930316, 1.9700000000000002, 0.56933592011531187" name="ResponseHeaders" titleTextColor="Black" itemTextColor="DimGray" />
+        <elementListCompartment Id="41d3f71a-efb4-490e-9418-2451ba88b700" absoluteBounds="3.64, 7.651992080708343, 1.9700000000000002, 0.56933592011531187" name="RequestHeaders" titleTextColor="Black" itemTextColor="DimGray" />
       </nestedChildShapes>
     </HttpApiPutShape>
     <HttpApiDeleteShape Id="9b2ac3c4-c3cc-4127-b811-7689bd8516ab" isExpanded="false" absoluteBounds="3.625, 4.25, 2, 0.3">
@@ -130,7 +130,7 @@
         <elementListCompartment Id="11eab12f-4d14-4b54-8d56-7cb27e8895a8" absoluteBounds="3.6399999999999997, 7.8043358406424508, 1.9700000000000002, 0.56933592011531187" name="RequestHeaders" titleTextColor="Black" itemTextColor="DimGray" />
       </nestedChildShapes>
     </HttpApiDeleteShape>
-    <resourceToApiConnector Id="2be76ea0-0e46-417a-b857-9c159542b9bd" edgePoints="[(2.5 : 3.4); (3.625 : 3.4)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <resourceToApiConnector Id="2be76ea0-0e46-417a-b857-9c159542b9bd" edgePoints="[(2.5 : 3.3375); (3.625 : 3.3375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <resourceReferencesApisMoniker Id="7cc30091-aebf-4fde-b1d6-714a4aa40cc5" />
       <relativeChildShapes />
       <nodes>
@@ -154,7 +154,7 @@
         <HttpApiDeleteShapeMoniker Id="9b2ac3c4-c3cc-4127-b811-7689bd8516ab" />
       </nodes>
     </resourceToApiConnector>
-    <resourceToResourceConnector Id="8ce7301a-f668-4abd-a69a-75c4e01f8469" edgePoints="[(1.5 : 4.45858397692442); (1.5 : 5.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <resourceToResourceConnector Id="8ce7301a-f668-4abd-a69a-75c4e01f8469" edgePoints="[(2.0625 : 4.45858397692442); (2.0625 : 5.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <resourceReferencesResourcesMoniker Id="030050bc-bf6e-40d7-ad86-b863f7a153a6" />
       <nodes>
         <ResourceInstanceShapeMoniker Id="fde0738f-7f52-402e-91b8-f51d6a71a4ed" />
@@ -180,5 +180,70 @@
         <HttpApiPostShapeMoniker Id="4ce993a5-56d4-480f-8984-91bdeb8ee92e" />
       </nodes>
     </resourceToApiConnector>
+    <dataModelShape Id="88ebf4ac-fd79-4ac8-a282-e5ba3537bd5f" absoluteBounds="7.625, 3.125, 1.5, 0.25">
+      <dataModelMoniker name="/010c142c-340f-4420-bb05-239c74327563/Pet" />
+    </dataModelShape>
+    <dataModelToHttpApiConnector Id="3eb0969f-1890-4ca1-b3a0-3c673bd3324e" edgePoints="[(8.57812625 : 3.375); (8.57812625 : 3.95312625); (5.625 : 3.95312625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <HttpApiSuccessRequestModelMoniker Id="1a4445ef-9532-4a1e-8e1d-31e5879f911a" />
+      <relativeChildShapes />
+      <nodes>
+        <dataModelShapeMoniker Id="88ebf4ac-fd79-4ac8-a282-e5ba3537bd5f" />
+        <HttpApiPutShapeMoniker Id="326de39f-e0e3-4045-9b7f-b8b9984a5214" />
+      </nodes>
+    </dataModelToHttpApiConnector>
+    <restToDataModelConnector Id="9d9e55f3-b481-41a7-aee3-0f79963372c9" edgePoints="[(5.625 : 3.7937475); (7.9687475 : 3.7937475); (7.9687475 : 3.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <HttpApiSuccessResponseModelMoniker Id="74a9ee14-e2e7-4e89-a753-ef0d24310174" />
+      <relativeChildShapes />
+      <nodes>
+        <HttpApiPutShapeMoniker Id="326de39f-e0e3-4045-9b7f-b8b9984a5214" />
+        <dataModelShapeMoniker Id="88ebf4ac-fd79-4ac8-a282-e5ba3537bd5f" />
+      </nodes>
+    </restToDataModelConnector>
+    <dataModelToHttpApiConnector Id="373ad17d-b682-4cb0-881a-04f3118e0a75" edgePoints="[(8.65625 : 3.125); (8.65625 : 1.15); (5.625 : 1.15)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <HttpApiSuccessRequestModelMoniker Id="d8e775de-8bbd-4567-99a5-7d85167583f2" />
+      <relativeChildShapes />
+      <nodes>
+        <dataModelShapeMoniker Id="88ebf4ac-fd79-4ac8-a282-e5ba3537bd5f" />
+        <HttpApiPostShapeMoniker Id="54270330-a28a-4471-bb16-13d6b0e741b6" />
+      </nodes>
+    </dataModelToHttpApiConnector>
+    <restToDataModelConnector Id="f2f4725a-f47d-4b54-b567-812dae623a24" edgePoints="[(5.625 : 1.2562525); (8.3906225 : 1.2562525); (8.3906225 : 3.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <HttpApiSuccessResponseModelMoniker Id="0cd895da-cc94-47c8-91f1-c36dda0c8fd0" />
+      <relativeChildShapes />
+      <nodes>
+        <HttpApiPostShapeMoniker Id="54270330-a28a-4471-bb16-13d6b0e741b6" />
+        <dataModelShapeMoniker Id="88ebf4ac-fd79-4ac8-a282-e5ba3537bd5f" />
+      </nodes>
+    </restToDataModelConnector>
+    <dataModelShape Id="ac6fba90-15f6-4b10-8868-b30e96c04c95" absoluteBounds="6.625, 2.25, 1.5, 0.25">
+      <dataModelMoniker name="/010c142c-340f-4420-bb05-239c74327563/PetList" />
+    </dataModelShape>
+    <restToDataModelConnector Id="d144cbbb-8cc3-4eec-a6a9-c7d08d2879ef" edgePoints="[(5.625 : 3.25); (7.625 : 3.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <HttpApiSuccessResponseModelMoniker Id="9c0cffb4-f197-4814-9e05-e38525fda296" />
+      <relativeChildShapes />
+      <nodes>
+        <HttpApiGetShapeMoniker Id="29077dd4-adb1-448c-8aad-957cc2fa838b" />
+        <dataModelShapeMoniker Id="88ebf4ac-fd79-4ac8-a282-e5ba3537bd5f" />
+      </nodes>
+    </restToDataModelConnector>
+    <dataModelShape Id="fe554057-ff37-4a7b-91b3-96dba6a54887" absoluteBounds="6.75, 5.375, 1.75, 0.25">
+      <dataModelMoniker name="/010c142c-340f-4420-bb05-239c74327563/ModelApiResponse" />
+    </dataModelShape>
+    <restToDataModelConnector Id="73486225-3c3e-4653-ade3-02d37e6db475" edgePoints="[(5.625 : 5.5); (6.75 : 5.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <HttpApiSuccessResponseModelMoniker Id="3212ff0d-40ce-4b23-8bb5-56a3d8664bdb" />
+      <relativeChildShapes />
+      <nodes>
+        <HttpApiPostShapeMoniker Id="4ce993a5-56d4-480f-8984-91bdeb8ee92e" />
+        <dataModelShapeMoniker Id="fe554057-ff37-4a7b-91b3-96dba6a54887" />
+      </nodes>
+    </restToDataModelConnector>
+    <restToDataModelConnector Id="872d81e8-7234-49aa-a86f-57dd3243584d" edgePoints="[(5.625 : 2.375); (6.625 : 2.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <HttpApiSuccessResponseModelMoniker Id="790b114f-11a6-4ad3-b024-a5c3e97a9910" />
+      <relativeChildShapes />
+      <nodes>
+        <HttpApiPostShapeMoniker Id="e9e4603a-0b48-4ad4-a9d7-d24982127118" />
+        <dataModelShapeMoniker Id="ac6fba90-15f6-4b10-8868-b30e96c04c95" />
+      </nodes>
+    </restToDataModelConnector>
   </nestedChildShapes>
 </ApiStudioDiagram>

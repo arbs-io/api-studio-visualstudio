@@ -40,7 +40,7 @@
     <HttpApiPostShape Id="4d466190-214a-4c6f-acea-f1c1a58b83df" isExpanded="false" absoluteBounds="3.75, 2.75, 2, 0.3">
       <HttpApiPostMoniker Id="85d86661-7a77-4e43-bea6-812f97376224" />
       <nestedChildShapes>
-        <elementListCompartment Id="25cc2067-94b8-4a70-b058-3a9e103dd081" absoluteBounds="3.765, 3.0600000000000005, 1.9700000000000002, 0.2216796800494194" name="RequestParameters" titleTextColor="Black" itemTextColor="DimGray" />
+        <elementListCompartment Id="25cc2067-94b8-4a70-b058-3a9e103dd081" absoluteBounds="3.765, 3.0600000000000005, 1.9700000000000002, 0.39550780008236563" name="RequestParameters" titleTextColor="Black" itemTextColor="DimGray" />
         <elementListCompartment Id="a3b0dce8-7f01-4f47-b6f6-79dcb309563e" absoluteBounds="3.765, 3.2916796800494197, 1.9700000000000002, 1.4384765202800431" name="ResponseStatusCodes" titleTextColor="Black" itemTextColor="DimGray" />
         <elementListCompartment Id="c3888e3e-1b52-4dd5-a5d5-1811a593297f" absoluteBounds="3.765, 4.7401562003294622, 1.9700000000000002, 0.39550780008236563" name="ResponseMediaTypes" titleTextColor="Black" itemTextColor="DimGray" />
         <elementListCompartment Id="e3e3a5eb-9a3d-42d3-8f1c-c4d33a716c14" absoluteBounds="3.765, 5.1456640004118279, 1.9700000000000002, 0.39550780008236563" name="RequestMediaTypes" titleTextColor="Black" itemTextColor="DimGray" />
@@ -84,7 +84,7 @@
         <resourceCollectionShapeMoniker Id="902a1257-b8d9-40c8-a1f5-a929600479c4" />
       </nodes>
     </resourceToResourceConnector>
-    <resourceToApiConnector Id="7ba035f6-0bc0-47cf-9f6c-c9d4f750b519" edgePoints="[(3 : 1.9); (3.75 : 1.9)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <resourceToApiConnector Id="7ba035f6-0bc0-47cf-9f6c-c9d4f750b519" edgePoints="[(3 : 1.9); (3.75 : 1.9)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <resourceReferencesApisMoniker Id="53edea04-87e9-48f9-a2cc-4467409cad86" />
       <relativeChildShapes />
       <nodes>
@@ -99,7 +99,7 @@
         <ResourceInstanceShapeMoniker Id="e3f74bf2-c3b0-4a5a-8b54-8866c529e37d" />
       </nodes>
     </resourceToResourceConnector>
-    <resourceToApiConnector Id="7555b1e2-0cf9-4824-ab25-196a93781c0c" edgePoints="[(2.5 : 2.9); (3.75 : 2.9)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <resourceToApiConnector Id="7555b1e2-0cf9-4824-ab25-196a93781c0c" edgePoints="[(2.5 : 2.9); (3.75 : 2.9)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <resourceReferencesApisMoniker Id="1318ea0c-1474-4543-8d1a-866ce412cfbe" />
       <relativeChildShapes />
       <nodes>
@@ -107,7 +107,7 @@
         <HttpApiPostShapeMoniker Id="4d466190-214a-4c6f-acea-f1c1a58b83df" />
       </nodes>
     </resourceToApiConnector>
-    <resourceToApiConnector Id="10e3ac61-fa94-4744-b53f-c625dd79abd4" edgePoints="[(2.5 : 4.275); (3.75 : 4.275)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <resourceToApiConnector Id="10e3ac61-fa94-4744-b53f-c625dd79abd4" edgePoints="[(2.5 : 4.275); (3.75 : 4.275)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <resourceReferencesApisMoniker Id="a452fc3b-1e00-4a3e-88c6-47c9965dbb3e" />
       <relativeChildShapes />
       <nodes>
@@ -115,7 +115,7 @@
         <HttpApiGetShapeMoniker Id="6e8889ce-69f4-45d5-89ee-add0957c75d9" />
       </nodes>
     </resourceToApiConnector>
-    <resourceToApiConnector Id="b5f029cb-cec9-4fb0-ab7e-5e46311299e3" edgePoints="[(2.5 : 4.775); (3.75 : 4.775)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <resourceToApiConnector Id="b5f029cb-cec9-4fb0-ab7e-5e46311299e3" edgePoints="[(2.5 : 4.775); (3.75 : 4.775)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <resourceReferencesApisMoniker Id="f5168d48-67df-42f9-bfcd-3b176a37f1a7" />
       <relativeChildShapes />
       <nodes>
@@ -123,5 +123,32 @@
         <HttpApiDeleteShapeMoniker Id="b568b884-8c8e-4126-abdc-ffdc1c68eff8" />
       </nodes>
     </resourceToApiConnector>
+    <dataModelShape Id="cb86a650-fc5e-4741-8303-ae362c177590" absoluteBounds="6.875, 2.75, 1.5, 0.25">
+      <dataModelMoniker name="/4a0324d7-85b2-447c-a558-1e2f2e8b06c7/Order" />
+    </dataModelShape>
+    <restToDataModelConnector Id="05e249f0-6f1a-4565-afda-03f7477ae238" edgePoints="[(5.75 : 2.875); (6.875 : 2.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <HttpApiSuccessResponseModelMoniker Id="e89b47e2-c91a-4904-a313-d8c4e46ee0d8" />
+      <relativeChildShapes />
+      <nodes>
+        <HttpApiPostShapeMoniker Id="4d466190-214a-4c6f-acea-f1c1a58b83df" />
+        <dataModelShapeMoniker Id="cb86a650-fc5e-4741-8303-ae362c177590" />
+      </nodes>
+    </restToDataModelConnector>
+    <dataModelToHttpApiConnector Id="9f9c77ef-e85e-4a01-ba7a-071b3997b74a" edgePoints="[(7.625 : 2.75); (7.625 : 2.375); (4.75 : 2.375); (4.75 : 2.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <HttpApiSuccessRequestModelMoniker Id="81f23772-3017-41cc-a09c-969729519e95" />
+      <relativeChildShapes />
+      <nodes>
+        <dataModelShapeMoniker Id="cb86a650-fc5e-4741-8303-ae362c177590" />
+        <HttpApiPostShapeMoniker Id="4d466190-214a-4c6f-acea-f1c1a58b83df" />
+      </nodes>
+    </dataModelToHttpApiConnector>
+    <restToDataModelConnector Id="63f7cacf-a1ed-4bf3-9ab8-9923d3a20565" edgePoints="[(5.75 : 4.275); (7.625 : 4.275); (7.625 : 3)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <HttpApiSuccessResponseModelMoniker Id="d1366770-806e-4676-bcfe-e291473811f6" />
+      <relativeChildShapes />
+      <nodes>
+        <HttpApiGetShapeMoniker Id="6e8889ce-69f4-45d5-89ee-add0957c75d9" />
+        <dataModelShapeMoniker Id="cb86a650-fc5e-4741-8303-ae362c177590" />
+      </nodes>
+    </restToDataModelConnector>
   </nestedChildShapes>
 </ApiStudioDiagram>
