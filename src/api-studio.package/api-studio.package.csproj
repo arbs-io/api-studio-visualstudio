@@ -102,6 +102,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
     </Compile>
     <Compile Include="VsOptions\Helper\ApiStudioUITypeEditor.cs" />
+    <Compile Include="VsOptions\HttpDefaults\HttpDefaultGet.cs" />
+    <Compile Include="VsOptions\HttpDefaults\HttpDefaultDelete.cs" />
+    <Compile Include="VsOptions\HttpDefaults\HttpDefaultHead.cs" />
+    <Compile Include="VsOptions\HttpDefaults\HttpDefaultOptions.cs" />
+    <Compile Include="VsOptions\HttpDefaults\HttpDefaultPatch.cs" />
+    <Compile Include="VsOptions\HttpDefaults\HttpDefaultPost.cs" />
+    <Compile Include="VsOptions\HttpDefaults\HttpDefaultPut.cs" />
+    <Compile Include="VsOptions\HttpDefaults\HttpDefaultTrace.cs" />
     <Compile Include="VsOptions\HttpHeaders\HttpHeadersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

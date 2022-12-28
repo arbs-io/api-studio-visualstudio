@@ -1,11 +1,10 @@
 ﻿// Copyright (c) Andrew Butson.
 // Licensed under the MIT License.
-
-using System;
-using System.Text.RegularExpressions;
-
 namespace ApiStudioIO.Utility.Extensions
 {
+    using System;
+    using System.Text.RegularExpressions;
+
     public static class StringCaseExtension
     {
         public static string ToPascalCase(this string str, bool alphaNumericOnly = true)
@@ -28,15 +27,20 @@ namespace ApiStudioIO.Utility.Extensions
         {
             if (alphaNumericOnly) str = ConvertToAlphaNumeric(str);
 
-            str = Regex.Replace(
-                Regex.Replace(
-                    Regex.Replace(str, @"([\p{Lu}]+)([\p{Lu}][\p{Ll}])", "$1_$2")
-                    , @"([\p{Ll}\d])([\p{Lu}])", "$1_$2")
-                , @"[-\s]", "_");
+            // Separates the input words with underscore
+            var wordSep = Regex.Replace(str, @"([\p{Lu}]+)([\p{Lu}][\p{Ll}])",
+                "$1_$2", RegexOptions.None, TimeSpan.FromMilliseconds(1000));
 
-            if (convertToLower) return str.ToLower();
+            // Underscore Filter
+            var undFilter = Regex.Replace(wordSep, @"([\p{Ll}\d])([\p{Lu}])",
+                "$1_$2", RegexOptions.None, TimeSpan.FromMilliseconds(1000));
 
-            return str;
+            var response = Regex.Replace(undFilter, @"[-\s]",
+                "_", RegexOptions.None, TimeSpan.FromMilliseconds(1000));
+
+            if (convertToLower)
+                return response.ToLower();
+            return response;
         }
 
         public static string ToSpinalCase(this string str, bool alphaNumericOnly = true, bool convertToLower = true)
@@ -53,7 +57,8 @@ namespace ApiStudioIO.Utility.Extensions
 
         private static string ConvertToAlphaNumeric(string str)
         {
-            return Regex.Replace(str, @"[^0-9a-zA-Z\\s]+", " ");
+            return Regex.Replace(str, @"[^0-9a-zA-Z\\s]+", " ",
+                RegexOptions.None, TimeSpan.FromMilliseconds(1000));
         }
     }
 }
