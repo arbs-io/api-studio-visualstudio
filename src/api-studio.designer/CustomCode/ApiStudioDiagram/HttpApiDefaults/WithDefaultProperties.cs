@@ -13,8 +13,6 @@ namespace ApiStudioIO.HttpApiDefaults
             return httpApi;
         }
 
-        //public override string SetImperativeVerb(HttpApiGet httpApi) => $"{fname} {lname}".Trim();
-
         private static void SetImperativeVerb(HttpApi httpApi)
         {
             var source = httpApi.Resourced.FirstOrDefault();
@@ -27,11 +25,8 @@ namespace ApiStudioIO.HttpApiDefaults
                     break;
 
                 case HttpApiPut _:
-                    httpApi.ImperativeVerb = GetHttpApiPutImperativeVerb(source);
-                    break;
-
                 case HttpApiPatch _:
-                    httpApi.ImperativeVerb = GetHttpApiPatchImperativeVerb(source);
+                    httpApi.ImperativeVerb = GetHttpApiPutPatchImperativeVerb(source);
                     break;
 
                 case HttpApiPost _:
@@ -67,7 +62,7 @@ namespace ApiStudioIO.HttpApiDefaults
 
             if (source is ResourceInstance && successCode == 200)
                 imperativeVerb = "Remove";
-            else if (source is ResourceInstance && successCode == 202) 
+            else if (source is ResourceInstance && successCode == 202)
                 imperativeVerb = "Deactivate";
 
             return imperativeVerb;
@@ -88,25 +83,13 @@ namespace ApiStudioIO.HttpApiDefaults
             return imperativeVerb;
         }
 
-        private static string GetHttpApiPatchImperativeVerb(Resource source)
+        private static string GetHttpApiPutPatchImperativeVerb(Resource source)
         {
             string imperativeVerb = "Undefined";
 
             if (source is ResourceInstance)
                 imperativeVerb = "Change";
-            else if (source is ResourceAttribute) 
-                imperativeVerb = "Adjust";
-
-            return imperativeVerb;
-        }
-
-        private static string GetHttpApiPutImperativeVerb(Resource source)
-        {
-            string imperativeVerb = "Undefined";
-
-            if (source is ResourceInstance)
-                imperativeVerb = "Change";
-            else if (source is ResourceAttribute) 
+            else if (source is ResourceAttribute)
                 imperativeVerb = "Adjust";
 
             return imperativeVerb;
@@ -120,7 +103,7 @@ namespace ApiStudioIO.HttpApiDefaults
                 imperativeVerb = "Find";
             else if (source is ResourceInstance)
                 imperativeVerb = "Request";
-            else if (source is ResourceAttribute) 
+            else if (source is ResourceAttribute)
                 imperativeVerb = "Retrieve";
 
             return imperativeVerb;
