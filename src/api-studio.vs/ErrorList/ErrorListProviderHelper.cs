@@ -14,7 +14,7 @@ namespace ApiStudioIO.Vs.ErrorList
         {
             var componentModel = ServiceProviderHelper.GetGlobalService(typeof(SComponentModel)) as IComponentModel;
             var tableManagerProvider = componentModel?.GetService<ITableManagerProvider>()
-                                       ?? throw new ArgumentNullException("ITableManagerProvider");
+                                       ?? throw new InvalidOperationException("ITableManagerProvider");
 
             var table = tableManagerProvider.GetTableManager(StandardTables.ErrorsTable);
             table.AddSource(issues, ApiStudioLinkIssueDataSource.Columns);

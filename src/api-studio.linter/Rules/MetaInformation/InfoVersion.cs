@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Andrew Butson.
 // Licensed under the MIT License.
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -24,7 +25,7 @@ namespace ApiStudioIO.Linter.Rules.MetaInformation
         {
             var errors = new List<ErrorListItem>();
             string pattern = @"^([0-9]|[1-9][0-9]*)\.([0-9]|[1-9][0-9]*)\.([0-9]|[1-9][0-9]*)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?$";
-            Regex rg = new Regex(pattern);
+            Regex rg = new Regex(pattern, RegexOptions.None, TimeSpan.FromMilliseconds(1000));
             if (rg.Matches(apiStudio.Version).Count == 0)
             {
                 var apiStudioIssue = ApiStudioIssueBuilder.GetApiStudioIssue(new Constants(), modelName,

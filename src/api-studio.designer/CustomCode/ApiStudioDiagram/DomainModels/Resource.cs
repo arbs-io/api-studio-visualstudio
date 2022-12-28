@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Andrew Butson.
 // Licensed under the MIT License.
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -14,7 +15,10 @@ namespace ApiStudioIO
 
         protected virtual string GetHttpApiUriValue()
         {
-            var name = Regex.Replace(Name, @"(?<=[a-z])([A-Z])", @"-$1").ToLower();
+            var name = Regex.Replace(Name, @"(?<=[a-z])([A-Z])", 
+                @"-$1",
+                RegexOptions.None, 
+                TimeSpan.FromMilliseconds(1000)).ToLower();
 
             var uri = "";
             if (SourceResource.Count == 0)
