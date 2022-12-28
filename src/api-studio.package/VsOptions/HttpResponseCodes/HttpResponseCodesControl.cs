@@ -2,6 +2,8 @@
 // Licensed under the MIT License.
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using ApiStudioIO.Utility.Extensions;
 using ApiStudioIO.VsOptions.Helper;
@@ -19,24 +21,30 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
 
         public void Initialize()
         {
-            lsvResponseCodesInformation.BeginUpdate();
-            lsvResponseCodesRedirection.BeginUpdate();
-            lsvResponseCodesClientError.BeginUpdate();
-            lsvResponseCodesServerError.BeginUpdate();
+            var responseCodesInformation = HttpResponseExtension.HttpResponseCodes
+                .Where(a => a.Key < 200);
+            InitializeResponseCodes(lsvResponseCodesInformation, responseCodesInformation);
 
-            SuccessPropertyGrid.SelectedObject = new HttpHeader();
-            lsvResponseCodesInformation.SmallImageList = ControlImages;
-            lsvResponseCodesRedirection.SmallImageList = ControlImages;
-            lsvResponseCodesClientError.SmallImageList = ControlImages;
-            lsvResponseCodesServerError.SmallImageList = ControlImages;
+            var responseCodesRedirection = HttpResponseExtension.HttpResponseCodes
+                .Where(a => a.Key >= 300 && a.Key < 400);
+            InitializeResponseCodes(lsvResponseCodesRedirection, responseCodesRedirection);
 
-            lsvResponseCodesInformation.Items.Clear();
-            lsvResponseCodesRedirection.Items.Clear();
-            lsvResponseCodesClientError.Items.Clear();
-            lsvResponseCodesServerError.Items.Clear();
+            var responseCodesClientError = HttpResponseExtension.HttpResponseCodes
+                .Where(a => a.Key >= 400 && a.Key < 500);
+            InitializeResponseCodes(lsvResponseCodesClientError, responseCodesClientError);
 
+            var responseCodesServerError = HttpResponseExtension.HttpResponseCodes
+                .Where(a => a.Key >= 500);
+            InitializeResponseCodes(lsvResponseCodesServerError, responseCodesServerError);
+        }
 
-            foreach (var httpResponseCode in HttpResponseExtension.HttpResponseCodes)
+        private void InitializeResponseCodes(ListView lsv, IEnumerable<KeyValuePair<int, HttpResponseExtension.ResponseInformation>> httpResponseCodes)
+        {
+            lsv.BeginUpdate();
+            lsv.SmallImageList = ControlImages;
+            lsv.Items.Clear();
+
+            foreach (var httpResponseCode in httpResponseCodes)
             {
                 var lvItem = new ListViewItem
                 {
@@ -49,27 +57,11 @@ namespace ApiStudioIO.VsOptions.HttpResponseCodes
                 if (DlgPage.ResponseCodeContains(httpResponseCode.Key))
                     lvItem.ImageIndex = 1;
 
-                if (httpResponseCode.Key < 200)
-                    lsvResponseCodesInformation.Items.Add(lvItem);
-                if (httpResponseCode.Key >= 200 && httpResponseCode.Key < 300)
-                    continue; // No success defaults
-                if (httpResponseCode.Key >= 300 && httpResponseCode.Key < 400)
-                    lsvResponseCodesRedirection.Items.Add(lvItem);
-                if (httpResponseCode.Key >= 400 && httpResponseCode.Key < 500)
-                    lsvResponseCodesClientError.Items.Add(lvItem);
-                if (httpResponseCode.Key >= 500)
-                    lsvResponseCodesServerError.Items.Add(lvItem);
+                lsv.Items.Add(lvItem);
             }
 
-            ListViewControlHelpers.AutoResizeColumns(lsvResponseCodesInformation);
-            ListViewControlHelpers.AutoResizeColumns(lsvResponseCodesRedirection);
-            ListViewControlHelpers.AutoResizeColumns(lsvResponseCodesClientError);
-            ListViewControlHelpers.AutoResizeColumns(lsvResponseCodesServerError);
-
-            lsvResponseCodesInformation.EndUpdate();
-            lsvResponseCodesRedirection.EndUpdate();
-            lsvResponseCodesClientError.EndUpdate();
-            lsvResponseCodesServerError.EndUpdate();
+            ListViewControlHelpers.AutoResizeColumns(lsv);
+            lsv.EndUpdate();
         }
 
         private void ResponseCodesRedirection_Click(object sender, EventArgs e)
