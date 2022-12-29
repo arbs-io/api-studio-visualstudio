@@ -14,7 +14,7 @@ namespace ApiStudioIO
         /// </summary>
         /// <param name="store">Store where new element is to be created.</param>
         /// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-        public Api(DslModeling.Store store, params DslModeling.PropertyAssignment[] propertyAssignments)
+        protected Api(DslModeling.Store store, params DslModeling.PropertyAssignment[] propertyAssignments)
             : this(store?.DefaultPartitionForClass(DomainClassId), propertyAssignments)
         {
             SetIdentifierValue();
@@ -25,7 +25,7 @@ namespace ApiStudioIO
         /// </summary>
         /// <param name="partition">Partition where new element is to be created.</param>
         /// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-        public Api(DslModeling.Partition partition, params DslModeling.PropertyAssignment[] propertyAssignments)
+        protected Api(DslModeling.Partition partition, params DslModeling.PropertyAssignment[] propertyAssignments)
             : base(partition, propertyAssignments)
         {
             SetIdentifierValue();
@@ -33,12 +33,12 @@ namespace ApiStudioIO
 
         private void SetIdentifierValue()
         {
-            if (Identifier.ToString() == "00000000-0000-0000-0000-000000000000")
-                using (var t = Store.TransactionManager.BeginTransaction("Api.SetIdentifierValue"))
-                {
-                    Identifier = Guid.NewGuid();
-                    t.Commit();
-                }
+            if (Identifier.ToString() != "00000000-0000-0000-0000-000000000000") return;
+            using (var t = Store.TransactionManager.BeginTransaction("Api.SetIdentifierValue"))
+            {
+                Identifier = Guid.NewGuid();
+                t.Commit();
+            }
         }
 
         public virtual string GetDisplayNameValue()

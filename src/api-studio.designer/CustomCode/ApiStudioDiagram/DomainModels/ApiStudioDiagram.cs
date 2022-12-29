@@ -15,7 +15,7 @@ namespace ApiStudioIO
             base.InitializeInstanceResources();
         }
 
-        private void IncludeBackgroundImage()
+        private static void IncludeBackgroundImage()
         {
             var imageField = new ImageField("BackgroundImage",
                 Resources.BackgroundImage)

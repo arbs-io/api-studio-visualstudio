@@ -28,7 +28,7 @@ namespace ApiStudioIO
 		private static DslDiagrams::StyleSet classStyleSet;
 		private static global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields;
 		private static global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators;
-		
+
 		/// <summary>
 		/// Per-class style set for this shape.
 		/// </summary>
@@ -43,7 +43,7 @@ namespace ApiStudioIO
 				return classStyleSet;
 			}
 		}
-		
+
 		/// <summary>
 		/// Per-class ShapeFields for this shape.
 		/// </summary>
@@ -58,51 +58,51 @@ namespace ApiStudioIO
 				return shapeFields;
 			}
 		}
-		
+
 		/// <summary>
 		/// Event fired when decorator initialization is complete for this shape type.
 		/// </summary>
 		public static event global::System.EventHandler DecoratorsInitialized;
-		
+
 		/// <summary>
 		/// List containing decorators used by this type.
 		/// </summary>
 		public override global::System.Collections.Generic.IList<DslDiagrams::Decorator> Decorators
 		{
-			get 
+			get
 			{
 				if(decorators == null)
 				{
 					decorators = CreateDecorators();
-					
+
 					// fire this event to allow the diagram to initialize decorator mappings for this shape type.
 					if(DecoratorsInitialized != null)
 					{
 						DecoratorsInitialized(this, global::System.EventArgs.Empty);
 					}
 				}
-				
-				return decorators; 
+
+				return decorators;
 			}
 		}
-		
+
 		/// <summary>
 		/// Finds a decorator associated with ResourceShape.
 		/// </summary>
 		public static DslDiagrams::Decorator FindResourceShapeDecorator(string decoratorName)
-		{	
+		{
 			if(decorators == null) return null;
 			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
 		}
-		
-		
+
+
 		/// <summary>
 		/// Shape instance initialization.
 		/// </summary>
 		public override void OnInitialize()
 		{
 			base.OnInitialize();
-			
+
 			// Create host shapes for outer decorators.
 			foreach(DslDiagrams::Decorator decorator in this.Decorators)
 			{
@@ -111,11 +111,11 @@ namespace ApiStudioIO
 					decorator.ConfigureHostShape(this);
 				}
 			}
-			
+
 		}
 		#endregion
 		#region Shape size
-		
+
 		/// <summary>
 		/// Default size for this shape.
 		/// </summary>
@@ -135,7 +135,7 @@ namespace ApiStudioIO
 		protected override void InitializeResources(DslDiagrams::StyleSet classStyleSet)
 		{
 			base.InitializeResources(classStyleSet);
-			
+
 			// Custom font styles
 			DslDiagrams::FontSettings fontSettings;
 			fontSettings = new DslDiagrams::FontSettings();
@@ -143,7 +143,7 @@ namespace ApiStudioIO
 			fontSettings.Size = 8/72.0F;
 			classStyleSet.AddFont(new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextBold8"), DslDiagrams::DiagramFonts.ShapeText, fontSettings);
 		}
-		
+
 		/// <summary>
 		/// Indicates whether this shape displays a background gradient.
 		/// </summary>
@@ -164,7 +164,7 @@ namespace ApiStudioIO
 				return true;
 			}
 		}
-		
+
 		/// <summary>
 		/// Ensures that four default connection points exist, one at the midpoint of each side of the shape.
 		/// </summary>
@@ -183,7 +183,7 @@ namespace ApiStudioIO
 				this.CreateConnectionPoint(new DslDiagrams::PointD(absoluteBoundingBox.Right, absoluteBoundingBox.Center.Y));
 			}
 		}
-		
+
 		/// <summary>
 		/// Specifies the geometry used by this shape
 		/// </summary>
@@ -209,11 +209,11 @@ namespace ApiStudioIO
 			field1.AnchoringBehavior.MinimumHeightInLines = 1;
 			field1.AnchoringBehavior.MinimumWidthInCharacters = 1;
 			field1.DefaultAccessibleState = global::System.Windows.Forms.AccessibleStates.Invisible;
-			field1.DefaultFontId = new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextBold8");			
+			field1.DefaultFontId = new DslDiagrams::StyleSetResourceId(string.Empty, "ShapeTextBold8");
 			shapeFields.Add(field1);
-			
+
 		}
-		
+
 		/// <summary>
 		/// Initialize the collection of decorators associated with this shape type.  This method also
 		/// creates shape fields for outer decorators, because these are not part of the shape fields collection
@@ -222,13 +222,13 @@ namespace ApiStudioIO
 		protected override void InitializeDecorators(global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields, global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators)
 		{
 			base.InitializeDecorators(shapeFields, decorators);
-			
+
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "Name");
 			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopCenter, DslDiagrams::PointD.Empty);
 			decorators.Add(decorator1);
-				
+
 		}
-		
+
 		/// <summary>
 		/// Ensure outer decorators are placed appropriately.  This is called during view fixup,
 		/// after the shape has been associated with the model element.
@@ -236,7 +236,7 @@ namespace ApiStudioIO
 		public override void OnBoundsFixup(DslDiagrams::BoundsFixupState fixupState, int iteration, bool createdDuringViewFixup)
 		{
 			base.OnBoundsFixup(fixupState, iteration, createdDuringViewFixup);
-			
+
 			if(iteration == 0)
 			{
 				foreach(DslDiagrams::Decorator decorator in this.Decorators)
@@ -257,9 +257,9 @@ namespace ApiStudioIO
 		{
 			get { return true; }
 		}
-		
+
 		private static DslDiagrams::CompartmentDescription[] compartmentDescriptions;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentDescription for all compartments shown on this shape
 		/// (including compartments defined on base shapes).
@@ -269,60 +269,60 @@ namespace ApiStudioIO
 		{
 			if(compartmentDescriptions == null)
 			{
-				// Initialize the array of compartment descriptions if we haven't done so already. 
+				// Initialize the array of compartment descriptions if we haven't done so already.
 				// First we get any compartment descriptions in base shapes, and add on any compartments
-				// that are defined on this shape. 
+				// that are defined on this shape.
 				DslDiagrams::CompartmentDescription[] baseCompartmentDescriptions = base.GetCompartmentDescriptions();
-				
+
 				int localCompartmentsOffset = 0;
 				if(baseCompartmentDescriptions!=null)
 				{
 					localCompartmentsOffset = baseCompartmentDescriptions.Length;
 				}
 				compartmentDescriptions = new DslDiagrams::ElementListCompartmentDescription[1+localCompartmentsOffset];
-				
+
 				if(baseCompartmentDescriptions!=null)
 				{
-					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);	
+					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);
 				}
 				{
 					DslDiagrams::FontSettings titleFont = new DslDiagrams::FontSettings();
 					titleFont.Style =  global::System.Drawing.FontStyle.Bold ;
 					titleFont.Size = 8/72.0F;
 					string title = global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetString("ResourceShapeHttpApiTitle");
-					DslDiagrams::ElementListCompartmentDescription descriptor = new DslDiagrams::ElementListCompartmentDescription("HttpApi", title, 
-						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false, 
+					DslDiagrams::ElementListCompartmentDescription descriptor = new DslDiagrams::ElementListCompartmentDescription("HttpApi", title,
+						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false,
 						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false,
 						titleFont, null,
 						false);
 					compartmentDescriptions[localCompartmentsOffset+0] = descriptor;
 				}
 			}
-			
+
 			return ResourceShape.compartmentDescriptions;
 		}
-		
+
 		private static global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]> compartmentMappings;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentMappings for all compartments displayed on this shape
-		/// (including compartment maps defined on base shapes). 
+		/// (including compartment maps defined on base shapes).
 		/// </summary>
 		/// <param name="melType">The type of the DomainClass that this shape is mapped to</param>
 		/// <returns></returns>
 		protected override DslDiagrams::CompartmentMapping[] GetCompartmentMappings(global::System.Type melType)
 		{
 			if(melType==null) throw new global::System.ArgumentNullException("melType");
-			
+
 			if(compartmentMappings==null)
 			{
-				// Initialize the table of compartment mappings if we haven't done so already. 
+				// Initialize the table of compartment mappings if we haven't done so already.
 				// The table contains an array of CompartmentMapping for every Type that this
-				// shape can be mapped to. 
+				// shape can be mapped to.
 				compartmentMappings = new global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]>();
 				{
 					// First we get the mappings defined for the base shape, and add on any mappings defined for this
-					// shape. 
+					// shape.
 					DslDiagrams::CompartmentMapping[] baseMappings = base.GetCompartmentMappings(typeof(global::ApiStudioIO.Resource));
 					int localCompartmentMappingsOffset = 0;
 					if(baseMappings!=null)
@@ -330,15 +330,15 @@ namespace ApiStudioIO
 						localCompartmentMappingsOffset = baseMappings.Length;
 					}
 					DslDiagrams::CompartmentMapping[] mappings = new DslDiagrams::CompartmentMapping[1+localCompartmentMappingsOffset];
-					
+
 					if(baseMappings!=null)
 					{
 						baseMappings.CopyTo(mappings, 0);
 					}
 					mappings[localCompartmentMappingsOffset+0] = new DslDiagrams::ElementListCompartmentMapping(
-																				"HttpApi", 
-																				global::ApiStudioIO.Api.DisplayNameDomainPropertyId, 
-																				global::ApiStudioIO.Api.DomainClassId, 
+																				"HttpApi",
+																				global::ApiStudioIO.Api.DisplayNameDomainPropertyId,
+																				global::ApiStudioIO.Api.DomainClassId,
 																				GetElementsFromResourceForHttpApi,
 																				null,
 																				null,
@@ -346,16 +346,16 @@ namespace ApiStudioIO
 					compartmentMappings.Add(typeof(global::ApiStudioIO.Resource), mappings);
 				}
 			}
-			
-			// See if we can find the mapping being requested directly in the table. 
+
+			// See if we can find the mapping being requested directly in the table.
 			DslDiagrams::CompartmentMapping[] returnValue;
 			if(compartmentMappings.TryGetValue(melType, out returnValue))
 			{
 				return returnValue;
 			}
-			
+
 			// If not, loop through the types in the table, and find the 'most derived' base
-			// class of melType. 
+			// class of melType.
 			global::System.Type selectedMappedType = null;
 			foreach(global::System.Type mappedType in compartmentMappings.Keys)
 			{
@@ -370,7 +370,7 @@ namespace ApiStudioIO
 			}
 			return new DslDiagrams::CompartmentMapping[] {};
 		}
-		
+
 			#region DomainPath traversal methods to get the list of elements to display in a compartment.
 			internal static global::System.Collections.IList GetElementsFromResourceForHttpApi(DslModeling::ModelElement rootElement)
 			{
@@ -380,10 +380,10 @@ namespace ApiStudioIO
 				return result;
 			}
 			#endregion
-		
+
 		#endregion
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// ResourceShape domain class Id.
 		/// </summary>
@@ -397,7 +397,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -430,7 +430,7 @@ namespace ApiStudioIO
 		private static DslDiagrams::StyleSet classStyleSet;
 		private static global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields;
 		private static global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators;
-		
+
 		/// <summary>
 		/// Per-class style set for this shape.
 		/// </summary>
@@ -445,7 +445,7 @@ namespace ApiStudioIO
 				return classStyleSet;
 			}
 		}
-		
+
 		/// <summary>
 		/// Per-class ShapeFields for this shape.
 		/// </summary>
@@ -460,43 +460,43 @@ namespace ApiStudioIO
 				return shapeFields;
 			}
 		}
-		
+
 		/// <summary>
 		/// Event fired when decorator initialization is complete for this shape type.
 		/// </summary>
 		public static new event global::System.EventHandler DecoratorsInitialized;
-		
+
 		/// <summary>
 		/// List containing decorators used by this type.
 		/// </summary>
 		public override global::System.Collections.Generic.IList<DslDiagrams::Decorator> Decorators
 		{
-			get 
+			get
 			{
 				if(decorators == null)
 				{
 					decorators = CreateDecorators();
-					
+
 					// fire this event to allow the diagram to initialize decorator mappings for this shape type.
 					if(DecoratorsInitialized != null)
 					{
 						DecoratorsInitialized(this, global::System.EventArgs.Empty);
 					}
 				}
-				
-				return decorators; 
+
+				return decorators;
 			}
 		}
-		
+
 		/// <summary>
 		/// Finds a decorator associated with ResourceInstanceShape.
 		/// </summary>
 		public static DslDiagrams::Decorator FindResourceInstanceShapeDecorator(string decoratorName)
-		{	
+		{
 			if(decorators == null) return null;
 			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
 		}
-		
+
 		#endregion
 		#region Shape styles
 		/// <summary>
@@ -506,7 +506,7 @@ namespace ApiStudioIO
 		protected override void InitializeResources(DslDiagrams::StyleSet classStyleSet)
 		{
 			base.InitializeResources(classStyleSet);
-			
+
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 111, 154, 246);
@@ -515,9 +515,9 @@ namespace ApiStudioIO
 			DslDiagrams::BrushSettings backgroundBrush = new DslDiagrams::BrushSettings();
 			backgroundBrush.Color = global::System.Drawing.Color.FromArgb(255, 210, 223, 255);
 			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ShapeBackground, backgroundBrush);
-		
+
 		}
-		
+
 		/// <summary>
 		/// Indicates whether this shape displays a background gradient.
 		/// </summary>
@@ -528,7 +528,7 @@ namespace ApiStudioIO
 				return true;
 			}
 		}
-		
+
 		/// <summary>
 		/// Indicates the direction of the gradient.
 		/// </summary>
@@ -549,7 +549,7 @@ namespace ApiStudioIO
 				return false;
 			}
 		}
-		
+
 		#endregion
 		#region Decorators
 		/// <summary>
@@ -561,9 +561,9 @@ namespace ApiStudioIO
 			DslDiagrams::ImageField field1 = new DslDiagrams::ImageField("Icon");
 			field1.DefaultImage = DslDiagrams::ImageHelper.GetImage(global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetObject("ResourceInstanceShapeIconDefaultImage"));
 			shapeFields.Add(field1);
-			
+
 		}
-		
+
 		/// <summary>
 		/// Initialize the collection of decorators associated with this shape type.  This method also
 		/// creates shape fields for outer decorators, because these are not part of the shape fields collection
@@ -572,13 +572,13 @@ namespace ApiStudioIO
 		protected override void InitializeDecorators(global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields, global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators)
 		{
 			base.InitializeDecorators(shapeFields, decorators);
-			
+
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "Icon");
 			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopLeft, DslDiagrams::PointD.Empty);
 			decorators.Add(decorator1);
-				
+
 		}
-		
+
 		#endregion
 		#region CompartmentShape code
 		/// <summary>
@@ -588,9 +588,9 @@ namespace ApiStudioIO
 		{
 			get { return true; }
 		}
-		
+
 		private static DslDiagrams::CompartmentDescription[] compartmentDescriptions;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentDescription for all compartments shown on this shape
 		/// (including compartments defined on base shapes).
@@ -600,48 +600,48 @@ namespace ApiStudioIO
 		{
 			if(compartmentDescriptions == null)
 			{
-				// Initialize the array of compartment descriptions if we haven't done so already. 
+				// Initialize the array of compartment descriptions if we haven't done so already.
 				// First we get any compartment descriptions in base shapes, and add on any compartments
-				// that are defined on this shape. 
+				// that are defined on this shape.
 				DslDiagrams::CompartmentDescription[] baseCompartmentDescriptions = base.GetCompartmentDescriptions();
-				
+
 				int localCompartmentsOffset = 0;
 				if(baseCompartmentDescriptions!=null)
 				{
 					localCompartmentsOffset = baseCompartmentDescriptions.Length;
 				}
 				compartmentDescriptions = new DslDiagrams::ElementListCompartmentDescription[0+localCompartmentsOffset];
-				
+
 				if(baseCompartmentDescriptions!=null)
 				{
-					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);	
+					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);
 				}
 			}
-			
+
 			return ResourceInstanceShape.compartmentDescriptions;
 		}
-		
+
 		private static global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]> compartmentMappings;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentMappings for all compartments displayed on this shape
-		/// (including compartment maps defined on base shapes). 
+		/// (including compartment maps defined on base shapes).
 		/// </summary>
 		/// <param name="melType">The type of the DomainClass that this shape is mapped to</param>
 		/// <returns></returns>
 		protected override DslDiagrams::CompartmentMapping[] GetCompartmentMappings(global::System.Type melType)
 		{
 			if(melType==null) throw new global::System.ArgumentNullException("melType");
-			
+
 			if(compartmentMappings==null)
 			{
-				// Initialize the table of compartment mappings if we haven't done so already. 
+				// Initialize the table of compartment mappings if we haven't done so already.
 				// The table contains an array of CompartmentMapping for every Type that this
-				// shape can be mapped to. 
+				// shape can be mapped to.
 				compartmentMappings = new global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]>();
 				{
 					// First we get the mappings defined for the base shape, and add on any mappings defined for this
-					// shape. 
+					// shape.
 					DslDiagrams::CompartmentMapping[] baseMappings = base.GetCompartmentMappings(typeof(global::ApiStudioIO.ResourceInstance));
 					int localCompartmentMappingsOffset = 0;
 					if(baseMappings!=null)
@@ -649,7 +649,7 @@ namespace ApiStudioIO
 						localCompartmentMappingsOffset = baseMappings.Length;
 					}
 					DslDiagrams::CompartmentMapping[] mappings = new DslDiagrams::CompartmentMapping[0+localCompartmentMappingsOffset];
-					
+
 					if(baseMappings!=null)
 					{
 						baseMappings.CopyTo(mappings, 0);
@@ -657,16 +657,16 @@ namespace ApiStudioIO
 					compartmentMappings.Add(typeof(global::ApiStudioIO.ResourceInstance), mappings);
 				}
 			}
-			
-			// See if we can find the mapping being requested directly in the table. 
+
+			// See if we can find the mapping being requested directly in the table.
 			DslDiagrams::CompartmentMapping[] returnValue;
 			if(compartmentMappings.TryGetValue(melType, out returnValue))
 			{
 				return returnValue;
 			}
-			
+
 			// If not, loop through the types in the table, and find the 'most derived' base
-			// class of melType. 
+			// class of melType.
 			global::System.Type selectedMappedType = null;
 			foreach(global::System.Type mappedType in compartmentMappings.Keys)
 			{
@@ -681,13 +681,13 @@ namespace ApiStudioIO
 			}
 			return new DslDiagrams::CompartmentMapping[] {};
 		}
-		
+
 			#region DomainPath traversal methods to get the list of elements to display in a compartment.
 			#endregion
-		
+
 		#endregion
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// ResourceInstanceShape domain class Id.
 		/// </summary>
@@ -701,7 +701,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -735,7 +735,7 @@ namespace ApiStudioIO
 		private static DslDiagrams::StyleSet classStyleSet;
 		private static global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields;
 		private static global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators;
-		
+
 		/// <summary>
 		/// Per-class style set for this shape.
 		/// </summary>
@@ -750,7 +750,7 @@ namespace ApiStudioIO
 				return classStyleSet;
 			}
 		}
-		
+
 		/// <summary>
 		/// Per-class ShapeFields for this shape.
 		/// </summary>
@@ -765,43 +765,43 @@ namespace ApiStudioIO
 				return shapeFields;
 			}
 		}
-		
+
 		/// <summary>
 		/// Event fired when decorator initialization is complete for this shape type.
 		/// </summary>
 		public static new event global::System.EventHandler DecoratorsInitialized;
-		
+
 		/// <summary>
 		/// List containing decorators used by this type.
 		/// </summary>
 		public override global::System.Collections.Generic.IList<DslDiagrams::Decorator> Decorators
 		{
-			get 
+			get
 			{
 				if(decorators == null)
 				{
 					decorators = CreateDecorators();
-					
+
 					// fire this event to allow the diagram to initialize decorator mappings for this shape type.
 					if(DecoratorsInitialized != null)
 					{
 						DecoratorsInitialized(this, global::System.EventArgs.Empty);
 					}
 				}
-				
-				return decorators; 
+
+				return decorators;
 			}
 		}
-		
+
 		/// <summary>
 		/// Finds a decorator associated with ResourceCollectionShape.
 		/// </summary>
 		public static DslDiagrams::Decorator FindResourceCollectionShapeDecorator(string decoratorName)
-		{	
+		{
 			if(decorators == null) return null;
 			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
 		}
-		
+
 		#endregion
 		#region Shape styles
 		/// <summary>
@@ -811,7 +811,7 @@ namespace ApiStudioIO
 		protected override void InitializeResources(DslDiagrams::StyleSet classStyleSet)
 		{
 			base.InitializeResources(classStyleSet);
-			
+
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 253, 243, 148);
@@ -820,9 +820,9 @@ namespace ApiStudioIO
 			DslDiagrams::BrushSettings backgroundBrush = new DslDiagrams::BrushSettings();
 			backgroundBrush.Color = global::System.Drawing.Color.FromArgb(255, 249, 246, 203);
 			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ShapeBackground, backgroundBrush);
-		
+
 		}
-		
+
 		/// <summary>
 		/// Indicates whether this shape displays a background gradient.
 		/// </summary>
@@ -833,7 +833,7 @@ namespace ApiStudioIO
 				return true;
 			}
 		}
-		
+
 		/// <summary>
 		/// Indicates the direction of the gradient.
 		/// </summary>
@@ -854,7 +854,7 @@ namespace ApiStudioIO
 				return false;
 			}
 		}
-		
+
 		#endregion
 		#region Decorators
 		/// <summary>
@@ -866,9 +866,9 @@ namespace ApiStudioIO
 			DslDiagrams::ImageField field1 = new DslDiagrams::ImageField("Icon");
 			field1.DefaultImage = DslDiagrams::ImageHelper.GetImage(global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetObject("ResourceCollectionShapeIconDefaultImage"));
 			shapeFields.Add(field1);
-			
+
 		}
-		
+
 		/// <summary>
 		/// Initialize the collection of decorators associated with this shape type.  This method also
 		/// creates shape fields for outer decorators, because these are not part of the shape fields collection
@@ -877,13 +877,13 @@ namespace ApiStudioIO
 		protected override void InitializeDecorators(global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields, global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators)
 		{
 			base.InitializeDecorators(shapeFields, decorators);
-			
+
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "Icon");
 			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopLeft, DslDiagrams::PointD.Empty);
 			decorators.Add(decorator1);
-				
+
 		}
-		
+
 		#endregion
 		#region CompartmentShape code
 		/// <summary>
@@ -893,9 +893,9 @@ namespace ApiStudioIO
 		{
 			get { return true; }
 		}
-		
+
 		private static DslDiagrams::CompartmentDescription[] compartmentDescriptions;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentDescription for all compartments shown on this shape
 		/// (including compartments defined on base shapes).
@@ -905,48 +905,48 @@ namespace ApiStudioIO
 		{
 			if(compartmentDescriptions == null)
 			{
-				// Initialize the array of compartment descriptions if we haven't done so already. 
+				// Initialize the array of compartment descriptions if we haven't done so already.
 				// First we get any compartment descriptions in base shapes, and add on any compartments
-				// that are defined on this shape. 
+				// that are defined on this shape.
 				DslDiagrams::CompartmentDescription[] baseCompartmentDescriptions = base.GetCompartmentDescriptions();
-				
+
 				int localCompartmentsOffset = 0;
 				if(baseCompartmentDescriptions!=null)
 				{
 					localCompartmentsOffset = baseCompartmentDescriptions.Length;
 				}
 				compartmentDescriptions = new DslDiagrams::ElementListCompartmentDescription[0+localCompartmentsOffset];
-				
+
 				if(baseCompartmentDescriptions!=null)
 				{
-					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);	
+					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);
 				}
 			}
-			
+
 			return ResourceCollectionShape.compartmentDescriptions;
 		}
-		
+
 		private static global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]> compartmentMappings;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentMappings for all compartments displayed on this shape
-		/// (including compartment maps defined on base shapes). 
+		/// (including compartment maps defined on base shapes).
 		/// </summary>
 		/// <param name="melType">The type of the DomainClass that this shape is mapped to</param>
 		/// <returns></returns>
 		protected override DslDiagrams::CompartmentMapping[] GetCompartmentMappings(global::System.Type melType)
 		{
 			if(melType==null) throw new global::System.ArgumentNullException("melType");
-			
+
 			if(compartmentMappings==null)
 			{
-				// Initialize the table of compartment mappings if we haven't done so already. 
+				// Initialize the table of compartment mappings if we haven't done so already.
 				// The table contains an array of CompartmentMapping for every Type that this
-				// shape can be mapped to. 
+				// shape can be mapped to.
 				compartmentMappings = new global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]>();
 				{
 					// First we get the mappings defined for the base shape, and add on any mappings defined for this
-					// shape. 
+					// shape.
 					DslDiagrams::CompartmentMapping[] baseMappings = base.GetCompartmentMappings(typeof(global::ApiStudioIO.ResourceCollection));
 					int localCompartmentMappingsOffset = 0;
 					if(baseMappings!=null)
@@ -954,7 +954,7 @@ namespace ApiStudioIO
 						localCompartmentMappingsOffset = baseMappings.Length;
 					}
 					DslDiagrams::CompartmentMapping[] mappings = new DslDiagrams::CompartmentMapping[0+localCompartmentMappingsOffset];
-					
+
 					if(baseMappings!=null)
 					{
 						baseMappings.CopyTo(mappings, 0);
@@ -962,16 +962,16 @@ namespace ApiStudioIO
 					compartmentMappings.Add(typeof(global::ApiStudioIO.ResourceCollection), mappings);
 				}
 			}
-			
-			// See if we can find the mapping being requested directly in the table. 
+
+			// See if we can find the mapping being requested directly in the table.
 			DslDiagrams::CompartmentMapping[] returnValue;
 			if(compartmentMappings.TryGetValue(melType, out returnValue))
 			{
 				return returnValue;
 			}
-			
+
 			// If not, loop through the types in the table, and find the 'most derived' base
-			// class of melType. 
+			// class of melType.
 			global::System.Type selectedMappedType = null;
 			foreach(global::System.Type mappedType in compartmentMappings.Keys)
 			{
@@ -986,13 +986,13 @@ namespace ApiStudioIO
 			}
 			return new DslDiagrams::CompartmentMapping[] {};
 		}
-		
+
 			#region DomainPath traversal methods to get the list of elements to display in a compartment.
 			#endregion
-		
+
 		#endregion
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// ResourceCollectionShape domain class Id.
 		/// </summary>
@@ -1006,7 +1006,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1037,7 +1037,7 @@ namespace ApiStudioIO
 		private static DslDiagrams::StyleSet classStyleSet;
 		private static global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields;
 		private static global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators;
-		
+
 		/// <summary>
 		/// Per-class style set for this shape.
 		/// </summary>
@@ -1052,7 +1052,7 @@ namespace ApiStudioIO
 				return classStyleSet;
 			}
 		}
-		
+
 		/// <summary>
 		/// Per-class ShapeFields for this shape.
 		/// </summary>
@@ -1067,43 +1067,43 @@ namespace ApiStudioIO
 				return shapeFields;
 			}
 		}
-		
+
 		/// <summary>
 		/// Event fired when decorator initialization is complete for this shape type.
 		/// </summary>
 		public static new event global::System.EventHandler DecoratorsInitialized;
-		
+
 		/// <summary>
 		/// List containing decorators used by this type.
 		/// </summary>
 		public override global::System.Collections.Generic.IList<DslDiagrams::Decorator> Decorators
 		{
-			get 
+			get
 			{
 				if(decorators == null)
 				{
 					decorators = CreateDecorators();
-					
+
 					// fire this event to allow the diagram to initialize decorator mappings for this shape type.
 					if(DecoratorsInitialized != null)
 					{
 						DecoratorsInitialized(this, global::System.EventArgs.Empty);
 					}
 				}
-				
-				return decorators; 
+
+				return decorators;
 			}
 		}
-		
+
 		/// <summary>
 		/// Finds a decorator associated with ResourceActionShape.
 		/// </summary>
 		public static DslDiagrams::Decorator FindResourceActionShapeDecorator(string decoratorName)
-		{	
+		{
 			if(decorators == null) return null;
 			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
 		}
-		
+
 		#endregion
 		#region Shape styles
 		/// <summary>
@@ -1113,7 +1113,7 @@ namespace ApiStudioIO
 		protected override void InitializeResources(DslDiagrams::StyleSet classStyleSet)
 		{
 			base.InitializeResources(classStyleSet);
-			
+
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 126, 165, 112);
@@ -1122,9 +1122,9 @@ namespace ApiStudioIO
 			DslDiagrams::BrushSettings backgroundBrush = new DslDiagrams::BrushSettings();
 			backgroundBrush.Color = global::System.Drawing.Color.FromArgb(255, 173, 214, 184);
 			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ShapeBackground, backgroundBrush);
-		
+
 		}
-		
+
 		/// <summary>
 		/// Indicates whether this shape displays a background gradient.
 		/// </summary>
@@ -1135,7 +1135,7 @@ namespace ApiStudioIO
 				return true;
 			}
 		}
-		
+
 		/// <summary>
 		/// Indicates the direction of the gradient.
 		/// </summary>
@@ -1156,7 +1156,7 @@ namespace ApiStudioIO
 				return false;
 			}
 		}
-		
+
 		#endregion
 		#region Decorators
 		/// <summary>
@@ -1168,9 +1168,9 @@ namespace ApiStudioIO
 			DslDiagrams::ImageField field1 = new DslDiagrams::ImageField("Icon");
 			field1.DefaultImage = DslDiagrams::ImageHelper.GetImage(global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetObject("ResourceActionShapeIconDefaultImage"));
 			shapeFields.Add(field1);
-			
+
 		}
-		
+
 		/// <summary>
 		/// Initialize the collection of decorators associated with this shape type.  This method also
 		/// creates shape fields for outer decorators, because these are not part of the shape fields collection
@@ -1179,13 +1179,13 @@ namespace ApiStudioIO
 		protected override void InitializeDecorators(global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields, global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators)
 		{
 			base.InitializeDecorators(shapeFields, decorators);
-			
+
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "Icon");
 			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopLeft, DslDiagrams::PointD.Empty);
 			decorators.Add(decorator1);
-				
+
 		}
-		
+
 		#endregion
 		#region CompartmentShape code
 		/// <summary>
@@ -1195,9 +1195,9 @@ namespace ApiStudioIO
 		{
 			get { return true; }
 		}
-		
+
 		private static DslDiagrams::CompartmentDescription[] compartmentDescriptions;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentDescription for all compartments shown on this shape
 		/// (including compartments defined on base shapes).
@@ -1207,48 +1207,48 @@ namespace ApiStudioIO
 		{
 			if(compartmentDescriptions == null)
 			{
-				// Initialize the array of compartment descriptions if we haven't done so already. 
+				// Initialize the array of compartment descriptions if we haven't done so already.
 				// First we get any compartment descriptions in base shapes, and add on any compartments
-				// that are defined on this shape. 
+				// that are defined on this shape.
 				DslDiagrams::CompartmentDescription[] baseCompartmentDescriptions = base.GetCompartmentDescriptions();
-				
+
 				int localCompartmentsOffset = 0;
 				if(baseCompartmentDescriptions!=null)
 				{
 					localCompartmentsOffset = baseCompartmentDescriptions.Length;
 				}
 				compartmentDescriptions = new DslDiagrams::ElementListCompartmentDescription[0+localCompartmentsOffset];
-				
+
 				if(baseCompartmentDescriptions!=null)
 				{
-					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);	
+					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);
 				}
 			}
-			
+
 			return ResourceActionShape.compartmentDescriptions;
 		}
-		
+
 		private static global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]> compartmentMappings;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentMappings for all compartments displayed on this shape
-		/// (including compartment maps defined on base shapes). 
+		/// (including compartment maps defined on base shapes).
 		/// </summary>
 		/// <param name="melType">The type of the DomainClass that this shape is mapped to</param>
 		/// <returns></returns>
 		protected override DslDiagrams::CompartmentMapping[] GetCompartmentMappings(global::System.Type melType)
 		{
 			if(melType==null) throw new global::System.ArgumentNullException("melType");
-			
+
 			if(compartmentMappings==null)
 			{
-				// Initialize the table of compartment mappings if we haven't done so already. 
+				// Initialize the table of compartment mappings if we haven't done so already.
 				// The table contains an array of CompartmentMapping for every Type that this
-				// shape can be mapped to. 
+				// shape can be mapped to.
 				compartmentMappings = new global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]>();
 				{
 					// First we get the mappings defined for the base shape, and add on any mappings defined for this
-					// shape. 
+					// shape.
 					DslDiagrams::CompartmentMapping[] baseMappings = base.GetCompartmentMappings(typeof(global::ApiStudioIO.ResourceAction));
 					int localCompartmentMappingsOffset = 0;
 					if(baseMappings!=null)
@@ -1256,7 +1256,7 @@ namespace ApiStudioIO
 						localCompartmentMappingsOffset = baseMappings.Length;
 					}
 					DslDiagrams::CompartmentMapping[] mappings = new DslDiagrams::CompartmentMapping[0+localCompartmentMappingsOffset];
-					
+
 					if(baseMappings!=null)
 					{
 						baseMappings.CopyTo(mappings, 0);
@@ -1264,16 +1264,16 @@ namespace ApiStudioIO
 					compartmentMappings.Add(typeof(global::ApiStudioIO.ResourceAction), mappings);
 				}
 			}
-			
-			// See if we can find the mapping being requested directly in the table. 
+
+			// See if we can find the mapping being requested directly in the table.
 			DslDiagrams::CompartmentMapping[] returnValue;
 			if(compartmentMappings.TryGetValue(melType, out returnValue))
 			{
 				return returnValue;
 			}
-			
+
 			// If not, loop through the types in the table, and find the 'most derived' base
-			// class of melType. 
+			// class of melType.
 			global::System.Type selectedMappedType = null;
 			foreach(global::System.Type mappedType in compartmentMappings.Keys)
 			{
@@ -1288,13 +1288,13 @@ namespace ApiStudioIO
 			}
 			return new DslDiagrams::CompartmentMapping[] {};
 		}
-		
+
 			#region DomainPath traversal methods to get the list of elements to display in a compartment.
 			#endregion
-		
+
 		#endregion
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// ResourceActionShape domain class Id.
 		/// </summary>
@@ -1308,7 +1308,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1338,7 +1338,7 @@ namespace ApiStudioIO
 		private static DslDiagrams::StyleSet classStyleSet;
 		private static global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields;
 		private static global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators;
-		
+
 		/// <summary>
 		/// Per-class style set for this shape.
 		/// </summary>
@@ -1353,7 +1353,7 @@ namespace ApiStudioIO
 				return classStyleSet;
 			}
 		}
-		
+
 		/// <summary>
 		/// Per-class ShapeFields for this shape.
 		/// </summary>
@@ -1368,51 +1368,51 @@ namespace ApiStudioIO
 				return shapeFields;
 			}
 		}
-		
+
 		/// <summary>
 		/// Event fired when decorator initialization is complete for this shape type.
 		/// </summary>
 		public static event global::System.EventHandler DecoratorsInitialized;
-		
+
 		/// <summary>
 		/// List containing decorators used by this type.
 		/// </summary>
 		public override global::System.Collections.Generic.IList<DslDiagrams::Decorator> Decorators
 		{
-			get 
+			get
 			{
 				if(decorators == null)
 				{
 					decorators = CreateDecorators();
-					
+
 					// fire this event to allow the diagram to initialize decorator mappings for this shape type.
 					if(DecoratorsInitialized != null)
 					{
 						DecoratorsInitialized(this, global::System.EventArgs.Empty);
 					}
 				}
-				
-				return decorators; 
+
+				return decorators;
 			}
 		}
-		
+
 		/// <summary>
 		/// Finds a decorator associated with DataModelShape.
 		/// </summary>
 		public static DslDiagrams::Decorator FindDataModelShapeDecorator(string decoratorName)
-		{	
+		{
 			if(decorators == null) return null;
 			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
 		}
-		
-		
+
+
 		/// <summary>
 		/// Shape instance initialization.
 		/// </summary>
 		public override void OnInitialize()
 		{
 			base.OnInitialize();
-			
+
 			// Create host shapes for outer decorators.
 			foreach(DslDiagrams::Decorator decorator in this.Decorators)
 			{
@@ -1421,11 +1421,11 @@ namespace ApiStudioIO
 					decorator.ConfigureHostShape(this);
 				}
 			}
-			
+
 		}
 		#endregion
 		#region Shape size
-		
+
 		/// <summary>
 		/// Default size for this shape.
 		/// </summary>
@@ -1445,7 +1445,7 @@ namespace ApiStudioIO
 		protected override void InitializeResources(DslDiagrams::StyleSet classStyleSet)
 		{
 			base.InitializeResources(classStyleSet);
-			
+
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Color = global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.DimGray);
@@ -1455,9 +1455,9 @@ namespace ApiStudioIO
 			DslDiagrams::BrushSettings backgroundBrush = new DslDiagrams::BrushSettings();
 			backgroundBrush.Color = global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Gainsboro);
 			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ShapeBackground, backgroundBrush);
-		
+
 		}
-		
+
 		/// <summary>
 		/// Indicates whether this shape displays a background gradient.
 		/// </summary>
@@ -1494,13 +1494,13 @@ namespace ApiStudioIO
 			field1.AnchoringBehavior.MinimumWidthInCharacters = 1;
 			field1.DefaultAccessibleState = global::System.Windows.Forms.AccessibleStates.Invisible;
 			shapeFields.Add(field1);
-			
+
 			DslDiagrams::ImageField field2 = new DslDiagrams::ImageField("Icon");
 			field2.DefaultImage = DslDiagrams::ImageHelper.GetImage(global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetObject("DataModelShapeIconDefaultImage"));
 			shapeFields.Add(field2);
-			
+
 		}
-		
+
 		/// <summary>
 		/// Initialize the collection of decorators associated with this shape type.  This method also
 		/// creates shape fields for outer decorators, because these are not part of the shape fields collection
@@ -1509,17 +1509,17 @@ namespace ApiStudioIO
 		protected override void InitializeDecorators(global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields, global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators)
 		{
 			base.InitializeDecorators(shapeFields, decorators);
-			
+
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "Name");
 			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.Center, DslDiagrams::PointD.Empty);
 			decorators.Add(decorator1);
-				
+
 			DslDiagrams::ShapeField field2 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "Icon");
 			DslDiagrams::Decorator decorator2 = new DslDiagrams::ShapeDecorator(field2, DslDiagrams::ShapeDecoratorPosition.InnerMiddleLeft, DslDiagrams::PointD.Empty);
 			decorators.Add(decorator2);
-				
+
 		}
-		
+
 		/// <summary>
 		/// Ensure outer decorators are placed appropriately.  This is called during view fixup,
 		/// after the shape has been associated with the model element.
@@ -1527,7 +1527,7 @@ namespace ApiStudioIO
 		public override void OnBoundsFixup(DslDiagrams::BoundsFixupState fixupState, int iteration, bool createdDuringViewFixup)
 		{
 			base.OnBoundsFixup(fixupState, iteration, createdDuringViewFixup);
-			
+
 			if(iteration == 0)
 			{
 				foreach(DslDiagrams::Decorator decorator in this.Decorators)
@@ -1541,7 +1541,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// DataModelShape domain class Id.
 		/// </summary>
@@ -1555,7 +1555,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1585,7 +1585,7 @@ namespace ApiStudioIO
 		private static DslDiagrams::StyleSet classStyleSet;
 		private static global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields;
 		private static global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators;
-		
+
 		/// <summary>
 		/// Per-class style set for this shape.
 		/// </summary>
@@ -1600,7 +1600,7 @@ namespace ApiStudioIO
 				return classStyleSet;
 			}
 		}
-		
+
 		/// <summary>
 		/// Per-class ShapeFields for this shape.
 		/// </summary>
@@ -1615,51 +1615,51 @@ namespace ApiStudioIO
 				return shapeFields;
 			}
 		}
-		
+
 		/// <summary>
 		/// Event fired when decorator initialization is complete for this shape type.
 		/// </summary>
 		public static event global::System.EventHandler DecoratorsInitialized;
-		
+
 		/// <summary>
 		/// List containing decorators used by this type.
 		/// </summary>
 		public override global::System.Collections.Generic.IList<DslDiagrams::Decorator> Decorators
 		{
-			get 
+			get
 			{
 				if(decorators == null)
 				{
 					decorators = CreateDecorators();
-					
+
 					// fire this event to allow the diagram to initialize decorator mappings for this shape type.
 					if(DecoratorsInitialized != null)
 					{
 						DecoratorsInitialized(this, global::System.EventArgs.Empty);
 					}
 				}
-				
-				return decorators; 
+
+				return decorators;
 			}
 		}
-		
+
 		/// <summary>
 		/// Finds a decorator associated with HttpApiShape.
 		/// </summary>
 		public static DslDiagrams::Decorator FindHttpApiShapeDecorator(string decoratorName)
-		{	
+		{
 			if(decorators == null) return null;
 			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
 		}
-		
-		
+
+
 		/// <summary>
 		/// Shape instance initialization.
 		/// </summary>
 		public override void OnInitialize()
 		{
 			base.OnInitialize();
-			
+
 			// Create host shapes for outer decorators.
 			foreach(DslDiagrams::Decorator decorator in this.Decorators)
 			{
@@ -1668,11 +1668,11 @@ namespace ApiStudioIO
 					decorator.ConfigureHostShape(this);
 				}
 			}
-			
+
 		}
 		#endregion
 		#region Shape size
-		
+
 		/// <summary>
 		/// Default size for this shape.
 		/// </summary>
@@ -1692,13 +1692,13 @@ namespace ApiStudioIO
 		protected override void InitializeResources(DslDiagrams::StyleSet classStyleSet)
 		{
 			base.InitializeResources(classStyleSet);
-			
+
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Width = 0.01F;
 			classStyleSet.OverridePen(DslDiagrams::DiagramPens.ShapeOutline, outlinePen);
 		}
-		
+
 		/// <summary>
 		/// Indicates whether this shape displays a background gradient.
 		/// </summary>
@@ -1725,14 +1725,14 @@ namespace ApiStudioIO
 			field1.AnchoringBehavior.MinimumWidthInCharacters = 1;
 			field1.DefaultAccessibleState = global::System.Windows.Forms.AccessibleStates.Invisible;
 			shapeFields.Add(field1);
-			
+
 			DslDiagrams::ChevronButtonField field2 = new DslDiagrams::ChevronButtonField("ExpandCollapse");
 			field2.DefaultSelectable = true;
 			field2.DefaultFocusable = true;
 			shapeFields.Add(field2);
-			
+
 		}
-		
+
 		/// <summary>
 		/// Initialize the collection of decorators associated with this shape type.  This method also
 		/// creates shape fields for outer decorators, because these are not part of the shape fields collection
@@ -1741,17 +1741,17 @@ namespace ApiStudioIO
 		protected override void InitializeDecorators(global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields, global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators)
 		{
 			base.InitializeDecorators(shapeFields, decorators);
-			
+
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "Name");
 			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopCenter, DslDiagrams::PointD.Empty);
 			decorators.Add(decorator1);
-				
+
 			DslDiagrams::ShapeField field2 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "ExpandCollapse");
 			DslDiagrams::Decorator decorator2 = new DslDiagrams::ExpandCollapseDecorator(this.Store, (DslDiagrams::ToggleButtonField)field2, DslDiagrams::ShapeDecoratorPosition.InnerTopRight, DslDiagrams::PointD.Empty);
 			decorators.Add(decorator2);
-				
+
 		}
-		
+
 		/// <summary>
 		/// Ensure outer decorators are placed appropriately.  This is called during view fixup,
 		/// after the shape has been associated with the model element.
@@ -1759,7 +1759,7 @@ namespace ApiStudioIO
 		public override void OnBoundsFixup(DslDiagrams::BoundsFixupState fixupState, int iteration, bool createdDuringViewFixup)
 		{
 			base.OnBoundsFixup(fixupState, iteration, createdDuringViewFixup);
-			
+
 			if(iteration == 0)
 			{
 				foreach(DslDiagrams::Decorator decorator in this.Decorators)
@@ -1780,9 +1780,9 @@ namespace ApiStudioIO
 		{
 			get { return true; }
 		}
-		
+
 		private static DslDiagrams::CompartmentDescription[] compartmentDescriptions;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentDescription for all compartments shown on this shape
 		/// (including compartments defined on base shapes).
@@ -1792,21 +1792,21 @@ namespace ApiStudioIO
 		{
 			if(compartmentDescriptions == null)
 			{
-				// Initialize the array of compartment descriptions if we haven't done so already. 
+				// Initialize the array of compartment descriptions if we haven't done so already.
 				// First we get any compartment descriptions in base shapes, and add on any compartments
-				// that are defined on this shape. 
+				// that are defined on this shape.
 				DslDiagrams::CompartmentDescription[] baseCompartmentDescriptions = base.GetCompartmentDescriptions();
-				
+
 				int localCompartmentsOffset = 0;
 				if(baseCompartmentDescriptions!=null)
 				{
 					localCompartmentsOffset = baseCompartmentDescriptions.Length;
 				}
 				compartmentDescriptions = new DslDiagrams::ElementListCompartmentDescription[6+localCompartmentsOffset];
-				
+
 				if(baseCompartmentDescriptions!=null)
 				{
-					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);	
+					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);
 				}
 				{
 					DslDiagrams::FontSettings titleFont = new DslDiagrams::FontSettings();
@@ -1816,8 +1816,8 @@ namespace ApiStudioIO
 					itemFont.Style =  global::System.Drawing.FontStyle.Italic ;
 					itemFont.Size = 8/72.0F;
 					string title = global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetString("HttpApiShapeRequestParametersTitle");
-					DslDiagrams::ElementListCompartmentDescription descriptor = new DslDiagrams::ElementListCompartmentDescription("RequestParameters", title, 
-						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false, 
+					DslDiagrams::ElementListCompartmentDescription descriptor = new DslDiagrams::ElementListCompartmentDescription("RequestParameters", title,
+						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false,
 						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false,
 						titleFont, itemFont,
 						false);
@@ -1832,8 +1832,8 @@ namespace ApiStudioIO
 					itemFont.Style =  global::System.Drawing.FontStyle.Italic ;
 					itemFont.Size = 8/72.0F;
 					string title = global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetString("HttpApiShapeResponseStatusCodesTitle");
-					DslDiagrams::ElementListCompartmentDescription descriptor = new DslDiagrams::ElementListCompartmentDescription("ResponseStatusCodes", title, 
-						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false, 
+					DslDiagrams::ElementListCompartmentDescription descriptor = new DslDiagrams::ElementListCompartmentDescription("ResponseStatusCodes", title,
+						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false,
 						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false,
 						titleFont, itemFont,
 						false);
@@ -1848,8 +1848,8 @@ namespace ApiStudioIO
 					itemFont.Style =  global::System.Drawing.FontStyle.Italic ;
 					itemFont.Size = 8/72.0F;
 					string title = global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetString("HttpApiShapeResponseMediaTypesTitle");
-					DslDiagrams::ElementListCompartmentDescription descriptor = new DslDiagrams::ElementListCompartmentDescription("ResponseMediaTypes", title, 
-						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false, 
+					DslDiagrams::ElementListCompartmentDescription descriptor = new DslDiagrams::ElementListCompartmentDescription("ResponseMediaTypes", title,
+						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false,
 						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false,
 						titleFont, itemFont,
 						false);
@@ -1864,8 +1864,8 @@ namespace ApiStudioIO
 					itemFont.Style =  global::System.Drawing.FontStyle.Italic ;
 					itemFont.Size = 8/72.0F;
 					string title = global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetString("HttpApiShapeRequestMediaTypesTitle");
-					DslDiagrams::ElementListCompartmentDescription descriptor = new DslDiagrams::ElementListCompartmentDescription("RequestMediaTypes", title, 
-						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false, 
+					DslDiagrams::ElementListCompartmentDescription descriptor = new DslDiagrams::ElementListCompartmentDescription("RequestMediaTypes", title,
+						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false,
 						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false,
 						titleFont, itemFont,
 						false);
@@ -1880,8 +1880,8 @@ namespace ApiStudioIO
 					itemFont.Style =  global::System.Drawing.FontStyle.Italic ;
 					itemFont.Size = 8/72.0F;
 					string title = global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetString("HttpApiShapeResponseHeadersTitle");
-					DslDiagrams::ElementListCompartmentDescription descriptor = new DslDiagrams::ElementListCompartmentDescription("ResponseHeaders", title, 
-						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false, 
+					DslDiagrams::ElementListCompartmentDescription descriptor = new DslDiagrams::ElementListCompartmentDescription("ResponseHeaders", title,
+						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false,
 						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false,
 						titleFont, itemFont,
 						false);
@@ -1896,8 +1896,8 @@ namespace ApiStudioIO
 					itemFont.Style =  global::System.Drawing.FontStyle.Italic ;
 					itemFont.Size = 8/72.0F;
 					string title = global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetString("HttpApiShapeRequestHeadersTitle");
-					DslDiagrams::ElementListCompartmentDescription descriptor = new DslDiagrams::ElementListCompartmentDescription("RequestHeaders", title, 
-						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false, 
+					DslDiagrams::ElementListCompartmentDescription descriptor = new DslDiagrams::ElementListCompartmentDescription("RequestHeaders", title,
+						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false,
 						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.Transparent), false,
 						titleFont, itemFont,
 						false);
@@ -1905,31 +1905,31 @@ namespace ApiStudioIO
 					compartmentDescriptions[localCompartmentsOffset+5] = descriptor;
 				}
 			}
-			
+
 			return HttpApiShape.compartmentDescriptions;
 		}
-		
+
 		private static global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]> compartmentMappings;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentMappings for all compartments displayed on this shape
-		/// (including compartment maps defined on base shapes). 
+		/// (including compartment maps defined on base shapes).
 		/// </summary>
 		/// <param name="melType">The type of the DomainClass that this shape is mapped to</param>
 		/// <returns></returns>
 		protected override DslDiagrams::CompartmentMapping[] GetCompartmentMappings(global::System.Type melType)
 		{
 			if(melType==null) throw new global::System.ArgumentNullException("melType");
-			
+
 			if(compartmentMappings==null)
 			{
-				// Initialize the table of compartment mappings if we haven't done so already. 
+				// Initialize the table of compartment mappings if we haven't done so already.
 				// The table contains an array of CompartmentMapping for every Type that this
-				// shape can be mapped to. 
+				// shape can be mapped to.
 				compartmentMappings = new global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]>();
 				{
 					// First we get the mappings defined for the base shape, and add on any mappings defined for this
-					// shape. 
+					// shape.
 					DslDiagrams::CompartmentMapping[] baseMappings = base.GetCompartmentMappings(typeof(global::ApiStudioIO.HttpApi));
 					int localCompartmentMappingsOffset = 0;
 					if(baseMappings!=null)
@@ -1937,55 +1937,55 @@ namespace ApiStudioIO
 						localCompartmentMappingsOffset = baseMappings.Length;
 					}
 					DslDiagrams::CompartmentMapping[] mappings = new DslDiagrams::CompartmentMapping[6+localCompartmentMappingsOffset];
-					
+
 					if(baseMappings!=null)
 					{
 						baseMappings.CopyTo(mappings, 0);
 					}
 					mappings[localCompartmentMappingsOffset+0] = new DslDiagrams::ElementListCompartmentMapping(
-																				"RequestParameters", 
-																				global::ApiStudioIO.HttpApiParameter.DisplayNameDomainPropertyId, 
-																				global::ApiStudioIO.HttpApiParameter.DomainClassId, 
+																				"RequestParameters",
+																				global::ApiStudioIO.HttpApiParameter.DisplayNameDomainPropertyId,
+																				global::ApiStudioIO.HttpApiParameter.DomainClassId,
 																				GetElementsFromHttpApiForRequestParameters,
 																				null,
 																				null,
 																				null);
 					mappings[localCompartmentMappingsOffset+1] = new DslDiagrams::ElementListCompartmentMapping(
-																				"ResponseStatusCodes", 
-																				global::ApiStudioIO.HttpApiResponseStatusCode.DisplayNameDomainPropertyId, 
-																				global::ApiStudioIO.HttpApiResponseStatusCode.DomainClassId, 
+																				"ResponseStatusCodes",
+																				global::ApiStudioIO.HttpApiResponseStatusCode.DisplayNameDomainPropertyId,
+																				global::ApiStudioIO.HttpApiResponseStatusCode.DomainClassId,
 																				GetElementsFromHttpApiForResponseStatusCodes,
 																				null,
 																				null,
 																				null);
 					mappings[localCompartmentMappingsOffset+2] = new DslDiagrams::ElementListCompartmentMapping(
-																				"ResponseMediaTypes", 
-																				global::ApiStudioIO.HttpApiMediaType.DisplayNameDomainPropertyId, 
-																				global::ApiStudioIO.HttpApiMediaTypeResponse.DomainClassId, 
+																				"ResponseMediaTypes",
+																				global::ApiStudioIO.HttpApiMediaType.DisplayNameDomainPropertyId,
+																				global::ApiStudioIO.HttpApiMediaTypeResponse.DomainClassId,
 																				GetElementsFromHttpApiForResponseMediaTypes,
 																				null,
 																				null,
 																				null);
 					mappings[localCompartmentMappingsOffset+3] = new DslDiagrams::ElementListCompartmentMapping(
-																				"RequestMediaTypes", 
-																				global::ApiStudioIO.HttpApiMediaType.DisplayNameDomainPropertyId, 
-																				global::ApiStudioIO.HttpApiMediaTypeRequest.DomainClassId, 
+																				"RequestMediaTypes",
+																				global::ApiStudioIO.HttpApiMediaType.DisplayNameDomainPropertyId,
+																				global::ApiStudioIO.HttpApiMediaTypeRequest.DomainClassId,
 																				GetElementsFromHttpApiForRequestMediaTypes,
 																				null,
 																				null,
 																				null);
 					mappings[localCompartmentMappingsOffset+4] = new DslDiagrams::ElementListCompartmentMapping(
-																				"ResponseHeaders", 
-																				global::ApiStudioIO.HttpApiHeader.NameDomainPropertyId, 
-																				global::ApiStudioIO.HttpApiHeaderResponse.DomainClassId, 
+																				"ResponseHeaders",
+																				global::ApiStudioIO.HttpApiHeader.NameDomainPropertyId,
+																				global::ApiStudioIO.HttpApiHeaderResponse.DomainClassId,
 																				GetElementsFromHttpApiForResponseHeaders,
 																				null,
 																				null,
 																				null);
 					mappings[localCompartmentMappingsOffset+5] = new DslDiagrams::ElementListCompartmentMapping(
-																				"RequestHeaders", 
-																				global::ApiStudioIO.HttpApiHeader.NameDomainPropertyId, 
-																				global::ApiStudioIO.HttpApiHeaderRequest.DomainClassId, 
+																				"RequestHeaders",
+																				global::ApiStudioIO.HttpApiHeader.NameDomainPropertyId,
+																				global::ApiStudioIO.HttpApiHeaderRequest.DomainClassId,
 																				GetElementsFromHttpApiForRequestHeaders,
 																				null,
 																				null,
@@ -1993,16 +1993,16 @@ namespace ApiStudioIO
 					compartmentMappings.Add(typeof(global::ApiStudioIO.HttpApi), mappings);
 				}
 			}
-			
-			// See if we can find the mapping being requested directly in the table. 
+
+			// See if we can find the mapping being requested directly in the table.
 			DslDiagrams::CompartmentMapping[] returnValue;
 			if(compartmentMappings.TryGetValue(melType, out returnValue))
 			{
 				return returnValue;
 			}
-			
+
 			// If not, loop through the types in the table, and find the 'most derived' base
-			// class of melType. 
+			// class of melType.
 			global::System.Type selectedMappedType = null;
 			foreach(global::System.Type mappedType in compartmentMappings.Keys)
 			{
@@ -2017,7 +2017,7 @@ namespace ApiStudioIO
 			}
 			return new DslDiagrams::CompartmentMapping[] {};
 		}
-		
+
 			#region DomainPath traversal methods to get the list of elements to display in a compartment.
 			internal static global::System.Collections.IList GetElementsFromHttpApiForRequestParameters(DslModeling::ModelElement rootElement)
 			{
@@ -2044,7 +2044,7 @@ namespace ApiStudioIO
 			{
 				global::ApiStudioIO.HttpApi root = (global::ApiStudioIO.HttpApi)rootElement;
 					// Segments 0 and 1
-					DslModeling::LinkedElementCollection<global::ApiStudioIO.HttpApiMediaTypeRequest> result = root.HttpApiMediaTypeRequestd;
+					DslModeling::LinkedElementCollection<global::ApiStudioIO.HttpApiMediaTypeRequest> result = root.HttpApiMediaTypeRequest;
 				return result;
 			}
 			internal static global::System.Collections.IList GetElementsFromHttpApiForResponseHeaders(DslModeling::ModelElement rootElement)
@@ -2062,10 +2062,10 @@ namespace ApiStudioIO
 				return result;
 			}
 			#endregion
-		
+
 		#endregion
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiShape domain class Id.
 		/// </summary>
@@ -2079,7 +2079,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2112,7 +2112,7 @@ namespace ApiStudioIO
 		private static DslDiagrams::StyleSet classStyleSet;
 		private static global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields;
 		private static global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators;
-		
+
 		/// <summary>
 		/// Per-class style set for this shape.
 		/// </summary>
@@ -2127,7 +2127,7 @@ namespace ApiStudioIO
 				return classStyleSet;
 			}
 		}
-		
+
 		/// <summary>
 		/// Per-class ShapeFields for this shape.
 		/// </summary>
@@ -2142,43 +2142,43 @@ namespace ApiStudioIO
 				return shapeFields;
 			}
 		}
-		
+
 		/// <summary>
 		/// Event fired when decorator initialization is complete for this shape type.
 		/// </summary>
 		public static new event global::System.EventHandler DecoratorsInitialized;
-		
+
 		/// <summary>
 		/// List containing decorators used by this type.
 		/// </summary>
 		public override global::System.Collections.Generic.IList<DslDiagrams::Decorator> Decorators
 		{
-			get 
+			get
 			{
 				if(decorators == null)
 				{
 					decorators = CreateDecorators();
-					
+
 					// fire this event to allow the diagram to initialize decorator mappings for this shape type.
 					if(DecoratorsInitialized != null)
 					{
 						DecoratorsInitialized(this, global::System.EventArgs.Empty);
 					}
 				}
-				
-				return decorators; 
+
+				return decorators;
 			}
 		}
-		
+
 		/// <summary>
 		/// Finds a decorator associated with HttpApiPutShape.
 		/// </summary>
 		public static DslDiagrams::Decorator FindHttpApiPutShapeDecorator(string decoratorName)
-		{	
+		{
 			if(decorators == null) return null;
 			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
 		}
-		
+
 		#endregion
 		#region Shape styles
 		/// <summary>
@@ -2188,7 +2188,7 @@ namespace ApiStudioIO
 		protected override void InitializeResources(DslDiagrams::StyleSet classStyleSet)
 		{
 			base.InitializeResources(classStyleSet);
-			
+
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 252, 161, 48);
@@ -2198,9 +2198,9 @@ namespace ApiStudioIO
 			DslDiagrams::BrushSettings backgroundBrush = new DslDiagrams::BrushSettings();
 			backgroundBrush.Color = global::System.Drawing.Color.FromArgb(255, 255, 245, 234);
 			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ShapeBackground, backgroundBrush);
-		
+
 		}
-		
+
 		/// <summary>
 		/// Indicates whether this shape displays a background gradient.
 		/// </summary>
@@ -2211,7 +2211,7 @@ namespace ApiStudioIO
 				return true;
 			}
 		}
-		
+
 		/// <summary>
 		/// Indicates the direction of the gradient.
 		/// </summary>
@@ -2233,9 +2233,9 @@ namespace ApiStudioIO
 			DslDiagrams::ImageField field1 = new DslDiagrams::ImageField("Icon");
 			field1.DefaultImage = DslDiagrams::ImageHelper.GetImage(global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetObject("HttpApiPutShapeIconDefaultImage"));
 			shapeFields.Add(field1);
-			
+
 		}
-		
+
 		/// <summary>
 		/// Initialize the collection of decorators associated with this shape type.  This method also
 		/// creates shape fields for outer decorators, because these are not part of the shape fields collection
@@ -2244,13 +2244,13 @@ namespace ApiStudioIO
 		protected override void InitializeDecorators(global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields, global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators)
 		{
 			base.InitializeDecorators(shapeFields, decorators);
-			
+
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "Icon");
 			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopLeft, DslDiagrams::PointD.Empty);
 			decorators.Add(decorator1);
-				
+
 		}
-		
+
 		#endregion
 		#region CompartmentShape code
 		/// <summary>
@@ -2260,9 +2260,9 @@ namespace ApiStudioIO
 		{
 			get { return true; }
 		}
-		
+
 		private static DslDiagrams::CompartmentDescription[] compartmentDescriptions;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentDescription for all compartments shown on this shape
 		/// (including compartments defined on base shapes).
@@ -2272,48 +2272,48 @@ namespace ApiStudioIO
 		{
 			if(compartmentDescriptions == null)
 			{
-				// Initialize the array of compartment descriptions if we haven't done so already. 
+				// Initialize the array of compartment descriptions if we haven't done so already.
 				// First we get any compartment descriptions in base shapes, and add on any compartments
-				// that are defined on this shape. 
+				// that are defined on this shape.
 				DslDiagrams::CompartmentDescription[] baseCompartmentDescriptions = base.GetCompartmentDescriptions();
-				
+
 				int localCompartmentsOffset = 0;
 				if(baseCompartmentDescriptions!=null)
 				{
 					localCompartmentsOffset = baseCompartmentDescriptions.Length;
 				}
 				compartmentDescriptions = new DslDiagrams::ElementListCompartmentDescription[0+localCompartmentsOffset];
-				
+
 				if(baseCompartmentDescriptions!=null)
 				{
-					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);	
+					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);
 				}
 			}
-			
+
 			return HttpApiPutShape.compartmentDescriptions;
 		}
-		
+
 		private static global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]> compartmentMappings;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentMappings for all compartments displayed on this shape
-		/// (including compartment maps defined on base shapes). 
+		/// (including compartment maps defined on base shapes).
 		/// </summary>
 		/// <param name="melType">The type of the DomainClass that this shape is mapped to</param>
 		/// <returns></returns>
 		protected override DslDiagrams::CompartmentMapping[] GetCompartmentMappings(global::System.Type melType)
 		{
 			if(melType==null) throw new global::System.ArgumentNullException("melType");
-			
+
 			if(compartmentMappings==null)
 			{
-				// Initialize the table of compartment mappings if we haven't done so already. 
+				// Initialize the table of compartment mappings if we haven't done so already.
 				// The table contains an array of CompartmentMapping for every Type that this
-				// shape can be mapped to. 
+				// shape can be mapped to.
 				compartmentMappings = new global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]>();
 				{
 					// First we get the mappings defined for the base shape, and add on any mappings defined for this
-					// shape. 
+					// shape.
 					DslDiagrams::CompartmentMapping[] baseMappings = base.GetCompartmentMappings(typeof(global::ApiStudioIO.HttpApiPut));
 					int localCompartmentMappingsOffset = 0;
 					if(baseMappings!=null)
@@ -2321,7 +2321,7 @@ namespace ApiStudioIO
 						localCompartmentMappingsOffset = baseMappings.Length;
 					}
 					DslDiagrams::CompartmentMapping[] mappings = new DslDiagrams::CompartmentMapping[0+localCompartmentMappingsOffset];
-					
+
 					if(baseMappings!=null)
 					{
 						baseMappings.CopyTo(mappings, 0);
@@ -2329,16 +2329,16 @@ namespace ApiStudioIO
 					compartmentMappings.Add(typeof(global::ApiStudioIO.HttpApiPut), mappings);
 				}
 			}
-			
-			// See if we can find the mapping being requested directly in the table. 
+
+			// See if we can find the mapping being requested directly in the table.
 			DslDiagrams::CompartmentMapping[] returnValue;
 			if(compartmentMappings.TryGetValue(melType, out returnValue))
 			{
 				return returnValue;
 			}
-			
+
 			// If not, loop through the types in the table, and find the 'most derived' base
-			// class of melType. 
+			// class of melType.
 			global::System.Type selectedMappedType = null;
 			foreach(global::System.Type mappedType in compartmentMappings.Keys)
 			{
@@ -2353,13 +2353,13 @@ namespace ApiStudioIO
 			}
 			return new DslDiagrams::CompartmentMapping[] {};
 		}
-		
+
 			#region DomainPath traversal methods to get the list of elements to display in a compartment.
 			#endregion
-		
+
 		#endregion
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiPutShape domain class Id.
 		/// </summary>
@@ -2373,7 +2373,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2404,7 +2404,7 @@ namespace ApiStudioIO
 		private static DslDiagrams::StyleSet classStyleSet;
 		private static global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields;
 		private static global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators;
-		
+
 		/// <summary>
 		/// Per-class style set for this shape.
 		/// </summary>
@@ -2419,7 +2419,7 @@ namespace ApiStudioIO
 				return classStyleSet;
 			}
 		}
-		
+
 		/// <summary>
 		/// Per-class ShapeFields for this shape.
 		/// </summary>
@@ -2434,43 +2434,43 @@ namespace ApiStudioIO
 				return shapeFields;
 			}
 		}
-		
+
 		/// <summary>
 		/// Event fired when decorator initialization is complete for this shape type.
 		/// </summary>
 		public static new event global::System.EventHandler DecoratorsInitialized;
-		
+
 		/// <summary>
 		/// List containing decorators used by this type.
 		/// </summary>
 		public override global::System.Collections.Generic.IList<DslDiagrams::Decorator> Decorators
 		{
-			get 
+			get
 			{
 				if(decorators == null)
 				{
 					decorators = CreateDecorators();
-					
+
 					// fire this event to allow the diagram to initialize decorator mappings for this shape type.
 					if(DecoratorsInitialized != null)
 					{
 						DecoratorsInitialized(this, global::System.EventArgs.Empty);
 					}
 				}
-				
-				return decorators; 
+
+				return decorators;
 			}
 		}
-		
+
 		/// <summary>
 		/// Finds a decorator associated with HttpApiPostShape.
 		/// </summary>
 		public static DslDiagrams::Decorator FindHttpApiPostShapeDecorator(string decoratorName)
-		{	
+		{
 			if(decorators == null) return null;
 			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
 		}
-		
+
 		#endregion
 		#region Shape styles
 		/// <summary>
@@ -2480,7 +2480,7 @@ namespace ApiStudioIO
 		protected override void InitializeResources(DslDiagrams::StyleSet classStyleSet)
 		{
 			base.InitializeResources(classStyleSet);
-			
+
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 73, 204, 144);
@@ -2490,9 +2490,9 @@ namespace ApiStudioIO
 			DslDiagrams::BrushSettings backgroundBrush = new DslDiagrams::BrushSettings();
 			backgroundBrush.Color = global::System.Drawing.Color.FromArgb(255, 236, 250, 244);
 			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ShapeBackground, backgroundBrush);
-		
+
 		}
-		
+
 		/// <summary>
 		/// Indicates whether this shape displays a background gradient.
 		/// </summary>
@@ -2503,7 +2503,7 @@ namespace ApiStudioIO
 				return true;
 			}
 		}
-		
+
 		/// <summary>
 		/// Indicates the direction of the gradient.
 		/// </summary>
@@ -2525,9 +2525,9 @@ namespace ApiStudioIO
 			DslDiagrams::ImageField field1 = new DslDiagrams::ImageField("Icon");
 			field1.DefaultImage = DslDiagrams::ImageHelper.GetImage(global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetObject("HttpApiPostShapeIconDefaultImage"));
 			shapeFields.Add(field1);
-			
+
 		}
-		
+
 		/// <summary>
 		/// Initialize the collection of decorators associated with this shape type.  This method also
 		/// creates shape fields for outer decorators, because these are not part of the shape fields collection
@@ -2536,13 +2536,13 @@ namespace ApiStudioIO
 		protected override void InitializeDecorators(global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields, global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators)
 		{
 			base.InitializeDecorators(shapeFields, decorators);
-			
+
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "Icon");
 			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopLeft, DslDiagrams::PointD.Empty);
 			decorators.Add(decorator1);
-				
+
 		}
-		
+
 		#endregion
 		#region CompartmentShape code
 		/// <summary>
@@ -2552,9 +2552,9 @@ namespace ApiStudioIO
 		{
 			get { return true; }
 		}
-		
+
 		private static DslDiagrams::CompartmentDescription[] compartmentDescriptions;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentDescription for all compartments shown on this shape
 		/// (including compartments defined on base shapes).
@@ -2564,48 +2564,48 @@ namespace ApiStudioIO
 		{
 			if(compartmentDescriptions == null)
 			{
-				// Initialize the array of compartment descriptions if we haven't done so already. 
+				// Initialize the array of compartment descriptions if we haven't done so already.
 				// First we get any compartment descriptions in base shapes, and add on any compartments
-				// that are defined on this shape. 
+				// that are defined on this shape.
 				DslDiagrams::CompartmentDescription[] baseCompartmentDescriptions = base.GetCompartmentDescriptions();
-				
+
 				int localCompartmentsOffset = 0;
 				if(baseCompartmentDescriptions!=null)
 				{
 					localCompartmentsOffset = baseCompartmentDescriptions.Length;
 				}
 				compartmentDescriptions = new DslDiagrams::ElementListCompartmentDescription[0+localCompartmentsOffset];
-				
+
 				if(baseCompartmentDescriptions!=null)
 				{
-					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);	
+					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);
 				}
 			}
-			
+
 			return HttpApiPostShape.compartmentDescriptions;
 		}
-		
+
 		private static global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]> compartmentMappings;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentMappings for all compartments displayed on this shape
-		/// (including compartment maps defined on base shapes). 
+		/// (including compartment maps defined on base shapes).
 		/// </summary>
 		/// <param name="melType">The type of the DomainClass that this shape is mapped to</param>
 		/// <returns></returns>
 		protected override DslDiagrams::CompartmentMapping[] GetCompartmentMappings(global::System.Type melType)
 		{
 			if(melType==null) throw new global::System.ArgumentNullException("melType");
-			
+
 			if(compartmentMappings==null)
 			{
-				// Initialize the table of compartment mappings if we haven't done so already. 
+				// Initialize the table of compartment mappings if we haven't done so already.
 				// The table contains an array of CompartmentMapping for every Type that this
-				// shape can be mapped to. 
+				// shape can be mapped to.
 				compartmentMappings = new global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]>();
 				{
 					// First we get the mappings defined for the base shape, and add on any mappings defined for this
-					// shape. 
+					// shape.
 					DslDiagrams::CompartmentMapping[] baseMappings = base.GetCompartmentMappings(typeof(global::ApiStudioIO.HttpApiPost));
 					int localCompartmentMappingsOffset = 0;
 					if(baseMappings!=null)
@@ -2613,7 +2613,7 @@ namespace ApiStudioIO
 						localCompartmentMappingsOffset = baseMappings.Length;
 					}
 					DslDiagrams::CompartmentMapping[] mappings = new DslDiagrams::CompartmentMapping[0+localCompartmentMappingsOffset];
-					
+
 					if(baseMappings!=null)
 					{
 						baseMappings.CopyTo(mappings, 0);
@@ -2621,16 +2621,16 @@ namespace ApiStudioIO
 					compartmentMappings.Add(typeof(global::ApiStudioIO.HttpApiPost), mappings);
 				}
 			}
-			
-			// See if we can find the mapping being requested directly in the table. 
+
+			// See if we can find the mapping being requested directly in the table.
 			DslDiagrams::CompartmentMapping[] returnValue;
 			if(compartmentMappings.TryGetValue(melType, out returnValue))
 			{
 				return returnValue;
 			}
-			
+
 			// If not, loop through the types in the table, and find the 'most derived' base
-			// class of melType. 
+			// class of melType.
 			global::System.Type selectedMappedType = null;
 			foreach(global::System.Type mappedType in compartmentMappings.Keys)
 			{
@@ -2645,13 +2645,13 @@ namespace ApiStudioIO
 			}
 			return new DslDiagrams::CompartmentMapping[] {};
 		}
-		
+
 			#region DomainPath traversal methods to get the list of elements to display in a compartment.
 			#endregion
-		
+
 		#endregion
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiPostShape domain class Id.
 		/// </summary>
@@ -2665,7 +2665,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2695,7 +2695,7 @@ namespace ApiStudioIO
 		private static DslDiagrams::StyleSet classStyleSet;
 		private static global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields;
 		private static global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators;
-		
+
 		/// <summary>
 		/// Per-class style set for this shape.
 		/// </summary>
@@ -2710,7 +2710,7 @@ namespace ApiStudioIO
 				return classStyleSet;
 			}
 		}
-		
+
 		/// <summary>
 		/// Per-class ShapeFields for this shape.
 		/// </summary>
@@ -2725,43 +2725,43 @@ namespace ApiStudioIO
 				return shapeFields;
 			}
 		}
-		
+
 		/// <summary>
 		/// Event fired when decorator initialization is complete for this shape type.
 		/// </summary>
 		public static new event global::System.EventHandler DecoratorsInitialized;
-		
+
 		/// <summary>
 		/// List containing decorators used by this type.
 		/// </summary>
 		public override global::System.Collections.Generic.IList<DslDiagrams::Decorator> Decorators
 		{
-			get 
+			get
 			{
 				if(decorators == null)
 				{
 					decorators = CreateDecorators();
-					
+
 					// fire this event to allow the diagram to initialize decorator mappings for this shape type.
 					if(DecoratorsInitialized != null)
 					{
 						DecoratorsInitialized(this, global::System.EventArgs.Empty);
 					}
 				}
-				
-				return decorators; 
+
+				return decorators;
 			}
 		}
-		
+
 		/// <summary>
 		/// Finds a decorator associated with HttpApiDeleteShape.
 		/// </summary>
 		public static DslDiagrams::Decorator FindHttpApiDeleteShapeDecorator(string decoratorName)
-		{	
+		{
 			if(decorators == null) return null;
 			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
 		}
-		
+
 		#endregion
 		#region Shape styles
 		/// <summary>
@@ -2771,7 +2771,7 @@ namespace ApiStudioIO
 		protected override void InitializeResources(DslDiagrams::StyleSet classStyleSet)
 		{
 			base.InitializeResources(classStyleSet);
-			
+
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 249, 62, 62);
@@ -2781,9 +2781,9 @@ namespace ApiStudioIO
 			DslDiagrams::BrushSettings backgroundBrush = new DslDiagrams::BrushSettings();
 			backgroundBrush.Color = global::System.Drawing.Color.FromArgb(255, 254, 235, 235);
 			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ShapeBackground, backgroundBrush);
-		
+
 		}
-		
+
 		/// <summary>
 		/// Indicates whether this shape displays a background gradient.
 		/// </summary>
@@ -2794,7 +2794,7 @@ namespace ApiStudioIO
 				return true;
 			}
 		}
-		
+
 		/// <summary>
 		/// Indicates the direction of the gradient.
 		/// </summary>
@@ -2816,9 +2816,9 @@ namespace ApiStudioIO
 			DslDiagrams::ImageField field1 = new DslDiagrams::ImageField("Icon");
 			field1.DefaultImage = DslDiagrams::ImageHelper.GetImage(global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetObject("HttpApiDeleteShapeIconDefaultImage"));
 			shapeFields.Add(field1);
-			
+
 		}
-		
+
 		/// <summary>
 		/// Initialize the collection of decorators associated with this shape type.  This method also
 		/// creates shape fields for outer decorators, because these are not part of the shape fields collection
@@ -2827,13 +2827,13 @@ namespace ApiStudioIO
 		protected override void InitializeDecorators(global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields, global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators)
 		{
 			base.InitializeDecorators(shapeFields, decorators);
-			
+
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "Icon");
 			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopLeft, DslDiagrams::PointD.Empty);
 			decorators.Add(decorator1);
-				
+
 		}
-		
+
 		#endregion
 		#region CompartmentShape code
 		/// <summary>
@@ -2843,9 +2843,9 @@ namespace ApiStudioIO
 		{
 			get { return true; }
 		}
-		
+
 		private static DslDiagrams::CompartmentDescription[] compartmentDescriptions;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentDescription for all compartments shown on this shape
 		/// (including compartments defined on base shapes).
@@ -2855,48 +2855,48 @@ namespace ApiStudioIO
 		{
 			if(compartmentDescriptions == null)
 			{
-				// Initialize the array of compartment descriptions if we haven't done so already. 
+				// Initialize the array of compartment descriptions if we haven't done so already.
 				// First we get any compartment descriptions in base shapes, and add on any compartments
-				// that are defined on this shape. 
+				// that are defined on this shape.
 				DslDiagrams::CompartmentDescription[] baseCompartmentDescriptions = base.GetCompartmentDescriptions();
-				
+
 				int localCompartmentsOffset = 0;
 				if(baseCompartmentDescriptions!=null)
 				{
 					localCompartmentsOffset = baseCompartmentDescriptions.Length;
 				}
 				compartmentDescriptions = new DslDiagrams::ElementListCompartmentDescription[0+localCompartmentsOffset];
-				
+
 				if(baseCompartmentDescriptions!=null)
 				{
-					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);	
+					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);
 				}
 			}
-			
+
 			return HttpApiDeleteShape.compartmentDescriptions;
 		}
-		
+
 		private static global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]> compartmentMappings;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentMappings for all compartments displayed on this shape
-		/// (including compartment maps defined on base shapes). 
+		/// (including compartment maps defined on base shapes).
 		/// </summary>
 		/// <param name="melType">The type of the DomainClass that this shape is mapped to</param>
 		/// <returns></returns>
 		protected override DslDiagrams::CompartmentMapping[] GetCompartmentMappings(global::System.Type melType)
 		{
 			if(melType==null) throw new global::System.ArgumentNullException("melType");
-			
+
 			if(compartmentMappings==null)
 			{
-				// Initialize the table of compartment mappings if we haven't done so already. 
+				// Initialize the table of compartment mappings if we haven't done so already.
 				// The table contains an array of CompartmentMapping for every Type that this
-				// shape can be mapped to. 
+				// shape can be mapped to.
 				compartmentMappings = new global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]>();
 				{
 					// First we get the mappings defined for the base shape, and add on any mappings defined for this
-					// shape. 
+					// shape.
 					DslDiagrams::CompartmentMapping[] baseMappings = base.GetCompartmentMappings(typeof(global::ApiStudioIO.HttpApiDelete));
 					int localCompartmentMappingsOffset = 0;
 					if(baseMappings!=null)
@@ -2904,7 +2904,7 @@ namespace ApiStudioIO
 						localCompartmentMappingsOffset = baseMappings.Length;
 					}
 					DslDiagrams::CompartmentMapping[] mappings = new DslDiagrams::CompartmentMapping[0+localCompartmentMappingsOffset];
-					
+
 					if(baseMappings!=null)
 					{
 						baseMappings.CopyTo(mappings, 0);
@@ -2912,16 +2912,16 @@ namespace ApiStudioIO
 					compartmentMappings.Add(typeof(global::ApiStudioIO.HttpApiDelete), mappings);
 				}
 			}
-			
-			// See if we can find the mapping being requested directly in the table. 
+
+			// See if we can find the mapping being requested directly in the table.
 			DslDiagrams::CompartmentMapping[] returnValue;
 			if(compartmentMappings.TryGetValue(melType, out returnValue))
 			{
 				return returnValue;
 			}
-			
+
 			// If not, loop through the types in the table, and find the 'most derived' base
-			// class of melType. 
+			// class of melType.
 			global::System.Type selectedMappedType = null;
 			foreach(global::System.Type mappedType in compartmentMappings.Keys)
 			{
@@ -2936,13 +2936,13 @@ namespace ApiStudioIO
 			}
 			return new DslDiagrams::CompartmentMapping[] {};
 		}
-		
+
 			#region DomainPath traversal methods to get the list of elements to display in a compartment.
 			#endregion
-		
+
 		#endregion
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiDeleteShape domain class Id.
 		/// </summary>
@@ -2956,7 +2956,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2987,7 +2987,7 @@ namespace ApiStudioIO
 		private static DslDiagrams::StyleSet classStyleSet;
 		private static global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields;
 		private static global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators;
-		
+
 		/// <summary>
 		/// Per-class style set for this shape.
 		/// </summary>
@@ -3002,7 +3002,7 @@ namespace ApiStudioIO
 				return classStyleSet;
 			}
 		}
-		
+
 		/// <summary>
 		/// Per-class ShapeFields for this shape.
 		/// </summary>
@@ -3017,43 +3017,43 @@ namespace ApiStudioIO
 				return shapeFields;
 			}
 		}
-		
+
 		/// <summary>
 		/// Event fired when decorator initialization is complete for this shape type.
 		/// </summary>
 		public static new event global::System.EventHandler DecoratorsInitialized;
-		
+
 		/// <summary>
 		/// List containing decorators used by this type.
 		/// </summary>
 		public override global::System.Collections.Generic.IList<DslDiagrams::Decorator> Decorators
 		{
-			get 
+			get
 			{
 				if(decorators == null)
 				{
 					decorators = CreateDecorators();
-					
+
 					// fire this event to allow the diagram to initialize decorator mappings for this shape type.
 					if(DecoratorsInitialized != null)
 					{
 						DecoratorsInitialized(this, global::System.EventArgs.Empty);
 					}
 				}
-				
-				return decorators; 
+
+				return decorators;
 			}
 		}
-		
+
 		/// <summary>
 		/// Finds a decorator associated with HttpApiGetShape.
 		/// </summary>
 		public static DslDiagrams::Decorator FindHttpApiGetShapeDecorator(string decoratorName)
-		{	
+		{
 			if(decorators == null) return null;
 			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
 		}
-		
+
 		#endregion
 		#region Shape styles
 		/// <summary>
@@ -3063,7 +3063,7 @@ namespace ApiStudioIO
 		protected override void InitializeResources(DslDiagrams::StyleSet classStyleSet)
 		{
 			base.InitializeResources(classStyleSet);
-			
+
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 97, 175, 254);
@@ -3073,9 +3073,9 @@ namespace ApiStudioIO
 			DslDiagrams::BrushSettings backgroundBrush = new DslDiagrams::BrushSettings();
 			backgroundBrush.Color = global::System.Drawing.Color.FromArgb(255, 239, 247, 255);
 			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ShapeBackground, backgroundBrush);
-		
+
 		}
-		
+
 		/// <summary>
 		/// Indicates whether this shape displays a background gradient.
 		/// </summary>
@@ -3086,7 +3086,7 @@ namespace ApiStudioIO
 				return true;
 			}
 		}
-		
+
 		/// <summary>
 		/// Indicates the direction of the gradient.
 		/// </summary>
@@ -3108,9 +3108,9 @@ namespace ApiStudioIO
 			DslDiagrams::ImageField field1 = new DslDiagrams::ImageField("Icon");
 			field1.DefaultImage = DslDiagrams::ImageHelper.GetImage(global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetObject("HttpApiGetShapeIconDefaultImage"));
 			shapeFields.Add(field1);
-			
+
 		}
-		
+
 		/// <summary>
 		/// Initialize the collection of decorators associated with this shape type.  This method also
 		/// creates shape fields for outer decorators, because these are not part of the shape fields collection
@@ -3119,13 +3119,13 @@ namespace ApiStudioIO
 		protected override void InitializeDecorators(global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields, global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators)
 		{
 			base.InitializeDecorators(shapeFields, decorators);
-			
+
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "Icon");
 			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopLeft, DslDiagrams::PointD.Empty);
 			decorators.Add(decorator1);
-				
+
 		}
-		
+
 		#endregion
 		#region CompartmentShape code
 		/// <summary>
@@ -3135,9 +3135,9 @@ namespace ApiStudioIO
 		{
 			get { return true; }
 		}
-		
+
 		private static DslDiagrams::CompartmentDescription[] compartmentDescriptions;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentDescription for all compartments shown on this shape
 		/// (including compartments defined on base shapes).
@@ -3147,48 +3147,48 @@ namespace ApiStudioIO
 		{
 			if(compartmentDescriptions == null)
 			{
-				// Initialize the array of compartment descriptions if we haven't done so already. 
+				// Initialize the array of compartment descriptions if we haven't done so already.
 				// First we get any compartment descriptions in base shapes, and add on any compartments
-				// that are defined on this shape. 
+				// that are defined on this shape.
 				DslDiagrams::CompartmentDescription[] baseCompartmentDescriptions = base.GetCompartmentDescriptions();
-				
+
 				int localCompartmentsOffset = 0;
 				if(baseCompartmentDescriptions!=null)
 				{
 					localCompartmentsOffset = baseCompartmentDescriptions.Length;
 				}
 				compartmentDescriptions = new DslDiagrams::ElementListCompartmentDescription[0+localCompartmentsOffset];
-				
+
 				if(baseCompartmentDescriptions!=null)
 				{
-					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);	
+					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);
 				}
 			}
-			
+
 			return HttpApiGetShape.compartmentDescriptions;
 		}
-		
+
 		private static global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]> compartmentMappings;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentMappings for all compartments displayed on this shape
-		/// (including compartment maps defined on base shapes). 
+		/// (including compartment maps defined on base shapes).
 		/// </summary>
 		/// <param name="melType">The type of the DomainClass that this shape is mapped to</param>
 		/// <returns></returns>
 		protected override DslDiagrams::CompartmentMapping[] GetCompartmentMappings(global::System.Type melType)
 		{
 			if(melType==null) throw new global::System.ArgumentNullException("melType");
-			
+
 			if(compartmentMappings==null)
 			{
-				// Initialize the table of compartment mappings if we haven't done so already. 
+				// Initialize the table of compartment mappings if we haven't done so already.
 				// The table contains an array of CompartmentMapping for every Type that this
-				// shape can be mapped to. 
+				// shape can be mapped to.
 				compartmentMappings = new global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]>();
 				{
 					// First we get the mappings defined for the base shape, and add on any mappings defined for this
-					// shape. 
+					// shape.
 					DslDiagrams::CompartmentMapping[] baseMappings = base.GetCompartmentMappings(typeof(global::ApiStudioIO.HttpApiGet));
 					int localCompartmentMappingsOffset = 0;
 					if(baseMappings!=null)
@@ -3196,7 +3196,7 @@ namespace ApiStudioIO
 						localCompartmentMappingsOffset = baseMappings.Length;
 					}
 					DslDiagrams::CompartmentMapping[] mappings = new DslDiagrams::CompartmentMapping[0+localCompartmentMappingsOffset];
-					
+
 					if(baseMappings!=null)
 					{
 						baseMappings.CopyTo(mappings, 0);
@@ -3204,16 +3204,16 @@ namespace ApiStudioIO
 					compartmentMappings.Add(typeof(global::ApiStudioIO.HttpApiGet), mappings);
 				}
 			}
-			
-			// See if we can find the mapping being requested directly in the table. 
+
+			// See if we can find the mapping being requested directly in the table.
 			DslDiagrams::CompartmentMapping[] returnValue;
 			if(compartmentMappings.TryGetValue(melType, out returnValue))
 			{
 				return returnValue;
 			}
-			
+
 			// If not, loop through the types in the table, and find the 'most derived' base
-			// class of melType. 
+			// class of melType.
 			global::System.Type selectedMappedType = null;
 			foreach(global::System.Type mappedType in compartmentMappings.Keys)
 			{
@@ -3228,13 +3228,13 @@ namespace ApiStudioIO
 			}
 			return new DslDiagrams::CompartmentMapping[] {};
 		}
-		
+
 			#region DomainPath traversal methods to get the list of elements to display in a compartment.
 			#endregion
-		
+
 		#endregion
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiGetShape domain class Id.
 		/// </summary>
@@ -3248,7 +3248,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -3280,7 +3280,7 @@ namespace ApiStudioIO
 		private static DslDiagrams::StyleSet classStyleSet;
 		private static global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields;
 		private static global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators;
-		
+
 		/// <summary>
 		/// Per-class style set for this shape.
 		/// </summary>
@@ -3295,7 +3295,7 @@ namespace ApiStudioIO
 				return classStyleSet;
 			}
 		}
-		
+
 		/// <summary>
 		/// Per-class ShapeFields for this shape.
 		/// </summary>
@@ -3310,43 +3310,43 @@ namespace ApiStudioIO
 				return shapeFields;
 			}
 		}
-		
+
 		/// <summary>
 		/// Event fired when decorator initialization is complete for this shape type.
 		/// </summary>
 		public static new event global::System.EventHandler DecoratorsInitialized;
-		
+
 		/// <summary>
 		/// List containing decorators used by this type.
 		/// </summary>
 		public override global::System.Collections.Generic.IList<DslDiagrams::Decorator> Decorators
 		{
-			get 
+			get
 			{
 				if(decorators == null)
 				{
 					decorators = CreateDecorators();
-					
+
 					// fire this event to allow the diagram to initialize decorator mappings for this shape type.
 					if(DecoratorsInitialized != null)
 					{
 						DecoratorsInitialized(this, global::System.EventArgs.Empty);
 					}
 				}
-				
-				return decorators; 
+
+				return decorators;
 			}
 		}
-		
+
 		/// <summary>
 		/// Finds a decorator associated with ResourceAttributeShape.
 		/// </summary>
 		public static DslDiagrams::Decorator FindResourceAttributeShapeDecorator(string decoratorName)
-		{	
+		{
 			if(decorators == null) return null;
 			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
 		}
-		
+
 		#endregion
 		#region Shape styles
 		/// <summary>
@@ -3356,7 +3356,7 @@ namespace ApiStudioIO
 		protected override void InitializeResources(DslDiagrams::StyleSet classStyleSet)
 		{
 			base.InitializeResources(classStyleSet);
-			
+
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 242, 187, 173);
@@ -3365,9 +3365,9 @@ namespace ApiStudioIO
 			DslDiagrams::BrushSettings backgroundBrush = new DslDiagrams::BrushSettings();
 			backgroundBrush.Color = global::System.Drawing.Color.FromArgb(255, 251, 220, 206);
 			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ShapeBackground, backgroundBrush);
-		
+
 		}
-		
+
 		/// <summary>
 		/// Indicates whether this shape displays a background gradient.
 		/// </summary>
@@ -3378,7 +3378,7 @@ namespace ApiStudioIO
 				return true;
 			}
 		}
-		
+
 		/// <summary>
 		/// Indicates the direction of the gradient.
 		/// </summary>
@@ -3399,7 +3399,7 @@ namespace ApiStudioIO
 				return false;
 			}
 		}
-		
+
 		#endregion
 		#region Decorators
 		/// <summary>
@@ -3411,9 +3411,9 @@ namespace ApiStudioIO
 			DslDiagrams::ImageField field1 = new DslDiagrams::ImageField("Icon");
 			field1.DefaultImage = DslDiagrams::ImageHelper.GetImage(global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetObject("ResourceAttributeShapeIconDefaultImage"));
 			shapeFields.Add(field1);
-			
+
 		}
-		
+
 		/// <summary>
 		/// Initialize the collection of decorators associated with this shape type.  This method also
 		/// creates shape fields for outer decorators, because these are not part of the shape fields collection
@@ -3422,13 +3422,13 @@ namespace ApiStudioIO
 		protected override void InitializeDecorators(global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields, global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators)
 		{
 			base.InitializeDecorators(shapeFields, decorators);
-			
+
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "Icon");
 			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopLeft, DslDiagrams::PointD.Empty);
 			decorators.Add(decorator1);
-				
+
 		}
-		
+
 		#endregion
 		#region CompartmentShape code
 		/// <summary>
@@ -3438,9 +3438,9 @@ namespace ApiStudioIO
 		{
 			get { return true; }
 		}
-		
+
 		private static DslDiagrams::CompartmentDescription[] compartmentDescriptions;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentDescription for all compartments shown on this shape
 		/// (including compartments defined on base shapes).
@@ -3450,48 +3450,48 @@ namespace ApiStudioIO
 		{
 			if(compartmentDescriptions == null)
 			{
-				// Initialize the array of compartment descriptions if we haven't done so already. 
+				// Initialize the array of compartment descriptions if we haven't done so already.
 				// First we get any compartment descriptions in base shapes, and add on any compartments
-				// that are defined on this shape. 
+				// that are defined on this shape.
 				DslDiagrams::CompartmentDescription[] baseCompartmentDescriptions = base.GetCompartmentDescriptions();
-				
+
 				int localCompartmentsOffset = 0;
 				if(baseCompartmentDescriptions!=null)
 				{
 					localCompartmentsOffset = baseCompartmentDescriptions.Length;
 				}
 				compartmentDescriptions = new DslDiagrams::ElementListCompartmentDescription[0+localCompartmentsOffset];
-				
+
 				if(baseCompartmentDescriptions!=null)
 				{
-					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);	
+					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);
 				}
 			}
-			
+
 			return ResourceAttributeShape.compartmentDescriptions;
 		}
-		
+
 		private static global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]> compartmentMappings;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentMappings for all compartments displayed on this shape
-		/// (including compartment maps defined on base shapes). 
+		/// (including compartment maps defined on base shapes).
 		/// </summary>
 		/// <param name="melType">The type of the DomainClass that this shape is mapped to</param>
 		/// <returns></returns>
 		protected override DslDiagrams::CompartmentMapping[] GetCompartmentMappings(global::System.Type melType)
 		{
 			if(melType==null) throw new global::System.ArgumentNullException("melType");
-			
+
 			if(compartmentMappings==null)
 			{
-				// Initialize the table of compartment mappings if we haven't done so already. 
+				// Initialize the table of compartment mappings if we haven't done so already.
 				// The table contains an array of CompartmentMapping for every Type that this
-				// shape can be mapped to. 
+				// shape can be mapped to.
 				compartmentMappings = new global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]>();
 				{
 					// First we get the mappings defined for the base shape, and add on any mappings defined for this
-					// shape. 
+					// shape.
 					DslDiagrams::CompartmentMapping[] baseMappings = base.GetCompartmentMappings(typeof(global::ApiStudioIO.ResourceAttribute));
 					int localCompartmentMappingsOffset = 0;
 					if(baseMappings!=null)
@@ -3499,7 +3499,7 @@ namespace ApiStudioIO
 						localCompartmentMappingsOffset = baseMappings.Length;
 					}
 					DslDiagrams::CompartmentMapping[] mappings = new DslDiagrams::CompartmentMapping[0+localCompartmentMappingsOffset];
-					
+
 					if(baseMappings!=null)
 					{
 						baseMappings.CopyTo(mappings, 0);
@@ -3507,16 +3507,16 @@ namespace ApiStudioIO
 					compartmentMappings.Add(typeof(global::ApiStudioIO.ResourceAttribute), mappings);
 				}
 			}
-			
-			// See if we can find the mapping being requested directly in the table. 
+
+			// See if we can find the mapping being requested directly in the table.
 			DslDiagrams::CompartmentMapping[] returnValue;
 			if(compartmentMappings.TryGetValue(melType, out returnValue))
 			{
 				return returnValue;
 			}
-			
+
 			// If not, loop through the types in the table, and find the 'most derived' base
-			// class of melType. 
+			// class of melType.
 			global::System.Type selectedMappedType = null;
 			foreach(global::System.Type mappedType in compartmentMappings.Keys)
 			{
@@ -3531,13 +3531,13 @@ namespace ApiStudioIO
 			}
 			return new DslDiagrams::CompartmentMapping[] {};
 		}
-		
+
 			#region DomainPath traversal methods to get the list of elements to display in a compartment.
 			#endregion
-		
+
 		#endregion
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// ResourceAttributeShape domain class Id.
 		/// </summary>
@@ -3551,7 +3551,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -3581,7 +3581,7 @@ namespace ApiStudioIO
 		private static DslDiagrams::StyleSet classStyleSet;
 		private static global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields;
 		private static global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators;
-		
+
 		/// <summary>
 		/// Per-class style set for this shape.
 		/// </summary>
@@ -3596,7 +3596,7 @@ namespace ApiStudioIO
 				return classStyleSet;
 			}
 		}
-		
+
 		/// <summary>
 		/// Per-class ShapeFields for this shape.
 		/// </summary>
@@ -3611,43 +3611,43 @@ namespace ApiStudioIO
 				return shapeFields;
 			}
 		}
-		
+
 		/// <summary>
 		/// Event fired when decorator initialization is complete for this shape type.
 		/// </summary>
 		public static new event global::System.EventHandler DecoratorsInitialized;
-		
+
 		/// <summary>
 		/// List containing decorators used by this type.
 		/// </summary>
 		public override global::System.Collections.Generic.IList<DslDiagrams::Decorator> Decorators
 		{
-			get 
+			get
 			{
 				if(decorators == null)
 				{
 					decorators = CreateDecorators();
-					
+
 					// fire this event to allow the diagram to initialize decorator mappings for this shape type.
 					if(DecoratorsInitialized != null)
 					{
 						DecoratorsInitialized(this, global::System.EventArgs.Empty);
 					}
 				}
-				
-				return decorators; 
+
+				return decorators;
 			}
 		}
-		
+
 		/// <summary>
 		/// Finds a decorator associated with HttpApiPatchShape.
 		/// </summary>
 		public static DslDiagrams::Decorator FindHttpApiPatchShapeDecorator(string decoratorName)
-		{	
+		{
 			if(decorators == null) return null;
 			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
 		}
-		
+
 		#endregion
 		#region Shape styles
 		/// <summary>
@@ -3657,7 +3657,7 @@ namespace ApiStudioIO
 		protected override void InitializeResources(DslDiagrams::StyleSet classStyleSet)
 		{
 			base.InitializeResources(classStyleSet);
-			
+
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 80, 227, 194);
@@ -3667,9 +3667,9 @@ namespace ApiStudioIO
 			DslDiagrams::BrushSettings backgroundBrush = new DslDiagrams::BrushSettings();
 			backgroundBrush.Color = global::System.Drawing.Color.FromArgb(255, 237, 252, 249);
 			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ShapeBackground, backgroundBrush);
-		
+
 		}
-		
+
 		/// <summary>
 		/// Indicates whether this shape displays a background gradient.
 		/// </summary>
@@ -3680,7 +3680,7 @@ namespace ApiStudioIO
 				return true;
 			}
 		}
-		
+
 		/// <summary>
 		/// Indicates the direction of the gradient.
 		/// </summary>
@@ -3702,9 +3702,9 @@ namespace ApiStudioIO
 			DslDiagrams::ImageField field1 = new DslDiagrams::ImageField("Icon");
 			field1.DefaultImage = DslDiagrams::ImageHelper.GetImage(global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetObject("HttpApiPatchShapeIconDefaultImage"));
 			shapeFields.Add(field1);
-			
+
 		}
-		
+
 		/// <summary>
 		/// Initialize the collection of decorators associated with this shape type.  This method also
 		/// creates shape fields for outer decorators, because these are not part of the shape fields collection
@@ -3713,13 +3713,13 @@ namespace ApiStudioIO
 		protected override void InitializeDecorators(global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields, global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators)
 		{
 			base.InitializeDecorators(shapeFields, decorators);
-			
+
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "Icon");
 			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopLeft, DslDiagrams::PointD.Empty);
 			decorators.Add(decorator1);
-				
+
 		}
-		
+
 		#endregion
 		#region CompartmentShape code
 		/// <summary>
@@ -3729,9 +3729,9 @@ namespace ApiStudioIO
 		{
 			get { return true; }
 		}
-		
+
 		private static DslDiagrams::CompartmentDescription[] compartmentDescriptions;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentDescription for all compartments shown on this shape
 		/// (including compartments defined on base shapes).
@@ -3741,48 +3741,48 @@ namespace ApiStudioIO
 		{
 			if(compartmentDescriptions == null)
 			{
-				// Initialize the array of compartment descriptions if we haven't done so already. 
+				// Initialize the array of compartment descriptions if we haven't done so already.
 				// First we get any compartment descriptions in base shapes, and add on any compartments
-				// that are defined on this shape. 
+				// that are defined on this shape.
 				DslDiagrams::CompartmentDescription[] baseCompartmentDescriptions = base.GetCompartmentDescriptions();
-				
+
 				int localCompartmentsOffset = 0;
 				if(baseCompartmentDescriptions!=null)
 				{
 					localCompartmentsOffset = baseCompartmentDescriptions.Length;
 				}
 				compartmentDescriptions = new DslDiagrams::ElementListCompartmentDescription[0+localCompartmentsOffset];
-				
+
 				if(baseCompartmentDescriptions!=null)
 				{
-					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);	
+					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);
 				}
 			}
-			
+
 			return HttpApiPatchShape.compartmentDescriptions;
 		}
-		
+
 		private static global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]> compartmentMappings;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentMappings for all compartments displayed on this shape
-		/// (including compartment maps defined on base shapes). 
+		/// (including compartment maps defined on base shapes).
 		/// </summary>
 		/// <param name="melType">The type of the DomainClass that this shape is mapped to</param>
 		/// <returns></returns>
 		protected override DslDiagrams::CompartmentMapping[] GetCompartmentMappings(global::System.Type melType)
 		{
 			if(melType==null) throw new global::System.ArgumentNullException("melType");
-			
+
 			if(compartmentMappings==null)
 			{
-				// Initialize the table of compartment mappings if we haven't done so already. 
+				// Initialize the table of compartment mappings if we haven't done so already.
 				// The table contains an array of CompartmentMapping for every Type that this
-				// shape can be mapped to. 
+				// shape can be mapped to.
 				compartmentMappings = new global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]>();
 				{
 					// First we get the mappings defined for the base shape, and add on any mappings defined for this
-					// shape. 
+					// shape.
 					DslDiagrams::CompartmentMapping[] baseMappings = base.GetCompartmentMappings(typeof(global::ApiStudioIO.HttpApiPatch));
 					int localCompartmentMappingsOffset = 0;
 					if(baseMappings!=null)
@@ -3790,7 +3790,7 @@ namespace ApiStudioIO
 						localCompartmentMappingsOffset = baseMappings.Length;
 					}
 					DslDiagrams::CompartmentMapping[] mappings = new DslDiagrams::CompartmentMapping[0+localCompartmentMappingsOffset];
-					
+
 					if(baseMappings!=null)
 					{
 						baseMappings.CopyTo(mappings, 0);
@@ -3798,16 +3798,16 @@ namespace ApiStudioIO
 					compartmentMappings.Add(typeof(global::ApiStudioIO.HttpApiPatch), mappings);
 				}
 			}
-			
-			// See if we can find the mapping being requested directly in the table. 
+
+			// See if we can find the mapping being requested directly in the table.
 			DslDiagrams::CompartmentMapping[] returnValue;
 			if(compartmentMappings.TryGetValue(melType, out returnValue))
 			{
 				return returnValue;
 			}
-			
+
 			// If not, loop through the types in the table, and find the 'most derived' base
-			// class of melType. 
+			// class of melType.
 			global::System.Type selectedMappedType = null;
 			foreach(global::System.Type mappedType in compartmentMappings.Keys)
 			{
@@ -3822,13 +3822,13 @@ namespace ApiStudioIO
 			}
 			return new DslDiagrams::CompartmentMapping[] {};
 		}
-		
+
 			#region DomainPath traversal methods to get the list of elements to display in a compartment.
 			#endregion
-		
+
 		#endregion
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiPatchShape domain class Id.
 		/// </summary>
@@ -3842,7 +3842,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -3873,7 +3873,7 @@ namespace ApiStudioIO
 		private static DslDiagrams::StyleSet classStyleSet;
 		private static global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields;
 		private static global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators;
-		
+
 		/// <summary>
 		/// Per-class style set for this shape.
 		/// </summary>
@@ -3888,7 +3888,7 @@ namespace ApiStudioIO
 				return classStyleSet;
 			}
 		}
-		
+
 		/// <summary>
 		/// Per-class ShapeFields for this shape.
 		/// </summary>
@@ -3903,43 +3903,43 @@ namespace ApiStudioIO
 				return shapeFields;
 			}
 		}
-		
+
 		/// <summary>
 		/// Event fired when decorator initialization is complete for this shape type.
 		/// </summary>
 		public static new event global::System.EventHandler DecoratorsInitialized;
-		
+
 		/// <summary>
 		/// List containing decorators used by this type.
 		/// </summary>
 		public override global::System.Collections.Generic.IList<DslDiagrams::Decorator> Decorators
 		{
-			get 
+			get
 			{
 				if(decorators == null)
 				{
 					decorators = CreateDecorators();
-					
+
 					// fire this event to allow the diagram to initialize decorator mappings for this shape type.
 					if(DecoratorsInitialized != null)
 					{
 						DecoratorsInitialized(this, global::System.EventArgs.Empty);
 					}
 				}
-				
-				return decorators; 
+
+				return decorators;
 			}
 		}
-		
+
 		/// <summary>
 		/// Finds a decorator associated with HttpApiHeadShape.
 		/// </summary>
 		public static DslDiagrams::Decorator FindHttpApiHeadShapeDecorator(string decoratorName)
-		{	
+		{
 			if(decorators == null) return null;
 			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
 		}
-		
+
 		#endregion
 		#region Shape styles
 		/// <summary>
@@ -3949,7 +3949,7 @@ namespace ApiStudioIO
 		protected override void InitializeResources(DslDiagrams::StyleSet classStyleSet)
 		{
 			base.InitializeResources(classStyleSet);
-			
+
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 144, 18, 254);
@@ -3959,9 +3959,9 @@ namespace ApiStudioIO
 			DslDiagrams::BrushSettings backgroundBrush = new DslDiagrams::BrushSettings();
 			backgroundBrush.Color = global::System.Drawing.Color.FromArgb(255, 244, 231, 255);
 			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ShapeBackground, backgroundBrush);
-		
+
 		}
-		
+
 		/// <summary>
 		/// Indicates whether this shape displays a background gradient.
 		/// </summary>
@@ -3972,7 +3972,7 @@ namespace ApiStudioIO
 				return true;
 			}
 		}
-		
+
 		/// <summary>
 		/// Indicates the direction of the gradient.
 		/// </summary>
@@ -3994,9 +3994,9 @@ namespace ApiStudioIO
 			DslDiagrams::ImageField field1 = new DslDiagrams::ImageField("Icon");
 			field1.DefaultImage = DslDiagrams::ImageHelper.GetImage(global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetObject("HttpApiHeadShapeIconDefaultImage"));
 			shapeFields.Add(field1);
-			
+
 		}
-		
+
 		/// <summary>
 		/// Initialize the collection of decorators associated with this shape type.  This method also
 		/// creates shape fields for outer decorators, because these are not part of the shape fields collection
@@ -4005,13 +4005,13 @@ namespace ApiStudioIO
 		protected override void InitializeDecorators(global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields, global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators)
 		{
 			base.InitializeDecorators(shapeFields, decorators);
-			
+
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "Icon");
 			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopLeft, DslDiagrams::PointD.Empty);
 			decorators.Add(decorator1);
-				
+
 		}
-		
+
 		#endregion
 		#region CompartmentShape code
 		/// <summary>
@@ -4021,9 +4021,9 @@ namespace ApiStudioIO
 		{
 			get { return true; }
 		}
-		
+
 		private static DslDiagrams::CompartmentDescription[] compartmentDescriptions;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentDescription for all compartments shown on this shape
 		/// (including compartments defined on base shapes).
@@ -4033,48 +4033,48 @@ namespace ApiStudioIO
 		{
 			if(compartmentDescriptions == null)
 			{
-				// Initialize the array of compartment descriptions if we haven't done so already. 
+				// Initialize the array of compartment descriptions if we haven't done so already.
 				// First we get any compartment descriptions in base shapes, and add on any compartments
-				// that are defined on this shape. 
+				// that are defined on this shape.
 				DslDiagrams::CompartmentDescription[] baseCompartmentDescriptions = base.GetCompartmentDescriptions();
-				
+
 				int localCompartmentsOffset = 0;
 				if(baseCompartmentDescriptions!=null)
 				{
 					localCompartmentsOffset = baseCompartmentDescriptions.Length;
 				}
 				compartmentDescriptions = new DslDiagrams::ElementListCompartmentDescription[0+localCompartmentsOffset];
-				
+
 				if(baseCompartmentDescriptions!=null)
 				{
-					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);	
+					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);
 				}
 			}
-			
+
 			return HttpApiHeadShape.compartmentDescriptions;
 		}
-		
+
 		private static global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]> compartmentMappings;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentMappings for all compartments displayed on this shape
-		/// (including compartment maps defined on base shapes). 
+		/// (including compartment maps defined on base shapes).
 		/// </summary>
 		/// <param name="melType">The type of the DomainClass that this shape is mapped to</param>
 		/// <returns></returns>
 		protected override DslDiagrams::CompartmentMapping[] GetCompartmentMappings(global::System.Type melType)
 		{
 			if(melType==null) throw new global::System.ArgumentNullException("melType");
-			
+
 			if(compartmentMappings==null)
 			{
-				// Initialize the table of compartment mappings if we haven't done so already. 
+				// Initialize the table of compartment mappings if we haven't done so already.
 				// The table contains an array of CompartmentMapping for every Type that this
-				// shape can be mapped to. 
+				// shape can be mapped to.
 				compartmentMappings = new global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]>();
 				{
 					// First we get the mappings defined for the base shape, and add on any mappings defined for this
-					// shape. 
+					// shape.
 					DslDiagrams::CompartmentMapping[] baseMappings = base.GetCompartmentMappings(typeof(global::ApiStudioIO.HttpApiHead));
 					int localCompartmentMappingsOffset = 0;
 					if(baseMappings!=null)
@@ -4082,7 +4082,7 @@ namespace ApiStudioIO
 						localCompartmentMappingsOffset = baseMappings.Length;
 					}
 					DslDiagrams::CompartmentMapping[] mappings = new DslDiagrams::CompartmentMapping[0+localCompartmentMappingsOffset];
-					
+
 					if(baseMappings!=null)
 					{
 						baseMappings.CopyTo(mappings, 0);
@@ -4090,16 +4090,16 @@ namespace ApiStudioIO
 					compartmentMappings.Add(typeof(global::ApiStudioIO.HttpApiHead), mappings);
 				}
 			}
-			
-			// See if we can find the mapping being requested directly in the table. 
+
+			// See if we can find the mapping being requested directly in the table.
 			DslDiagrams::CompartmentMapping[] returnValue;
 			if(compartmentMappings.TryGetValue(melType, out returnValue))
 			{
 				return returnValue;
 			}
-			
+
 			// If not, loop through the types in the table, and find the 'most derived' base
-			// class of melType. 
+			// class of melType.
 			global::System.Type selectedMappedType = null;
 			foreach(global::System.Type mappedType in compartmentMappings.Keys)
 			{
@@ -4114,13 +4114,13 @@ namespace ApiStudioIO
 			}
 			return new DslDiagrams::CompartmentMapping[] {};
 		}
-		
+
 			#region DomainPath traversal methods to get the list of elements to display in a compartment.
 			#endregion
-		
+
 		#endregion
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiHeadShape domain class Id.
 		/// </summary>
@@ -4134,7 +4134,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -4164,7 +4164,7 @@ namespace ApiStudioIO
 		private static DslDiagrams::StyleSet classStyleSet;
 		private static global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields;
 		private static global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators;
-		
+
 		/// <summary>
 		/// Per-class style set for this shape.
 		/// </summary>
@@ -4179,7 +4179,7 @@ namespace ApiStudioIO
 				return classStyleSet;
 			}
 		}
-		
+
 		/// <summary>
 		/// Per-class ShapeFields for this shape.
 		/// </summary>
@@ -4194,43 +4194,43 @@ namespace ApiStudioIO
 				return shapeFields;
 			}
 		}
-		
+
 		/// <summary>
 		/// Event fired when decorator initialization is complete for this shape type.
 		/// </summary>
 		public static new event global::System.EventHandler DecoratorsInitialized;
-		
+
 		/// <summary>
 		/// List containing decorators used by this type.
 		/// </summary>
 		public override global::System.Collections.Generic.IList<DslDiagrams::Decorator> Decorators
 		{
-			get 
+			get
 			{
 				if(decorators == null)
 				{
 					decorators = CreateDecorators();
-					
+
 					// fire this event to allow the diagram to initialize decorator mappings for this shape type.
 					if(DecoratorsInitialized != null)
 					{
 						DecoratorsInitialized(this, global::System.EventArgs.Empty);
 					}
 				}
-				
-				return decorators; 
+
+				return decorators;
 			}
 		}
-		
+
 		/// <summary>
 		/// Finds a decorator associated with HttpApiOptionsShape.
 		/// </summary>
 		public static DslDiagrams::Decorator FindHttpApiOptionsShapeDecorator(string decoratorName)
-		{	
+		{
 			if(decorators == null) return null;
 			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
 		}
-		
+
 		#endregion
 		#region Shape styles
 		/// <summary>
@@ -4240,7 +4240,7 @@ namespace ApiStudioIO
 		protected override void InitializeResources(DslDiagrams::StyleSet classStyleSet)
 		{
 			base.InitializeResources(classStyleSet);
-			
+
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 13, 90, 167);
@@ -4250,9 +4250,9 @@ namespace ApiStudioIO
 			DslDiagrams::BrushSettings backgroundBrush = new DslDiagrams::BrushSettings();
 			backgroundBrush.Color = global::System.Drawing.Color.FromArgb(255, 230, 238, 246);
 			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ShapeBackground, backgroundBrush);
-		
+
 		}
-		
+
 		/// <summary>
 		/// Indicates whether this shape displays a background gradient.
 		/// </summary>
@@ -4263,7 +4263,7 @@ namespace ApiStudioIO
 				return true;
 			}
 		}
-		
+
 		/// <summary>
 		/// Indicates the direction of the gradient.
 		/// </summary>
@@ -4285,9 +4285,9 @@ namespace ApiStudioIO
 			DslDiagrams::ImageField field1 = new DslDiagrams::ImageField("Icon");
 			field1.DefaultImage = DslDiagrams::ImageHelper.GetImage(global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetObject("HttpApiOptionsShapeIconDefaultImage"));
 			shapeFields.Add(field1);
-			
+
 		}
-		
+
 		/// <summary>
 		/// Initialize the collection of decorators associated with this shape type.  This method also
 		/// creates shape fields for outer decorators, because these are not part of the shape fields collection
@@ -4296,13 +4296,13 @@ namespace ApiStudioIO
 		protected override void InitializeDecorators(global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields, global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators)
 		{
 			base.InitializeDecorators(shapeFields, decorators);
-			
+
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "Icon");
 			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopLeft, DslDiagrams::PointD.Empty);
 			decorators.Add(decorator1);
-				
+
 		}
-		
+
 		#endregion
 		#region CompartmentShape code
 		/// <summary>
@@ -4312,9 +4312,9 @@ namespace ApiStudioIO
 		{
 			get { return true; }
 		}
-		
+
 		private static DslDiagrams::CompartmentDescription[] compartmentDescriptions;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentDescription for all compartments shown on this shape
 		/// (including compartments defined on base shapes).
@@ -4324,48 +4324,48 @@ namespace ApiStudioIO
 		{
 			if(compartmentDescriptions == null)
 			{
-				// Initialize the array of compartment descriptions if we haven't done so already. 
+				// Initialize the array of compartment descriptions if we haven't done so already.
 				// First we get any compartment descriptions in base shapes, and add on any compartments
-				// that are defined on this shape. 
+				// that are defined on this shape.
 				DslDiagrams::CompartmentDescription[] baseCompartmentDescriptions = base.GetCompartmentDescriptions();
-				
+
 				int localCompartmentsOffset = 0;
 				if(baseCompartmentDescriptions!=null)
 				{
 					localCompartmentsOffset = baseCompartmentDescriptions.Length;
 				}
 				compartmentDescriptions = new DslDiagrams::ElementListCompartmentDescription[0+localCompartmentsOffset];
-				
+
 				if(baseCompartmentDescriptions!=null)
 				{
-					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);	
+					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);
 				}
 			}
-			
+
 			return HttpApiOptionsShape.compartmentDescriptions;
 		}
-		
+
 		private static global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]> compartmentMappings;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentMappings for all compartments displayed on this shape
-		/// (including compartment maps defined on base shapes). 
+		/// (including compartment maps defined on base shapes).
 		/// </summary>
 		/// <param name="melType">The type of the DomainClass that this shape is mapped to</param>
 		/// <returns></returns>
 		protected override DslDiagrams::CompartmentMapping[] GetCompartmentMappings(global::System.Type melType)
 		{
 			if(melType==null) throw new global::System.ArgumentNullException("melType");
-			
+
 			if(compartmentMappings==null)
 			{
-				// Initialize the table of compartment mappings if we haven't done so already. 
+				// Initialize the table of compartment mappings if we haven't done so already.
 				// The table contains an array of CompartmentMapping for every Type that this
-				// shape can be mapped to. 
+				// shape can be mapped to.
 				compartmentMappings = new global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]>();
 				{
 					// First we get the mappings defined for the base shape, and add on any mappings defined for this
-					// shape. 
+					// shape.
 					DslDiagrams::CompartmentMapping[] baseMappings = base.GetCompartmentMappings(typeof(global::ApiStudioIO.HttpApiOptions));
 					int localCompartmentMappingsOffset = 0;
 					if(baseMappings!=null)
@@ -4373,7 +4373,7 @@ namespace ApiStudioIO
 						localCompartmentMappingsOffset = baseMappings.Length;
 					}
 					DslDiagrams::CompartmentMapping[] mappings = new DslDiagrams::CompartmentMapping[0+localCompartmentMappingsOffset];
-					
+
 					if(baseMappings!=null)
 					{
 						baseMappings.CopyTo(mappings, 0);
@@ -4381,16 +4381,16 @@ namespace ApiStudioIO
 					compartmentMappings.Add(typeof(global::ApiStudioIO.HttpApiOptions), mappings);
 				}
 			}
-			
-			// See if we can find the mapping being requested directly in the table. 
+
+			// See if we can find the mapping being requested directly in the table.
 			DslDiagrams::CompartmentMapping[] returnValue;
 			if(compartmentMappings.TryGetValue(melType, out returnValue))
 			{
 				return returnValue;
 			}
-			
+
 			// If not, loop through the types in the table, and find the 'most derived' base
-			// class of melType. 
+			// class of melType.
 			global::System.Type selectedMappedType = null;
 			foreach(global::System.Type mappedType in compartmentMappings.Keys)
 			{
@@ -4405,13 +4405,13 @@ namespace ApiStudioIO
 			}
 			return new DslDiagrams::CompartmentMapping[] {};
 		}
-		
+
 			#region DomainPath traversal methods to get the list of elements to display in a compartment.
 			#endregion
-		
+
 		#endregion
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiOptionsShape domain class Id.
 		/// </summary>
@@ -4425,7 +4425,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -4456,7 +4456,7 @@ namespace ApiStudioIO
 		private static DslDiagrams::StyleSet classStyleSet;
 		private static global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields;
 		private static global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators;
-		
+
 		/// <summary>
 		/// Per-class style set for this shape.
 		/// </summary>
@@ -4471,7 +4471,7 @@ namespace ApiStudioIO
 				return classStyleSet;
 			}
 		}
-		
+
 		/// <summary>
 		/// Per-class ShapeFields for this shape.
 		/// </summary>
@@ -4486,43 +4486,43 @@ namespace ApiStudioIO
 				return shapeFields;
 			}
 		}
-		
+
 		/// <summary>
 		/// Event fired when decorator initialization is complete for this shape type.
 		/// </summary>
 		public static new event global::System.EventHandler DecoratorsInitialized;
-		
+
 		/// <summary>
 		/// List containing decorators used by this type.
 		/// </summary>
 		public override global::System.Collections.Generic.IList<DslDiagrams::Decorator> Decorators
 		{
-			get 
+			get
 			{
 				if(decorators == null)
 				{
 					decorators = CreateDecorators();
-					
+
 					// fire this event to allow the diagram to initialize decorator mappings for this shape type.
 					if(DecoratorsInitialized != null)
 					{
 						DecoratorsInitialized(this, global::System.EventArgs.Empty);
 					}
 				}
-				
-				return decorators; 
+
+				return decorators;
 			}
 		}
-		
+
 		/// <summary>
 		/// Finds a decorator associated with HttpApiTraceShape.
 		/// </summary>
 		public static DslDiagrams::Decorator FindHttpApiTraceShapeDecorator(string decoratorName)
-		{	
+		{
 			if(decorators == null) return null;
 			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
 		}
-		
+
 		#endregion
 		#region Shape styles
 		/// <summary>
@@ -4532,13 +4532,13 @@ namespace ApiStudioIO
 		protected override void InitializeResources(DslDiagrams::StyleSet classStyleSet)
 		{
 			base.InitializeResources(classStyleSet);
-			
+
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
 			outlinePen.Width = 0.03125F;
 			classStyleSet.OverridePen(DslDiagrams::DiagramPens.ShapeOutline, outlinePen);
 		}
-		
+
 		/// <summary>
 		/// Indicates whether this shape displays a background gradient.
 		/// </summary>
@@ -4549,7 +4549,7 @@ namespace ApiStudioIO
 				return true;
 			}
 		}
-		
+
 		/// <summary>
 		/// Indicates the direction of the gradient.
 		/// </summary>
@@ -4571,9 +4571,9 @@ namespace ApiStudioIO
 			DslDiagrams::ImageField field1 = new DslDiagrams::ImageField("Icon");
 			field1.DefaultImage = DslDiagrams::ImageHelper.GetImage(global::ApiStudioIO.ApiStudioIODomainModel.SingletonResourceManager.GetObject("HttpApiTraceShapeIconDefaultImage"));
 			shapeFields.Add(field1);
-			
+
 		}
-		
+
 		/// <summary>
 		/// Initialize the collection of decorators associated with this shape type.  This method also
 		/// creates shape fields for outer decorators, because these are not part of the shape fields collection
@@ -4582,13 +4582,13 @@ namespace ApiStudioIO
 		protected override void InitializeDecorators(global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields, global::System.Collections.Generic.IList<DslDiagrams::Decorator> decorators)
 		{
 			base.InitializeDecorators(shapeFields, decorators);
-			
+
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "Icon");
 			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopLeft, DslDiagrams::PointD.Empty);
 			decorators.Add(decorator1);
-				
+
 		}
-		
+
 		#endregion
 		#region CompartmentShape code
 		/// <summary>
@@ -4598,9 +4598,9 @@ namespace ApiStudioIO
 		{
 			get { return true; }
 		}
-		
+
 		private static DslDiagrams::CompartmentDescription[] compartmentDescriptions;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentDescription for all compartments shown on this shape
 		/// (including compartments defined on base shapes).
@@ -4610,48 +4610,48 @@ namespace ApiStudioIO
 		{
 			if(compartmentDescriptions == null)
 			{
-				// Initialize the array of compartment descriptions if we haven't done so already. 
+				// Initialize the array of compartment descriptions if we haven't done so already.
 				// First we get any compartment descriptions in base shapes, and add on any compartments
-				// that are defined on this shape. 
+				// that are defined on this shape.
 				DslDiagrams::CompartmentDescription[] baseCompartmentDescriptions = base.GetCompartmentDescriptions();
-				
+
 				int localCompartmentsOffset = 0;
 				if(baseCompartmentDescriptions!=null)
 				{
 					localCompartmentsOffset = baseCompartmentDescriptions.Length;
 				}
 				compartmentDescriptions = new DslDiagrams::ElementListCompartmentDescription[0+localCompartmentsOffset];
-				
+
 				if(baseCompartmentDescriptions!=null)
 				{
-					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);	
+					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);
 				}
 			}
-			
+
 			return HttpApiTraceShape.compartmentDescriptions;
 		}
-		
+
 		private static global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]> compartmentMappings;
-		
+
 		/// <summary>
 		/// Gets an array of CompartmentMappings for all compartments displayed on this shape
-		/// (including compartment maps defined on base shapes). 
+		/// (including compartment maps defined on base shapes).
 		/// </summary>
 		/// <param name="melType">The type of the DomainClass that this shape is mapped to</param>
 		/// <returns></returns>
 		protected override DslDiagrams::CompartmentMapping[] GetCompartmentMappings(global::System.Type melType)
 		{
 			if(melType==null) throw new global::System.ArgumentNullException("melType");
-			
+
 			if(compartmentMappings==null)
 			{
-				// Initialize the table of compartment mappings if we haven't done so already. 
+				// Initialize the table of compartment mappings if we haven't done so already.
 				// The table contains an array of CompartmentMapping for every Type that this
-				// shape can be mapped to. 
+				// shape can be mapped to.
 				compartmentMappings = new global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]>();
 				{
 					// First we get the mappings defined for the base shape, and add on any mappings defined for this
-					// shape. 
+					// shape.
 					DslDiagrams::CompartmentMapping[] baseMappings = base.GetCompartmentMappings(typeof(global::ApiStudioIO.HttpApiTrace));
 					int localCompartmentMappingsOffset = 0;
 					if(baseMappings!=null)
@@ -4659,7 +4659,7 @@ namespace ApiStudioIO
 						localCompartmentMappingsOffset = baseMappings.Length;
 					}
 					DslDiagrams::CompartmentMapping[] mappings = new DslDiagrams::CompartmentMapping[0+localCompartmentMappingsOffset];
-					
+
 					if(baseMappings!=null)
 					{
 						baseMappings.CopyTo(mappings, 0);
@@ -4667,16 +4667,16 @@ namespace ApiStudioIO
 					compartmentMappings.Add(typeof(global::ApiStudioIO.HttpApiTrace), mappings);
 				}
 			}
-			
-			// See if we can find the mapping being requested directly in the table. 
+
+			// See if we can find the mapping being requested directly in the table.
 			DslDiagrams::CompartmentMapping[] returnValue;
 			if(compartmentMappings.TryGetValue(melType, out returnValue))
 			{
 				return returnValue;
 			}
-			
+
 			// If not, loop through the types in the table, and find the 'most derived' base
-			// class of melType. 
+			// class of melType.
 			global::System.Type selectedMappedType = null;
 			foreach(global::System.Type mappedType in compartmentMappings.Keys)
 			{
@@ -4691,13 +4691,13 @@ namespace ApiStudioIO
 			}
 			return new DslDiagrams::CompartmentMapping[] {};
 		}
-		
+
 			#region DomainPath traversal methods to get the list of elements to display in a compartment.
 			#endregion
-		
+
 		#endregion
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiTraceShape domain class Id.
 		/// </summary>
@@ -4711,7 +4711,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>

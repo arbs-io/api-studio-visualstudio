@@ -301,7 +301,7 @@
             <DomainClassMoniker Name="HttpApiMediaTypeRequest" />
           </Index>
           <LinkCreationPaths>
-            <DomainPath>HttpApiHasMediaTypeRequest.HttpApiMediaTypeRequestd</DomainPath>
+            <DomainPath>HttpApiHasMediaTypeRequest.HttpApiMediaTypeRequest</DomainPath>
           </LinkCreationPaths>
         </ElementMergeDirective>
         <ElementMergeDirective>
@@ -648,7 +648,7 @@
     </DomainRelationship>
     <DomainRelationship Id="d744ca70-d39c-4204-9fda-8281a96d13e2" Description="Description for ApiStudioIO.HttpApiHasMediaTypeRequest" Name="HttpApiHasMediaTypeRequest" DisplayName="Http Api Has Http Api Media Type Consumed" Namespace="ApiStudioIO" IsEmbedding="true">
       <Source>
-        <DomainRole Id="6eae1b8f-ab94-4b52-85f9-4a4a4842a9fe" Description="Description for ApiStudioIO.HttpApiHasMediaTypeRequest.HttpApi" Name="HttpApi" DisplayName="Http Api" PropertyName="HttpApiMediaTypeRequestd" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Http Api Media Type Consumed">
+        <DomainRole Id="6eae1b8f-ab94-4b52-85f9-4a4a4842a9fe" Description="Description for ApiStudioIO.HttpApiHasMediaTypeRequest.HttpApi" Name="HttpApi" DisplayName="Http Api" PropertyName="HttpApiMediaTypeRequest" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Http Api Media Type Consumed">
           <RolePlayer>
             <DomainClassMoniker Name="HttpApi" />
           </RolePlayer>
@@ -1113,7 +1113,7 @@
           <XmlRelationshipData UseFullForm="true" RoleElementName="HttpApiMediaTypeResponsed">
             <DomainRelationshipMoniker Name="HttpApiHasMediaTypeResponse" />
           </XmlRelationshipData>
-          <XmlRelationshipData UseFullForm="true" RoleElementName="HttpApiMediaTypeRequestd">
+          <XmlRelationshipData UseFullForm="true" RoleElementName="HttpApiMediaTypeRequest">
             <DomainRelationshipMoniker Name="HttpApiHasMediaTypeRequest" />
           </XmlRelationshipData>
           <XmlPropertyData XmlName="requestParameters" Representation="Ignore">
@@ -1645,7 +1645,7 @@
         <CompartmentMap>
           <CompartmentMoniker Name="HttpApiShape/RequestMediaTypes" />
           <ElementsDisplayed>
-            <DomainPath>HttpApiHasMediaTypeRequest.HttpApiMediaTypeRequestd/!HttpApiMediaTypeRequest</DomainPath>
+            <DomainPath>HttpApiHasMediaTypeRequest.HttpApiMediaTypeRequest/!HttpApiMediaTypeRequest</DomainPath>
           </ElementsDisplayed>
           <PropertyDisplayed>
             <PropertyPath>

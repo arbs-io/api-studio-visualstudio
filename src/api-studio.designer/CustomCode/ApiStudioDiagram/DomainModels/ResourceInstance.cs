@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Andrew Butson.
 // Licensed under the MIT License.
 
+using System;
 using ApiStudioIO.Utility.Extensions;
 
 namespace ApiStudioIO
@@ -9,7 +10,7 @@ namespace ApiStudioIO
     {
         protected override string GetHttpApiUriValue()
         {
-            var documentId = "";
+            string documentId;
             switch (ApiStudio.CodeGenerationVariableCaseType)
             {
                 case CodeGenerationVariableCaseTypes.CamelCase:
@@ -23,6 +24,9 @@ namespace ApiStudioIO
                 case CodeGenerationVariableCaseTypes.SnakeCase:
                     documentId = InstanceIdentity.ToSnakeCase();
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             var uri = "";
@@ -32,7 +36,7 @@ namespace ApiStudioIO
             return FormatUri(uri);
         }
 
-        partial class InstanceDataTypePropertyHandler
+        internal partial class InstanceDataTypePropertyHandler
         {
             protected override void OnValueChanged(ResourceInstance element, string oldValue, string newValue)
             {
@@ -40,7 +44,7 @@ namespace ApiStudioIO
                 element.SetResourceDefaults();
             }
         }
-        partial class InstanceIdentityPropertyHandler
+        internal partial class InstanceIdentityPropertyHandler
         {
             protected override void OnValueChanged(ResourceInstance element, string oldValue, string newValue)
             {

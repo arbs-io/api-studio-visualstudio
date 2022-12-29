@@ -1,8 +1,6 @@
 ﻿// Copyright (c) Andrew Butson.
 // Licensed under the MIT License.
 
-using System;
-
 namespace ApiStudioIO
 {
     using DslModeling = Microsoft.VisualStudio.Modeling;

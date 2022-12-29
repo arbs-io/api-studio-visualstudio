@@ -34,26 +34,26 @@ namespace ApiStudioIO
 
         private void SetDefaultsProperties()
         {
-            if (Identifier.ToString() == "00000000-0000-0000-0000-000000000000")
-                using (var t = Store.TransactionManager.BeginTransaction("ApiStudio.SetIdentifierValue"))
-                {
-                    Identifier = Guid.NewGuid();
-                    SecuritySchemeType = GetDefaultSecuritySchemeType();
+            if (Identifier.ToString() != "00000000-0000-0000-0000-000000000000") return;
+            using (var t = Store.TransactionManager.BeginTransaction("ApiStudio.SetIdentifierValue"))
+            {
+                Identifier = Guid.NewGuid();
+                SecuritySchemeType = GetDefaultSecuritySchemeType();
 
-                    var specification = ApiStudioUserSettingsStore.Instance.Data.DefaultSpecification;
-                    Vendor = specification.VendorName;
-                    Product = specification.ProductName;
-                    ApiName = specification.ApiName;
-                    ContactName = specification.ContactName;
-                    ContactUrl = specification.ContactUrl;
-                    Description = specification.Description;
-                    Audience = GetDefaultAudienceType();
+                var specification = ApiStudioUserSettingsStore.Instance.Data.DefaultSpecification;
+                Vendor = specification.VendorName;
+                Product = specification.ProductName;
+                ApiName = specification.ApiName;
+                ContactName = specification.ContactName;
+                ContactUrl = specification.ContactUrl;
+                Description = specification.Description;
+                Audience = GetDefaultAudienceType();
 
-                    t.Commit();
-                }
+                t.Commit();
+            }
         }
 
-        private SecuritySchemeTypes GetDefaultSecuritySchemeType()
+        private static SecuritySchemeTypes GetDefaultSecuritySchemeType()
         {
             switch (ApiStudioUserSettingsStore.Instance.Data.DefaultSecurity.SecurityScheme)
             {
@@ -70,7 +70,7 @@ namespace ApiStudioIO
             }
         }
 
-        private HttpApiAudienceTypes GetDefaultAudienceType()
+        private static HttpApiAudienceTypes GetDefaultAudienceType()
         {
             switch (ApiStudioUserSettingsStore.Instance.Data.DefaultSpecification.Audience)
             {

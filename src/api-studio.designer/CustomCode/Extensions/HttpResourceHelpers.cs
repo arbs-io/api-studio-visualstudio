@@ -64,13 +64,13 @@ namespace ApiStudioIO
 
         internal static HttpResourceMediaTypeRequest ToHttpResourceMediaTypeRequest(this HttpApiMediaType domain)
         {
-            var DiscreteType = string.IsNullOrEmpty(domain.DiscreteType) || string.IsNullOrEmpty(domain.SubType)
+            var discreteType = string.IsNullOrEmpty(domain.DiscreteType) || string.IsNullOrEmpty(domain.SubType)
                 ? HttpTypeMimeAllowedDiscrete.application
                 : (HttpTypeMimeAllowedDiscrete)Enum.Parse(typeof(HttpTypeMimeAllowedDiscrete), domain.DiscreteType);
 
             var apiStudioComponent = new HttpResourceMediaTypeRequest
             {
-                DiscreteType = DiscreteType,
+                DiscreteType = discreteType,
                 SubType = domain.SubType
             };
             return apiStudioComponent;
@@ -78,13 +78,13 @@ namespace ApiStudioIO
 
         internal static HttpResourceMediaTypeResponse ToHttpResourceMediaTypeResponse(this HttpApiMediaType domain)
         {
-            var DiscreteType = string.IsNullOrEmpty(domain.DiscreteType) || string.IsNullOrEmpty(domain.SubType)
+            var discreteType = string.IsNullOrEmpty(domain.DiscreteType) || string.IsNullOrEmpty(domain.SubType)
                 ? HttpTypeMimeAllowedDiscrete.application
                 : (HttpTypeMimeAllowedDiscrete)Enum.Parse(typeof(HttpTypeMimeAllowedDiscrete), domain.DiscreteType);
 
             var apiStudioComponent = new HttpResourceMediaTypeResponse
             {
-                DiscreteType = DiscreteType,
+                DiscreteType = discreteType,
                 SubType = domain.SubType
             };
             return apiStudioComponent;
