@@ -26,7 +26,7 @@ namespace ApiStudioIO.Vs.ErrorList
 
             Line = issue.Line - 1;
 
-            Message = GetErrorMessage(issue.Message);
+            Message = issue.Message;
             ErrorCode = errorCode;
             ErrorCodeToolTip = GetErrorCodeToolTip(errorCode);
             ErrorCategory = GetErrorCategory(issue.Severity, issue.Type);
@@ -50,22 +50,6 @@ namespace ApiStudioIO.Vs.ErrorList
         {
             var cleanFileName = fileName.Split(':').LastOrDefault();
             return cleanFileName?.Replace(Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar);
-        }
-
-        private static string GetErrorMessage(string message)
-        {
-            if (message.Contains("APIS"))
-            {
-                var msgIndex = message.IndexOf(']') + 1;
-                return message.Substring(msgIndex).Trim();
-            }
-
-            if (!message.Contains("warning")) return message;
-            {
-                var msgIndex = message.IndexOf(':') + 1;
-                return message.Substring(msgIndex).Trim();
-            }
-
         }
 
         private static string GetErrorCategory(string severity, string type)

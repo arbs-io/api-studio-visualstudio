@@ -26,7 +26,7 @@ namespace ApiStudioIO
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(ApiStudio.CodeGenerationVariableCaseType), "Case type not found");
+                    throw new ArgumentOutOfRangeException("CodeGenerationVariableCaseType", "Invalid case type not found");
             }
 
             var uri = "";
