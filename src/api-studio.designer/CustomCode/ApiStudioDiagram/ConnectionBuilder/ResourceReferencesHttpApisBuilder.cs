@@ -81,8 +81,8 @@ namespace ApiStudioIO
         ///     Test whether a given pair of model elements are acceptable to this ConnectionBuilder as the source and target of a
         ///     connection
         /// </summary>
-        /// <param name="candidateSource">The model element to test as a source</param>
-        /// <param name="candidateTarget">The model element to test as a target</param>
+        /// <param name="source">The model element to test as a source</param>
+        /// <param name="target">The model element to test as a target</param>
         /// <returns>Whether the elements can be used as the source and target of a connection</returns>
         public static bool CanAcceptSourceAndTarget(DslModeling.ModelElement source, DslModeling.ModelElement target)
         {
@@ -115,13 +115,11 @@ namespace ApiStudioIO
 
             // If the source wasn't accepted then there's no point checking targets.
             // If there is no target then the source controls the accept.
-            if (CanAcceptSource(source)
-                && CanAcceptTarget(target)
-                && source is Resource sourceResource
-                && target is Api targetApi
-                && ResourceReferencesApis.GetLinks(sourceResource, targetApi).Count == 0)
-                return true;
-            return false;
+            return CanAcceptSource(source)
+                   && CanAcceptTarget(target)
+                   && source is Resource sourceResource
+                   && target is Api targetApi
+                   && ResourceReferencesApis.GetLinks(sourceResource, targetApi).Count == 0;
         }
 
         #endregion Accept Connection Methods

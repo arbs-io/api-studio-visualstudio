@@ -61,9 +61,7 @@ namespace ApiStudioIO
         {
             var apiResponses = GetResponseStatusCodesValue();
             var successResponse = apiResponses.FirstOrDefault(x => x.Type.Equals("Success"));
-            if (null != successResponse)
-                return successResponse.HttpStatus;
-            return 200; //Default 200 OK
+            return successResponse?.HttpStatus ?? 200;
         }
 
         #region CalculatedProperties
@@ -85,20 +83,18 @@ namespace ApiStudioIO
         {
             string FuncGetRootName(Resource resource)
             {
-                if (resource != null)
-                    switch (resource)
-                    {
-                        case ResourceAttribute _:
-                        case ResourceInstance _:
-                            var childResource = resource.SourceResource.FirstOrDefault();
-                            if (childResource == null) return resource.Name;
+                if (resource == null) return "";
+                switch (resource)
+                {
+                    case ResourceAttribute _:
+                    case ResourceInstance _:
+                        var childResource = resource.SourceResource.FirstOrDefault();
+                        return childResource == null ? resource.Name : FuncGetRootName(childResource);
 
-                            return FuncGetRootName(childResource);
-
-                        case ResourceCollection _:
-                        case ResourceAction _:
-                            return resource.Name;
-                    }
+                    case ResourceCollection _:
+                    case ResourceAction _:
+                        return resource.Name;
+                }
 
                 return "";
             }
@@ -158,7 +154,7 @@ namespace ApiStudioIO
         internal List<HttpResourceMediaTypeRequest> GetRequestMediaTypesValue()
         {
             var managedList = new List<HttpResourceMediaTypeRequest>();
-            HttpApiMediaTypeRequestd.OrderBy(x => x.DisplayName)
+            HttpApiMediaTypeRequest.OrderBy(x => x.DisplayName)
                 .ToList()
                 .ForEach(domainModel => managedList.Add(domainModel.ToHttpResourceMediaTypeRequest()));
             return managedList;

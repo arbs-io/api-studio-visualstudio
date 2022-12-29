@@ -58,55 +58,60 @@ namespace ApiStudioIO.HttpApiDefaults
 
         private static string GetHttpApiDeleteImperativeVerb(Resource source, int successCode)
         {
-            string imperativeVerb = "Undefined";
-
-            if (source is ResourceInstance && successCode == 200)
-                imperativeVerb = "Remove";
-            else if (source is ResourceInstance && successCode == 202)
-                imperativeVerb = "Deactivate";
-
-            return imperativeVerb;
+            switch (source)
+            {
+                case ResourceInstance _ when successCode == 200:
+                    return "Remove";
+                case ResourceInstance _ when successCode == 202:
+                    return "Deactivate";
+                default:
+                    return "Undefined";
+            }
         }
 
         private static string GetHttpApiPostImperativeVerb(Resource source, int successCode)
         {
-            string imperativeVerb = "Undefined";
-
-            if (source is ResourceCollection)
-                imperativeVerb = "Create";
-            else if (source is ResourceAction && successCode == 200)
-                imperativeVerb = "Generate";
-            else if (source is ResourceAction && successCode == 201)
-                imperativeVerb = "Make";
-            else if (source is ResourceAction && successCode == 202) imperativeVerb = "Prepare";
-
-            return imperativeVerb;
+            switch (source)
+            {
+                case ResourceCollection _:
+                    return "Create";
+                case ResourceAction _ when successCode == 200:
+                    return "Generate";
+                case ResourceAction _ when successCode == 201:
+                    return "Make";
+                case ResourceAction _ when successCode == 202:
+                    return "Prepare";
+                default:
+                    return "Undefined";
+            }
         }
 
         private static string GetHttpApiPutPatchImperativeVerb(Resource source)
         {
-            string imperativeVerb = "Undefined";
-
-            if (source is ResourceInstance)
-                imperativeVerb = "Change";
-            else if (source is ResourceAttribute)
-                imperativeVerb = "Adjust";
-
-            return imperativeVerb;
+            switch (source)
+            {
+                case ResourceInstance _:
+                    return "Change";
+                case ResourceAttribute _:
+                    return "Adjust";
+                default:
+                    return "Undefined";
+            }
         }
 
         private static string GetHttpApiGetImperativeVerb(Resource source)
         {
-            string imperativeVerb = "Undefined";
-
-            if (source is ResourceCollection)
-                imperativeVerb = "Find";
-            else if (source is ResourceInstance)
-                imperativeVerb = "Request";
-            else if (source is ResourceAttribute)
-                imperativeVerb = "Retrieve";
-
-            return imperativeVerb;
+            switch (source)
+            {
+                case ResourceCollection _:
+                    return "Find";
+                case ResourceInstance _:
+                    return "Request";
+                case ResourceAttribute _:
+                    return "Retrieve";
+                default:
+                    return "Undefined";
+            }
         }
     }
 }

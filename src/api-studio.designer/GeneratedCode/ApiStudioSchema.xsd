@@ -161,7 +161,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- ApiStudio Moniker -->
   <xsd:element name="ApiStudioMoniker" type="ApiStudioMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="ApiStudioMoniker">
@@ -178,7 +178,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- Resource -->
   <xsd:element name="resource" abstract="true" type="Resource" substitutionGroup="core:modelElement" />
   <xsd:complexType name="Resource" abstract="true" >
@@ -234,7 +234,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- Resource Moniker -->
   <xsd:element name="resourceMoniker" abstract="true" type="ResourceMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="ResourceMoniker">
@@ -251,7 +251,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- ResourceInstance -->
   <xsd:element name="ResourceInstance" type="ResourceInstance" substitutionGroup="resource" />
   <xsd:complexType name="ResourceInstance">
@@ -287,7 +287,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- ResourceInstance Moniker -->
   <xsd:element name="ResourceInstanceMoniker" type="ResourceInstanceMoniker" substitutionGroup="resourceMoniker" />
   <xsd:complexType name="ResourceInstanceMoniker">
@@ -299,7 +299,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- ResourceCollection -->
   <xsd:element name="resourceCollection" type="ResourceCollection" substitutionGroup="resource" />
   <xsd:complexType name="ResourceCollection">
@@ -329,7 +329,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- ResourceCollection Moniker -->
   <xsd:element name="resourceCollectionMoniker" type="ResourceCollectionMoniker" substitutionGroup="resourceMoniker" />
   <xsd:complexType name="ResourceCollectionMoniker">
@@ -341,7 +341,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApi -->
   <xsd:element name="HttpApi" abstract="true" type="HttpApi" substitutionGroup="api" />
   <xsd:complexType name="HttpApi" abstract="true" >
@@ -409,7 +409,7 @@
             </xsd:complexType>
           </xsd:element>
           <!-- Relationship: HttpApiHasMediaTypeRequest -->
-          <xsd:element name="HttpApiMediaTypeRequestd" minOccurs="0" maxOccurs="1">
+          <xsd:element name="HttpApiMediaTypeRequest" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
               <xsd:documentation>Instances of HttpApiHasMediaTypeRequest</xsd:documentation>
             </xsd:annotation>
@@ -469,7 +469,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApi Moniker -->
   <xsd:element name="HttpApiMoniker" abstract="true" type="HttpApiMoniker" substitutionGroup="apiMoniker" />
   <xsd:complexType name="HttpApiMoniker">
@@ -481,7 +481,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- ResourceAction -->
   <xsd:element name="resourceAction" type="ResourceAction" substitutionGroup="resource" />
   <xsd:complexType name="ResourceAction">
@@ -499,7 +499,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- ResourceAction Moniker -->
   <xsd:element name="resourceActionMoniker" type="ResourceActionMoniker" substitutionGroup="resourceMoniker" />
   <xsd:complexType name="ResourceActionMoniker">
@@ -511,7 +511,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiGet -->
   <xsd:element name="HttpApiGet" type="HttpApiGet" substitutionGroup="HttpApi" />
   <xsd:complexType name="HttpApiGet">
@@ -529,7 +529,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiGet Moniker -->
   <xsd:element name="HttpApiGetMoniker" type="HttpApiGetMoniker" substitutionGroup="HttpApiMoniker" />
   <xsd:complexType name="HttpApiGetMoniker">
@@ -541,7 +541,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiPut -->
   <xsd:element name="HttpApiPut" type="HttpApiPut" substitutionGroup="HttpApi" />
   <xsd:complexType name="HttpApiPut">
@@ -559,7 +559,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiPut Moniker -->
   <xsd:element name="HttpApiPutMoniker" type="HttpApiPutMoniker" substitutionGroup="HttpApiMoniker" />
   <xsd:complexType name="HttpApiPutMoniker">
@@ -571,7 +571,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiPost -->
   <xsd:element name="HttpApiPost" type="HttpApiPost" substitutionGroup="HttpApi" />
   <xsd:complexType name="HttpApiPost">
@@ -589,7 +589,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiPost Moniker -->
   <xsd:element name="HttpApiPostMoniker" type="HttpApiPostMoniker" substitutionGroup="HttpApiMoniker" />
   <xsd:complexType name="HttpApiPostMoniker">
@@ -601,7 +601,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiDelete -->
   <xsd:element name="HttpApiDelete" type="HttpApiDelete" substitutionGroup="HttpApi" />
   <xsd:complexType name="HttpApiDelete">
@@ -619,7 +619,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiDelete Moniker -->
   <xsd:element name="HttpApiDeleteMoniker" type="HttpApiDeleteMoniker" substitutionGroup="HttpApiMoniker" />
   <xsd:complexType name="HttpApiDeleteMoniker">
@@ -631,7 +631,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- DataModel -->
   <xsd:element name="dataModel" type="DataModel" substitutionGroup="core:modelElement" />
   <xsd:complexType name="DataModel">
@@ -678,7 +678,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- DataModel Moniker -->
   <xsd:element name="dataModelMoniker" type="DataModelMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="DataModelMoniker">
@@ -695,7 +695,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- ResourceAttribute -->
   <xsd:element name="resourceAttribute" type="ResourceAttribute" substitutionGroup="resource" />
   <xsd:complexType name="ResourceAttribute">
@@ -713,7 +713,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- ResourceAttribute Moniker -->
   <xsd:element name="resourceAttributeMoniker" type="ResourceAttributeMoniker" substitutionGroup="resourceMoniker" />
   <xsd:complexType name="ResourceAttributeMoniker">
@@ -725,7 +725,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiMediaTypeResponse -->
   <xsd:element name="HttpApiMediaTypeResponse" type="HttpApiMediaTypeResponse" substitutionGroup="httpApiMediaType" />
   <xsd:complexType name="HttpApiMediaTypeResponse">
@@ -740,7 +740,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiMediaTypeResponse Moniker -->
   <xsd:element name="HttpApiMediaTypeResponseMoniker" type="HttpApiMediaTypeResponseMoniker" substitutionGroup="httpApiMediaTypeMoniker" />
   <xsd:complexType name="HttpApiMediaTypeResponseMoniker">
@@ -752,7 +752,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiMediaTypeRequest -->
   <xsd:element name="HttpApiMediaTypeRequest" type="HttpApiMediaTypeRequest" substitutionGroup="httpApiMediaType" />
   <xsd:complexType name="HttpApiMediaTypeRequest">
@@ -767,7 +767,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiMediaTypeRequest Moniker -->
   <xsd:element name="HttpApiMediaTypeRequestMoniker" type="HttpApiMediaTypeRequestMoniker" substitutionGroup="httpApiMediaTypeMoniker" />
   <xsd:complexType name="HttpApiMediaTypeRequestMoniker">
@@ -779,7 +779,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiParameter -->
   <xsd:element name="httpApiParameter" type="HttpApiParameter" substitutionGroup="core:modelElement" />
   <xsd:complexType name="HttpApiParameter">
@@ -814,7 +814,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiParameter Moniker -->
   <xsd:element name="httpApiParameterMoniker" type="HttpApiParameterMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="HttpApiParameterMoniker">
@@ -831,7 +831,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiResponseStatusCode -->
   <xsd:element name="HttpApiResponseStatusCode" type="HttpApiResponseStatusCode" substitutionGroup="core:modelElement" />
   <xsd:complexType name="HttpApiResponseStatusCode">
@@ -850,7 +850,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiResponseStatusCode Moniker -->
   <xsd:element name="HttpApiResponseStatusCodeMoniker" type="HttpApiResponseStatusCodeMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="HttpApiResponseStatusCodeMoniker">
@@ -867,7 +867,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- Api -->
   <xsd:element name="api" abstract="true" type="Api" substitutionGroup="core:modelElement" />
   <xsd:complexType name="Api" abstract="true" >
@@ -894,7 +894,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- Api Moniker -->
   <xsd:element name="apiMoniker" abstract="true" type="ApiMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="ApiMoniker">
@@ -911,7 +911,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiMediaType -->
   <xsd:element name="httpApiMediaType" type="HttpApiMediaType" substitutionGroup="core:modelElement" />
   <xsd:complexType name="HttpApiMediaType">
@@ -930,7 +930,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiMediaType Moniker -->
   <xsd:element name="httpApiMediaTypeMoniker" type="HttpApiMediaTypeMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="HttpApiMediaTypeMoniker">
@@ -947,7 +947,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHeader -->
   <xsd:element name="httpApiHeader" type="HttpApiHeader" substitutionGroup="core:modelElement" />
   <xsd:complexType name="HttpApiHeader">
@@ -972,7 +972,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHeader Moniker -->
   <xsd:element name="httpApiHeaderMoniker" type="HttpApiHeaderMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="HttpApiHeaderMoniker">
@@ -989,7 +989,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHeaderRequest -->
   <xsd:element name="HttpApiHeaderRequest" type="HttpApiHeaderRequest" substitutionGroup="httpApiHeader" />
   <xsd:complexType name="HttpApiHeaderRequest">
@@ -1004,7 +1004,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHeaderRequest Moniker -->
   <xsd:element name="HttpApiHeaderRequestMoniker" type="HttpApiHeaderRequestMoniker" substitutionGroup="httpApiHeaderMoniker" />
   <xsd:complexType name="HttpApiHeaderRequestMoniker">
@@ -1016,7 +1016,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHeaderResponse -->
   <xsd:element name="HttpApiHeaderResponse" type="HttpApiHeaderResponse" substitutionGroup="httpApiHeader" />
   <xsd:complexType name="HttpApiHeaderResponse">
@@ -1037,7 +1037,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHeaderResponse Moniker -->
   <xsd:element name="HttpApiHeaderResponseMoniker" type="HttpApiHeaderResponseMoniker" substitutionGroup="httpApiHeaderMoniker" />
   <xsd:complexType name="HttpApiHeaderResponseMoniker">
@@ -1049,7 +1049,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiPatch -->
   <xsd:element name="httpApiPatch" type="HttpApiPatch" substitutionGroup="HttpApi" />
   <xsd:complexType name="HttpApiPatch">
@@ -1067,7 +1067,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiPatch Moniker -->
   <xsd:element name="httpApiPatchMoniker" type="HttpApiPatchMoniker" substitutionGroup="HttpApiMoniker" />
   <xsd:complexType name="HttpApiPatchMoniker">
@@ -1079,7 +1079,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHead -->
   <xsd:element name="httpApiHead" type="HttpApiHead" substitutionGroup="HttpApi" />
   <xsd:complexType name="HttpApiHead">
@@ -1097,7 +1097,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHead Moniker -->
   <xsd:element name="httpApiHeadMoniker" type="HttpApiHeadMoniker" substitutionGroup="HttpApiMoniker" />
   <xsd:complexType name="HttpApiHeadMoniker">
@@ -1109,7 +1109,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiOptions -->
   <xsd:element name="httpApiOptions" type="HttpApiOptions" substitutionGroup="HttpApi" />
   <xsd:complexType name="HttpApiOptions">
@@ -1127,7 +1127,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiOptions Moniker -->
   <xsd:element name="httpApiOptionsMoniker" type="HttpApiOptionsMoniker" substitutionGroup="HttpApiMoniker" />
   <xsd:complexType name="HttpApiOptionsMoniker">
@@ -1139,7 +1139,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiTrace -->
   <xsd:element name="httpApiTrace" type="HttpApiTrace" substitutionGroup="HttpApi" />
   <xsd:complexType name="HttpApiTrace">
@@ -1157,7 +1157,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiTrace Moniker -->
   <xsd:element name="httpApiTraceMoniker" type="HttpApiTraceMoniker" substitutionGroup="HttpApiMoniker" />
   <xsd:complexType name="HttpApiTraceMoniker">
@@ -1169,7 +1169,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- ResourceReferencesResources -->
   <xsd:element name="resourceReferencesResources" type="ResourceReferencesResources" substitutionGroup="core:modelElement" />
   <xsd:complexType name="ResourceReferencesResources">
@@ -1192,7 +1192,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- ResourceReferencesResources Moniker -->
   <xsd:element name="resourceReferencesResourcesMoniker" type="ResourceReferencesResourcesMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="ResourceReferencesResourcesMoniker">
@@ -1209,7 +1209,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiSuccessRequestModel -->
   <xsd:element name="HttpApiSuccessRequestModel" type="HttpApiSuccessRequestModel" substitutionGroup="core:modelElement" />
   <xsd:complexType name="HttpApiSuccessRequestModel">
@@ -1232,7 +1232,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiSuccessRequestModel Moniker -->
   <xsd:element name="HttpApiSuccessRequestModelMoniker" type="HttpApiSuccessRequestModelMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="HttpApiSuccessRequestModelMoniker">
@@ -1249,7 +1249,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiSuccessResponseModel -->
   <xsd:element name="HttpApiSuccessResponseModel" type="HttpApiSuccessResponseModel" substitutionGroup="core:modelElement" />
   <xsd:complexType name="HttpApiSuccessResponseModel">
@@ -1272,7 +1272,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiSuccessResponseModel Moniker -->
   <xsd:element name="HttpApiSuccessResponseModelMoniker" type="HttpApiSuccessResponseModelMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="HttpApiSuccessResponseModelMoniker">
@@ -1289,7 +1289,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHasParameters -->
   <xsd:element name="HttpApiHasParameters" type="HttpApiHasParameters" substitutionGroup="core:modelElement" />
   <xsd:complexType name="HttpApiHasParameters">
@@ -1312,7 +1312,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHasParameters Moniker -->
   <xsd:element name="HttpApiHasParametersMoniker" type="HttpApiHasParametersMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="HttpApiHasParametersMoniker">
@@ -1329,7 +1329,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHasResponseStatusCodes -->
   <xsd:element name="HttpApiHasResponseStatusCodes" type="HttpApiHasResponseStatusCodes" substitutionGroup="core:modelElement" />
   <xsd:complexType name="HttpApiHasResponseStatusCodes">
@@ -1352,7 +1352,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHasResponseStatusCodes Moniker -->
   <xsd:element name="HttpApiHasResponseStatusCodesMoniker" type="HttpApiHasResponseStatusCodesMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="HttpApiHasResponseStatusCodesMoniker">
@@ -1369,7 +1369,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHasMediaTypeResponse -->
   <xsd:element name="HttpApiHasMediaTypeResponse" type="HttpApiHasMediaTypeResponse" substitutionGroup="core:modelElement" />
   <xsd:complexType name="HttpApiHasMediaTypeResponse">
@@ -1392,7 +1392,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHasMediaTypeResponse Moniker -->
   <xsd:element name="HttpApiHasMediaTypeResponseMoniker" type="HttpApiHasMediaTypeResponseMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="HttpApiHasMediaTypeResponseMoniker">
@@ -1409,7 +1409,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHasMediaTypeRequest -->
   <xsd:element name="HttpApiHasMediaTypeRequest" type="HttpApiHasMediaTypeRequest" substitutionGroup="core:modelElement" />
   <xsd:complexType name="HttpApiHasMediaTypeRequest">
@@ -1432,7 +1432,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHasMediaTypeRequest Moniker -->
   <xsd:element name="HttpApiHasMediaTypeRequestMoniker" type="HttpApiHasMediaTypeRequestMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="HttpApiHasMediaTypeRequestMoniker">
@@ -1449,7 +1449,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- ResourceReferencesApis -->
   <xsd:element name="resourceReferencesApis" type="ResourceReferencesApis" substitutionGroup="core:modelElement" />
   <xsd:complexType name="ResourceReferencesApis">
@@ -1472,7 +1472,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- ResourceReferencesApis Moniker -->
   <xsd:element name="resourceReferencesApisMoniker" type="ResourceReferencesApisMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="ResourceReferencesApisMoniker">
@@ -1489,7 +1489,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHasHeaderRequest -->
   <xsd:element name="HttpApiHasHeaderRequest" type="HttpApiHasHeaderRequest" substitutionGroup="core:modelElement" />
   <xsd:complexType name="HttpApiHasHeaderRequest">
@@ -1512,7 +1512,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHasHeaderRequest Moniker -->
   <xsd:element name="HttpApiHasHeaderRequestMoniker" type="HttpApiHasHeaderRequestMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="HttpApiHasHeaderRequestMoniker">
@@ -1529,7 +1529,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHasHeaderResponse -->
   <xsd:element name="HttpApiHasHeaderResponse" type="HttpApiHasHeaderResponse" substitutionGroup="core:modelElement" />
   <xsd:complexType name="HttpApiHasHeaderResponse">
@@ -1552,7 +1552,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- HttpApiHasHeaderResponse Moniker -->
   <xsd:element name="HttpApiHasHeaderResponseMoniker" type="HttpApiHasHeaderResponseMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="HttpApiHasHeaderResponseMoniker">
@@ -1569,7 +1569,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- ApiStudioHasResourced -->
   <xsd:element name="apiStudioHasResourced" type="ApiStudioHasResourced" substitutionGroup="core:modelElement" />
   <xsd:complexType name="ApiStudioHasResourced">
@@ -1592,7 +1592,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- ApiStudioHasResourced Moniker -->
   <xsd:element name="apiStudioHasResourcedMoniker" type="ApiStudioHasResourcedMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="ApiStudioHasResourcedMoniker">
@@ -1609,7 +1609,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- ApiStudioHasApis -->
   <xsd:element name="apiStudioHasApis" type="ApiStudioHasApis" substitutionGroup="core:modelElement" />
   <xsd:complexType name="ApiStudioHasApis">
@@ -1632,7 +1632,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- ApiStudioHasApis Moniker -->
   <xsd:element name="apiStudioHasApisMoniker" type="ApiStudioHasApisMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="ApiStudioHasApisMoniker">
@@ -1649,7 +1649,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- ApiStudioHasDataModeled -->
   <xsd:element name="apiStudioHasDataModeled" type="ApiStudioHasDataModeled" substitutionGroup="core:modelElement" />
   <xsd:complexType name="ApiStudioHasDataModeled">
@@ -1672,7 +1672,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- ApiStudioHasDataModeled Moniker -->
   <xsd:element name="apiStudioHasDataModeledMoniker" type="ApiStudioHasDataModeledMoniker" substitutionGroup="core:modelElementMoniker" />
   <xsd:complexType name="ApiStudioHasDataModeledMoniker">
@@ -1689,7 +1689,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  
+
   <!-- Enum HttpApiParameterTypes -->
   <xsd:simpleType name="HttpApiParameterTypes">
     <xsd:restriction base="xsd:string">
@@ -1710,7 +1710,7 @@
       </xsd:enumeration>
     </xsd:restriction>
   </xsd:simpleType>
-  
+
   <!-- Enum CodeGenerationVariableCaseTypes -->
   <xsd:simpleType name="CodeGenerationVariableCaseTypes">
     <xsd:restriction base="xsd:string">
@@ -1719,7 +1719,7 @@
       <xsd:enumeration value="SnakeCase"/>
     </xsd:restriction>
   </xsd:simpleType>
-  
+
   <!-- Enum HttpApiAudienceTypes -->
   <xsd:simpleType name="HttpApiAudienceTypes">
     <xsd:restriction base="xsd:string">
@@ -1728,7 +1728,7 @@
       <xsd:enumeration value="Public"/>
     </xsd:restriction>
   </xsd:simpleType>
-  
+
   <!-- Enum HttpApiHeaderResponseOnTypes -->
   <xsd:simpleType name="HttpApiHeaderResponseOnTypes">
     <xsd:restriction base="xsd:string">
@@ -1740,7 +1740,7 @@
       <xsd:enumeration value="OnSuccess"/>
     </xsd:restriction>
   </xsd:simpleType>
-  
+
   <!-- Enum SecuritySchemeTypes -->
   <xsd:simpleType name="SecuritySchemeTypes">
     <xsd:restriction base="xsd:string">
@@ -1750,6 +1750,6 @@
       <xsd:enumeration value="OpenIdConnect"/>
     </xsd:restriction>
   </xsd:simpleType>
-  
+
 </xsd:schema>
 

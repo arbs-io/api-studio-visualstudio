@@ -32,26 +32,7 @@ namespace ApiStudioIO
             uri += $@"{name}";
             return FormatUri(uri);
         }
-
-        protected virtual string GetImplementationNameValue()
-        {
-            if (string.IsNullOrEmpty(Name)) return "";
-
-            return Name.First().ToString().ToUpper() + Name.Substring(1);
-        }
-
-        //Implementation
-        public bool HasParameters()
-        {
-            if (Apis.Count == 0) return false;
-
-            foreach (var api in Apis)
-                if (((HttpApi)api).RequestParameters.Any())
-                    return true;
-
-            return false;
-        }
-
+        
         public static string FormatUri(string uri)
         {
             uri = uri.Replace(@"//", @"/");

@@ -10,36 +10,38 @@ namespace ApiStudioIO.HttpApiDefaults
     {
         internal static HttpApi WithDefaultMediaTypes(this HttpApi httpApi)
         {
-            CreateDefaults(httpApi);
+            CreateHttpApiMediaTypeResponsedDefaults(httpApi);
+            CreateHttpApiMediaTypeRequestDefaults(httpApi);
 
             return httpApi;
         }
 
-        private static void CreateDefaults(HttpApi httpApi)
+        private static void CreateHttpApiMediaTypeResponsedDefaults(HttpApi httpApi)
         {
-            if (httpApi.HttpApiMediaTypeResponsed.Count == 0)
-            {
-                var managedList = new List<HttpResourceMediaTypeResponse>();
-                var managed = new HttpResourceMediaTypeResponse
-                {
-                    DiscreteType = HttpTypeMimeAllowedDiscrete.application,
-                    SubType = "json"
-                };
-                managedList.Add(managed);
-                ApiStudioComponentTransactionManager.Save(httpApi, managedList);
-            }
+            if (httpApi.HttpApiMediaTypeResponsed.Count != 0) return;
 
-            if (httpApi.HttpApiMediaTypeRequestd.Count == 0)
+            var managedList = new List<HttpResourceMediaTypeResponse>();
+            var managed = new HttpResourceMediaTypeResponse
             {
-                var managedList = new List<HttpResourceMediaTypeRequest>();
-                var managed = new HttpResourceMediaTypeRequest
-                {
-                    DiscreteType = HttpTypeMimeAllowedDiscrete.application,
-                    SubType = "json"
-                };
-                managedList.Add(managed);
-                ApiStudioComponentTransactionManager.Save(httpApi, managedList);
-            }
+                DiscreteType = HttpTypeMimeAllowedDiscrete.application,
+                SubType = "json"
+            };
+            managedList.Add(managed);
+            ApiStudioComponentTransactionManager.Save(httpApi, managedList);
+        }
+
+        private static void CreateHttpApiMediaTypeRequestDefaults(HttpApi httpApi)
+        {
+            if (httpApi.HttpApiMediaTypeRequest.Count != 0) return;
+
+            var managedList = new List<HttpResourceMediaTypeRequest>();
+            var managed = new HttpResourceMediaTypeRequest
+            {
+                DiscreteType = HttpTypeMimeAllowedDiscrete.application,
+                SubType = "json"
+            };
+            managedList.Add(managed);
+            ApiStudioComponentTransactionManager.Save(httpApi, managedList);
         }
     }
 }

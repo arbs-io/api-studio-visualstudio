@@ -19,33 +19,33 @@ namespace ApiStudioIO
             _ = propertyEntityList ?? throw new ArgumentNullException(nameof(propertyEntityList));
 
             //arb review just use override...
-            if (domainEntity is HttpApi httpApi)
-                switch (propertyEntityList)
-                {
-                    case List<HttpResourceMediaTypeResponse> HttpApiMediaTypeResponses:
-                        httpApi.StoreDomainModel(HttpApiMediaTypeResponses);
-                        break;
+            if (!(domainEntity is HttpApi httpApi)) return;
+            switch (propertyEntityList)
+            {
+                case List<HttpResourceMediaTypeResponse> httpApiMediaTypeResponses:
+                    httpApi.StoreDomainModel(httpApiMediaTypeResponses);
+                    break;
 
-                    case List<HttpResourceMediaTypeRequest> HttpApiMediaTypeRequests:
-                        httpApi.StoreDomainModel(HttpApiMediaTypeRequests);
-                        break;
+                case List<HttpResourceMediaTypeRequest> httpApiMediaTypeRequests:
+                    httpApi.StoreDomainModel(httpApiMediaTypeRequests);
+                    break;
 
-                    case List<HttpResourceParameter> httpApiParameter:
-                        httpApi.StoreDomainModel(httpApiParameter);
-                        break;
+                case List<HttpResourceParameter> httpApiParameter:
+                    httpApi.StoreDomainModel(httpApiParameter);
+                    break;
 
-                    case List<HttpResourceResponseStatusCode> httpApiResponseStatusCode:
-                        httpApi.StoreDomainModel(httpApiResponseStatusCode);
-                        break;
+                case List<HttpResourceResponseStatusCode> httpApiResponseStatusCode:
+                    httpApi.StoreDomainModel(httpApiResponseStatusCode);
+                    break;
 
-                    case List<HttpResourceHeaderResponse> HttpApiHeaderResponse:
-                        httpApi.StoreDomainModel(HttpApiHeaderResponse);
-                        break;
+                case List<HttpResourceHeaderResponse> httpApiHeaderResponse:
+                    httpApi.StoreDomainModel(httpApiHeaderResponse);
+                    break;
 
-                    case List<HttpResourceHeaderRequest> HttpApiHeaderRequest:
-                        httpApi.StoreDomainModel(HttpApiHeaderRequest);
-                        break;
-                }
+                case List<HttpResourceHeaderRequest> httpApiHeaderRequest:
+                    httpApi.StoreDomainModel(httpApiHeaderRequest);
+                    break;
+            }
         }
     }
 }

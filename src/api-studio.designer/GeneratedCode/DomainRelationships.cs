@@ -24,13 +24,13 @@ namespace ApiStudioIO
 	public partial class ResourceReferencesResources : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
-		
+
 		/// <summary>
 		/// ResourceReferencesResources domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xd11ce085, 0x2df6, 0x463c, 0xbf, 0x92, 0x9f, 0x80, 0xee, 0x1c, 0x54, 0x00);
-	
-				
+
+
 		/// <summary>
 		/// Constructor
 		/// Creates a ResourceReferencesResources link in the same Partition as the given Resource
@@ -41,7 +41,7 @@ namespace ApiStudioIO
 			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(ResourceReferencesResources.SourceResourceDomainRoleId, source), new DslModeling::RoleAssignment(ResourceReferencesResources.TargetResourceDomainRoleId, target)}, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -51,7 +51,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -62,7 +62,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -72,7 +72,7 @@ namespace ApiStudioIO
 			: base(partition, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -85,12 +85,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region SourceResource domain role code
-		
+
 		/// <summary>
 		/// SourceResource domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid SourceResourceDomainRoleId = new global::System.Guid(0xf52d4c33, 0x0f0b, 0x459b, 0x92, 0x72, 0x15, 0x3e, 0x2e, 0x28, 0x44, 0x91);
-		
+
 		/// <summary>
 		/// DomainRole SourceResource
 		/// Description for ApiStudioIO.ResourceReferencesResources.SourceResource
@@ -112,7 +112,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, SourceResourceDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access SourceResource of a Resource
 		/// <summary>
@@ -126,12 +126,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region TargetResource domain role code
-		
+
 		/// <summary>
 		/// TargetResource domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid TargetResourceDomainRoleId = new global::System.Guid(0xa7936b77, 0x5348, 0x49e3, 0x87, 0x09, 0x32, 0x67, 0x39, 0x3f, 0x42, 0x3c);
-		
+
 		/// <summary>
 		/// DomainRole TargetResource
 		/// Description for ApiStudioIO.ResourceReferencesResources.TargetResource
@@ -153,7 +153,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, TargetResourceDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access Resources of a Resource
 		/// <summary>
@@ -189,7 +189,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region ResourceReferencesResources instance accessors
-		
+
 		/// <summary>
 		/// Get any ResourceReferencesResources links between a given Resource and a Resource.
 		/// </summary>
@@ -225,7 +225,7 @@ namespace ApiStudioIO
 			}
 			return null;
 		}
-		
+
 		#endregion
 	}
 }
@@ -244,13 +244,13 @@ namespace ApiStudioIO
 	public partial class HttpApiSuccessRequestModel : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
-		
+
 		/// <summary>
 		/// HttpApiSuccessRequestModel domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x3ee75ed1, 0xa30e, 0x4725, 0xbb, 0x2d, 0x50, 0x47, 0x96, 0x0d, 0xf4, 0x33);
-	
-				
+
+
 		/// <summary>
 		/// Constructor
 		/// Creates a HttpApiSuccessRequestModel link in the same Partition as the given DataModel
@@ -261,7 +261,7 @@ namespace ApiStudioIO
 			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(HttpApiSuccessRequestModel.DataModelDomainRoleId, source), new DslModeling::RoleAssignment(HttpApiSuccessRequestModel.HttpApiDomainRoleId, target)}, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -271,7 +271,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -282,7 +282,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -292,7 +292,7 @@ namespace ApiStudioIO
 			: base(partition, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -305,12 +305,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region DataModel domain role code
-		
+
 		/// <summary>
 		/// DataModel domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid DataModelDomainRoleId = new global::System.Guid(0x4dc78a61, 0xcfb1, 0x448f, 0xa8, 0xf2, 0x17, 0x77, 0xd4, 0x62, 0xa6, 0x97);
-		
+
 		/// <summary>
 		/// DomainRole DataModel
 		/// Description for ApiStudioIO.HttpApiSuccessRequestModel.DataModel
@@ -332,7 +332,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, DataModelDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access SourceDataModel of a HttpApi
 		/// <summary>
@@ -346,12 +346,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApi domain role code
-		
+
 		/// <summary>
 		/// HttpApi domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid HttpApiDomainRoleId = new global::System.Guid(0x9c8d4e57, 0xe887, 0x4e62, 0x96, 0x0b, 0x45, 0xa5, 0x91, 0x5f, 0xf6, 0x14);
-		
+
 		/// <summary>
 		/// DomainRole HttpApi
 		/// Description for ApiStudioIO.HttpApiSuccessRequestModel.HttpApi
@@ -373,7 +373,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, HttpApiDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access HttpApis of a DataModel
 		/// <summary>
@@ -409,7 +409,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApiSuccessRequestModel instance accessors
-		
+
 		/// <summary>
 		/// Get any HttpApiSuccessRequestModel links between a given DataModel and a HttpApi.
 		/// </summary>
@@ -445,7 +445,7 @@ namespace ApiStudioIO
 			}
 			return null;
 		}
-		
+
 		#endregion
 	}
 }
@@ -464,13 +464,13 @@ namespace ApiStudioIO
 	public partial class HttpApiSuccessResponseModel : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
-		
+
 		/// <summary>
 		/// HttpApiSuccessResponseModel domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xba3ce080, 0xe2ec, 0x4347, 0x97, 0xdc, 0x69, 0xd3, 0x98, 0x1e, 0x5a, 0xeb);
-	
-				
+
+
 		/// <summary>
 		/// Constructor
 		/// Creates a HttpApiSuccessResponseModel link in the same Partition as the given HttpApi
@@ -481,7 +481,7 @@ namespace ApiStudioIO
 			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(HttpApiSuccessResponseModel.HttpApiDomainRoleId, source), new DslModeling::RoleAssignment(HttpApiSuccessResponseModel.DataModelDomainRoleId, target)}, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -491,7 +491,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -502,7 +502,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -512,7 +512,7 @@ namespace ApiStudioIO
 			: base(partition, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -525,12 +525,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApi domain role code
-		
+
 		/// <summary>
 		/// HttpApi domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid HttpApiDomainRoleId = new global::System.Guid(0x2fc549d9, 0xb391, 0x4db7, 0xa9, 0xfe, 0xff, 0x72, 0x4e, 0x0d, 0xd6, 0x4a);
-		
+
 		/// <summary>
 		/// DomainRole HttpApi
 		/// Description for ApiStudioIO.HttpApiSuccessResponseModel.HttpApi
@@ -552,7 +552,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, HttpApiDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access SourceHttpApi of a DataModel
 		/// <summary>
@@ -566,12 +566,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region DataModel domain role code
-		
+
 		/// <summary>
 		/// DataModel domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid DataModelDomainRoleId = new global::System.Guid(0xdd37e82a, 0x905b, 0x499c, 0x8d, 0xdb, 0xba, 0x90, 0x12, 0xf3, 0xcd, 0x1f);
-		
+
 		/// <summary>
 		/// DomainRole DataModel
 		/// Description for ApiStudioIO.HttpApiSuccessResponseModel.DataModel
@@ -593,7 +593,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, DataModelDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access DataModels of a HttpApi
 		/// <summary>
@@ -629,7 +629,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApiSuccessResponseModel instance accessors
-		
+
 		/// <summary>
 		/// Get any HttpApiSuccessResponseModel links between a given HttpApi and a DataModel.
 		/// </summary>
@@ -665,7 +665,7 @@ namespace ApiStudioIO
 			}
 			return null;
 		}
-		
+
 		#endregion
 	}
 }
@@ -684,13 +684,13 @@ namespace ApiStudioIO
 	public partial class HttpApiHasParameters : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
-		
+
 		/// <summary>
 		/// HttpApiHasParameters domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xfa7d2f8c, 0x1e77, 0x4a66, 0x99, 0x12, 0xd8, 0x20, 0x4a, 0xc2, 0x08, 0xf3);
-	
-				
+
+
 		/// <summary>
 		/// Constructor
 		/// Creates a HttpApiHasParameters link in the same Partition as the given HttpApi
@@ -701,7 +701,7 @@ namespace ApiStudioIO
 			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(HttpApiHasParameters.HttpApiDomainRoleId, source), new DslModeling::RoleAssignment(HttpApiHasParameters.HttpApiParameterDomainRoleId, target)}, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -711,7 +711,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -722,7 +722,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -732,7 +732,7 @@ namespace ApiStudioIO
 			: base(partition, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -745,12 +745,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApi domain role code
-		
+
 		/// <summary>
 		/// HttpApi domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid HttpApiDomainRoleId = new global::System.Guid(0x5f9c4b56, 0x75da, 0x4390, 0xbf, 0x67, 0x2a, 0xb3, 0x59, 0xda, 0x36, 0xff);
-		
+
 		/// <summary>
 		/// DomainRole HttpApi
 		/// Description for ApiStudioIO.HttpApiHasParameters.HttpApi
@@ -772,7 +772,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, HttpApiDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access HttpApi of a HttpApiParameter
 		/// <summary>
@@ -784,7 +784,7 @@ namespace ApiStudioIO
 		{
 			return DslModeling::DomainRoleInfo.GetLinkedElement(element, HttpApiParameterDomainRoleId) as HttpApi;
 		}
-		
+
 		/// <summary>
 		/// Sets HttpApi.
 		/// </summary>
@@ -796,12 +796,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApiParameter domain role code
-		
+
 		/// <summary>
 		/// HttpApiParameter domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid HttpApiParameterDomainRoleId = new global::System.Guid(0x4e1f0e00, 0xe8d5, 0x4f7d, 0x82, 0x62, 0x22, 0x34, 0x51, 0xe9, 0x43, 0x93);
-		
+
 		/// <summary>
 		/// DomainRole HttpApiParameter
 		/// Description for ApiStudioIO.HttpApiHasParameters.HttpApiParameter
@@ -823,7 +823,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, HttpApiParameterDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access HttpApiParameters of a HttpApi
 		/// <summary>
@@ -868,7 +868,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApiHasParameters instance accessors
-		
+
 		/// <summary>
 		/// Get any HttpApiHasParameters links between a given HttpApi and a HttpApiParameter.
 		/// </summary>
@@ -904,7 +904,7 @@ namespace ApiStudioIO
 			}
 			return null;
 		}
-		
+
 		#endregion
 	}
 }
@@ -923,13 +923,13 @@ namespace ApiStudioIO
 	public partial class HttpApiHasResponseStatusCodes : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
-		
+
 		/// <summary>
 		/// HttpApiHasResponseStatusCodes domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x8a692ff9, 0xdcc7, 0x414f, 0x9a, 0xc9, 0x52, 0x65, 0xfe, 0x4e, 0xc2, 0x02);
-	
-				
+
+
 		/// <summary>
 		/// Constructor
 		/// Creates a HttpApiHasResponseStatusCodes link in the same Partition as the given HttpApi
@@ -940,7 +940,7 @@ namespace ApiStudioIO
 			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(HttpApiHasResponseStatusCodes.HttpApiDomainRoleId, source), new DslModeling::RoleAssignment(HttpApiHasResponseStatusCodes.HttpApiResponseStatusCodeDomainRoleId, target)}, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -950,7 +950,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -961,7 +961,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -971,7 +971,7 @@ namespace ApiStudioIO
 			: base(partition, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -984,12 +984,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApi domain role code
-		
+
 		/// <summary>
 		/// HttpApi domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid HttpApiDomainRoleId = new global::System.Guid(0x2fe627a6, 0x9b2e, 0x4742, 0x8b, 0xd1, 0x94, 0xf2, 0x13, 0x8e, 0x07, 0xf8);
-		
+
 		/// <summary>
 		/// DomainRole HttpApi
 		/// Description for ApiStudioIO.HttpApiHasResponseStatusCodes.HttpApi
@@ -1011,7 +1011,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, HttpApiDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access HttpApi of a HttpApiResponseStatusCode
 		/// <summary>
@@ -1023,7 +1023,7 @@ namespace ApiStudioIO
 		{
 			return DslModeling::DomainRoleInfo.GetLinkedElement(element, HttpApiResponseStatusCodeDomainRoleId) as HttpApi;
 		}
-		
+
 		/// <summary>
 		/// Sets HttpApi.
 		/// </summary>
@@ -1035,12 +1035,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApiResponseStatusCode domain role code
-		
+
 		/// <summary>
 		/// HttpApiResponseStatusCode domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid HttpApiResponseStatusCodeDomainRoleId = new global::System.Guid(0x5c236289, 0x865f, 0x4407, 0x8d, 0x55, 0x47, 0x46, 0x18, 0xec, 0x4a, 0xc2);
-		
+
 		/// <summary>
 		/// DomainRole HttpApiResponseStatusCode
 		/// Description for
@@ -1063,7 +1063,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, HttpApiResponseStatusCodeDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access HttpApiResponseStatusCodes of a HttpApi
 		/// <summary>
@@ -1108,7 +1108,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApiHasResponseStatusCodes instance accessors
-		
+
 		/// <summary>
 		/// Get any HttpApiHasResponseStatusCodes links between a given HttpApi and a HttpApiResponseStatusCode.
 		/// </summary>
@@ -1144,7 +1144,7 @@ namespace ApiStudioIO
 			}
 			return null;
 		}
-		
+
 		#endregion
 	}
 }
@@ -1163,13 +1163,13 @@ namespace ApiStudioIO
 	public partial class HttpApiHasMediaTypeResponse : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
-		
+
 		/// <summary>
 		/// HttpApiHasMediaTypeResponse domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xa9ffebca, 0x8f26, 0x4d5e, 0xa3, 0xea, 0xd1, 0xbd, 0x23, 0x4f, 0xf8, 0x60);
-	
-				
+
+
 		/// <summary>
 		/// Constructor
 		/// Creates a HttpApiHasMediaTypeResponse link in the same Partition as the given HttpApi
@@ -1180,7 +1180,7 @@ namespace ApiStudioIO
 			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(HttpApiHasMediaTypeResponse.HttpApiDomainRoleId, source), new DslModeling::RoleAssignment(HttpApiHasMediaTypeResponse.HttpApiMediaTypeResponseDomainRoleId, target)}, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1190,7 +1190,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1201,7 +1201,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1211,7 +1211,7 @@ namespace ApiStudioIO
 			: base(partition, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1224,12 +1224,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApi domain role code
-		
+
 		/// <summary>
 		/// HttpApi domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid HttpApiDomainRoleId = new global::System.Guid(0xd3665080, 0xf49b, 0x45dd, 0xaf, 0x8c, 0x0a, 0xfa, 0x9b, 0xcf, 0x21, 0x9b);
-		
+
 		/// <summary>
 		/// DomainRole HttpApi
 		/// Description for ApiStudioIO.HttpApiHasMediaTypeResponse.HttpApi
@@ -1251,7 +1251,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, HttpApiDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access HttpApi of a HttpApiMediaTypeResponse
 		/// <summary>
@@ -1263,7 +1263,7 @@ namespace ApiStudioIO
 		{
 			return DslModeling::DomainRoleInfo.GetLinkedElement(element, HttpApiMediaTypeResponseDomainRoleId) as HttpApi;
 		}
-		
+
 		/// <summary>
 		/// Sets HttpApi.
 		/// </summary>
@@ -1275,12 +1275,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApiMediaTypeResponse domain role code
-		
+
 		/// <summary>
 		/// HttpApiMediaTypeResponse domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid HttpApiMediaTypeResponseDomainRoleId = new global::System.Guid(0x66478424, 0x605c, 0x45dd, 0xb8, 0xda, 0xcc, 0x74, 0x8d, 0x5a, 0x8f, 0xf8);
-		
+
 		/// <summary>
 		/// DomainRole HttpApiMediaTypeResponse
 		/// Description for ApiStudioIO.HttpApiHasMediaTypeResponse.HttpApiMediaTypeResponse
@@ -1302,7 +1302,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, HttpApiMediaTypeResponseDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access HttpApiMediaTypeResponsed of a HttpApi
 		/// <summary>
@@ -1347,7 +1347,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApiHasMediaTypeResponse instance accessors
-		
+
 		/// <summary>
 		/// Get any HttpApiHasMediaTypeResponse links between a given HttpApi and a HttpApiMediaTypeResponse.
 		/// </summary>
@@ -1383,7 +1383,7 @@ namespace ApiStudioIO
 			}
 			return null;
 		}
-		
+
 		#endregion
 	}
 }
@@ -1402,13 +1402,13 @@ namespace ApiStudioIO
 	public partial class HttpApiHasMediaTypeRequest : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
-		
+
 		/// <summary>
 		/// HttpApiHasMediaTypeRequest domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xd744ca70, 0xd39c, 0x4204, 0x9f, 0xda, 0x82, 0x81, 0xa9, 0x6d, 0x13, 0xe2);
-	
-				
+
+
 		/// <summary>
 		/// Constructor
 		/// Creates a HttpApiHasMediaTypeRequest link in the same Partition as the given HttpApi
@@ -1419,7 +1419,7 @@ namespace ApiStudioIO
 			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(HttpApiHasMediaTypeRequest.HttpApiDomainRoleId, source), new DslModeling::RoleAssignment(HttpApiHasMediaTypeRequest.HttpApiMediaTypeRequestDomainRoleId, target)}, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1429,7 +1429,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1440,7 +1440,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1450,7 +1450,7 @@ namespace ApiStudioIO
 			: base(partition, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1463,19 +1463,19 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApi domain role code
-		
+
 		/// <summary>
 		/// HttpApi domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid HttpApiDomainRoleId = new global::System.Guid(0x6eae1b8f, 0xab94, 0x4b52, 0x85, 0xf9, 0x4a, 0x4a, 0x48, 0x42, 0xa9, 0xfe);
-		
+
 		/// <summary>
 		/// DomainRole HttpApi
 		/// Description for ApiStudioIO.HttpApiHasMediaTypeRequest.HttpApi
 		/// </summary>
 		[DslDesign::DisplayNameResource("ApiStudioIO.HttpApiHasMediaTypeRequest/HttpApi.DisplayName", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("ApiStudioIO.HttpApiHasMediaTypeRequest/HttpApi.Description", typeof(global::ApiStudioIO.ApiStudioIODomainModel), "ApiStudioIO.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "HttpApiMediaTypeRequestd", PropertyDisplayNameKey="ApiStudioIO.HttpApiHasMediaTypeRequest/HttpApi.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.PropagatesCopyToLinkAndOppositeRolePlayer, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "HttpApiMediaTypeRequest", PropertyDisplayNameKey="ApiStudioIO.HttpApiHasMediaTypeRequest/HttpApi.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.PropagatesCopyToLinkAndOppositeRolePlayer, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
 		[DslModeling::DomainObjectId("6eae1b8f-ab94-4b52-85f9-4a4a4842a9fe")]
 		public virtual HttpApi HttpApi
 		{
@@ -1490,7 +1490,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, HttpApiDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access HttpApi of a HttpApiMediaTypeRequest
 		/// <summary>
@@ -1502,7 +1502,7 @@ namespace ApiStudioIO
 		{
 			return DslModeling::DomainRoleInfo.GetLinkedElement(element, HttpApiMediaTypeRequestDomainRoleId) as HttpApi;
 		}
-		
+
 		/// <summary>
 		/// Sets HttpApi.
 		/// </summary>
@@ -1514,12 +1514,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApiMediaTypeRequest domain role code
-		
+
 		/// <summary>
 		/// HttpApiMediaTypeRequest domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid HttpApiMediaTypeRequestDomainRoleId = new global::System.Guid(0x38e764b1, 0xd576, 0x4e3c, 0x9d, 0xb9, 0xe2, 0x47, 0x26, 0xa3, 0xfc, 0x35);
-		
+
 		/// <summary>
 		/// DomainRole HttpApiMediaTypeRequest
 		/// Description for ApiStudioIO.HttpApiHasMediaTypeRequest.HttpApiMediaTypeRequest
@@ -1541,15 +1541,15 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, HttpApiMediaTypeRequestDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
-		#region Static methods to access HttpApiMediaTypeRequestd of a HttpApi
+		#region Static methods to access HttpApiMediaTypeRequest of a HttpApi
 		/// <summary>
-		/// Gets a list of HttpApiMediaTypeRequestd.
+		/// Gets a list of HttpApiMediaTypeRequest.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static DslModeling::LinkedElementCollection<HttpApiMediaTypeRequest> GetHttpApiMediaTypeRequestd(HttpApi element)
+		public static DslModeling::LinkedElementCollection<HttpApiMediaTypeRequest> GetHttpApiMediaTypeRequest(HttpApi element)
 		{
 			return GetRoleCollection<DslModeling::LinkedElementCollection<HttpApiMediaTypeRequest>, HttpApiMediaTypeRequest>(element, HttpApiDomainRoleId);
 		}
@@ -1560,7 +1560,7 @@ namespace ApiStudioIO
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::ApiStudioIO.HttpApiHasMediaTypeRequest> GetLinksToHttpApiMediaTypeRequestd ( global::ApiStudioIO.HttpApi httpApiInstance )
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::ApiStudioIO.HttpApiHasMediaTypeRequest> GetLinksToHttpApiMediaTypeRequest ( global::ApiStudioIO.HttpApi httpApiInstance )
 		{
 			return DslModeling::DomainRoleInfo.GetElementLinks<global::ApiStudioIO.HttpApiHasMediaTypeRequest>(httpApiInstance, global::ApiStudioIO.HttpApiHasMediaTypeRequest.HttpApiDomainRoleId);
 		}
@@ -1586,7 +1586,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApiHasMediaTypeRequest instance accessors
-		
+
 		/// <summary>
 		/// Get any HttpApiHasMediaTypeRequest links between a given HttpApi and a HttpApiMediaTypeRequest.
 		/// </summary>
@@ -1622,7 +1622,7 @@ namespace ApiStudioIO
 			}
 			return null;
 		}
-		
+
 		#endregion
 	}
 }
@@ -1641,13 +1641,13 @@ namespace ApiStudioIO
 	public partial class ResourceReferencesApis : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
-		
+
 		/// <summary>
 		/// ResourceReferencesApis domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x97a03524, 0xddf1, 0x462d, 0x8a, 0xa1, 0x3b, 0x99, 0x1a, 0x11, 0x96, 0x08);
-	
-				
+
+
 		/// <summary>
 		/// Constructor
 		/// Creates a ResourceReferencesApis link in the same Partition as the given Resource
@@ -1658,7 +1658,7 @@ namespace ApiStudioIO
 			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(ResourceReferencesApis.ResourceDomainRoleId, source), new DslModeling::RoleAssignment(ResourceReferencesApis.ApiDomainRoleId, target)}, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1668,7 +1668,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1679,7 +1679,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1689,7 +1689,7 @@ namespace ApiStudioIO
 			: base(partition, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1702,12 +1702,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region Resource domain role code
-		
+
 		/// <summary>
 		/// Resource domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid ResourceDomainRoleId = new global::System.Guid(0x78f75c24, 0x4b0d, 0x40cc, 0xa1, 0xbd, 0xbb, 0x9d, 0x1d, 0x31, 0xca, 0x85);
-		
+
 		/// <summary>
 		/// DomainRole Resource
 		/// Description for ApiStudioIO.ResourceReferencesApis.Resource
@@ -1729,7 +1729,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, ResourceDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access Resourced of a Api
 		/// <summary>
@@ -1743,12 +1743,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region Api domain role code
-		
+
 		/// <summary>
 		/// Api domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid ApiDomainRoleId = new global::System.Guid(0xc23208d4, 0x9cbf, 0x4c86, 0xbf, 0x4c, 0x89, 0x6d, 0x2f, 0xb1, 0x53, 0xd0);
-		
+
 		/// <summary>
 		/// DomainRole Api
 		/// Description for ApiStudioIO.ResourceReferencesApis.Api
@@ -1770,7 +1770,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, ApiDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access Apis of a Resource
 		/// <summary>
@@ -1806,7 +1806,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region ResourceReferencesApis instance accessors
-		
+
 		/// <summary>
 		/// Get any ResourceReferencesApis links between a given Resource and a Api.
 		/// </summary>
@@ -1842,7 +1842,7 @@ namespace ApiStudioIO
 			}
 			return null;
 		}
-		
+
 		#endregion
 	}
 }
@@ -1861,13 +1861,13 @@ namespace ApiStudioIO
 	public partial class HttpApiHasHeaderRequest : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
-		
+
 		/// <summary>
 		/// HttpApiHasHeaderRequest domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xe4e82758, 0x72de, 0x402c, 0xa6, 0x10, 0xfe, 0x6d, 0xf8, 0xa9, 0xac, 0x1d);
-	
-				
+
+
 		/// <summary>
 		/// Constructor
 		/// Creates a HttpApiHasHeaderRequest link in the same Partition as the given HttpApi
@@ -1878,7 +1878,7 @@ namespace ApiStudioIO
 			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(HttpApiHasHeaderRequest.HttpApiDomainRoleId, source), new DslModeling::RoleAssignment(HttpApiHasHeaderRequest.HttpApiHeaderRequestDomainRoleId, target)}, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1888,7 +1888,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1899,7 +1899,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1909,7 +1909,7 @@ namespace ApiStudioIO
 			: base(partition, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1922,12 +1922,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApi domain role code
-		
+
 		/// <summary>
 		/// HttpApi domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid HttpApiDomainRoleId = new global::System.Guid(0x201c414c, 0xb3c9, 0x49cc, 0x81, 0xad, 0x64, 0xbd, 0x31, 0xa9, 0x52, 0x81);
-		
+
 		/// <summary>
 		/// DomainRole HttpApi
 		/// Description for ApiStudioIO.HttpApiHasHeaderRequest.HttpApi
@@ -1949,7 +1949,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, HttpApiDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access HttpApi of a HttpApiHeaderRequest
 		/// <summary>
@@ -1961,7 +1961,7 @@ namespace ApiStudioIO
 		{
 			return DslModeling::DomainRoleInfo.GetLinkedElement(element, HttpApiHeaderRequestDomainRoleId) as HttpApi;
 		}
-		
+
 		/// <summary>
 		/// Sets HttpApi.
 		/// </summary>
@@ -1973,12 +1973,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApiHeaderRequest domain role code
-		
+
 		/// <summary>
 		/// HttpApiHeaderRequest domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid HttpApiHeaderRequestDomainRoleId = new global::System.Guid(0xa53f79d2, 0xb840, 0x44f0, 0x8e, 0x9f, 0xee, 0x8f, 0x4a, 0xf6, 0x36, 0x37);
-		
+
 		/// <summary>
 		/// DomainRole HttpApiHeaderRequest
 		/// Description for ApiStudioIO.HttpApiHasHeaderRequest.HttpApiHeaderRequest
@@ -2000,7 +2000,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, HttpApiHeaderRequestDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access HttpApiHeaderRequests of a HttpApi
 		/// <summary>
@@ -2045,7 +2045,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApiHasHeaderRequest instance accessors
-		
+
 		/// <summary>
 		/// Get any HttpApiHasHeaderRequest links between a given HttpApi and a HttpApiHeaderRequest.
 		/// </summary>
@@ -2081,7 +2081,7 @@ namespace ApiStudioIO
 			}
 			return null;
 		}
-		
+
 		#endregion
 	}
 }
@@ -2100,13 +2100,13 @@ namespace ApiStudioIO
 	public partial class HttpApiHasHeaderResponse : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
-		
+
 		/// <summary>
 		/// HttpApiHasHeaderResponse domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xdef037d5, 0x1495, 0x4547, 0x8d, 0xd6, 0xcb, 0x91, 0xb9, 0x2a, 0xbf, 0xa3);
-	
-				
+
+
 		/// <summary>
 		/// Constructor
 		/// Creates a HttpApiHasHeaderResponse link in the same Partition as the given HttpApi
@@ -2117,7 +2117,7 @@ namespace ApiStudioIO
 			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(HttpApiHasHeaderResponse.HttpApiDomainRoleId, source), new DslModeling::RoleAssignment(HttpApiHasHeaderResponse.HttpApiHeaderResponseDomainRoleId, target)}, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2127,7 +2127,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2138,7 +2138,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2148,7 +2148,7 @@ namespace ApiStudioIO
 			: base(partition, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2161,12 +2161,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApi domain role code
-		
+
 		/// <summary>
 		/// HttpApi domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid HttpApiDomainRoleId = new global::System.Guid(0x3991413f, 0x0c9f, 0x47b0, 0x88, 0x18, 0x9e, 0x77, 0x3b, 0x7f, 0x24, 0x6b);
-		
+
 		/// <summary>
 		/// DomainRole HttpApi
 		/// Description for ApiStudioIO.HttpApiHasHeaderResponse.HttpApi
@@ -2188,7 +2188,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, HttpApiDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access HttpApi of a HttpApiHeaderResponse
 		/// <summary>
@@ -2200,7 +2200,7 @@ namespace ApiStudioIO
 		{
 			return DslModeling::DomainRoleInfo.GetLinkedElement(element, HttpApiHeaderResponseDomainRoleId) as HttpApi;
 		}
-		
+
 		/// <summary>
 		/// Sets HttpApi.
 		/// </summary>
@@ -2212,12 +2212,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApiHeaderResponse domain role code
-		
+
 		/// <summary>
 		/// HttpApiHeaderResponse domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid HttpApiHeaderResponseDomainRoleId = new global::System.Guid(0xd36478e4, 0x8466, 0x4f46, 0xad, 0x74, 0x3c, 0xd1, 0xdc, 0x1a, 0x0f, 0x35);
-		
+
 		/// <summary>
 		/// DomainRole HttpApiHeaderResponse
 		/// Description for ApiStudioIO.HttpApiHasHeaderResponse.HttpApiHeaderResponse
@@ -2239,7 +2239,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, HttpApiHeaderResponseDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access HttpApiHeaderResponses of a HttpApi
 		/// <summary>
@@ -2284,7 +2284,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApiHasHeaderResponse instance accessors
-		
+
 		/// <summary>
 		/// Get any HttpApiHasHeaderResponse links between a given HttpApi and a HttpApiHeaderResponse.
 		/// </summary>
@@ -2320,7 +2320,7 @@ namespace ApiStudioIO
 			}
 			return null;
 		}
-		
+
 		#endregion
 	}
 }
@@ -2339,13 +2339,13 @@ namespace ApiStudioIO
 	public partial class ApiStudioHasResourced : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
-		
+
 		/// <summary>
 		/// ApiStudioHasResourced domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xee5b1dbe, 0x25e0, 0x460f, 0xbe, 0x24, 0xd2, 0xc2, 0x34, 0xb7, 0x9f, 0xc1);
-	
-				
+
+
 		/// <summary>
 		/// Constructor
 		/// Creates a ApiStudioHasResourced link in the same Partition as the given ApiStudio
@@ -2356,7 +2356,7 @@ namespace ApiStudioIO
 			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(ApiStudioHasResourced.ApiStudioDomainRoleId, source), new DslModeling::RoleAssignment(ApiStudioHasResourced.ResourceDomainRoleId, target)}, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2366,7 +2366,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2377,7 +2377,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2387,7 +2387,7 @@ namespace ApiStudioIO
 			: base(partition, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2400,12 +2400,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region ApiStudio domain role code
-		
+
 		/// <summary>
 		/// ApiStudio domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid ApiStudioDomainRoleId = new global::System.Guid(0x0837992d, 0x25ad, 0x49e3, 0x9f, 0xec, 0x8d, 0x5d, 0xa6, 0xc1, 0x31, 0x91);
-		
+
 		/// <summary>
 		/// DomainRole ApiStudio
 		/// Description for ApiStudioIO.ApiStudioHasResourced.ApiStudio
@@ -2427,7 +2427,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, ApiStudioDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access ApiStudio of a Resource
 		/// <summary>
@@ -2439,7 +2439,7 @@ namespace ApiStudioIO
 		{
 			return DslModeling::DomainRoleInfo.GetLinkedElement(element, ResourceDomainRoleId) as ApiStudio;
 		}
-		
+
 		/// <summary>
 		/// Sets ApiStudio.
 		/// </summary>
@@ -2451,12 +2451,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region Resource domain role code
-		
+
 		/// <summary>
 		/// Resource domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid ResourceDomainRoleId = new global::System.Guid(0x2a98130e, 0xdb8a, 0x42c6, 0xb1, 0x78, 0x12, 0x48, 0x4e, 0xe3, 0xf8, 0xd5);
-		
+
 		/// <summary>
 		/// DomainRole Resource
 		/// Description for ApiStudioIO.ApiStudioHasResourced.Resource
@@ -2478,7 +2478,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, ResourceDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access Resourced of a ApiStudio
 		/// <summary>
@@ -2523,7 +2523,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region ApiStudioHasResourced instance accessors
-		
+
 		/// <summary>
 		/// Get any ApiStudioHasResourced links between a given ApiStudio and a Resource.
 		/// </summary>
@@ -2559,7 +2559,7 @@ namespace ApiStudioIO
 			}
 			return null;
 		}
-		
+
 		#endregion
 	}
 }
@@ -2578,13 +2578,13 @@ namespace ApiStudioIO
 	public partial class ApiStudioHasApis : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
-		
+
 		/// <summary>
 		/// ApiStudioHasApis domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xeded6647, 0xb5c9, 0x4f5c, 0xba, 0x0f, 0x48, 0xf5, 0xa5, 0x4e, 0x7d, 0x64);
-	
-				
+
+
 		/// <summary>
 		/// Constructor
 		/// Creates a ApiStudioHasApis link in the same Partition as the given ApiStudio
@@ -2595,7 +2595,7 @@ namespace ApiStudioIO
 			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(ApiStudioHasApis.ApiStudioDomainRoleId, source), new DslModeling::RoleAssignment(ApiStudioHasApis.ApiDomainRoleId, target)}, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2605,7 +2605,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2616,7 +2616,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2626,7 +2626,7 @@ namespace ApiStudioIO
 			: base(partition, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2639,12 +2639,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region ApiStudio domain role code
-		
+
 		/// <summary>
 		/// ApiStudio domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid ApiStudioDomainRoleId = new global::System.Guid(0x794b38ee, 0x0862, 0x4a1f, 0xb7, 0x3a, 0xc0, 0x5f, 0xfc, 0x77, 0xbf, 0x6d);
-		
+
 		/// <summary>
 		/// DomainRole ApiStudio
 		/// Description for ApiStudioIO.ApiStudioHasApis.ApiStudio
@@ -2666,7 +2666,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, ApiStudioDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access ApiStudio of a Api
 		/// <summary>
@@ -2678,7 +2678,7 @@ namespace ApiStudioIO
 		{
 			return DslModeling::DomainRoleInfo.GetLinkedElement(element, ApiDomainRoleId) as ApiStudio;
 		}
-		
+
 		/// <summary>
 		/// Sets ApiStudio.
 		/// </summary>
@@ -2690,12 +2690,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region Api domain role code
-		
+
 		/// <summary>
 		/// Api domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid ApiDomainRoleId = new global::System.Guid(0x4c61d465, 0xdc4c, 0x4b48, 0xbc, 0xa0, 0xbc, 0x95, 0xc9, 0xba, 0x30, 0xe9);
-		
+
 		/// <summary>
 		/// DomainRole Api
 		/// Description for ApiStudioIO.ApiStudioHasApis.Api
@@ -2717,7 +2717,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, ApiDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access Apis of a ApiStudio
 		/// <summary>
@@ -2762,7 +2762,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region ApiStudioHasApis instance accessors
-		
+
 		/// <summary>
 		/// Get any ApiStudioHasApis links between a given ApiStudio and a Api.
 		/// </summary>
@@ -2798,7 +2798,7 @@ namespace ApiStudioIO
 			}
 			return null;
 		}
-		
+
 		#endregion
 	}
 }
@@ -2817,13 +2817,13 @@ namespace ApiStudioIO
 	public partial class ApiStudioHasDataModeled : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
-		
+
 		/// <summary>
 		/// ApiStudioHasDataModeled domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xcefe5767, 0xc48f, 0x4781, 0xa0, 0xad, 0x32, 0x00, 0x70, 0xd4, 0xd2, 0xaf);
-	
-				
+
+
 		/// <summary>
 		/// Constructor
 		/// Creates a ApiStudioHasDataModeled link in the same Partition as the given ApiStudio
@@ -2834,7 +2834,7 @@ namespace ApiStudioIO
 			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(ApiStudioHasDataModeled.ApiStudioDomainRoleId, source), new DslModeling::RoleAssignment(ApiStudioHasDataModeled.DataModelDomainRoleId, target)}, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2844,7 +2844,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2855,7 +2855,7 @@ namespace ApiStudioIO
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2865,7 +2865,7 @@ namespace ApiStudioIO
 			: base(partition, roleAssignments, null)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2878,12 +2878,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region ApiStudio domain role code
-		
+
 		/// <summary>
 		/// ApiStudio domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid ApiStudioDomainRoleId = new global::System.Guid(0x8816db77, 0x5b8e, 0x405b, 0x8a, 0x02, 0x3a, 0x4c, 0x7f, 0x48, 0x0f, 0xd5);
-		
+
 		/// <summary>
 		/// DomainRole ApiStudio
 		/// Description for ApiStudioIO.ApiStudioHasDataModeled.ApiStudio
@@ -2905,7 +2905,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, ApiStudioDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access ApiStudio of a DataModel
 		/// <summary>
@@ -2917,7 +2917,7 @@ namespace ApiStudioIO
 		{
 			return DslModeling::DomainRoleInfo.GetLinkedElement(element, DataModelDomainRoleId) as ApiStudio;
 		}
-		
+
 		/// <summary>
 		/// Sets ApiStudio.
 		/// </summary>
@@ -2929,12 +2929,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region DataModel domain role code
-		
+
 		/// <summary>
 		/// DataModel domain role Id.
 		/// </summary>
 		public static readonly global::System.Guid DataModelDomainRoleId = new global::System.Guid(0xa8765d18, 0xf408, 0x4aff, 0x93, 0x8b, 0x85, 0x63, 0xe8, 0xf2, 0x1a, 0x4f);
-		
+
 		/// <summary>
 		/// DomainRole DataModel
 		/// Description for ApiStudioIO.ApiStudioHasDataModeled.DataModel
@@ -2956,7 +2956,7 @@ namespace ApiStudioIO
 				DslModeling::DomainRoleInfo.SetRolePlayer(this, DataModelDomainRoleId, value);
 			}
 		}
-				
+
 		#endregion
 		#region Static methods to access DataModeled of a ApiStudio
 		/// <summary>
@@ -3001,7 +3001,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region ApiStudioHasDataModeled instance accessors
-		
+
 		/// <summary>
 		/// Get any ApiStudioHasDataModeled links between a given ApiStudio and a DataModel.
 		/// </summary>
@@ -3037,7 +3037,7 @@ namespace ApiStudioIO
 			}
 			return null;
 		}
-		
+
 		#endregion
 	}
 }

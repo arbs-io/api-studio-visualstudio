@@ -56,21 +56,11 @@ namespace ApiStudioIO.HttpApiDefaults
             }
 
             //Get custom parameters for this API
-            foreach (var parameter in httpApi.HttpApiParameters)
-                managedList.Add(
-                    CreateManagedApiParameter(variableCaseType, parameter)
-                );
+            managedList.AddRange(httpApi.HttpApiParameters.Select(parameter => CreateManagedApiParameter(variableCaseType, parameter)));
 
             foreach (var dataModel in sourceApiStudio.DataModeled)
             {
-                foreach (var api in dataModel.HttpApis)
-                {
-                    if (httpApi == api)
-                        managedList.Add(
-                            CreateManagedApiParameter(variableCaseType, dataModel.Name, dataModel.Name,
-                                dataModel.Description, true, HttpApiParameterTypes.Body, true)
-                        );
-                }
+                managedList.AddRange(from api in dataModel.HttpApis where httpApi == api select CreateManagedApiParameter(variableCaseType, dataModel.Name, dataModel.Name, dataModel.Description, true, HttpApiParameterTypes.Body, true));
             }
 
             //Check if collection and if UsePagination or UseSorting is set

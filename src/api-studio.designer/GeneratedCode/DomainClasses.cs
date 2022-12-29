@@ -23,7 +23,7 @@ namespace ApiStudioIO
 	public partial class ApiStudio : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// ApiStudio domain class Id.
 		/// </summary>
@@ -51,17 +51,17 @@ namespace ApiStudioIO
 		//}
 		#endregion
 		#region CodeGenerationVariableCaseType domain property code
-		
+
 		/// <summary>
 		/// CodeGenerationVariableCaseType domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid CodeGenerationVariableCaseTypeDomainPropertyId = new global::System.Guid(0xbf23063f, 0xbb0a, 0x44f8, 0x85, 0x54, 0xc4, 0xa1, 0x96, 0xb4, 0x52, 0xa0);
-		
+
 		/// <summary>
 		/// Storage for CodeGenerationVariableCaseType
 		/// </summary>
 		private CodeGenerationVariableCaseTypes codeGenerationVariableCaseTypePropertyStorage = CodeGenerationVariableCaseTypes.PascalCase;
-		
+
 		/// <summary>
 		/// Gets or sets the value of CodeGenerationVariableCaseType domain property.
 		/// The variable naming convention to be used.\n- Camel Case "propertyName"\n-
@@ -91,12 +91,12 @@ namespace ApiStudioIO
 		internal sealed partial class CodeGenerationVariableCaseTypePropertyHandler : DslModeling::DomainPropertyValueHandler<ApiStudio, CodeGenerationVariableCaseTypes>
 		{
 			private CodeGenerationVariableCaseTypePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ApiStudio.CodeGenerationVariableCaseType domain property value handler.
 			/// </summary>
 			public static readonly CodeGenerationVariableCaseTypePropertyHandler Instance = new CodeGenerationVariableCaseTypePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ApiStudio.CodeGenerationVariableCaseType domain property.
 			/// </summary>
@@ -108,7 +108,7 @@ namespace ApiStudioIO
 					return CodeGenerationVariableCaseTypeDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -119,7 +119,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.codeGenerationVariableCaseTypePropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -128,7 +128,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ApiStudio element, CodeGenerationVariableCaseTypes newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				CodeGenerationVariableCaseTypes oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -138,20 +138,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region Identifier domain property code
-		
+
 		/// <summary>
 		/// Identifier domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid IdentifierDomainPropertyId = new global::System.Guid(0x90933f55, 0x837e, 0x4634, 0xbb, 0x05, 0x10, 0x87, 0x11, 0x9e, 0xfb, 0x2f);
-		
+
 		/// <summary>
 		/// Storage for Identifier
 		/// </summary>
 		private global::System.Guid identifierPropertyStorage = new global::System.Guid("00000000-0000-0000-0000-000000000000");
-		
+
 		/// <summary>
 		/// Gets or sets the value of Identifier domain property.
 		/// ApiStudio Identifier unique to this schema
@@ -181,12 +181,12 @@ namespace ApiStudioIO
 		internal sealed partial class IdentifierPropertyHandler : DslModeling::DomainPropertyValueHandler<ApiStudio, global::System.Guid>
 		{
 			private IdentifierPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ApiStudio.Identifier domain property value handler.
 			/// </summary>
 			public static readonly IdentifierPropertyHandler Instance = new IdentifierPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ApiStudio.Identifier domain property.
 			/// </summary>
@@ -198,7 +198,7 @@ namespace ApiStudioIO
 					return IdentifierDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -209,7 +209,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.identifierPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -218,7 +218,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ApiStudio element, global::System.Guid newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.Guid oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -228,20 +228,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region Vendor domain property code
-		
+
 		/// <summary>
 		/// Vendor domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid VendorDomainPropertyId = new global::System.Guid(0x712e1357, 0xa4a1, 0x406b, 0xaf, 0x9e, 0xce, 0x07, 0xd7, 0xb9, 0x9a, 0x05);
-		
+
 		/// <summary>
 		/// Storage for Vendor
 		/// </summary>
 		private global::System.String vendorPropertyStorage = "ApiStudio";
-		
+
 		/// <summary>
 		/// Gets or sets the value of Vendor domain property.
 		/// The name of the organisation providing the API specification. This will form
@@ -271,12 +271,12 @@ namespace ApiStudioIO
 		internal sealed partial class VendorPropertyHandler : DslModeling::DomainPropertyValueHandler<ApiStudio, global::System.String>
 		{
 			private VendorPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ApiStudio.Vendor domain property value handler.
 			/// </summary>
 			public static readonly VendorPropertyHandler Instance = new VendorPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ApiStudio.Vendor domain property.
 			/// </summary>
@@ -288,7 +288,7 @@ namespace ApiStudioIO
 					return VendorDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -299,7 +299,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.vendorPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -308,7 +308,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ApiStudio element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -318,20 +318,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region Product domain property code
-		
+
 		/// <summary>
 		/// Product domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid ProductDomainPropertyId = new global::System.Guid(0x0945c325, 0x69d8, 0x4687, 0x9b, 0xa0, 0x92, 0x28, 0x3b, 0x53, 0xb2, 0x75);
-		
+
 		/// <summary>
 		/// Storage for Product
 		/// </summary>
 		private global::System.String productPropertyStorage = "Prototype";
-		
+
 		/// <summary>
 		/// Gets or sets the value of Product domain property.
 		/// The name of the product the api is part a member. This will form part of the
@@ -361,12 +361,12 @@ namespace ApiStudioIO
 		internal sealed partial class ProductPropertyHandler : DslModeling::DomainPropertyValueHandler<ApiStudio, global::System.String>
 		{
 			private ProductPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ApiStudio.Product domain property value handler.
 			/// </summary>
 			public static readonly ProductPropertyHandler Instance = new ProductPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ApiStudio.Product domain property.
 			/// </summary>
@@ -378,7 +378,7 @@ namespace ApiStudioIO
 					return ProductDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -389,7 +389,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.productPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -398,7 +398,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ApiStudio element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -408,20 +408,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region ApiName domain property code
-		
+
 		/// <summary>
 		/// ApiName domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid ApiNameDomainPropertyId = new global::System.Guid(0x44a7be5c, 0x2683, 0x4c72, 0xa0, 0x96, 0x41, 0xaa, 0x3d, 0x38, 0xe4, 0x97);
-		
+
 		/// <summary>
 		/// Storage for ApiName
 		/// </summary>
 		private global::System.String apiNamePropertyStorage = "Api Name";
-		
+
 		/// <summary>
 		/// Gets or sets the value of ApiName domain property.
 		/// The name of the API. Normally based on the subdomain and/or feature for the API
@@ -451,12 +451,12 @@ namespace ApiStudioIO
 		internal sealed partial class ApiNamePropertyHandler : DslModeling::DomainPropertyValueHandler<ApiStudio, global::System.String>
 		{
 			private ApiNamePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ApiStudio.ApiName domain property value handler.
 			/// </summary>
 			public static readonly ApiNamePropertyHandler Instance = new ApiNamePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ApiStudio.ApiName domain property.
 			/// </summary>
@@ -468,7 +468,7 @@ namespace ApiStudioIO
 					return ApiNameDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -479,7 +479,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.apiNamePropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -488,7 +488,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ApiStudio element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -498,20 +498,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region Version domain property code
-		
+
 		/// <summary>
 		/// Version domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid VersionDomainPropertyId = new global::System.Guid(0xf55db371, 0x3424, 0x4fca, 0xb2, 0x28, 0x46, 0xd6, 0xbe, 0x5c, 0x73, 0xd4);
-		
+
 		/// <summary>
 		/// Storage for Version
 		/// </summary>
 		private global::System.String versionPropertyStorage = "1.0.0";
-		
+
 		/// <summary>
 		/// Gets or sets the value of Version domain property.
 		/// The version of the API contract. This will form part of the contract title
@@ -540,12 +540,12 @@ namespace ApiStudioIO
 		internal sealed partial class VersionPropertyHandler : DslModeling::DomainPropertyValueHandler<ApiStudio, global::System.String>
 		{
 			private VersionPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ApiStudio.Version domain property value handler.
 			/// </summary>
 			public static readonly VersionPropertyHandler Instance = new VersionPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ApiStudio.Version domain property.
 			/// </summary>
@@ -557,7 +557,7 @@ namespace ApiStudioIO
 					return VersionDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -568,7 +568,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.versionPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -577,7 +577,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ApiStudio element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -587,15 +587,15 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region Title domain property code
-		
+
 		/// <summary>
 		/// Title domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid TitleDomainPropertyId = new global::System.Guid(0xbbbcf9e9, 0x5136, 0x40cd, 0xa5, 0x72, 0x38, 0x98, 0x0d, 0xb0, 0x61, 0x0a);
-		
+
 		/// <summary>
 		/// Gets or sets the value of Title domain property.
 		/// The title of the API. For example Reference Group Data Warehouse.
@@ -621,12 +621,12 @@ namespace ApiStudioIO
 		internal sealed partial class TitlePropertyHandler : DslModeling::CalculatedPropertyValueHandler<ApiStudio, global::System.String>
 		{
 			private TitlePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ApiStudio.Title domain property value handler.
 			/// </summary>
 			public static readonly TitlePropertyHandler Instance = new TitlePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ApiStudio.Title domain property.
 			/// </summary>
@@ -638,7 +638,7 @@ namespace ApiStudioIO
 					return TitleDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -652,22 +652,22 @@ namespace ApiStudioIO
 				// method on the domain class.
 				return element.GetTitleValue();
 			}
-		
+
 		}
-		
+
 		#endregion
 		#region Description domain property code
-		
+
 		/// <summary>
 		/// Description domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid DescriptionDomainPropertyId = new global::System.Guid(0xd326904b, 0x49e2, 0x4afe, 0xb5, 0xb2, 0xbc, 0x23, 0x7d, 0x67, 0x4f, 0xcb);
-		
+
 		/// <summary>
 		/// Storage for Description
 		/// </summary>
 		private global::System.String descriptionPropertyStorage = "This is a simple example of common aspects you should consider covering when documenting your API. But, of course, the API documentation can include other topics, and the more information you provide consumers, the faster they can get started.\r\n\r\n## Overview\r\nThe **<API_NAME>** API is organized around RESTful resources. Our API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs. You can use the **<API_NAME>** API in test mode, not affecting your live data. The API token you use to authenticate the request determines whether the request is live or test mode.\r\n\r\nThe API supports idempotency for safely retrying requests without performing the same operation twice. This is useful when an API call is disrupted in transit and not receiving a response. For example, if a request to create a charge does not respond due to a network connection error, you can retry the request with the same ETag key to guaranteeing that no more than one charge is created.\r\n\r\nAll **POST** requests accept ETag keys. However, sending ETag keys in **GET** and **DELETE** requests has no effect and should be avoided, as these requests are idempotent by definition.\r\n\r\n## Security\r\nAuthentication to the API is performed via OAuth2. The **<API_NAME>** API uses an Authorization header with each request. Your API token carry many privileges, so be sure to keep them secure! Do not share your secret API keys in publicly accessible areas such as GitHub, client-side code, and so forth.\r\n\r\n| Name              | Value     |\r\n| ----------------- | --------- |\r\n| **Authorization** | Bearer ***eyJ0eXAiOiJKV1QifQ==.eyJhdWQiOiJhcGktc3R1ZGlvLmlvIn0=.eMiOUrS_qAcfTcChjMmg*** |\r\n\r\nAll API requests must be made over HTTPS. Calls made over plain HTTP will be rejected. In addition, API requests without an Authorization header will be rejected (response 401).\r\n\r\n## Pagination\r\nAll collection API resources support bulk fetches via **GET** requests against a collection resource. The find API methods share a standard structure, taking at least these three parameters: limit and offset.\r\n\r\n## Error\r\n**<API_NAME>** uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the 5xx range indicate an error with Stripe's servers (these are rare).";
-		
+
 		/// <summary>
 		/// Gets or sets the value of Description domain property.
 		/// The value is used as the description for the resource tree and will form part of
@@ -698,12 +698,12 @@ namespace ApiStudioIO
 		internal sealed partial class DescriptionPropertyHandler : DslModeling::DomainPropertyValueHandler<ApiStudio, global::System.String>
 		{
 			private DescriptionPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ApiStudio.Description domain property value handler.
 			/// </summary>
 			public static readonly DescriptionPropertyHandler Instance = new DescriptionPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ApiStudio.Description domain property.
 			/// </summary>
@@ -715,7 +715,7 @@ namespace ApiStudioIO
 					return DescriptionDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -726,7 +726,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.descriptionPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -735,7 +735,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ApiStudio element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -745,20 +745,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region ContactUrl domain property code
-		
+
 		/// <summary>
 		/// ContactUrl domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid ContactUrlDomainPropertyId = new global::System.Guid(0xfae6e846, 0x4cfe, 0x42bc, 0x8c, 0xcb, 0x83, 0xe9, 0x49, 0xc4, 0x27, 0xc9);
-		
+
 		/// <summary>
 		/// Storage for ContactUrl
 		/// </summary>
 		private global::System.String contactUrlPropertyStorage = "https://api.api-studio.io/";
-		
+
 		/// <summary>
 		/// Gets or sets the value of ContactUrl domain property.
 		/// The url which provides additional information about the solution or team
@@ -787,12 +787,12 @@ namespace ApiStudioIO
 		internal sealed partial class ContactUrlPropertyHandler : DslModeling::DomainPropertyValueHandler<ApiStudio, global::System.String>
 		{
 			private ContactUrlPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ApiStudio.ContactUrl domain property value handler.
 			/// </summary>
 			public static readonly ContactUrlPropertyHandler Instance = new ContactUrlPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ApiStudio.ContactUrl domain property.
 			/// </summary>
@@ -804,7 +804,7 @@ namespace ApiStudioIO
 					return ContactUrlDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -815,7 +815,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.contactUrlPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -824,7 +824,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ApiStudio element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -834,20 +834,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region ContactName domain property code
-		
+
 		/// <summary>
 		/// ContactName domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid ContactNameDomainPropertyId = new global::System.Guid(0x160e9f7e, 0x0d9a, 0x47ae, 0xaf, 0x2c, 0xf0, 0x42, 0xa1, 0xd6, 0x7f, 0x68);
-		
+
 		/// <summary>
 		/// Storage for ContactName
 		/// </summary>
 		private global::System.String contactNamePropertyStorage = "ApiStudio (Visual Studio)";
-		
+
 		/// <summary>
 		/// Gets or sets the value of ContactName domain property.
 		/// The name of the solution provider e.g. team, shared mail, etc..
@@ -876,12 +876,12 @@ namespace ApiStudioIO
 		internal sealed partial class ContactNamePropertyHandler : DslModeling::DomainPropertyValueHandler<ApiStudio, global::System.String>
 		{
 			private ContactNamePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ApiStudio.ContactName domain property value handler.
 			/// </summary>
 			public static readonly ContactNamePropertyHandler Instance = new ContactNamePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ApiStudio.ContactName domain property.
 			/// </summary>
@@ -893,7 +893,7 @@ namespace ApiStudioIO
 					return ContactNameDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -904,7 +904,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.contactNamePropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -913,7 +913,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ApiStudio element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -923,20 +923,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region Audience domain property code
-		
+
 		/// <summary>
 		/// Audience domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid AudienceDomainPropertyId = new global::System.Guid(0xcdca44e3, 0x36ba, 0x4620, 0xba, 0xf8, 0xb6, 0x28, 0x09, 0x51, 0x59, 0xef);
-		
+
 		/// <summary>
 		/// Storage for Audience
 		/// </summary>
 		private HttpApiAudienceTypes audiencePropertyStorage = HttpApiAudienceTypes.Private;
-		
+
 		/// <summary>
 		/// Gets or sets the value of Audience domain property.
 		/// The audience category flags if the consumers are Private (Internal), Partner
@@ -966,12 +966,12 @@ namespace ApiStudioIO
 		internal sealed partial class AudiencePropertyHandler : DslModeling::DomainPropertyValueHandler<ApiStudio, HttpApiAudienceTypes>
 		{
 			private AudiencePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ApiStudio.Audience domain property value handler.
 			/// </summary>
 			public static readonly AudiencePropertyHandler Instance = new AudiencePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ApiStudio.Audience domain property.
 			/// </summary>
@@ -983,7 +983,7 @@ namespace ApiStudioIO
 					return AudienceDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -994,7 +994,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.audiencePropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -1003,7 +1003,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ApiStudio element, HttpApiAudienceTypes newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				HttpApiAudienceTypes oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -1013,20 +1013,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region InitialResourceIsRoot domain property code
-		
+
 		/// <summary>
 		/// InitialResourceIsRoot domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid InitialResourceIsRootDomainPropertyId = new global::System.Guid(0xa6280a94, 0x1043, 0x4440, 0xa0, 0x34, 0x8a, 0xe8, 0x7b, 0xff, 0x0b, 0x42);
-		
+
 		/// <summary>
 		/// Storage for InitialResourceIsRoot
 		/// </summary>
 		private global::System.Boolean initialResourceIsRootPropertyStorage;
-		
+
 		/// <summary>
 		/// Gets or sets the value of InitialResourceIsRoot domain property.
 		/// Determine if the first resource in the resource tree (uri) is used as the root
@@ -1055,12 +1055,12 @@ namespace ApiStudioIO
 		internal sealed partial class InitialResourceIsRootPropertyHandler : DslModeling::DomainPropertyValueHandler<ApiStudio, global::System.Boolean>
 		{
 			private InitialResourceIsRootPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ApiStudio.InitialResourceIsRoot domain property value handler.
 			/// </summary>
 			public static readonly InitialResourceIsRootPropertyHandler Instance = new InitialResourceIsRootPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ApiStudio.InitialResourceIsRoot domain property.
 			/// </summary>
@@ -1072,7 +1072,7 @@ namespace ApiStudioIO
 					return InitialResourceIsRootDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -1083,7 +1083,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.initialResourceIsRootPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -1092,7 +1092,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ApiStudio element, global::System.Boolean newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.Boolean oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -1102,20 +1102,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region SecurityApiKey domain property code
-		
+
 		/// <summary>
 		/// SecurityApiKey domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid SecurityApiKeyDomainPropertyId = new global::System.Guid(0x5c9bccd9, 0x1593, 0x4db8, 0x81, 0x9f, 0x4c, 0xa5, 0xe8, 0x4e, 0xc0, 0x2b);
-		
+
 		/// <summary>
 		/// Storage for SecurityApiKey
 		/// </summary>
 		private global::System.String securityApiKeyPropertyStorage = string.Empty;
-		
+
 		/// <summary>
 		/// Gets or sets the value of SecurityApiKey domain property.
 		/// Api Keys are header values which should be validated by the Api Gateway or
@@ -1146,12 +1146,12 @@ namespace ApiStudioIO
 		internal sealed partial class SecurityApiKeyPropertyHandler : DslModeling::DomainPropertyValueHandler<ApiStudio, global::System.String>
 		{
 			private SecurityApiKeyPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ApiStudio.SecurityApiKey domain property value handler.
 			/// </summary>
 			public static readonly SecurityApiKeyPropertyHandler Instance = new SecurityApiKeyPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ApiStudio.SecurityApiKey domain property.
 			/// </summary>
@@ -1163,7 +1163,7 @@ namespace ApiStudioIO
 					return SecurityApiKeyDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -1174,7 +1174,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.securityApiKeyPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -1183,7 +1183,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ApiStudio element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -1193,20 +1193,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region SecuritySchemeType domain property code
-		
+
 		/// <summary>
 		/// SecuritySchemeType domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid SecuritySchemeTypeDomainPropertyId = new global::System.Guid(0x5cdeda70, 0x33b7, 0x4040, 0xbf, 0x31, 0x78, 0xdf, 0x6b, 0xac, 0xe7, 0x62);
-		
+
 		/// <summary>
 		/// Storage for SecuritySchemeType
 		/// </summary>
 		private SecuritySchemeTypes securitySchemeTypePropertyStorage = SecuritySchemeTypes.None;
-		
+
 		/// <summary>
 		/// Gets or sets the value of SecuritySchemeType domain property.
 		/// APIs use authorization to ensure that client requests access data securely. This
@@ -1238,12 +1238,12 @@ namespace ApiStudioIO
 		internal sealed partial class SecuritySchemeTypePropertyHandler : DslModeling::DomainPropertyValueHandler<ApiStudio, SecuritySchemeTypes>
 		{
 			private SecuritySchemeTypePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ApiStudio.SecuritySchemeType domain property value handler.
 			/// </summary>
 			public static readonly SecuritySchemeTypePropertyHandler Instance = new SecuritySchemeTypePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ApiStudio.SecuritySchemeType domain property.
 			/// </summary>
@@ -1255,7 +1255,7 @@ namespace ApiStudioIO
 					return SecuritySchemeTypeDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -1266,7 +1266,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.securitySchemeTypePropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -1275,7 +1275,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ApiStudio element, SecuritySchemeTypes newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				SecuritySchemeTypes oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -1285,20 +1285,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region NamespaceDataModels domain property code
-		
+
 		/// <summary>
 		/// NamespaceDataModels domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid NamespaceDataModelsDomainPropertyId = new global::System.Guid(0x12dcb186, 0x2e7c, 0x4309, 0x94, 0x27, 0x20, 0xda, 0x89, 0xf4, 0x75, 0xd7);
-		
+
 		/// <summary>
 		/// Storage for NamespaceDataModels
 		/// </summary>
 		private global::System.String namespaceDataModelsPropertyStorage = string.Empty;
-		
+
 		/// <summary>
 		/// Gets or sets the value of NamespaceDataModels domain property.
 		/// The data model namespace provides the ability to use custom assembly with data
@@ -1328,12 +1328,12 @@ namespace ApiStudioIO
 		internal sealed partial class NamespaceDataModelsPropertyHandler : DslModeling::DomainPropertyValueHandler<ApiStudio, global::System.String>
 		{
 			private NamespaceDataModelsPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ApiStudio.NamespaceDataModels domain property value handler.
 			/// </summary>
 			public static readonly NamespaceDataModelsPropertyHandler Instance = new NamespaceDataModelsPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ApiStudio.NamespaceDataModels domain property.
 			/// </summary>
@@ -1345,7 +1345,7 @@ namespace ApiStudioIO
 					return NamespaceDataModelsDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -1356,7 +1356,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.namespaceDataModelsPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -1365,7 +1365,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ApiStudio element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -1375,20 +1375,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region NamespaceSolution domain property code
-		
+
 		/// <summary>
 		/// NamespaceSolution domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid NamespaceSolutionDomainPropertyId = new global::System.Guid(0x8d535413, 0x9b11, 0x4850, 0x8c, 0xba, 0xa9, 0x38, 0x7f, 0x70, 0x97, 0x45);
-		
+
 		/// <summary>
 		/// Storage for NamespaceSolution
 		/// </summary>
 		private global::System.String namespaceSolutionPropertyStorage = string.Empty;
-		
+
 		/// <summary>
 		/// Gets or sets the value of NamespaceSolution domain property.
 		/// The solution namespace is used by the code generation to provide developers
@@ -1417,12 +1417,12 @@ namespace ApiStudioIO
 		internal sealed partial class NamespaceSolutionPropertyHandler : DslModeling::DomainPropertyValueHandler<ApiStudio, global::System.String>
 		{
 			private NamespaceSolutionPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ApiStudio.NamespaceSolution domain property value handler.
 			/// </summary>
 			public static readonly NamespaceSolutionPropertyHandler Instance = new NamespaceSolutionPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ApiStudio.NamespaceSolution domain property.
 			/// </summary>
@@ -1434,7 +1434,7 @@ namespace ApiStudioIO
 					return NamespaceSolutionDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -1445,7 +1445,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.namespaceSolutionPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -1454,7 +1454,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ApiStudio element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -1464,10 +1464,10 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region Resourced opposite domain role accessor
-		
+
 		/// <summary>
 		/// Gets a list of Resourced.
 		/// Description for ApiStudioIO.ApiStudioHasResourced.ApiStudio
@@ -1482,7 +1482,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region Apis opposite domain role accessor
-		
+
 		/// <summary>
 		/// Gets a list of Apis.
 		/// Description for ApiStudioIO.ApiStudioHasApis.ApiStudio
@@ -1497,7 +1497,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region DataModeled opposite domain role accessor
-		
+
 		/// <summary>
 		/// Gets a list of DataModeled.
 		/// Description for ApiStudioIO.ApiStudioHasDataModeled.ApiStudio
@@ -1517,7 +1517,7 @@ namespace ApiStudioIO
 		/// specified root ProtoElement can be added to this element.
 		/// </summary>
 		/// <param name="rootElement">
-		/// The root ProtoElement representing a source element.  This can be null, 
+		/// The root ProtoElement representing a source element.  This can be null,
 		/// in which case the ElementGroupPrototype does not contain an ProtoElements
 		/// and the code should inspect the ElementGroupPrototype context information.
 		/// </param>
@@ -1526,34 +1526,34 @@ namespace ApiStudioIO
 		protected override bool CanMerge(DslModeling::ProtoElementBase rootElement, DslModeling::ElementGroupPrototype elementGroupPrototype)
 		{
 			if ( elementGroupPrototype == null ) throw new global::System.ArgumentNullException("elementGroupPrototype");
-			
+
 			if (rootElement != null)
 			{
 				DslModeling::DomainClassInfo rootElementDomainInfo = this.Partition.DomainDataDirectory.GetDomainClass(rootElement.DomainClassId);
-				
-				if (rootElementDomainInfo.IsDerivedFrom(global::ApiStudioIO.Resource.DomainClassId)) 
+
+				if (rootElementDomainInfo.IsDerivedFrom(global::ApiStudioIO.Resource.DomainClassId))
 				{
 					return true;
 				}
-				
-				if (rootElementDomainInfo.IsDerivedFrom(global::ApiStudioIO.Api.DomainClassId)) 
+
+				if (rootElementDomainInfo.IsDerivedFrom(global::ApiStudioIO.Api.DomainClassId))
 				{
 					return true;
 				}
-				
-				if (rootElementDomainInfo.IsDerivedFrom(global::ApiStudioIO.DataModel.DomainClassId)) 
+
+				if (rootElementDomainInfo.IsDerivedFrom(global::ApiStudioIO.DataModel.DomainClassId))
 				{
 					return true;
 				}
 			}
 			return base.CanMerge(rootElement, elementGroupPrototype);
 		}
-		
+
 		/// <summary>
-		/// Called by the Merge process to create a relationship between 
-		/// this target element and the specified source element. 
+		/// Called by the Merge process to create a relationship between
+		/// this target element and the specified source element.
 		/// Typically, a parent-child relationship is established
-		/// between the target element (the parent) and the source element 
+		/// between the target element (the parent) and the source element
 		/// (the child), but any relationship can be established.
 		/// </summary>
 		/// <param name="sourceElement">The element that is to be related to this model element.</param>
@@ -1565,11 +1565,11 @@ namespace ApiStudioIO
 		protected override void MergeRelate(DslModeling::ModelElement sourceElement, DslModeling::ElementGroup elementGroup)
 		{
 			// In general, sourceElement is allowed to be null, meaning that the elementGroup must be parsed for special cases.
-			// However this is not supported in generated code.  Use double-deriving on this class and then override MergeRelate completely if you 
+			// However this is not supported in generated code.  Use double-deriving on this class and then override MergeRelate completely if you
 			// need to support this case.
 			if ( sourceElement == null ) throw new global::System.ArgumentNullException("sourceElement");
-		
-				
+
+
 			global::ApiStudioIO.Resource sourceResource1 = sourceElement as global::ApiStudioIO.Resource;
 			if (sourceResource1 != null)
 			{
@@ -1578,7 +1578,7 @@ namespace ApiStudioIO
 
 				return;
 			}
-				
+
 			global::ApiStudioIO.Api sourceApi2 = sourceElement as global::ApiStudioIO.Api;
 			if (sourceApi2 != null)
 			{
@@ -1587,7 +1587,7 @@ namespace ApiStudioIO
 
 				return;
 			}
-				
+
 			global::ApiStudioIO.DataModel sourceDataModel3 = sourceElement as global::ApiStudioIO.DataModel;
 			if (sourceDataModel3 != null)
 			{
@@ -1596,7 +1596,7 @@ namespace ApiStudioIO
 
 				return;
 			}
-		
+
 			// Sdk workaround to runtime bug #879350 (DSL: can't copy and paste a MEL that has a MEX). Avoid MergeRelate on ModelElementExtension
 			// during a "Paste".
 			if (sourceElement is DslModeling::ExtensionElement
@@ -1604,11 +1604,11 @@ namespace ApiStudioIO
 			{
 				return;
 			}
-		
+
 			// Fall through to base class if this class hasn't handled the merge.
 			base.MergeRelate(sourceElement, elementGroup);
 		}
-		
+
 		/// <summary>
 		/// Performs operation opposite to MergeRelate - i.e. disconnects a given
 		/// element from the current one (removes links created by MergeRelate).
@@ -1618,12 +1618,12 @@ namespace ApiStudioIO
 		protected override void MergeDisconnect(DslModeling::ModelElement sourceElement)
 		{
 			if (sourceElement == null) throw new global::System.ArgumentNullException("sourceElement");
-				
+
 			global::ApiStudioIO.Resource sourceResource1 = sourceElement as global::ApiStudioIO.Resource;
 			if (sourceResource1 != null)
 			{
 				// Delete link for path ApiStudioHasResourced.Resourced
-				
+
 				foreach (DslModeling::ElementLink link in global::ApiStudioIO.ApiStudioHasResourced.GetLinks((global::ApiStudioIO.ApiStudio)this, sourceResource1))
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
@@ -1632,12 +1632,12 @@ namespace ApiStudioIO
 
 				return;
 			}
-				
+
 			global::ApiStudioIO.Api sourceApi2 = sourceElement as global::ApiStudioIO.Api;
 			if (sourceApi2 != null)
 			{
 				// Delete link for path ApiStudioHasApis.Apis
-				
+
 				foreach (DslModeling::ElementLink link in global::ApiStudioIO.ApiStudioHasApis.GetLinks((global::ApiStudioIO.ApiStudio)this, sourceApi2))
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
@@ -1646,12 +1646,12 @@ namespace ApiStudioIO
 
 				return;
 			}
-				
+
 			global::ApiStudioIO.DataModel sourceDataModel3 = sourceElement as global::ApiStudioIO.DataModel;
 			if (sourceDataModel3 != null)
 			{
 				// Delete link for path ApiStudioHasDataModeled.DataModeled
-				
+
 				foreach (DslModeling::ElementLink link in global::ApiStudioIO.ApiStudioHasDataModeled.GetLinks((global::ApiStudioIO.ApiStudio)this, sourceDataModel3))
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
@@ -1681,7 +1681,7 @@ namespace ApiStudioIO
 	public abstract partial class Resource : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// Resource domain class Id.
 		/// </summary>
@@ -1697,17 +1697,17 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region Name domain property code
-		
+
 		/// <summary>
 		/// Name domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid NameDomainPropertyId = new global::System.Guid(0x03af69d1, 0xf9d2, 0x49c1, 0x93, 0xbf, 0xfa, 0x28, 0xaf, 0x94, 0x94, 0x04);
-		
+
 		/// <summary>
 		/// Storage for Name
 		/// </summary>
 		private global::System.String namePropertyStorage = string.Empty;
-		
+
 		/// <summary>
 		/// Gets or sets the value of Name domain property.
 		/// The name of a given resource. This name form part of the uri structure.
@@ -1737,12 +1737,12 @@ namespace ApiStudioIO
 		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<Resource, global::System.String>
 		{
 			private NamePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the Resource.Name domain property value handler.
 			/// </summary>
 			public static readonly NamePropertyHandler Instance = new NamePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the Resource.Name domain property.
 			/// </summary>
@@ -1754,7 +1754,7 @@ namespace ApiStudioIO
 					return NameDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -1765,7 +1765,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.namePropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -1774,7 +1774,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(Resource element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -1784,15 +1784,15 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region HttpApiUri domain property code
-		
+
 		/// <summary>
 		/// HttpApiUri domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid HttpApiUriDomainPropertyId = new global::System.Guid(0xdb19658e, 0x1079, 0x4252, 0xa6, 0xf9, 0xf7, 0x30, 0xdd, 0x55, 0x72, 0xa8);
-		
+
 		/// <summary>
 		/// Gets or sets the value of HttpApiUri domain property.
 		/// Calculated field build from the resource relationship path
@@ -1817,12 +1817,12 @@ namespace ApiStudioIO
 		internal sealed partial class HttpApiUriPropertyHandler : DslModeling::CalculatedPropertyValueHandler<Resource, global::System.String>
 		{
 			private HttpApiUriPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the Resource.HttpApiUri domain property value handler.
 			/// </summary>
 			public static readonly HttpApiUriPropertyHandler Instance = new HttpApiUriPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the Resource.HttpApiUri domain property.
 			/// </summary>
@@ -1834,7 +1834,7 @@ namespace ApiStudioIO
 					return HttpApiUriDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -1848,12 +1848,12 @@ namespace ApiStudioIO
 				// method on the domain class.
 				return element.GetHttpApiUriValue();
 			}
-		
+
 		}
-		
+
 		#endregion
 		#region Resources opposite domain role accessor
-		
+
 		/// <summary>
 		/// Gets a list of Resources.
 		/// Description for ApiStudioIO.ResourceReferencesResources.SourceResource
@@ -1868,7 +1868,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region SourceResource opposite domain role accessor
-		
+
 		/// <summary>
 		/// Gets a list of SourceResource.
 		/// Description for ApiStudioIO.ResourceReferencesResources.TargetResource
@@ -1883,7 +1883,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region Apis opposite domain role accessor
-		
+
 		/// <summary>
 		/// Gets a list of Apis.
 		/// Description for ApiStudioIO.ResourceReferencesApis.Resource
@@ -1935,7 +1935,7 @@ namespace ApiStudioIO
 	public partial class ResourceInstance : Resource
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// ResourceInstance domain class Id.
 		/// </summary>
@@ -1949,7 +1949,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -1961,17 +1961,17 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region InstanceIdentity domain property code
-		
+
 		/// <summary>
 		/// InstanceIdentity domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid InstanceIdentityDomainPropertyId = new global::System.Guid(0xe93cc319, 0x2b6b, 0x4c3c, 0x8e, 0x82, 0xe9, 0x4c, 0xdb, 0x5f, 0xf7, 0xb7);
-		
+
 		/// <summary>
 		/// Storage for InstanceIdentity
 		/// </summary>
 		private global::System.String instanceIdentityPropertyStorage = "InstanceCode";
-		
+
 		/// <summary>
 		/// Gets or sets the value of InstanceIdentity domain property.
 		/// A unique, immutable identifier that identifies a resource
@@ -2000,12 +2000,12 @@ namespace ApiStudioIO
 		internal sealed partial class InstanceIdentityPropertyHandler : DslModeling::DomainPropertyValueHandler<ResourceInstance, global::System.String>
 		{
 			private InstanceIdentityPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ResourceInstance.InstanceIdentity domain property value handler.
 			/// </summary>
 			public static readonly InstanceIdentityPropertyHandler Instance = new InstanceIdentityPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ResourceInstance.InstanceIdentity domain property.
 			/// </summary>
@@ -2017,7 +2017,7 @@ namespace ApiStudioIO
 					return InstanceIdentityDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -2028,7 +2028,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.instanceIdentityPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -2037,7 +2037,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ResourceInstance element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -2047,20 +2047,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region InstanceDescription domain property code
-		
+
 		/// <summary>
 		/// InstanceDescription domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid InstanceDescriptionDomainPropertyId = new global::System.Guid(0xa07297f6, 0x9a34, 0x420e, 0x93, 0xa4, 0xd2, 0x95, 0xbc, 0x41, 0x84, 0xd3);
-		
+
 		/// <summary>
 		/// Storage for InstanceDescription
 		/// </summary>
 		private global::System.String instanceDescriptionPropertyStorage = "A unique, immutable identifier that identifies a resource";
-		
+
 		/// <summary>
 		/// Gets or sets the value of InstanceDescription domain property.
 		/// The description associated to the unique code used to help 3rd parties identify
@@ -2090,12 +2090,12 @@ namespace ApiStudioIO
 		internal sealed partial class InstanceDescriptionPropertyHandler : DslModeling::DomainPropertyValueHandler<ResourceInstance, global::System.String>
 		{
 			private InstanceDescriptionPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ResourceInstance.InstanceDescription domain property value handler.
 			/// </summary>
 			public static readonly InstanceDescriptionPropertyHandler Instance = new InstanceDescriptionPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ResourceInstance.InstanceDescription domain property.
 			/// </summary>
@@ -2107,7 +2107,7 @@ namespace ApiStudioIO
 					return InstanceDescriptionDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -2118,7 +2118,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.instanceDescriptionPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -2127,7 +2127,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ResourceInstance element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -2137,20 +2137,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region InstanceDataType domain property code
-		
+
 		/// <summary>
 		/// InstanceDataType domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid InstanceDataTypeDomainPropertyId = new global::System.Guid(0x614d1655, 0xe0e5, 0x48a8, 0xb0, 0x52, 0x12, 0x09, 0xe2, 0x06, 0x6a, 0x67);
-		
+
 		/// <summary>
 		/// Storage for InstanceDataType
 		/// </summary>
 		private global::System.String instanceDataTypePropertyStorage = "Guid";
-		
+
 		/// <summary>
 		/// Gets or sets the value of InstanceDataType domain property.
 		/// The data type for the unique code parameter
@@ -2179,12 +2179,12 @@ namespace ApiStudioIO
 		internal sealed partial class InstanceDataTypePropertyHandler : DslModeling::DomainPropertyValueHandler<ResourceInstance, global::System.String>
 		{
 			private InstanceDataTypePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ResourceInstance.InstanceDataType domain property value handler.
 			/// </summary>
 			public static readonly InstanceDataTypePropertyHandler Instance = new InstanceDataTypePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ResourceInstance.InstanceDataType domain property.
 			/// </summary>
@@ -2196,7 +2196,7 @@ namespace ApiStudioIO
 					return InstanceDataTypeDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -2207,7 +2207,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.instanceDataTypePropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -2216,7 +2216,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ResourceInstance element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -2226,7 +2226,7 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 	}
 }
@@ -2248,7 +2248,7 @@ namespace ApiStudioIO
 	public partial class ResourceCollection : Resource
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// ResourceCollection domain class Id.
 		/// </summary>
@@ -2262,7 +2262,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -2274,17 +2274,17 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region UsePagination domain property code
-		
+
 		/// <summary>
 		/// UsePagination domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid UsePaginationDomainPropertyId = new global::System.Guid(0x8ad628a5, 0x9969, 0x4e5e, 0xb5, 0x67, 0x72, 0x6b, 0xc4, 0x9b, 0xd2, 0xce);
-		
+
 		/// <summary>
 		/// Storage for UsePagination
 		/// </summary>
 		private global::System.Boolean usePaginationPropertyStorage;
-		
+
 		/// <summary>
 		/// Gets or sets the value of UsePagination domain property.
 		/// Use limit and offset parameters to paginate records in a GET request. Note that
@@ -2315,12 +2315,12 @@ namespace ApiStudioIO
 		internal sealed partial class UsePaginationPropertyHandler : DslModeling::DomainPropertyValueHandler<ResourceCollection, global::System.Boolean>
 		{
 			private UsePaginationPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ResourceCollection.UsePagination domain property value handler.
 			/// </summary>
 			public static readonly UsePaginationPropertyHandler Instance = new UsePaginationPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ResourceCollection.UsePagination domain property.
 			/// </summary>
@@ -2332,7 +2332,7 @@ namespace ApiStudioIO
 					return UsePaginationDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -2343,7 +2343,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.usePaginationPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -2352,7 +2352,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ResourceCollection element, global::System.Boolean newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.Boolean oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -2362,20 +2362,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region UseSorting domain property code
-		
+
 		/// <summary>
 		/// UseSorting domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid UseSortingDomainPropertyId = new global::System.Guid(0xd3d71817, 0x0541, 0x45d9, 0x8f, 0x07, 0x61, 0xe0, 0x59, 0xc7, 0xe1, 0x29);
-		
+
 		/// <summary>
 		/// Storage for UseSorting
 		/// </summary>
 		private global::System.Boolean useSortingPropertyStorage;
-		
+
 		/// <summary>
 		/// Gets or sets the value of UseSorting domain property.
 		/// Sorting is determined through the use of the ‘sort’ query string parameter. The
@@ -2409,12 +2409,12 @@ namespace ApiStudioIO
 		internal sealed partial class UseSortingPropertyHandler : DslModeling::DomainPropertyValueHandler<ResourceCollection, global::System.Boolean>
 		{
 			private UseSortingPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the ResourceCollection.UseSorting domain property value handler.
 			/// </summary>
 			public static readonly UseSortingPropertyHandler Instance = new UseSortingPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the ResourceCollection.UseSorting domain property.
 			/// </summary>
@@ -2426,7 +2426,7 @@ namespace ApiStudioIO
 					return UseSortingDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -2437,7 +2437,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.useSortingPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -2446,7 +2446,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(ResourceCollection element, global::System.Boolean newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.Boolean oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -2456,7 +2456,7 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 	}
 }
@@ -2474,7 +2474,7 @@ namespace ApiStudioIO
 	public abstract partial class HttpApi : Api
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApi domain class Id.
 		/// </summary>
@@ -2490,17 +2490,17 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region Description domain property code
-		
+
 		/// <summary>
 		/// Description domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid DescriptionDomainPropertyId = new global::System.Guid(0xf01c0ff4, 0x98f0, 0x47f3, 0xa2, 0xc3, 0x16, 0x65, 0xd2, 0x1b, 0x62, 0x74);
-		
+
 		/// <summary>
 		/// Storage for Description
 		/// </summary>
 		private global::System.String descriptionPropertyStorage = "This is a description of the rest verbs actions";
-		
+
 		/// <summary>
 		/// Gets or sets the value of Description domain property.
 		/// The description which will be published for this Rest Resource. The description
@@ -2530,12 +2530,12 @@ namespace ApiStudioIO
 		internal sealed partial class DescriptionPropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApi, global::System.String>
 		{
 			private DescriptionPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApi.Description domain property value handler.
 			/// </summary>
 			public static readonly DescriptionPropertyHandler Instance = new DescriptionPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApi.Description domain property.
 			/// </summary>
@@ -2547,7 +2547,7 @@ namespace ApiStudioIO
 					return DescriptionDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -2558,7 +2558,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.descriptionPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -2567,7 +2567,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(HttpApi element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -2577,15 +2577,15 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region AuthorisationRole domain property code
-		
+
 		/// <summary>
 		/// AuthorisationRole domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid AuthorisationRoleDomainPropertyId = new global::System.Guid(0x1c2f46ab, 0x1966, 0x4f03, 0xb6, 0xe3, 0xd4, 0xa1, 0x16, 0xb9, 0x53, 0x2a);
-		
+
 		/// <summary>
 		/// Gets or sets the value of AuthorisationRole domain property.
 		/// Which parties are able to use this resoure
@@ -2611,12 +2611,12 @@ namespace ApiStudioIO
 		internal sealed partial class AuthorisationRolePropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.String>
 		{
 			private AuthorisationRolePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApi.AuthorisationRole domain property value handler.
 			/// </summary>
 			public static readonly AuthorisationRolePropertyHandler Instance = new AuthorisationRolePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApi.AuthorisationRole domain property.
 			/// </summary>
@@ -2628,7 +2628,7 @@ namespace ApiStudioIO
 					return AuthorisationRoleDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -2642,17 +2642,17 @@ namespace ApiStudioIO
 				// method on the domain class.
 				return element.GetAuthorisationRoleValue();
 			}
-		
+
 		}
-		
+
 		#endregion
 		#region HttpVerb domain property code
-		
+
 		/// <summary>
 		/// HttpVerb domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid HttpVerbDomainPropertyId = new global::System.Guid(0x7e555ff3, 0xfb88, 0x4735, 0x82, 0x73, 0xbf, 0x11, 0x0d, 0x26, 0xb0, 0x07);
-		
+
 		/// <summary>
 		/// Gets or sets the value of HttpVerb domain property.
 		/// The HTTP verb which is used by this Rest Resource
@@ -2679,12 +2679,12 @@ namespace ApiStudioIO
 		internal sealed partial class HttpVerbPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.String>
 		{
 			private HttpVerbPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApi.HttpVerb domain property value handler.
 			/// </summary>
 			public static readonly HttpVerbPropertyHandler Instance = new HttpVerbPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApi.HttpVerb domain property.
 			/// </summary>
@@ -2696,7 +2696,7 @@ namespace ApiStudioIO
 					return HttpVerbDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -2710,17 +2710,17 @@ namespace ApiStudioIO
 				// method on the domain class.
 				return element.GetHttpVerbValue();
 			}
-		
+
 		}
-		
+
 		#endregion
 		#region RequestParameters domain property code
-		
+
 		/// <summary>
 		/// RequestParameters domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid RequestParametersDomainPropertyId = new global::System.Guid(0x0b0bd3d5, 0x7c95, 0x4964, 0xb5, 0x44, 0xb9, 0x0c, 0xd4, 0xaf, 0x96, 0xf8);
-		
+
 		/// <summary>
 		/// Gets or sets the value of RequestParameters domain property.
 		/// API parameter collection for the RESTFul resource
@@ -2746,12 +2746,12 @@ namespace ApiStudioIO
 		internal sealed partial class RequestParametersPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceParameter>>
 		{
 			private RequestParametersPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApi.RequestParameters domain property value handler.
 			/// </summary>
 			public static readonly RequestParametersPropertyHandler Instance = new RequestParametersPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApi.RequestParameters domain property.
 			/// </summary>
@@ -2763,7 +2763,7 @@ namespace ApiStudioIO
 					return RequestParametersDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -2777,17 +2777,17 @@ namespace ApiStudioIO
 				// method on the domain class.
 				return element.GetRequestParametersValue();
 			}
-		
+
 		}
-		
+
 		#endregion
 		#region ResponseStatusCodes domain property code
-		
+
 		/// <summary>
 		/// ResponseStatusCodes domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid ResponseStatusCodesDomainPropertyId = new global::System.Guid(0x525d924f, 0x4072, 0x47a0, 0xb7, 0x4c, 0xb1, 0x50, 0xfd, 0x8a, 0x11, 0xa2);
-		
+
 		/// <summary>
 		/// Gets or sets the value of ResponseStatusCodes domain property.
 		/// Valid HTTP status codes which provide from the HTTP Api
@@ -2813,12 +2813,12 @@ namespace ApiStudioIO
 		internal sealed partial class ResponseStatusCodesPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceResponseStatusCode>>
 		{
 			private ResponseStatusCodesPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApi.ResponseStatusCodes domain property value handler.
 			/// </summary>
 			public static readonly ResponseStatusCodesPropertyHandler Instance = new ResponseStatusCodesPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApi.ResponseStatusCodes domain property.
 			/// </summary>
@@ -2830,7 +2830,7 @@ namespace ApiStudioIO
 					return ResponseStatusCodesDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -2844,17 +2844,17 @@ namespace ApiStudioIO
 				// method on the domain class.
 				return element.GetResponseStatusCodesValue();
 			}
-		
+
 		}
-		
+
 		#endregion
 		#region ResponseMediaTypes domain property code
-		
+
 		/// <summary>
 		/// ResponseMediaTypes domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid ResponseMediaTypesDomainPropertyId = new global::System.Guid(0xcae73e7a, 0x8e11, 0x444f, 0xbe, 0x69, 0xb4, 0xa5, 0x5d, 0x76, 0xea, 0xb6);
-		
+
 		/// <summary>
 		/// Gets or sets the value of ResponseMediaTypes domain property.
 		/// API output media type collection for the HTTP Api
@@ -2880,12 +2880,12 @@ namespace ApiStudioIO
 		internal sealed partial class ResponseMediaTypesPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceMediaTypeResponse>>
 		{
 			private ResponseMediaTypesPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApi.ResponseMediaTypes domain property value handler.
 			/// </summary>
 			public static readonly ResponseMediaTypesPropertyHandler Instance = new ResponseMediaTypesPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApi.ResponseMediaTypes domain property.
 			/// </summary>
@@ -2897,7 +2897,7 @@ namespace ApiStudioIO
 					return ResponseMediaTypesDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -2911,17 +2911,17 @@ namespace ApiStudioIO
 				// method on the domain class.
 				return element.GetResponseMediaTypesValue();
 			}
-		
+
 		}
-		
+
 		#endregion
 		#region RequestMediaTypes domain property code
-		
+
 		/// <summary>
 		/// RequestMediaTypes domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid RequestMediaTypesDomainPropertyId = new global::System.Guid(0x54f44c42, 0x8781, 0x4bbc, 0x85, 0xbc, 0xa9, 0xcd, 0x05, 0x28, 0xf4, 0x56);
-		
+
 		/// <summary>
 		/// Gets or sets the value of RequestMediaTypes domain property.
 		/// API input media type collection for the HTTP Api
@@ -2947,12 +2947,12 @@ namespace ApiStudioIO
 		internal sealed partial class RequestMediaTypesPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceMediaTypeRequest>>
 		{
 			private RequestMediaTypesPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApi.RequestMediaTypes domain property value handler.
 			/// </summary>
 			public static readonly RequestMediaTypesPropertyHandler Instance = new RequestMediaTypesPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApi.RequestMediaTypes domain property.
 			/// </summary>
@@ -2964,7 +2964,7 @@ namespace ApiStudioIO
 					return RequestMediaTypesDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -2978,17 +2978,17 @@ namespace ApiStudioIO
 				// method on the domain class.
 				return element.GetRequestMediaTypesValue();
 			}
-		
+
 		}
-		
+
 		#endregion
 		#region ResponseHeaders domain property code
-		
+
 		/// <summary>
 		/// ResponseHeaders domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid ResponseHeadersDomainPropertyId = new global::System.Guid(0xad456fa9, 0x3544, 0x4337, 0xb8, 0x8f, 0xdd, 0xaa, 0x34, 0xd6, 0x9d, 0xdd);
-		
+
 		/// <summary>
 		/// Gets or sets the value of ResponseHeaders domain property.
 		/// API headers for the outbound HTTP Api
@@ -3014,12 +3014,12 @@ namespace ApiStudioIO
 		internal sealed partial class ResponseHeadersPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceHeaderResponse>>
 		{
 			private ResponseHeadersPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApi.ResponseHeaders domain property value handler.
 			/// </summary>
 			public static readonly ResponseHeadersPropertyHandler Instance = new ResponseHeadersPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApi.ResponseHeaders domain property.
 			/// </summary>
@@ -3031,7 +3031,7 @@ namespace ApiStudioIO
 					return ResponseHeadersDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -3045,17 +3045,17 @@ namespace ApiStudioIO
 				// method on the domain class.
 				return element.GetResponseHeadersValue();
 			}
-		
+
 		}
-		
+
 		#endregion
 		#region RequestHeaders domain property code
-		
+
 		/// <summary>
 		/// RequestHeaders domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid RequestHeadersDomainPropertyId = new global::System.Guid(0x838e029b, 0x464a, 0x4a1b, 0x91, 0x09, 0x81, 0x76, 0x21, 0x75, 0x27, 0x1a);
-		
+
 		/// <summary>
 		/// Gets or sets the value of RequestHeaders domain property.
 		/// API headers for the inbound HTTP Api
@@ -3081,12 +3081,12 @@ namespace ApiStudioIO
 		internal sealed partial class RequestHeadersPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApi, global::System.Collections.Generic.List<ApiStudioIO.Common.Models.Http.HttpResourceHeaderRequest>>
 		{
 			private RequestHeadersPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApi.RequestHeaders domain property value handler.
 			/// </summary>
 			public static readonly RequestHeadersPropertyHandler Instance = new RequestHeadersPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApi.RequestHeaders domain property.
 			/// </summary>
@@ -3098,7 +3098,7 @@ namespace ApiStudioIO
 					return RequestHeadersDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -3112,12 +3112,12 @@ namespace ApiStudioIO
 				// method on the domain class.
 				return element.GetRequestHeadersValue();
 			}
-		
+
 		}
-		
+
 		#endregion
 		#region SourceDataModel opposite domain role accessor
-		
+
 		/// <summary>
 		/// Gets a list of SourceDataModel.
 		/// Description for ApiStudioIO.HttpApiSuccessRequestModel.HttpApi
@@ -3132,7 +3132,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region DataModels opposite domain role accessor
-		
+
 		/// <summary>
 		/// Gets a list of DataModels.
 		/// Description for ApiStudioIO.HttpApiSuccessResponseModel.HttpApi
@@ -3147,7 +3147,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApiParameters opposite domain role accessor
-		
+
 		/// <summary>
 		/// Gets a list of HttpApiParameters.
 		/// Description for ApiStudioIO.HttpApiHasParameters.HttpApi
@@ -3162,7 +3162,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApiResponseStatusCodes opposite domain role accessor
-		
+
 		/// <summary>
 		/// Gets a list of HttpApiResponseStatusCodes.
 		/// Description for ApiStudioIO.HttpApiHasResponseStatusCodes.HttpApi
@@ -3177,7 +3177,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApiMediaTypeResponsed opposite domain role accessor
-		
+
 		/// <summary>
 		/// Gets a list of HttpApiMediaTypeResponsed.
 		/// Description for ApiStudioIO.HttpApiHasMediaTypeResponse.HttpApi
@@ -3191,13 +3191,13 @@ namespace ApiStudioIO
 			}
 		}
 		#endregion
-		#region HttpApiMediaTypeRequestd opposite domain role accessor
-		
+		#region HttpApiMediaTypeRequest opposite domain role accessor
+
 		/// <summary>
-		/// Gets a list of HttpApiMediaTypeRequestd.
+		/// Gets a list of HttpApiMediaTypeRequest.
 		/// Description for ApiStudioIO.HttpApiHasMediaTypeRequest.HttpApi
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<HttpApiMediaTypeRequest> HttpApiMediaTypeRequestd
+		public virtual DslModeling::LinkedElementCollection<HttpApiMediaTypeRequest> HttpApiMediaTypeRequest
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
@@ -3207,7 +3207,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApiHeaderRequests opposite domain role accessor
-		
+
 		/// <summary>
 		/// Gets a list of HttpApiHeaderRequests.
 		/// Description for ApiStudioIO.HttpApiHasHeaderRequest.HttpApi
@@ -3222,7 +3222,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region HttpApiHeaderResponses opposite domain role accessor
-		
+
 		/// <summary>
 		/// Gets a list of HttpApiHeaderResponses.
 		/// Description for ApiStudioIO.HttpApiHasHeaderResponse.HttpApi
@@ -3242,7 +3242,7 @@ namespace ApiStudioIO
 		/// specified root ProtoElement can be added to this element.
 		/// </summary>
 		/// <param name="rootElement">
-		/// The root ProtoElement representing a source element.  This can be null, 
+		/// The root ProtoElement representing a source element.  This can be null,
 		/// in which case the ElementGroupPrototype does not contain an ProtoElements
 		/// and the code should inspect the ElementGroupPrototype context information.
 		/// </param>
@@ -3251,49 +3251,49 @@ namespace ApiStudioIO
 		protected override bool CanMerge(DslModeling::ProtoElementBase rootElement, DslModeling::ElementGroupPrototype elementGroupPrototype)
 		{
 			if ( elementGroupPrototype == null ) throw new global::System.ArgumentNullException("elementGroupPrototype");
-			
+
 			if (rootElement != null)
 			{
 				DslModeling::DomainClassInfo rootElementDomainInfo = this.Partition.DomainDataDirectory.GetDomainClass(rootElement.DomainClassId);
-				
-				if (rootElementDomainInfo.IsDerivedFrom(global::ApiStudioIO.HttpApiMediaTypeResponse.DomainClassId)) 
+
+				if (rootElementDomainInfo.IsDerivedFrom(global::ApiStudioIO.HttpApiMediaTypeResponse.DomainClassId))
 				{
 					return true;
 				}
-				
-				if (rootElementDomainInfo.IsDerivedFrom(global::ApiStudioIO.HttpApiMediaTypeRequest.DomainClassId)) 
+
+				if (rootElementDomainInfo.IsDerivedFrom(global::ApiStudioIO.HttpApiMediaTypeRequest.DomainClassId))
 				{
 					return true;
 				}
-				
-				if (rootElementDomainInfo.IsDerivedFrom(global::ApiStudioIO.HttpApiHeaderRequest.DomainClassId)) 
+
+				if (rootElementDomainInfo.IsDerivedFrom(global::ApiStudioIO.HttpApiHeaderRequest.DomainClassId))
 				{
 					return true;
 				}
-				
-				if (rootElementDomainInfo.IsDerivedFrom(global::ApiStudioIO.HttpApiHeaderResponse.DomainClassId)) 
+
+				if (rootElementDomainInfo.IsDerivedFrom(global::ApiStudioIO.HttpApiHeaderResponse.DomainClassId))
 				{
 					return true;
 				}
-				
-				if (rootElementDomainInfo.IsDerivedFrom(global::ApiStudioIO.HttpApiParameter.DomainClassId)) 
+
+				if (rootElementDomainInfo.IsDerivedFrom(global::ApiStudioIO.HttpApiParameter.DomainClassId))
 				{
 					return true;
 				}
-				
-				if (rootElementDomainInfo.IsDerivedFrom(global::ApiStudioIO.HttpApiResponseStatusCode.DomainClassId)) 
+
+				if (rootElementDomainInfo.IsDerivedFrom(global::ApiStudioIO.HttpApiResponseStatusCode.DomainClassId))
 				{
 					return true;
 				}
 			}
 			return base.CanMerge(rootElement, elementGroupPrototype);
 		}
-		
+
 		/// <summary>
-		/// Called by the Merge process to create a relationship between 
-		/// this target element and the specified source element. 
+		/// Called by the Merge process to create a relationship between
+		/// this target element and the specified source element.
 		/// Typically, a parent-child relationship is established
-		/// between the target element (the parent) and the source element 
+		/// between the target element (the parent) and the source element
 		/// (the child), but any relationship can be established.
 		/// </summary>
 		/// <param name="sourceElement">The element that is to be related to this model element.</param>
@@ -3305,11 +3305,11 @@ namespace ApiStudioIO
 		protected override void MergeRelate(DslModeling::ModelElement sourceElement, DslModeling::ElementGroup elementGroup)
 		{
 			// In general, sourceElement is allowed to be null, meaning that the elementGroup must be parsed for special cases.
-			// However this is not supported in generated code.  Use double-deriving on this class and then override MergeRelate completely if you 
+			// However this is not supported in generated code.  Use double-deriving on this class and then override MergeRelate completely if you
 			// need to support this case.
 			if ( sourceElement == null ) throw new global::System.ArgumentNullException("sourceElement");
-		
-				
+
+
 			global::ApiStudioIO.HttpApiMediaTypeResponse sourceHttpApiMediaTypeResponse1 = sourceElement as global::ApiStudioIO.HttpApiMediaTypeResponse;
 			if (sourceHttpApiMediaTypeResponse1 != null)
 			{
@@ -3318,16 +3318,16 @@ namespace ApiStudioIO
 
 				return;
 			}
-				
+
 			global::ApiStudioIO.HttpApiMediaTypeRequest sourceHttpApiMediaTypeRequest2 = sourceElement as global::ApiStudioIO.HttpApiMediaTypeRequest;
 			if (sourceHttpApiMediaTypeRequest2 != null)
 			{
-				// Create link for path HttpApiHasMediaTypeRequest.HttpApiMediaTypeRequestd
-				this.HttpApiMediaTypeRequestd.Add(sourceHttpApiMediaTypeRequest2);
+				// Create link for path HttpApiHasMediaTypeRequest.HttpApiMediaTypeRequest
+				this.HttpApiMediaTypeRequest.Add(sourceHttpApiMediaTypeRequest2);
 
 				return;
 			}
-				
+
 			global::ApiStudioIO.HttpApiHeaderRequest sourceHttpApiHeaderRequest3 = sourceElement as global::ApiStudioIO.HttpApiHeaderRequest;
 			if (sourceHttpApiHeaderRequest3 != null)
 			{
@@ -3336,7 +3336,7 @@ namespace ApiStudioIO
 
 				return;
 			}
-				
+
 			global::ApiStudioIO.HttpApiHeaderResponse sourceHttpApiHeaderResponse4 = sourceElement as global::ApiStudioIO.HttpApiHeaderResponse;
 			if (sourceHttpApiHeaderResponse4 != null)
 			{
@@ -3345,7 +3345,7 @@ namespace ApiStudioIO
 
 				return;
 			}
-				
+
 			global::ApiStudioIO.HttpApiParameter sourceHttpApiParameter5 = sourceElement as global::ApiStudioIO.HttpApiParameter;
 			if (sourceHttpApiParameter5 != null)
 			{
@@ -3354,7 +3354,7 @@ namespace ApiStudioIO
 
 				return;
 			}
-				
+
 			global::ApiStudioIO.HttpApiResponseStatusCode sourceHttpApiResponseStatusCode6 = sourceElement as global::ApiStudioIO.HttpApiResponseStatusCode;
 			if (sourceHttpApiResponseStatusCode6 != null)
 			{
@@ -3363,7 +3363,7 @@ namespace ApiStudioIO
 
 				return;
 			}
-		
+
 			// Sdk workaround to runtime bug #879350 (DSL: can't copy and paste a MEL that has a MEX). Avoid MergeRelate on ModelElementExtension
 			// during a "Paste".
 			if (sourceElement is DslModeling::ExtensionElement
@@ -3371,11 +3371,11 @@ namespace ApiStudioIO
 			{
 				return;
 			}
-		
+
 			// Fall through to base class if this class hasn't handled the merge.
 			base.MergeRelate(sourceElement, elementGroup);
 		}
-		
+
 		/// <summary>
 		/// Performs operation opposite to MergeRelate - i.e. disconnects a given
 		/// element from the current one (removes links created by MergeRelate).
@@ -3385,12 +3385,12 @@ namespace ApiStudioIO
 		protected override void MergeDisconnect(DslModeling::ModelElement sourceElement)
 		{
 			if (sourceElement == null) throw new global::System.ArgumentNullException("sourceElement");
-				
+
 			global::ApiStudioIO.HttpApiMediaTypeResponse sourceHttpApiMediaTypeResponse1 = sourceElement as global::ApiStudioIO.HttpApiMediaTypeResponse;
 			if (sourceHttpApiMediaTypeResponse1 != null)
 			{
 				// Delete link for path HttpApiHasMediaTypeResponse.HttpApiMediaTypeResponsed
-				
+
 				foreach (DslModeling::ElementLink link in global::ApiStudioIO.HttpApiHasMediaTypeResponse.GetLinks((global::ApiStudioIO.HttpApi)this, sourceHttpApiMediaTypeResponse1))
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
@@ -3399,12 +3399,12 @@ namespace ApiStudioIO
 
 				return;
 			}
-				
+
 			global::ApiStudioIO.HttpApiMediaTypeRequest sourceHttpApiMediaTypeRequest2 = sourceElement as global::ApiStudioIO.HttpApiMediaTypeRequest;
 			if (sourceHttpApiMediaTypeRequest2 != null)
 			{
-				// Delete link for path HttpApiHasMediaTypeRequest.HttpApiMediaTypeRequestd
-				
+				// Delete link for path HttpApiHasMediaTypeRequest.HttpApiMediaTypeRequest
+
 				foreach (DslModeling::ElementLink link in global::ApiStudioIO.HttpApiHasMediaTypeRequest.GetLinks((global::ApiStudioIO.HttpApi)this, sourceHttpApiMediaTypeRequest2))
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
@@ -3413,12 +3413,12 @@ namespace ApiStudioIO
 
 				return;
 			}
-				
+
 			global::ApiStudioIO.HttpApiHeaderRequest sourceHttpApiHeaderRequest3 = sourceElement as global::ApiStudioIO.HttpApiHeaderRequest;
 			if (sourceHttpApiHeaderRequest3 != null)
 			{
 				// Delete link for path HttpApiHasHeaderRequest.HttpApiHeaderRequests
-				
+
 				foreach (DslModeling::ElementLink link in global::ApiStudioIO.HttpApiHasHeaderRequest.GetLinks((global::ApiStudioIO.HttpApi)this, sourceHttpApiHeaderRequest3))
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
@@ -3427,12 +3427,12 @@ namespace ApiStudioIO
 
 				return;
 			}
-				
+
 			global::ApiStudioIO.HttpApiHeaderResponse sourceHttpApiHeaderResponse4 = sourceElement as global::ApiStudioIO.HttpApiHeaderResponse;
 			if (sourceHttpApiHeaderResponse4 != null)
 			{
 				// Delete link for path HttpApiHasHeaderResponse.HttpApiHeaderResponses
-				
+
 				foreach (DslModeling::ElementLink link in global::ApiStudioIO.HttpApiHasHeaderResponse.GetLinks((global::ApiStudioIO.HttpApi)this, sourceHttpApiHeaderResponse4))
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
@@ -3441,12 +3441,12 @@ namespace ApiStudioIO
 
 				return;
 			}
-				
+
 			global::ApiStudioIO.HttpApiParameter sourceHttpApiParameter5 = sourceElement as global::ApiStudioIO.HttpApiParameter;
 			if (sourceHttpApiParameter5 != null)
 			{
 				// Delete link for path HttpApiHasParameters.HttpApiParameters
-				
+
 				foreach (DslModeling::ElementLink link in global::ApiStudioIO.HttpApiHasParameters.GetLinks((global::ApiStudioIO.HttpApi)this, sourceHttpApiParameter5))
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
@@ -3455,12 +3455,12 @@ namespace ApiStudioIO
 
 				return;
 			}
-				
+
 			global::ApiStudioIO.HttpApiResponseStatusCode sourceHttpApiResponseStatusCode6 = sourceElement as global::ApiStudioIO.HttpApiResponseStatusCode;
 			if (sourceHttpApiResponseStatusCode6 != null)
 			{
 				// Delete link for path HttpApiHasResponseStatusCodes.HttpApiResponseStatusCodes
-				
+
 				foreach (DslModeling::ElementLink link in global::ApiStudioIO.HttpApiHasResponseStatusCodes.GetLinks((global::ApiStudioIO.HttpApi)this, sourceHttpApiResponseStatusCode6))
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
@@ -3490,7 +3490,7 @@ namespace ApiStudioIO
 	public partial class ResourceAction : Resource
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// ResourceAction domain class Id.
 		/// </summary>
@@ -3504,7 +3504,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -3532,7 +3532,7 @@ namespace ApiStudioIO
 	public partial class HttpApiGet : HttpApi
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiGet domain class Id.
 		/// </summary>
@@ -3546,7 +3546,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -3574,7 +3574,7 @@ namespace ApiStudioIO
 	public partial class HttpApiPut : HttpApi
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiPut domain class Id.
 		/// </summary>
@@ -3588,7 +3588,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -3616,7 +3616,7 @@ namespace ApiStudioIO
 	public partial class HttpApiPost : HttpApi
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiPost domain class Id.
 		/// </summary>
@@ -3630,7 +3630,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -3657,7 +3657,7 @@ namespace ApiStudioIO
 	public partial class HttpApiDelete : HttpApi
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiDelete domain class Id.
 		/// </summary>
@@ -3671,7 +3671,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -3699,7 +3699,7 @@ namespace ApiStudioIO
 	public partial class DataModel : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// DataModel domain class Id.
 		/// </summary>
@@ -3713,7 +3713,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -3725,17 +3725,17 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region Name domain property code
-		
+
 		/// <summary>
 		/// Name domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid NameDomainPropertyId = new global::System.Guid(0x6fffa5cc, 0xbf10, 0x406f, 0xa0, 0x41, 0x2d, 0x7a, 0x9b, 0x10, 0xf5, 0x23);
-		
+
 		/// <summary>
 		/// Storage for Name
 		/// </summary>
 		private global::System.String namePropertyStorage = string.Empty;
-		
+
 		/// <summary>
 		/// Gets or sets the value of Name domain property.
 		/// The name of the data model. This should align with the GDM name when possible.
@@ -3764,12 +3764,12 @@ namespace ApiStudioIO
 		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<DataModel, global::System.String>
 		{
 			private NamePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the DataModel.Name domain property value handler.
 			/// </summary>
 			public static readonly NamePropertyHandler Instance = new NamePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the DataModel.Name domain property.
 			/// </summary>
@@ -3781,7 +3781,7 @@ namespace ApiStudioIO
 					return NameDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -3792,7 +3792,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.namePropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -3801,7 +3801,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(DataModel element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -3811,20 +3811,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region Description domain property code
-		
+
 		/// <summary>
 		/// Description domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid DescriptionDomainPropertyId = new global::System.Guid(0xee416165, 0x3a63, 0x4c6c, 0xb8, 0xc4, 0x0b, 0xa1, 0x11, 0x7f, 0xcc, 0x1d);
-		
+
 		/// <summary>
 		/// Storage for Description
 		/// </summary>
 		private global::System.String descriptionPropertyStorage = string.Empty;
-		
+
 		/// <summary>
 		/// Gets or sets the value of Description domain property.
 		/// The description of the data model. This should align with the GDM name when
@@ -3853,12 +3853,12 @@ namespace ApiStudioIO
 		internal sealed partial class DescriptionPropertyHandler : DslModeling::DomainPropertyValueHandler<DataModel, global::System.String>
 		{
 			private DescriptionPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the DataModel.Description domain property value handler.
 			/// </summary>
 			public static readonly DescriptionPropertyHandler Instance = new DescriptionPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the DataModel.Description domain property.
 			/// </summary>
@@ -3870,7 +3870,7 @@ namespace ApiStudioIO
 					return DescriptionDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -3881,7 +3881,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.descriptionPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -3890,7 +3890,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(DataModel element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -3900,10 +3900,10 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region HttpApis opposite domain role accessor
-		
+
 		/// <summary>
 		/// Gets a list of HttpApis.
 		/// Description for ApiStudioIO.HttpApiSuccessRequestModel.DataModel
@@ -3918,7 +3918,7 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region SourceHttpApi opposite domain role accessor
-		
+
 		/// <summary>
 		/// Gets a list of SourceHttpApi.
 		/// Description for ApiStudioIO.HttpApiSuccessResponseModel.DataModel
@@ -3969,7 +3969,7 @@ namespace ApiStudioIO
 	public partial class ResourceAttribute : Resource
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// ResourceAttribute domain class Id.
 		/// </summary>
@@ -3983,7 +3983,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -4010,7 +4010,7 @@ namespace ApiStudioIO
 	public partial class HttpApiMediaTypeResponse : HttpApiMediaType
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiMediaTypeResponse domain class Id.
 		/// </summary>
@@ -4024,7 +4024,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -4070,7 +4070,7 @@ namespace ApiStudioIO
 	public partial class HttpApiMediaTypeRequest : HttpApiMediaType
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiMediaTypeRequest domain class Id.
 		/// </summary>
@@ -4084,7 +4084,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -4131,7 +4131,7 @@ namespace ApiStudioIO
 	public partial class HttpApiParameter : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiParameter domain class Id.
 		/// </summary>
@@ -4145,7 +4145,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -4157,17 +4157,17 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region Identifier domain property code
-		
+
 		/// <summary>
 		/// Identifier domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid IdentifierDomainPropertyId = new global::System.Guid(0x382606f2, 0x0aaf, 0x426f, 0xb7, 0xe2, 0xde, 0x24, 0x42, 0x71, 0x8c, 0x21);
-		
+
 		/// <summary>
 		/// Storage for Identifier
 		/// </summary>
 		private global::System.String identifierPropertyStorage = "ParameterName";
-		
+
 		/// <summary>
 		/// Gets or sets the value of Identifier domain property.
 		/// The identifier (variable name) of the given parameter
@@ -4196,12 +4196,12 @@ namespace ApiStudioIO
 		internal sealed partial class IdentifierPropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiParameter, global::System.String>
 		{
 			private IdentifierPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiParameter.Identifier domain property value handler.
 			/// </summary>
 			public static readonly IdentifierPropertyHandler Instance = new IdentifierPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiParameter.Identifier domain property.
 			/// </summary>
@@ -4213,7 +4213,7 @@ namespace ApiStudioIO
 					return IdentifierDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -4224,7 +4224,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.identifierPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -4233,7 +4233,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(HttpApiParameter element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -4243,20 +4243,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region DataType domain property code
-		
+
 		/// <summary>
 		/// DataType domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid DataTypeDomainPropertyId = new global::System.Guid(0x05df3aa8, 0x91f5, 0x4c54, 0xbe, 0xa7, 0x6c, 0xb1, 0x75, 0xda, 0xd1, 0x11);
-		
+
 		/// <summary>
 		/// Storage for DataType
 		/// </summary>
 		private global::System.String dataTypePropertyStorage = "string";
-		
+
 		/// <summary>
 		/// Gets or sets the value of DataType domain property.
 		/// Description for ApiStudioIO.HttpApiParameter.Data Type
@@ -4285,12 +4285,12 @@ namespace ApiStudioIO
 		internal sealed partial class DataTypePropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiParameter, global::System.String>
 		{
 			private DataTypePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiParameter.DataType domain property value handler.
 			/// </summary>
 			public static readonly DataTypePropertyHandler Instance = new DataTypePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiParameter.DataType domain property.
 			/// </summary>
@@ -4302,7 +4302,7 @@ namespace ApiStudioIO
 					return DataTypeDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -4313,7 +4313,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.dataTypePropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -4322,7 +4322,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(HttpApiParameter element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -4332,20 +4332,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region Description domain property code
-		
+
 		/// <summary>
 		/// Description domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid DescriptionDomainPropertyId = new global::System.Guid(0xe0cf4e69, 0x77dc, 0x43fb, 0xa0, 0x43, 0x0c, 0x55, 0xd2, 0x89, 0x7f, 0xcf);
-		
+
 		/// <summary>
 		/// Storage for Description
 		/// </summary>
 		private global::System.String descriptionPropertyStorage = "This is a description about the API parameter";
-		
+
 		/// <summary>
 		/// Gets or sets the value of Description domain property.
 		/// Description for ApiStudioIO.HttpApiParameter.Description
@@ -4374,12 +4374,12 @@ namespace ApiStudioIO
 		internal sealed partial class DescriptionPropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiParameter, global::System.String>
 		{
 			private DescriptionPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiParameter.Description domain property value handler.
 			/// </summary>
 			public static readonly DescriptionPropertyHandler Instance = new DescriptionPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiParameter.Description domain property.
 			/// </summary>
@@ -4391,7 +4391,7 @@ namespace ApiStudioIO
 					return DescriptionDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -4402,7 +4402,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.descriptionPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -4411,7 +4411,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(HttpApiParameter element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -4421,20 +4421,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region IsRequired domain property code
-		
+
 		/// <summary>
 		/// IsRequired domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid IsRequiredDomainPropertyId = new global::System.Guid(0xd9cec306, 0x8d1c, 0x4ed8, 0xbb, 0xf4, 0x89, 0x91, 0x86, 0x99, 0x7e, 0x8f);
-		
+
 		/// <summary>
 		/// Storage for IsRequired
 		/// </summary>
 		private global::System.Boolean isRequiredPropertyStorage;
-		
+
 		/// <summary>
 		/// Gets or sets the value of IsRequired domain property.
 		/// Description for ApiStudioIO.HttpApiParameter.Is Required
@@ -4462,12 +4462,12 @@ namespace ApiStudioIO
 		internal sealed partial class IsRequiredPropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiParameter, global::System.Boolean>
 		{
 			private IsRequiredPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiParameter.IsRequired domain property value handler.
 			/// </summary>
 			public static readonly IsRequiredPropertyHandler Instance = new IsRequiredPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiParameter.IsRequired domain property.
 			/// </summary>
@@ -4479,7 +4479,7 @@ namespace ApiStudioIO
 					return IsRequiredDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -4490,7 +4490,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.isRequiredPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -4499,7 +4499,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(HttpApiParameter element, global::System.Boolean newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.Boolean oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -4509,20 +4509,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region FromType domain property code
-		
+
 		/// <summary>
 		/// FromType domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid FromTypeDomainPropertyId = new global::System.Guid(0xf0853a14, 0x3d29, 0x4d60, 0xb8, 0xec, 0xf3, 0x9f, 0x1f, 0x06, 0x89, 0x20);
-		
+
 		/// <summary>
 		/// Storage for FromType
 		/// </summary>
 		private HttpApiParameterTypes fromTypePropertyStorage = HttpApiParameterTypes.Query;
-		
+
 		/// <summary>
 		/// Gets or sets the value of FromType domain property.
 		/// This property determines where the parameter comes from e.g. Header, Body,
@@ -4552,12 +4552,12 @@ namespace ApiStudioIO
 		internal sealed partial class FromTypePropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiParameter, HttpApiParameterTypes>
 		{
 			private FromTypePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiParameter.FromType domain property value handler.
 			/// </summary>
 			public static readonly FromTypePropertyHandler Instance = new FromTypePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiParameter.FromType domain property.
 			/// </summary>
@@ -4569,7 +4569,7 @@ namespace ApiStudioIO
 					return FromTypeDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -4580,7 +4580,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.fromTypePropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -4589,7 +4589,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(HttpApiParameter element, HttpApiParameterTypes newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				HttpApiParameterTypes oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -4599,20 +4599,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region IsAutoGenerated domain property code
-		
+
 		/// <summary>
 		/// IsAutoGenerated domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid IsAutoGeneratedDomainPropertyId = new global::System.Guid(0xaf415229, 0x6fd9, 0x4fe2, 0xa7, 0x18, 0x90, 0x15, 0xd5, 0xa0, 0x12, 0x70);
-		
+
 		/// <summary>
 		/// Storage for IsAutoGenerated
 		/// </summary>
 		private global::System.Boolean isAutoGeneratedPropertyStorage;
-		
+
 		/// <summary>
 		/// Gets or sets the value of IsAutoGenerated domain property.
 		/// Description for ApiStudioIO.HttpApiParameter.Is Auto Generated
@@ -4641,12 +4641,12 @@ namespace ApiStudioIO
 		internal sealed partial class IsAutoGeneratedPropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiParameter, global::System.Boolean>
 		{
 			private IsAutoGeneratedPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiParameter.IsAutoGenerated domain property value handler.
 			/// </summary>
 			public static readonly IsAutoGeneratedPropertyHandler Instance = new IsAutoGeneratedPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiParameter.IsAutoGenerated domain property.
 			/// </summary>
@@ -4658,7 +4658,7 @@ namespace ApiStudioIO
 					return IsAutoGeneratedDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -4669,7 +4669,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.isAutoGeneratedPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -4678,7 +4678,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(HttpApiParameter element, global::System.Boolean newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.Boolean oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -4688,15 +4688,15 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region DisplayName domain property code
-		
+
 		/// <summary>
 		/// DisplayName domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid DisplayNameDomainPropertyId = new global::System.Guid(0x384030a6, 0x20b1, 0x4519, 0x93, 0x5b, 0xeb, 0xe6, 0x4a, 0xa6, 0x22, 0x74);
-		
+
 		/// <summary>
 		/// Gets or sets the value of DisplayName domain property.
 		/// This property is used for deplay within the designer
@@ -4723,12 +4723,12 @@ namespace ApiStudioIO
 		internal sealed partial class DisplayNamePropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApiParameter, global::System.String>
 		{
 			private DisplayNamePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiParameter.DisplayName domain property value handler.
 			/// </summary>
 			public static readonly DisplayNamePropertyHandler Instance = new DisplayNamePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiParameter.DisplayName domain property.
 			/// </summary>
@@ -4740,7 +4740,7 @@ namespace ApiStudioIO
 					return DisplayNameDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -4754,9 +4754,9 @@ namespace ApiStudioIO
 				// method on the domain class.
 				return element.GetDisplayNameValue();
 			}
-		
+
 		}
-		
+
 		#endregion
 		#region HttpApi opposite domain role accessor
 		/// <summary>
@@ -4794,7 +4794,7 @@ namespace ApiStudioIO
 	public partial class HttpApiResponseStatusCode : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiResponseStatusCode domain class Id.
 		/// </summary>
@@ -4808,7 +4808,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -4820,12 +4820,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region DisplayName domain property code
-		
+
 		/// <summary>
 		/// DisplayName domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid DisplayNameDomainPropertyId = new global::System.Guid(0xdabe33b8, 0x515f, 0x4111, 0xab, 0x71, 0x94, 0x91, 0xb8, 0xea, 0xc0, 0xbe);
-		
+
 		/// <summary>
 		/// Gets or sets the value of DisplayName domain property.
 		/// This property is used for deplay within the designer
@@ -4852,12 +4852,12 @@ namespace ApiStudioIO
 		internal sealed partial class DisplayNamePropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApiResponseStatusCode, global::System.String>
 		{
 			private DisplayNamePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiResponseStatusCode.DisplayName domain property value handler.
 			/// </summary>
 			public static readonly DisplayNamePropertyHandler Instance = new DisplayNamePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiResponseStatusCode.DisplayName domain property.
 			/// </summary>
@@ -4869,7 +4869,7 @@ namespace ApiStudioIO
 					return DisplayNameDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -4883,22 +4883,22 @@ namespace ApiStudioIO
 				// method on the domain class.
 				return element.GetDisplayNameValue();
 			}
-		
+
 		}
-		
+
 		#endregion
 		#region HttpStatus domain property code
-		
+
 		/// <summary>
 		/// HttpStatus domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid HttpStatusDomainPropertyId = new global::System.Guid(0x6a2e0d39, 0x707c, 0x4fba, 0x92, 0x66, 0xd8, 0x9c, 0xab, 0xa6, 0xff, 0xa5);
-		
+
 		/// <summary>
 		/// Storage for HttpStatus
 		/// </summary>
 		private global::System.Int32 httpStatusPropertyStorage;
-		
+
 		/// <summary>
 		/// Gets or sets the value of HttpStatus domain property.
 		/// Description for ApiStudioIO.HttpApiResponseStatusCode.Http Status
@@ -4926,12 +4926,12 @@ namespace ApiStudioIO
 		internal sealed partial class HttpStatusPropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiResponseStatusCode, global::System.Int32>
 		{
 			private HttpStatusPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiResponseStatusCode.HttpStatus domain property value handler.
 			/// </summary>
 			public static readonly HttpStatusPropertyHandler Instance = new HttpStatusPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiResponseStatusCode.HttpStatus domain property.
 			/// </summary>
@@ -4943,7 +4943,7 @@ namespace ApiStudioIO
 					return HttpStatusDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -4954,7 +4954,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.httpStatusPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -4963,7 +4963,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(HttpApiResponseStatusCode element, global::System.Int32 newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.Int32 oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -4973,15 +4973,15 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region Type domain property code
-		
+
 		/// <summary>
 		/// Type domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid TypeDomainPropertyId = new global::System.Guid(0x10b6fa85, 0xbc59, 0x4512, 0x9b, 0x41, 0x4e, 0xd0, 0xea, 0xe2, 0x9f, 0xf1);
-		
+
 		/// <summary>
 		/// Gets or sets the value of Type domain property.
 		/// Description for ApiStudioIO.HttpApiResponseStatusCode.Type
@@ -5006,12 +5006,12 @@ namespace ApiStudioIO
 		internal sealed partial class TypePropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApiResponseStatusCode, global::System.String>
 		{
 			private TypePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiResponseStatusCode.Type domain property value handler.
 			/// </summary>
 			public static readonly TypePropertyHandler Instance = new TypePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiResponseStatusCode.Type domain property.
 			/// </summary>
@@ -5023,7 +5023,7 @@ namespace ApiStudioIO
 					return TypeDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -5037,17 +5037,17 @@ namespace ApiStudioIO
 				// method on the domain class.
 				return element.GetTypeValue();
 			}
-		
+
 		}
-		
+
 		#endregion
 		#region Description domain property code
-		
+
 		/// <summary>
 		/// Description domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid DescriptionDomainPropertyId = new global::System.Guid(0x2558ae2c, 0xe05d, 0x48b2, 0xb4, 0x97, 0xe9, 0x4e, 0x9a, 0x74, 0x4d, 0x58);
-		
+
 		/// <summary>
 		/// Gets or sets the value of Description domain property.
 		/// Description for ApiStudioIO.HttpApiResponseStatusCode.Description
@@ -5072,12 +5072,12 @@ namespace ApiStudioIO
 		internal sealed partial class DescriptionPropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApiResponseStatusCode, global::System.String>
 		{
 			private DescriptionPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiResponseStatusCode.Description domain property value handler.
 			/// </summary>
 			public static readonly DescriptionPropertyHandler Instance = new DescriptionPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiResponseStatusCode.Description domain property.
 			/// </summary>
@@ -5089,7 +5089,7 @@ namespace ApiStudioIO
 					return DescriptionDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -5103,22 +5103,22 @@ namespace ApiStudioIO
 				// method on the domain class.
 				return element.GetDescriptionValue();
 			}
-		
+
 		}
-		
+
 		#endregion
 		#region IsAutoGenerated domain property code
-		
+
 		/// <summary>
 		/// IsAutoGenerated domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid IsAutoGeneratedDomainPropertyId = new global::System.Guid(0x685eb132, 0x73bc, 0x4608, 0xb4, 0x52, 0x87, 0x77, 0x50, 0xb9, 0x93, 0x9d);
-		
+
 		/// <summary>
 		/// Storage for IsAutoGenerated
 		/// </summary>
 		private global::System.Boolean isAutoGeneratedPropertyStorage;
-		
+
 		/// <summary>
 		/// Gets or sets the value of IsAutoGenerated domain property.
 		/// Description for ApiStudioIO.HttpApiResponseStatusCode.Is Auto Generated
@@ -5147,12 +5147,12 @@ namespace ApiStudioIO
 		internal sealed partial class IsAutoGeneratedPropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiResponseStatusCode, global::System.Boolean>
 		{
 			private IsAutoGeneratedPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiResponseStatusCode.IsAutoGenerated domain property value handler.
 			/// </summary>
 			public static readonly IsAutoGeneratedPropertyHandler Instance = new IsAutoGeneratedPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiResponseStatusCode.IsAutoGenerated domain property.
 			/// </summary>
@@ -5164,7 +5164,7 @@ namespace ApiStudioIO
 					return IsAutoGeneratedDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -5175,7 +5175,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.isAutoGeneratedPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -5184,7 +5184,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(HttpApiResponseStatusCode element, global::System.Boolean newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.Boolean oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -5194,7 +5194,7 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region HttpApi opposite domain role accessor
 		/// <summary>
@@ -5233,7 +5233,7 @@ namespace ApiStudioIO
 	public abstract partial class Api : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// Api domain class Id.
 		/// </summary>
@@ -5251,12 +5251,12 @@ namespace ApiStudioIO
 		//}
 		#endregion
 		#region DisplayName domain property code
-		
+
 		/// <summary>
 		/// DisplayName domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid DisplayNameDomainPropertyId = new global::System.Guid(0x4908bf7c, 0x751d, 0x41ef, 0x97, 0x7e, 0xbe, 0x51, 0x0f, 0x57, 0x3f, 0x37);
-		
+
 		/// <summary>
 		/// Gets or sets the value of DisplayName domain property.
 		/// Description for ApiStudioIO.Api.Display Name
@@ -5282,12 +5282,12 @@ namespace ApiStudioIO
 		internal sealed partial class DisplayNamePropertyHandler : DslModeling::CalculatedPropertyValueHandler<Api, global::System.String>
 		{
 			private DisplayNamePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the Api.DisplayName domain property value handler.
 			/// </summary>
 			public static readonly DisplayNamePropertyHandler Instance = new DisplayNamePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the Api.DisplayName domain property.
 			/// </summary>
@@ -5299,7 +5299,7 @@ namespace ApiStudioIO
 					return DisplayNameDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -5313,22 +5313,22 @@ namespace ApiStudioIO
 				// method on the domain class.
 				return element.GetDisplayNameValue();
 			}
-		
+
 		}
-		
+
 		#endregion
 		#region ImperativeVerb domain property code
-		
+
 		/// <summary>
 		/// ImperativeVerb domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid ImperativeVerbDomainPropertyId = new global::System.Guid(0xb975b930, 0x6bd5, 0x47f8, 0xaa, 0x19, 0x1b, 0x5f, 0x1a, 0x65, 0x0a, 0x2c);
-		
+
 		/// <summary>
 		/// Storage for ImperativeVerb
 		/// </summary>
 		private global::System.String imperativeVerbPropertyStorage = string.Empty;
-		
+
 		/// <summary>
 		/// Gets or sets the value of ImperativeVerb domain property.
 		/// Names (verbs) in the imperative mood plus and may include the aggregate type,
@@ -5357,12 +5357,12 @@ namespace ApiStudioIO
 		internal sealed partial class ImperativeVerbPropertyHandler : DslModeling::DomainPropertyValueHandler<Api, global::System.String>
 		{
 			private ImperativeVerbPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the Api.ImperativeVerb domain property value handler.
 			/// </summary>
 			public static readonly ImperativeVerbPropertyHandler Instance = new ImperativeVerbPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the Api.ImperativeVerb domain property.
 			/// </summary>
@@ -5374,7 +5374,7 @@ namespace ApiStudioIO
 					return ImperativeVerbDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -5385,7 +5385,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.imperativeVerbPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -5394,7 +5394,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(Api element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -5404,20 +5404,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region Identifier domain property code
-		
+
 		/// <summary>
 		/// Identifier domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid IdentifierDomainPropertyId = new global::System.Guid(0xfc1dc367, 0xa453, 0x496f, 0x87, 0x78, 0x06, 0x4c, 0xad, 0x05, 0xe3, 0xa5);
-		
+
 		/// <summary>
 		/// Storage for Identifier
 		/// </summary>
 		private global::System.Guid identifierPropertyStorage = new global::System.Guid("00000000-0000-0000-0000-000000000000");
-		
+
 		/// <summary>
 		/// Gets or sets the value of Identifier domain property.
 		/// ApiStudio Identifier unique to this schema
@@ -5447,12 +5447,12 @@ namespace ApiStudioIO
 		internal sealed partial class IdentifierPropertyHandler : DslModeling::DomainPropertyValueHandler<Api, global::System.Guid>
 		{
 			private IdentifierPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the Api.Identifier domain property value handler.
 			/// </summary>
 			public static readonly IdentifierPropertyHandler Instance = new IdentifierPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the Api.Identifier domain property.
 			/// </summary>
@@ -5464,7 +5464,7 @@ namespace ApiStudioIO
 					return IdentifierDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -5475,7 +5475,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.identifierPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -5484,7 +5484,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(Api element, global::System.Guid newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.Guid oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -5494,10 +5494,10 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region Resourced opposite domain role accessor
-		
+
 		/// <summary>
 		/// Gets a list of Resourced.
 		/// Description for ApiStudioIO.ResourceReferencesApis.Api
@@ -5547,7 +5547,7 @@ namespace ApiStudioIO
 	public partial class HttpApiMediaType : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiMediaType domain class Id.
 		/// </summary>
@@ -5561,7 +5561,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -5573,12 +5573,12 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region DisplayName domain property code
-		
+
 		/// <summary>
 		/// DisplayName domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid DisplayNameDomainPropertyId = new global::System.Guid(0xf2689fd5, 0xbd29, 0x4fae, 0xae, 0xc4, 0x25, 0x60, 0xde, 0x08, 0xed, 0x22);
-		
+
 		/// <summary>
 		/// Gets or sets the value of DisplayName domain property.
 		/// This property is used for deplay within the designer
@@ -5605,12 +5605,12 @@ namespace ApiStudioIO
 		internal sealed partial class DisplayNamePropertyHandler : DslModeling::CalculatedPropertyValueHandler<HttpApiMediaType, global::System.String>
 		{
 			private DisplayNamePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiMediaType.DisplayName domain property value handler.
 			/// </summary>
 			public static readonly DisplayNamePropertyHandler Instance = new DisplayNamePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiMediaType.DisplayName domain property.
 			/// </summary>
@@ -5622,7 +5622,7 @@ namespace ApiStudioIO
 					return DisplayNameDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -5636,22 +5636,22 @@ namespace ApiStudioIO
 				// method on the domain class.
 				return element.GetDisplayNameValue();
 			}
-		
+
 		}
-		
+
 		#endregion
 		#region DiscreteType domain property code
-		
+
 		/// <summary>
 		/// DiscreteType domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid DiscreteTypeDomainPropertyId = new global::System.Guid(0x518771c0, 0xb2e4, 0x415c, 0x98, 0xe1, 0xf5, 0xb0, 0x0b, 0x3d, 0x66, 0x96);
-		
+
 		/// <summary>
 		/// Storage for DiscreteType
 		/// </summary>
 		private global::System.String discreteTypePropertyStorage = string.Empty;
-		
+
 		/// <summary>
 		/// Gets or sets the value of DiscreteType domain property.
 		/// Description for ApiStudioIO.HttpApiMediaType.Primary Type
@@ -5679,12 +5679,12 @@ namespace ApiStudioIO
 		internal sealed partial class DiscreteTypePropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiMediaType, global::System.String>
 		{
 			private DiscreteTypePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiMediaType.DiscreteType domain property value handler.
 			/// </summary>
 			public static readonly DiscreteTypePropertyHandler Instance = new DiscreteTypePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiMediaType.DiscreteType domain property.
 			/// </summary>
@@ -5696,7 +5696,7 @@ namespace ApiStudioIO
 					return DiscreteTypeDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -5707,7 +5707,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.discreteTypePropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -5716,7 +5716,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(HttpApiMediaType element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -5726,20 +5726,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region SubType domain property code
-		
+
 		/// <summary>
 		/// SubType domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid SubTypeDomainPropertyId = new global::System.Guid(0x9e6f9da7, 0xf54d, 0x4a7e, 0xa6, 0x53, 0xb1, 0x09, 0x50, 0x7f, 0x61, 0x62);
-		
+
 		/// <summary>
 		/// Storage for SubType
 		/// </summary>
 		private global::System.String subTypePropertyStorage = string.Empty;
-		
+
 		/// <summary>
 		/// Gets or sets the value of SubType domain property.
 		/// Description for ApiStudioIO.HttpApiMediaType.Sub Type
@@ -5767,12 +5767,12 @@ namespace ApiStudioIO
 		internal sealed partial class SubTypePropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiMediaType, global::System.String>
 		{
 			private SubTypePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiMediaType.SubType domain property value handler.
 			/// </summary>
 			public static readonly SubTypePropertyHandler Instance = new SubTypePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiMediaType.SubType domain property.
 			/// </summary>
@@ -5784,7 +5784,7 @@ namespace ApiStudioIO
 					return SubTypeDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -5795,7 +5795,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.subTypePropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -5804,7 +5804,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(HttpApiMediaType element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -5814,7 +5814,7 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 	}
 }
@@ -5833,7 +5833,7 @@ namespace ApiStudioIO
 	public partial class HttpApiHeader : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiHeader domain class Id.
 		/// </summary>
@@ -5847,7 +5847,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -5859,17 +5859,17 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region Name domain property code
-		
+
 		/// <summary>
 		/// Name domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid NameDomainPropertyId = new global::System.Guid(0x08d51db3, 0x4ab0, 0x4ff9, 0xa4, 0x4a, 0x23, 0x3d, 0x6f, 0x9e, 0x9a, 0x1e);
-		
+
 		/// <summary>
 		/// Storage for Name
 		/// </summary>
 		private global::System.String namePropertyStorage = string.Empty;
-		
+
 		/// <summary>
 		/// Gets or sets the value of Name domain property.
 		/// Description for ApiStudioIO.HttpApiHeader.Name
@@ -5898,12 +5898,12 @@ namespace ApiStudioIO
 		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiHeader, global::System.String>
 		{
 			private NamePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiHeader.Name domain property value handler.
 			/// </summary>
 			public static readonly NamePropertyHandler Instance = new NamePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiHeader.Name domain property.
 			/// </summary>
@@ -5915,7 +5915,7 @@ namespace ApiStudioIO
 					return NameDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -5926,7 +5926,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.namePropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -5935,7 +5935,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(HttpApiHeader element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -5945,20 +5945,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region Description domain property code
-		
+
 		/// <summary>
 		/// Description domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid DescriptionDomainPropertyId = new global::System.Guid(0x1c0871b0, 0xc0fe, 0x4c81, 0xa3, 0xe4, 0xd1, 0xc9, 0xd7, 0x8f, 0x7a, 0xac);
-		
+
 		/// <summary>
 		/// Storage for Description
 		/// </summary>
 		private global::System.String descriptionPropertyStorage = string.Empty;
-		
+
 		/// <summary>
 		/// Gets or sets the value of Description domain property.
 		/// Description for ApiStudioIO.HttpApiHeader.Description
@@ -5986,12 +5986,12 @@ namespace ApiStudioIO
 		internal sealed partial class DescriptionPropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiHeader, global::System.String>
 		{
 			private DescriptionPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiHeader.Description domain property value handler.
 			/// </summary>
 			public static readonly DescriptionPropertyHandler Instance = new DescriptionPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiHeader.Description domain property.
 			/// </summary>
@@ -6003,7 +6003,7 @@ namespace ApiStudioIO
 					return DescriptionDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -6014,7 +6014,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.descriptionPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -6023,7 +6023,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(HttpApiHeader element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.String oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -6033,20 +6033,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region IsRequired domain property code
-		
+
 		/// <summary>
 		/// IsRequired domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid IsRequiredDomainPropertyId = new global::System.Guid(0x8df27ba2, 0x6f45, 0x4f6b, 0xa2, 0x7f, 0xd3, 0x27, 0x27, 0xfe, 0xcc, 0xf3);
-		
+
 		/// <summary>
 		/// Storage for IsRequired
 		/// </summary>
 		private global::System.Boolean isRequiredPropertyStorage;
-		
+
 		/// <summary>
 		/// Gets or sets the value of IsRequired domain property.
 		/// Description for ApiStudioIO.HttpApiHeader.Is Required
@@ -6074,12 +6074,12 @@ namespace ApiStudioIO
 		internal sealed partial class IsRequiredPropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiHeader, global::System.Boolean>
 		{
 			private IsRequiredPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiHeader.IsRequired domain property value handler.
 			/// </summary>
 			public static readonly IsRequiredPropertyHandler Instance = new IsRequiredPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiHeader.IsRequired domain property.
 			/// </summary>
@@ -6091,7 +6091,7 @@ namespace ApiStudioIO
 					return IsRequiredDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -6102,7 +6102,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.isRequiredPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -6111,7 +6111,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(HttpApiHeader element, global::System.Boolean newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.Boolean oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -6121,20 +6121,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region AllowEmptyValue domain property code
-		
+
 		/// <summary>
 		/// AllowEmptyValue domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid AllowEmptyValueDomainPropertyId = new global::System.Guid(0x6a60f8a8, 0x1e8b, 0x406b, 0x94, 0x2e, 0x08, 0x4e, 0x72, 0x9d, 0xf1, 0x56);
-		
+
 		/// <summary>
 		/// Storage for AllowEmptyValue
 		/// </summary>
 		private global::System.Boolean allowEmptyValuePropertyStorage = true;
-		
+
 		/// <summary>
 		/// Gets or sets the value of AllowEmptyValue domain property.
 		/// Description for ApiStudioIO.HttpApiHeader.Allow Empty Value
@@ -6163,12 +6163,12 @@ namespace ApiStudioIO
 		internal sealed partial class AllowEmptyValuePropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiHeader, global::System.Boolean>
 		{
 			private AllowEmptyValuePropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiHeader.AllowEmptyValue domain property value handler.
 			/// </summary>
 			public static readonly AllowEmptyValuePropertyHandler Instance = new AllowEmptyValuePropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiHeader.AllowEmptyValue domain property.
 			/// </summary>
@@ -6180,7 +6180,7 @@ namespace ApiStudioIO
 					return AllowEmptyValueDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -6191,7 +6191,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.allowEmptyValuePropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -6200,7 +6200,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(HttpApiHeader element, global::System.Boolean newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.Boolean oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -6210,20 +6210,20 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region IsAutoGenerated domain property code
-		
+
 		/// <summary>
 		/// IsAutoGenerated domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid IsAutoGeneratedDomainPropertyId = new global::System.Guid(0x8b2e9d2b, 0x6a06, 0x4f6c, 0x89, 0x48, 0x75, 0xab, 0xb9, 0x3d, 0x81, 0xec);
-		
+
 		/// <summary>
 		/// Storage for IsAutoGenerated
 		/// </summary>
 		private global::System.Boolean isAutoGeneratedPropertyStorage;
-		
+
 		/// <summary>
 		/// Gets or sets the value of IsAutoGenerated domain property.
 		/// Description for ApiStudioIO.HttpApiHeader.Is Auto Generated
@@ -6252,12 +6252,12 @@ namespace ApiStudioIO
 		internal sealed partial class IsAutoGeneratedPropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiHeader, global::System.Boolean>
 		{
 			private IsAutoGeneratedPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiHeader.IsAutoGenerated domain property value handler.
 			/// </summary>
 			public static readonly IsAutoGeneratedPropertyHandler Instance = new IsAutoGeneratedPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiHeader.IsAutoGenerated domain property.
 			/// </summary>
@@ -6269,7 +6269,7 @@ namespace ApiStudioIO
 					return IsAutoGeneratedDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -6280,7 +6280,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.isAutoGeneratedPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -6289,7 +6289,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(HttpApiHeader element, global::System.Boolean newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				global::System.Boolean oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -6299,7 +6299,7 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 	}
 }
@@ -6317,7 +6317,7 @@ namespace ApiStudioIO
 	public partial class HttpApiHeaderRequest : HttpApiHeader
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiHeaderRequest domain class Id.
 		/// </summary>
@@ -6331,7 +6331,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -6377,7 +6377,7 @@ namespace ApiStudioIO
 	public partial class HttpApiHeaderResponse : HttpApiHeader
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiHeaderResponse domain class Id.
 		/// </summary>
@@ -6391,7 +6391,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -6403,17 +6403,17 @@ namespace ApiStudioIO
 		}
 		#endregion
 		#region IncludeOn domain property code
-		
+
 		/// <summary>
 		/// IncludeOn domain property Id.
 		/// </summary>
 		public static readonly global::System.Guid IncludeOnDomainPropertyId = new global::System.Guid(0xa835d551, 0x6b87, 0x4524, 0xb6, 0x93, 0x73, 0x96, 0x0c, 0xc4, 0x81, 0x12);
-		
+
 		/// <summary>
 		/// Storage for IncludeOn
 		/// </summary>
 		private HttpApiHeaderResponseOnTypes includeOnPropertyStorage = HttpApiHeaderResponseOnTypes.OnSuccess;
-		
+
 		/// <summary>
 		/// Gets or sets the value of IncludeOn domain property.
 		/// Which type of response should the header be included with.
@@ -6442,12 +6442,12 @@ namespace ApiStudioIO
 		internal sealed partial class IncludeOnPropertyHandler : DslModeling::DomainPropertyValueHandler<HttpApiHeaderResponse, HttpApiHeaderResponseOnTypes>
 		{
 			private IncludeOnPropertyHandler() { }
-		
+
 			/// <summary>
 			/// Gets the singleton instance of the HttpApiHeaderResponse.IncludeOn domain property value handler.
 			/// </summary>
 			public static readonly IncludeOnPropertyHandler Instance = new IncludeOnPropertyHandler();
-		
+
 			/// <summary>
 			/// Gets the Id of the HttpApiHeaderResponse.IncludeOn domain property.
 			/// </summary>
@@ -6459,7 +6459,7 @@ namespace ApiStudioIO
 					return IncludeOnDomainPropertyId;
 				}
 			}
-			
+
 			/// <summary>
 			/// Gets a strongly-typed value of the property on specified element.
 			/// </summary>
@@ -6470,7 +6470,7 @@ namespace ApiStudioIO
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.includeOnPropertyStorage;
 			}
-		
+
 			/// <summary>
 			/// Sets property value on an element.
 			/// </summary>
@@ -6479,7 +6479,7 @@ namespace ApiStudioIO
 			public override sealed void SetValue(HttpApiHeaderResponse element, HttpApiHeaderResponseOnTypes newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-		
+
 				HttpApiHeaderResponseOnTypes oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
@@ -6489,7 +6489,7 @@ namespace ApiStudioIO
 				}
 			}
 		}
-		
+
 		#endregion
 		#region HttpApi opposite domain role accessor
 		/// <summary>
@@ -6526,7 +6526,7 @@ namespace ApiStudioIO
 	public partial class HttpApiPatch : HttpApi
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiPatch domain class Id.
 		/// </summary>
@@ -6540,7 +6540,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -6568,7 +6568,7 @@ namespace ApiStudioIO
 	public partial class HttpApiHead : HttpApi
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiHead domain class Id.
 		/// </summary>
@@ -6582,7 +6582,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -6609,7 +6609,7 @@ namespace ApiStudioIO
 	public partial class HttpApiOptions : HttpApi
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiOptions domain class Id.
 		/// </summary>
@@ -6623,7 +6623,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -6651,7 +6651,7 @@ namespace ApiStudioIO
 	public partial class HttpApiTrace : HttpApi
 	{
 		#region Constructors, domain class Id
-	
+
 		/// <summary>
 		/// HttpApiTrace domain class Id.
 		/// </summary>
@@ -6665,7 +6665,7 @@ namespace ApiStudioIO
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
-		
+
 		/// <summary>
 		/// Constructor
 		/// </summary>

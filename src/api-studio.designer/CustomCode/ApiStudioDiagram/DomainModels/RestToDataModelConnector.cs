@@ -10,15 +10,14 @@ namespace ApiStudioIO
         {
             base.OnDeleted();
 
-            if (_httpApi != null)
-                _httpApi.SetDefaults();
+            _httpApi?.SetDefaults();
         }
 
         protected override void OnDeleting()
         {
             base.OnDeleting();
 
-            foreach (var node in this.Nodes)
+            foreach (var node in Nodes)
             {
                 if (node.ModelElement is HttpApi httpApi)
                     _httpApi = httpApi;

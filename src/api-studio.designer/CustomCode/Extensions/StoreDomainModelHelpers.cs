@@ -43,11 +43,11 @@ namespace ApiStudioIO
             using (var t = httpApi.Store.TransactionManager.BeginTransaction(
                        "ApiStudioComponentStoreDomainModel.StoreDomainModel.HttpResourceMediaTypeRequest"))
             {
-                httpApi.HttpApiMediaTypeRequestd.Clear();
+                httpApi.HttpApiMediaTypeRequest.Clear();
                 value.OrderBy(x => x.Name)
                     .ToList()
                     .ForEach(domainModel =>
-                        httpApi.HttpApiMediaTypeRequestd.Add(domainModel.ToHttpApiMediaTypeRequest(httpApi.Store)));
+                        httpApi.HttpApiMediaTypeRequest.Add(domainModel.ToHttpApiMediaTypeRequest(httpApi.Store)));
                 t.Commit();
             }
         }

@@ -81,16 +81,13 @@ namespace ApiStudioIO.HttpApiDefaults
             if (HasDocumentResourceInPath(httpApi) && standardResponseCodes.Contains(404))
                 apiResponses.Add(ConvertResponseStatusCode(404)); //[Not found]
 
-            foreach (var responseCode in standardResponseCodes)
-                if (responseCode != 404 &&
-                    responseCode != 422) //Remove technical response codes (handled by above logic)
-                    apiResponses.Add(ConvertResponseStatusCode(responseCode));
+            apiResponses.AddRange(from responseCode in standardResponseCodes where responseCode != 404 && responseCode != 422 select ConvertResponseStatusCode(responseCode));
 
             ApiStudioComponentTransactionManager.Save(httpApi, apiResponses);
         }
 
         //Check if the resource has a document in path e.g. the resource could not be found (404)
-        private static bool HasDocumentResourceInPath(HttpApi httpApi)
+        private static bool HasDocumentResourceInPath(Api httpApi)
         {
             var source = httpApi.Resourced.FirstOrDefault();
             while (source != null)
