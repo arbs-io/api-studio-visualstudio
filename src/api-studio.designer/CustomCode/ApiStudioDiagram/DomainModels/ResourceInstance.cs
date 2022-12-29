@@ -26,7 +26,7 @@ namespace ApiStudioIO
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException(nameof(ApiStudio.CodeGenerationVariableCaseType), "Case type not found");
             }
 
             var uri = "";
@@ -36,7 +36,7 @@ namespace ApiStudioIO
             return FormatUri(uri);
         }
 
-        internal partial class InstanceDataTypePropertyHandler
+        partial class InstanceDataTypePropertyHandler
         {
             protected override void OnValueChanged(ResourceInstance element, string oldValue, string newValue)
             {
@@ -44,7 +44,7 @@ namespace ApiStudioIO
                 element.SetResourceDefaults();
             }
         }
-        internal partial class InstanceIdentityPropertyHandler
+        partial class InstanceIdentityPropertyHandler
         {
             protected override void OnValueChanged(ResourceInstance element, string oldValue, string newValue)
             {
