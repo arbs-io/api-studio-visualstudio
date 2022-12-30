@@ -24,16 +24,16 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6
         {
             var sourceList = new List<SourceCodeEntity>();
 
-            VsLogger.Log($"[CodeBuilder::Build]: SdkOpenApiConfigurationOptions");
+            VsLogger.Log("[CodeBuilder::Build]: SdkOpenApiConfigurationOptions");
             sourceList.AddRange(SdkOpenApiConfigurationOptions.Build(_apiStudio, _modelName));
 
-            VsLogger.Log($"[CodeBuilder::Build]: SdkHttpEndpoint");
+            VsLogger.Log("[CodeBuilder::Build]: SdkHttpEndpoint");
             sourceList.AddRange(SdkHttpEndpoint.Build(_buildTargetModel, _apiStudio, _modelName));
 
-            VsLogger.Log($"[CodeBuilder::Build]: SdkHttpEndpointDesigner");
+            VsLogger.Log("[CodeBuilder::Build]: SdkHttpEndpointDesigner");
             sourceList.AddRange(SdkHttpEndpointDesigner.Build(_buildTargetModel, _apiStudio, _modelName));
 
-            VsLogger.Log($"[CodeBuilder::Build]: SdkModel");
+            VsLogger.Log("[CodeBuilder::Build]: SdkModel");
             sourceList.AddRange(SdkModel.Build(_buildTargetModel, _apiStudio, _modelName));
             
             return sourceList;

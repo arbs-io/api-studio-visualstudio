@@ -54,7 +54,7 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
                 .Replace("{{TOKEN_OAS_DESCRIPTION}}", httpApi.Description)
                 .Replace("{{TOKEN_OAS_HTTP_REQUEST_BODY_MEMBER}}", httpRequestParameter != null ? $"private {httpRequestParameter.DataType} _requestBody;" : "")
                 .Replace("{{TOKEN_OAS_HTTP_REQUEST_BODY_PARAMETER}}", httpRequestParameter != null ? $", {httpRequestParameter.DataType} requestBody" : "")
-                .Replace("{{TOKEN_OAS_HTTP_REQUEST_BODY_SET_MEMBER}}", httpRequestParameter != null ? $"_requestBody = requestBody;" : "")
+                .Replace("{{TOKEN_OAS_HTTP_REQUEST_BODY_SET_MEMBER}}", httpRequestParameter != null ? "_requestBody = requestBody;" : "")
                 .Replace("{{TOKEN_OAS_PRODUCES}}", string.Join(Environment.NewLine, httpEndpointResponses));
 
             VsLogger.Log($"[SdkHttpEndpointDesigner]: {namespaceHelper.Solution}-{httpApi.DisplayName}.HttpEndpoint.Designer");
@@ -66,17 +66,13 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
 
         private static HttpResourceParameter BuildHttpEndpointRequestParameter(HttpApi httpApi)
         {
-            foreach (var parameter in httpApi.RequestParameters)
-                if (parameter.FromType == HttpTypeParameterLocation.Body)
-                    return parameter;
-
-            return null;
+            return httpApi.RequestParameters.FirstOrDefault(parameter => parameter.FromType == HttpTypeParameterLocation.Body);
         }
 
 
-        private static List<string> BuildHttpEndpointResponseStatusCodes(HttpApi httpApi)
+        private static IEnumerable<string> BuildHttpEndpointResponseStatusCodes(HttpApi httpApi)
         {
-            var applicationJson = "\"application/json\"";
+            const string applicationJson = "\"application/json\"";
             var attributes = new List<string>();
             foreach (var statusCode in httpApi.ResponseStatusCodes)
             {

@@ -64,9 +64,7 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
             var statusCode = httpApi.ResponseStatusCodes
                 .First(p => p.Type == "Success");
             var httpStatus = Enum.GetName(typeof(HttpStatusCode), statusCode.HttpStatus);
-            if (httpStatus != null)
-                return $"HttpStatusCode.{httpStatus}";
-            return $"(HttpStatusCode){statusCode.HttpStatus}";
+            return httpStatus != null ? $"HttpStatusCode.{httpStatus}" : $"(HttpStatusCode){statusCode.HttpStatus}";
         }
     }
 }
