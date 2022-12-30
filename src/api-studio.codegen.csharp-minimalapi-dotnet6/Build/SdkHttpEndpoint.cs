@@ -58,13 +58,5 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
             return new SourceCodeEntity($"{namespaceHelper.Solution}-{httpApi.DisplayName}.HttpEndpoint.cs",
                 httpTriggerSourceCode, false);
         }
-
-        private static string BuildHttpTriggerResponseStatusCodes(HttpApi httpApi)
-        {
-            var statusCode = httpApi.ResponseStatusCodes
-                .First(p => p.Type == "Success");
-            var httpStatus = Enum.GetName(typeof(HttpStatusCode), statusCode.HttpStatus);
-            return httpStatus != null ? $"HttpStatusCode.{httpStatus}" : $"(HttpStatusCode){statusCode.HttpStatus}";
-        }
     }
 }
