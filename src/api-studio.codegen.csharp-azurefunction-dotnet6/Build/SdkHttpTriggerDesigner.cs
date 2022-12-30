@@ -133,7 +133,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
                 case SecuritySchemeTypes.None:
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(httpApi.ApiStudio.SecuritySchemeType), "Security Scheme Type is not supported");
+                    throw new ArgumentOutOfRangeException(nameof(httpApi), "Security Scheme Type is not supported");
             }
 
             return attributes;
