@@ -50,22 +50,12 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
                 .Replace("{{TOKEN_OAS_HTTP_VERB}}", httpApi.HttpVerb.ToUpper())
                 .Replace("{{TOKEN_OAS_HTTP_RESPONSE_MIME}}", responseMediaType.ToLower())
                 .Replace("{{TOKEN_OAS_HTTP_URI}}", resource.HttpApiUri)
-                .Replace("{{TOKEN_OAS_HTTP_STATUS_CODE}}", BuildHttpTriggerResponseStatusCodes(httpApi));
+                .Replace("{{TOKEN_OAS_HTTP_STATUS_CODE}}", httpApi.BuildHttpTriggerResponseStatusCodes());
 
             VsLogger.Log($"[SdkHttpTrigger]: {namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger");
 
             return new SourceCodeEntity($"{namespaceHelper.Solution}-{httpApi.DisplayName}.HttpTrigger.cs",
                 httpTriggerSourceCode, false);
-        }
-
-        private static string BuildHttpTriggerResponseStatusCodes(HttpApi httpApi)
-        {
-            var statusCode = httpApi.ResponseStatusCodes
-                .First(p => p.Type == "Success");
-            var httpStatus = Enum.GetName(typeof(HttpStatusCode), statusCode.HttpStatus);
-            if (httpStatus != null)
-                return $"HttpStatusCode.{httpStatus}";
-            return $"(HttpStatusCode){statusCode.HttpStatus}";
         }
     }
 }

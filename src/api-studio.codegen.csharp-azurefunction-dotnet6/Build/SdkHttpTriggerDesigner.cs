@@ -86,19 +86,15 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
         {
             var responseHeaderItems = new StringBuilder("");
 
-            foreach (var responseHeader in httpApi.HttpApiHeaderResponses)
-                if (responseHeader.IncludeOn == HttpApiHeaderResponseOnTypes.OnAlways ||
-                    responseHeader.IncludeOn == onTypes)
-                {
-                    var responseHeaderItem = Templates.AzureFunctionResource.HttpTriggerDesignerResponseHeaderItem
-                        .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_NAME}}", responseHeader.Name)
-                        .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_DESCRIPTION}}", responseHeader.Description)
-                        .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_ALLOWEMPTY}}",
-                            responseHeader.AllowEmptyValue.ToString().ToLower())
-                        .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_REQUIRED}}",
-                            responseHeader.IsRequired.ToString().ToLower());
-                    responseHeaderItems.Append(responseHeaderItem);
-                }
+            foreach (var responseHeaderItem in from responseHeader in httpApi.HttpApiHeaderResponses where responseHeader.IncludeOn == HttpApiHeaderResponseOnTypes.OnAlways ||
+                         responseHeader.IncludeOn == onTypes select Templates.AzureFunctionResource.HttpTriggerDesignerResponseHeaderItem
+                         .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_NAME}}", responseHeader.Name)
+                         .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_DESCRIPTION}}", responseHeader.Description)
+                         .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_ALLOWEMPTY}}",
+                             responseHeader.AllowEmptyValue.ToString().ToLower())
+                         .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_REQUIRED}}",
+                             responseHeader.IsRequired.ToString().ToLower()))
+                responseHeaderItems.Append(responseHeaderItem);
 
             var responseHeaderClass = Templates.AzureFunctionResource.HttpTriggerDesignerResponseHeaderClass
                 .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_CLASS_NAME}}", $"ResponseHeader{className}")
@@ -107,7 +103,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
             return responseHeaderClass;
         }
 
-        private static List<string> BuildHttpTriggerSecurity(string modelName, HttpApi httpApi)
+        private static IEnumerable<string> BuildHttpTriggerSecurity(string modelName, HttpApi httpApi)
         {
             var attributes = new List<string>();
             var securityApiKey = httpApi.ApiStudio.SecurityApiKey;
@@ -136,22 +132,37 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
                     break;
                 case SecuritySchemeTypes.None:
                     break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(httpApi), "Security Scheme Type is not supported");
             }
 
             return attributes;
         }
 
-        private static List<string> BuildHttpTriggerResponseStatusCodes(HttpApi httpApi)
+        private static IEnumerable<string> BuildHttpTriggerResponseStatusCodes(HttpApi httpApi)
         {
             var attributes = new List<string>();
             foreach (var statusCode in httpApi.ResponseStatusCodes)
             {
                 var responseHeader = "ResponseHeader";
-                if (statusCode.Type == "Information") responseHeader += "OnInformation";
-                else if (statusCode.Type == "Success") responseHeader += "OnSuccess";
-                else if (statusCode.Type == "Redirection") responseHeader += "OnRedirection";
-                else if (statusCode.Type == "Client Error") responseHeader += "OnClientError";
-                else if (statusCode.Type == "Server Error") responseHeader += "OnServerError";
+                switch (statusCode.Type)
+                {
+                    case "Information":
+                        responseHeader += "OnInformation";
+                        break;
+                    case "Success":
+                        responseHeader += "OnSuccess";
+                        break;
+                    case "Redirection":
+                        responseHeader += "OnRedirection";
+                        break;
+                    case "Client Error":
+                        responseHeader += "OnClientError";
+                        break;
+                    case "Server Error":
+                        responseHeader += "OnServerError";
+                        break;
+                }
 
                 var httpStatus = Enum.GetName(typeof(HttpStatusCode), statusCode.HttpStatus);
                 httpStatus = httpStatus != null
@@ -172,7 +183,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
             return attributes;
         }
 
-        private static List<string> BuildHttpTriggerParameters(HttpApi httpApi)
+        private static IEnumerable<string> BuildHttpTriggerParameters(HttpApi httpApi)
         {
             var attributes = new List<string>();
             foreach (var header in httpApi.RequestHeaders)

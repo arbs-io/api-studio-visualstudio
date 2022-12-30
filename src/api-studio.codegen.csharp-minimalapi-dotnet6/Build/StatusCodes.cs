@@ -2,6 +2,8 @@
 // Licensed under the MIT License.
 
 
+// ReSharper disable UnusedMember.Global
+// ReSharper disable InconsistentNaming
 namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
 {
     internal enum HttpStatusCodes
@@ -253,6 +255,6 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
         //
         // Summary:
         //     HTTP status code 511.
-        Status511NetworkAuthenticationRequired = 511,
+        Status511NetworkAuthenticationRequired = 511
     }
 }

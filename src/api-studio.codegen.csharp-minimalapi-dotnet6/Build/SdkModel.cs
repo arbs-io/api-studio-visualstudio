@@ -20,24 +20,23 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
             var sourceList = new List<SourceCodeEntity>();
 
             // If the developer has provided a data model namespace we terminate the code generation
-            if (IsNullOrEmpty(apiStudio.NamespaceDataModels))
-            {
-                var namespaceHelper = new NamespaceHelper(apiStudio, modelName);
-                var apiResource = apiStudio.Resourced
-                    .SelectMany(resource => resource.HttpApis(),
-                        (resource, httpApi) => new { resource, httpApi })
-                    .ToList();
+            if (!IsNullOrEmpty(apiStudio.NamespaceDataModels)) return sourceList;
 
-                apiResource
-                    .SelectMany(x => x.httpApi.DataModels)
-                    .ToList()
-                    .ForEach(x => sourceList.Add(GenerateModels(buildTargetModel, namespaceHelper, x.Name)));
+            var namespaceHelper = new NamespaceHelper(apiStudio, modelName);
+            var apiResource = apiStudio.Resourced
+                .SelectMany(resource => resource.HttpApis(),
+                    (resource, httpApi) => new { resource, httpApi })
+                .ToList();
 
-                apiResource
-                    .SelectMany(x => x.httpApi.SourceDataModel)
-                    .ToList()
-                    .ForEach(x => sourceList.Add(GenerateModels(buildTargetModel, namespaceHelper, x.Name)));
-            }
+            apiResource
+                .SelectMany(x => x.httpApi.DataModels)
+                .ToList()
+                .ForEach(x => sourceList.Add(GenerateModels(buildTargetModel, namespaceHelper, x.Name)));
+
+            apiResource
+                .SelectMany(x => x.httpApi.SourceDataModel)
+                .ToList()
+                .ForEach(x => sourceList.Add(GenerateModels(buildTargetModel, namespaceHelper, x.Name)));
 
             return sourceList;
         }
