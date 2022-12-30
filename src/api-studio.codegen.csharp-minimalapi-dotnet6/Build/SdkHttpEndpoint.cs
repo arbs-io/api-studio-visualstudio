@@ -51,7 +51,7 @@ namespace ApiStudioIO.CodeGen.CSharpMinimalApiDotNet6.Build
                 .Replace("{{TOKEN_OAS_HTTP_VERB}}", httpApi.HttpVerb.ToUpper())
                 .Replace("{{TOKEN_OAS_HTTP_RESPONSE_MIME}}", responseMediaType.ToLower())
                 .Replace("{{TOKEN_OAS_HTTP_URI}}", resource.HttpApiUri)
-                .Replace("{{TOKEN_OAS_HTTP_STATUS_CODE}}", BuildHttpTriggerResponseStatusCodes(httpApi));
+                .Replace("{{TOKEN_OAS_HTTP_STATUS_CODE}}", httpApi.BuildHttpTriggerResponseStatusCodes());
 
             VsLogger.Log($"[SdkHttpEndpoint]: {namespaceHelper.Solution}-{httpApi.DisplayName}.HttpEndpoint");
 
