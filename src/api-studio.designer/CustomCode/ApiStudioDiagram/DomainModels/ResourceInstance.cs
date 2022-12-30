@@ -26,7 +26,7 @@ namespace ApiStudioIO
                     break;
 
                 default:
-                    throw new NotImplementedException("Invalid case type not found");
+                    throw new NotSupportedException("Case type is not supported");
             }
 
             var uri = "";

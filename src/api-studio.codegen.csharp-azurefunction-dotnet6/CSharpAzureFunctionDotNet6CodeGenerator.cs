@@ -22,22 +22,22 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6
         {
             var sourceList = new List<SourceCodeEntity>();
 
-            VsLogger.Log($"[CodeBuilder::Build]: SdkOpenApiConfigurationOptions");
+            VsLogger.Log("[CodeBuilder::Build]: SdkOpenApiConfigurationOptions");
             sourceList.AddRange(SdkOpenApiConfigurationOptions.Build(_apiStudio, _modelName));
 
-            VsLogger.Log($"[CodeBuilder::Build]: SdkHttpTrigger");
+            VsLogger.Log("[CodeBuilder::Build]: SdkHttpTrigger");
             sourceList.AddRange(SdkHttpTrigger.Build(_apiStudio, _modelName));
 
-            VsLogger.Log($"[CodeBuilder::Build]: SdkHttpTriggerDesigner");
+            VsLogger.Log("[CodeBuilder::Build]: SdkHttpTriggerDesigner");
             sourceList.AddRange(SdkHttpTriggerDesigner.Build(_apiStudio, _modelName));
 
-            VsLogger.Log($"[CodeBuilder::Build]: SdkModel");
+            VsLogger.Log("[CodeBuilder::Build]: SdkModel");
             sourceList.AddRange(SdkModel.Build(_apiStudio, _modelName));
 
-            VsLogger.Log($"[CodeBuilder::Build]: SdkHttpAuthOAuth2");
+            VsLogger.Log("[CodeBuilder::Build]: SdkHttpAuthOAuth2");
             sourceList.AddRange(SdkHttpAuthOAuth2.Build(_apiStudio, _modelName));
 
-            VsLogger.Log($"[CodeBuilder::Build]: SdkHttpAuthOAuth2Scopes");
+            VsLogger.Log("[CodeBuilder::Build]: SdkHttpAuthOAuth2Scopes");
             sourceList.AddRange(SdkHttpAuthOAuth2Scopes.Build(_apiStudio, _modelName));
 
             return sourceList;
