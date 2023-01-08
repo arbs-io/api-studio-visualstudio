@@ -22,9 +22,9 @@
 {{TOKEN_OAS_HTTP_OPENAPI_ATTRIBUTE}}
         public async Task<HttpResponseData> {{TOKEN_OAS_FUNCTION_NAME}}(
             [HttpTrigger(AuthorizationLevel.Anonymous, "{{TOKEN_OAS_HTTP_VERB}}", 
-            Route = "{{TOKEN_OAS_HTTP_URI}}")] HttpRequestData httpRequestData)
+            Route = "{{TOKEN_OAS_HTTP_URI}}")] HttpRequestData httpRequestData {{TOKEN_OAS_HTTP_OPENAPI_PARAMETER_PATH_SIGNATURE}})
         {
-            return await RunAsync(httpRequestData);
+            return await RunAsync(httpRequestData {{TOKEN_OAS_HTTP_OPENAPI_PARAMETER_PATH_VARIABLES}});
         }
 
         #region IOpenApiCustomResponseHeader

@@ -20,9 +20,7 @@ namespace ApiStudioIO.CodeGen.Utility
         {
             get
             {
-                if (!string.IsNullOrEmpty(_apiStudio.NamespaceSolution))
-                    return $"{_apiStudio.NamespaceSolution}.{_modelName}";
-                return $"{_modelName}".ToAlphaNumeric(true);
+                return !string.IsNullOrEmpty(_apiStudio.NamespaceSolution) ? $"{_apiStudio.NamespaceSolution}.{_modelName}" : $"{_modelName}".ToAlphaNumeric(true);
             }
         }
 
@@ -31,9 +29,7 @@ namespace ApiStudioIO.CodeGen.Utility
             get
             {
                 // If the developer has provided a data model namespace we should add the ref
-                if (!string.IsNullOrEmpty(_apiStudio.NamespaceDataModels))
-                    return $"using {_apiStudio.NamespaceDataModels};";
-                return "";
+                return !string.IsNullOrEmpty(_apiStudio.NamespaceDataModels) ? $"using {_apiStudio.NamespaceDataModels};" : "";
             }
         }
     }

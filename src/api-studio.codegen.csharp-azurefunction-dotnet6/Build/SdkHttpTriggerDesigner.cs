@@ -45,11 +45,11 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
             _ = httpApi ?? throw new ArgumentNullException(nameof(httpApi));
 
             var attributes = new List<string>();
-            attributes.AddRange(BuildHttpTriggerSecurity(modelName, httpApi));
-            attributes.AddRange(BuildHttpTriggerParameters(httpApi));
-            attributes.AddRange(BuildHttpTriggerResponseStatusCodes(httpApi));
+            attributes.AddRange(BuildHttpTriggerSecurityAttributes(modelName, httpApi));
+            attributes.AddRange(BuildHttpTriggerParametersAttributes(httpApi));
+            attributes.AddRange(BuildHttpTriggerResponseStatusCodesAttributes(httpApi));
             var openapiAttributes = string.Join(Environment.NewLine, attributes);
-
+            
             var httpTriggerDesignerSourceCode = Templates.AzureFunctionResource.HttpTriggerDesigner
                 .Replace("{{TOKEN_OAS_NAMESPACE}}", namespaceHelper.Solution)
                 .Replace("{{TOKEN_OAS_MODEL}}", modelName)
@@ -60,6 +60,8 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
                 .Replace("{{TOKEN_OAS_HTTP_VERB}}", httpApi.HttpVerb.ToUpper())
                 .Replace("{{TOKEN_OAS_HTTP_URI}}", resource.HttpApiUri)
                 .Replace("{{TOKEN_OAS_HTTP_OPENAPI_ATTRIBUTE}}", openapiAttributes)
+                .Replace("{{TOKEN_OAS_HTTP_OPENAPI_PARAMETER_PATH_SIGNATURE}}", httpApi.BuildHttpTriggerParametersPathSignature())
+                .Replace("{{TOKEN_OAS_HTTP_OPENAPI_PARAMETER_PATH_VARIABLES}}", httpApi.BuildHttpTriggerParametersPathVariables())
                 .Replace("{{TOKEN_OAS_HTTP_OPENAPI_HEADER_INFORMATION}}",
                     BuildHttpTriggerResponseHeader(HttpApiHeaderResponseOnTypes.OnInformation, "OnInformation",
                         httpApi))
@@ -103,7 +105,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
             return responseHeaderClass;
         }
 
-        private static IEnumerable<string> BuildHttpTriggerSecurity(string modelName, HttpApi httpApi)
+        private static IEnumerable<string> BuildHttpTriggerSecurityAttributes(string modelName, HttpApi httpApi)
         {
             var attributes = new List<string>();
             var securityApiKey = httpApi.ApiStudio.SecurityApiKey;
@@ -139,7 +141,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
             return attributes;
         }
 
-        private static IEnumerable<string> BuildHttpTriggerResponseStatusCodes(HttpApi httpApi)
+        private static IEnumerable<string> BuildHttpTriggerResponseStatusCodesAttributes(HttpApi httpApi)
         {
             var attributes = new List<string>();
             foreach (var statusCode in httpApi.ResponseStatusCodes)
@@ -183,7 +185,7 @@ namespace ApiStudioIO.CodeGen.CSharpAzureFunctionDotNet6.Build
             return attributes;
         }
 
-        private static IEnumerable<string> BuildHttpTriggerParameters(HttpApi httpApi)
+        private static IEnumerable<string> BuildHttpTriggerParametersAttributes(HttpApi httpApi)
         {
             var attributes = new List<string>();
             foreach (var header in httpApi.RequestHeaders)
