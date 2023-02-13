@@ -15,7 +15,7 @@ Api Studio is a productivity extension for Microsoft Visual Studio. The extensio
 
 ## **Visual Studio Extension**
 
-Api Studio Extension enhances Visual Studio 2022 by providing a designer, toolbox, explorer and code generation engine to create and manage Api Studio assets. Promoting An API-first approach means that your APIs are treated as "first-class citizens for any development project." Api Studio provides architects and developers with a solution to quickly design and collaborate, providing the blueprint for solution implementation. In addition, the extension will enable teams to quickly mock solution endpoints, proofing usability before investing in development.
+Api Studio Extension enhances Visual Studio 2022+ by providing a designer, toolbox, explorer and code generation engine to create and manage Api Studio assets. Promoting An API-first approach means that your APIs are treated as "first-class citizens for any development project." Api Studio provides architects and developers with a solution to quickly design and collaborate, providing the blueprint for solution implementation. In addition, the extension will enable teams to quickly mock solution endpoints, proofing usability before investing in development.
 
 ## **How does Api Studio work?**
 
@@ -83,6 +83,6 @@ Another way to help out is to [sponsor me on GitHub](https://github.com/sponsors
 
 ## **Copyright**
 
-Copyright 2021 - 2022 Api Studio, Inc.
+Copyright 2023 Api Studio, Inc.
 
 Licensed under the MIT License
