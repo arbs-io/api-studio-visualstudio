@@ -41,7 +41,7 @@ namespace ApiStudioIO.Build.Config
         public ApiStudio ApiStudioModel { get; }
 
         public string ApiStudioModelName => ApiStudioFileInfo.Name.Replace(".ApiStudio", "");
-        public BuildTargetModel BuildTarget { get; private set; }
+        public BuildTargetModel BuildTarget { get; }
 
         public IApiStudioCodeGeneratorProvider ApiStudioCodeBuilder { get; }
 
