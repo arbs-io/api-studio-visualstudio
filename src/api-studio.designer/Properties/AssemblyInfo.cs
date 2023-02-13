@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCompany("api-studio.io")]
 [assembly: AssemblyProduct("api-studio.designer")]
 [assembly: AssemblyTitle("api-studio.designer")]
-[assembly: AssemblyCopyright("Copyright © api-studio.io 2022")]
+[assembly: AssemblyCopyright("Copyright © api-studio.io 2023")]
 [assembly: AssemblyTrademark("api-studio.io")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
