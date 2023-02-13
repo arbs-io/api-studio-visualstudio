@@ -16,21 +16,10 @@ namespace ApiStudioIO.CodeGen.Utility
             _modelName = modelName;
         }
 
-        public string Solution
-        {
-            get
-            {
-                return !string.IsNullOrEmpty(_apiStudio.NamespaceSolution) ? $"{_apiStudio.NamespaceSolution}.{_modelName}" : $"{_modelName}".ToAlphaNumeric(true);
-            }
-        }
+        public string Solution => !string.IsNullOrEmpty(_apiStudio.NamespaceSolution) ? $"{_apiStudio.NamespaceSolution}.{_modelName}" : $"{_modelName}".ToAlphaNumeric(true);
 
-        public string DataModel
-        {
-            get
-            {
-                // If the developer has provided a data model namespace we should add the ref
-                return !string.IsNullOrEmpty(_apiStudio.NamespaceDataModels) ? $"using {_apiStudio.NamespaceDataModels};" : "";
-            }
-        }
+        public string DataModel =>
+            // If the developer has provided a data model namespace we should add the ref
+            !string.IsNullOrEmpty(_apiStudio.NamespaceDataModels) ? $"using {_apiStudio.NamespaceDataModels};" : "";
     }
 }
